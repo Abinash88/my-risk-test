@@ -33,7 +33,7 @@ const Popular = () => {
 		}, 300);
 	};
 
-	const getNewPath = (title) => {
+	const getNewPath = (title: any) => {
 		const pathSegments = currentPath.split("/").filter(Boolean);
 		pathSegments.pop(); // Remove the last segment
 		pathSegments.push(title); // Add the new title segment

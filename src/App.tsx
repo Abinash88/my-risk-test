@@ -16,6 +16,7 @@ import CenterDetails from "./components/Dashboard/HelpCenter/CenterDetails";
 import Referral from "./components/Dashboard/Referral";
 import GeneralSetting from "./components/Dashboard/GeneralSetting";
 import Verification from "./components/Dashboard/Verification";
+import ErrorPage from "./components/shared/ErrorPage";
 
 const App = () => {
 	return (
@@ -46,6 +47,7 @@ const App = () => {
 					<Route path="general-setting" element={<GeneralSetting />} />
 					<Route path="verification" element={<Verification />} />
 				</Route>
+				<Route path="*" element={<ErrorPage />} />
 			</Routes>
 		</Router>
 	);

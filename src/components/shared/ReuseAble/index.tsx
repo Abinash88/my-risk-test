@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import { Link } from "react-router-dom";
 
 interface blog {
@@ -57,6 +57,23 @@ export const TruncatedText = ({
 					{isExpanded ? "...Show less" : "Show more"}
 				</span>
 			</p>
+		</div>
+	);
+};
+
+interface BgSectionProps {
+	image: string;
+	children: ReactNode;
+}
+export const BgSection = ({ image, children }: BgSectionProps) => {
+	return (
+		<div
+			className="relative w-full h-screen bg-cover bg-center"
+			style={{ backgroundImage: `url('${image}')` }}
+		>
+			<div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center gap-3 text-white text-center p-6">
+				{children}
+			</div>
 		</div>
 	);
 };

@@ -18,6 +18,8 @@ import GeneralSetting from "./components/Dashboard/GeneralSetting";
 import Verification from "./components/Dashboard/Verification";
 import ErrorPage from "./components/shared/ErrorPage";
 import EditTeam from "./components/Dashboard/GeneralSetting/EditTeam";
+import MakePayment from "./components/LandingPage/Payment/MakePayment";
+import PaymentMode from "./components/LandingPage/Payment";
 
 const App = () => {
 	return (
@@ -26,6 +28,8 @@ const App = () => {
 				<Route path="/" element={<HomeLayout />}>
 					<Route index={true} element={<LandingPage />} />
 					<Route path="/blog" element={<Blog />} />
+					<Route path="/make-payment" element={<PaymentMode />} />
+					<Route path="/payment-mode" element={<MakePayment />} />
 				</Route>
 				<Route path="/dashboard" element={<LoggedLayout />}>
 					<Route path="account-profile" element={<AccountProfile />} />

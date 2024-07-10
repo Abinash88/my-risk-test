@@ -17,6 +17,7 @@ import Referral from "./components/Dashboard/Referral";
 import GeneralSetting from "./components/Dashboard/GeneralSetting";
 import Verification from "./components/Dashboard/Verification";
 import ErrorPage from "./components/shared/ErrorPage";
+import EditTeam from "./components/Dashboard/GeneralSetting/EditTeam";
 
 const App = () => {
 	return (
@@ -45,6 +46,7 @@ const App = () => {
 					/>
 					<Route path="referral" element={<Referral />} />
 					<Route path="general-setting" element={<GeneralSetting />} />
+					<Route path="general-setting/:edit-team" element={<EditTeam />} />
 					<Route path="verification" element={<Verification />} />
 				</Route>
 				<Route path="*" element={<ErrorPage />} />

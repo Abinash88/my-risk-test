@@ -1,4 +1,11 @@
+import { useState } from "react";
+import { VerificationForm } from "./VerificationForm";
+
 const StartVerification = () => {
+	const [openForm, setOpenForm] = useState(false);
+	const handleCloseForm = () => {
+		setOpenForm(false);
+	};
 	return (
 		<>
 			<img
@@ -12,10 +19,14 @@ const StartVerification = () => {
 					Verified users stand out with a verification badge next to their name
 					and double vote feature!
 				</p>
-				<button className="text-white bg-[#000080] font-[400] text-[15px] py-3 px-5 text-center rounded-lg mt-9 w-[70%] ml-auto mr-auto">
+				<button
+					className="text-white bg-[#000080] font-[400] text-[15px] py-3 px-5 text-center rounded-lg mt-9 w-[70%] ml-auto mr-auto"
+					onClick={() => setOpenForm(true)}
+				>
 					Start Verification
 				</button>
 			</div>
+			<VerificationForm open={openForm} close={handleCloseForm} />
 		</>
 	);
 };

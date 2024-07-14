@@ -20,6 +20,15 @@ import ErrorPage from "./components/shared/ErrorPage";
 import EditTeam from "./components/Dashboard/GeneralSetting/EditTeam";
 import MakePayment from "./components/LandingPage/Payment/MakePayment";
 import PaymentMode from "./components/LandingPage/Payment";
+import GeneralRisk from "./components/LandingPage/GeneralRisk";
+import RiskProfile from "./components/LandingPage/RiskProfile";
+import HomePage, {
+	AIModel,
+	GenerateDownload,
+} from "./components/LandingPage/mainPage/HomePage";
+import OurService from "./components/LandingPage/mainPage/OurService";
+import OurPremium from "./components/LandingPage/mainPage/OurPremium";
+import RiskManagement from "./components/LandingPage/mainPage/RiskManagement";
 
 const App = () => {
 	return (
@@ -27,9 +36,17 @@ const App = () => {
 			<Routes>
 				<Route path="/" element={<HomeLayout />}>
 					<Route index={true} element={<LandingPage />} />
+					<Route path="/service" element={<OurService />} />
+					<Route path="/premium" element={<OurPremium />} />
+					<Route path="/risk-management" element={<RiskManagement />} />
+					<Route path="/home-page" element={<HomePage />} />
+					<Route path="/ai-model" element={<AIModel />} />
+					<Route path="/generate-download" element={<GenerateDownload />} />
 					<Route path="/blog" element={<Blog />} />
 					<Route path="/make-payment" element={<PaymentMode />} />
 					<Route path="/payment-mode" element={<MakePayment />} />
+					<Route path="/general-risk" element={<GeneralRisk />} />
+					<Route path="/risk-profile" element={<RiskProfile />} />
 				</Route>
 				<Route path="/dashboard" element={<LoggedLayout />}>
 					<Route path="account-profile" element={<AccountProfile />} />

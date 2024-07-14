@@ -1,26 +1,34 @@
 import { ReactNode, useState } from "react";
 import { Link } from "react-router-dom";
 
-interface blog {
+interface BlogProps {
 	title: string;
 	text: string;
 	path: string;
+	showLink?: boolean;
 }
 
-export const BlogHeader = ({ title, text, path }: blog) => {
+export const BlogHeader = ({
+	title,
+	text,
+	path,
+	showLink = true,
+}: BlogProps) => {
 	return (
 		<div
 			className="relative w-full h-screen bg-cover bg-center"
 			style={{ backgroundImage: `url('images/background.png')` }}
 		>
 			<div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center gap-3 text-white text-center p-6">
-				<h1 className="text-white  text-[50px] md:text-[80px] font-bold  lg:w-[60%]">
+				<h1 className="text-white text-[50px] md:text-[80px] font-bold lg:w-[60%]">
 					{title}
 				</h1>
 				<p className="text-[17px] md:text-[18px] font-[400]">{text}</p>
-				<Link to={path} className="bg-[#000080] py-4 px-10 rounded-lg mt-5">
-					Get Started
-				</Link>
+				{showLink && (
+					<Link to={path} className="bg-[#000080] py-4 px-10 rounded-lg mt-5">
+						Get Started
+					</Link>
+				)}
 			</div>
 		</div>
 	);
@@ -68,10 +76,10 @@ interface BgSectionProps {
 export const BgSection = ({ image, children }: BgSectionProps) => {
 	return (
 		<div
-			className="relative w-full h-screen bg-cover bg-center"
+			className="relative w-full min-h-screen bg-cover bg-center"
 			style={{ backgroundImage: `url('${image}')` }}
 		>
-			<div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center gap-3 text-white text-center p-6">
+			<div className="relative inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center gap-3 text-white text-center p-6 min-h-screen">
 				{children}
 			</div>
 		</div>

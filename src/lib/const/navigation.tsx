@@ -294,3 +294,22 @@ export const popularTopic = [
 		path: "/",
 	},
 ];
+
+export const riskConcept = [
+	{
+		title: "AI Powered Risk Profile",
+		text: "Unlock unlimited access to premium content with our subscription service, providing you with exclusive perks and features tailored to your interests Unlock unlimited access to premium content with our subscription service, providing you with exclusive perks and features tailored to your interests",
+	},
+	{
+		title: "AI Powered Risk Profile",
+		text: "Unlock unlimited access to premium content with our subscription service, providing you with exclusive perks and features tailored to your interests Unlock unlimited access to premium content with our subscription service, providing you with exclusive perks and features tailored to your interests",
+	},
+	{
+		title: "AI Powered Risk Profile",
+		text: "Unlock unlimited access to premium content with our subscription service, providing you with exclusive perks and features tailored to your interests Unlock unlimited access to premium content with our subscription service, providing you with exclusive perks and features tailored to your interests",
+	},
+	{
+		title: "AI Powered Risk Profile",
+		text: "Unlock unlimited access to premium content with our subscription service, providing you with exclusive perks and features tailored to your interests Unlock unlimited access to premium content with our subscription service, providing you with exclusive perks and features tailored to your interests",
+	},
+];

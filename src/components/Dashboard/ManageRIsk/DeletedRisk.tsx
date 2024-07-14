@@ -1,4 +1,4 @@
-import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { faRotate, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { TruncatedText } from "../../shared/ReuseAble";
 import { allrisk } from "../../../lib/fakedata";
@@ -15,6 +15,10 @@ const DeletedRisk = () => {
 						</button>
 					</div>
 					<div className="flex gap-4">
+						<div className="text-[rgba(0,0,0,0.64)] bg-white shadow-custom-all-sides py-2 px-3 flex flex-col gap-1 items-center justify-center rounded-md cursor-pointer">
+							<FontAwesomeIcon icon={faRotate} className="font-light " />
+							<p className="text-[11px] font-[600]">Restore</p>
+						</div>
 						<div className="text-white bg-[rgba(160,11,11,0.8)] shadow-custom-all-sides py-2 px-3 flex flex-col gap-1 items-center justify-center rounded-md cursor-pointer">
 							<FontAwesomeIcon icon={faTrashCan} className="font-light " />
 							<p className="text-[11px] font-[600]">Delete</p>

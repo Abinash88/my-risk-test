@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { GroupImages } from "../../../lib/fakedata";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleXmark, faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 
 const GroupJoined = () => {
 	const [showAll, setShowAll] = useState(false);
@@ -63,10 +63,6 @@ const GroupJoined = () => {
 						<div className="text-[rgba(0,0,0,0.64)] bg-white shadow-custom-all-sides py-2 px-3 flex flex-col gap-1 items-center justify-center rounded-md cursor-pointer">
 							<FontAwesomeIcon icon={faCircleXmark} className="font-light " />
 							<p className="text-[11px] font-[600]">Leave</p>
-						</div>
-						<div className="text-white bg-[rgba(160,11,11,0.8)] shadow-custom-all-sides py-2 px-3 flex flex-col gap-1 items-center justify-center rounded-md cursor-pointer">
-							<FontAwesomeIcon icon={faTrashCan} className="font-light " />
-							<p className="text-[11px] font-[600]">Delete</p>
 						</div>
 					</div>
 				</div>

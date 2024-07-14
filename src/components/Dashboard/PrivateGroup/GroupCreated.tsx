@@ -2,9 +2,15 @@ import { useState } from "react";
 import { GroupImages } from "../../../lib/fakedata";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import AddGroupModal from "./AddgroupModal";
 
 const GroupCreated = () => {
 	const [showAll, setShowAll] = useState(false);
+	const [openModal, setOpenModal] = useState(false);
+
+	const handleClose = () => {
+		setOpenModal(false);
+	};
 
 	const handleToggleView = () => {
 		setShowAll((prevShowAll) => !prevShowAll);
@@ -68,10 +74,14 @@ const GroupCreated = () => {
 				</div>
 			</div>
 			<div className="flex items-center justify-end mt-9">
-				<button className="bg-[#6666B3] text-white px-9 py-3 rounded-lg text-[18px]">
+				<button
+					className="bg-[#6666B3] text-white px-9 py-3 rounded-lg text-[18px]"
+					onClick={() => setOpenModal(true)}
+				>
 					Add New Group
 				</button>
 			</div>
+			<AddGroupModal open={openModal} close={handleClose} />
 		</>
 	);
 };

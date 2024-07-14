@@ -1,6 +1,13 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import AddTeamModal from "./addTeamModal";
 
 const EditTeam = () => {
+	const [openModal, setOpenModal] = useState(false);
+
+	const handleClose = () => {
+		setOpenModal(false);
+	};
 	return (
 		<div>
 			<h4 className="font-[600] text-[20px] mb-5">General Settings</h4>
@@ -58,10 +65,14 @@ const EditTeam = () => {
 				>
 					Go Back
 				</Link>
-				<button className="bg-[#6666B3] text-white py-3 px-4 rounded-lg">
+				<button
+					className="bg-[#6666B3] text-white py-3 px-4 rounded-lg"
+					onClick={() => setOpenModal(true)}
+				>
 					Add Team Member
 				</button>
 			</div>
+			<AddTeamModal open={openModal} close={handleClose} />
 		</div>
 	);
 };

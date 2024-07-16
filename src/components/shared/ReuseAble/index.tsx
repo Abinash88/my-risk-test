@@ -85,3 +85,17 @@ export const BgSection = ({ image, children }: BgSectionProps) => {
 		</div>
 	);
 };
+
+interface RegContainerProps {
+	children: ReactNode;
+	bar?: ReactNode;
+}
+
+export const RegContainer = ({ children, bar }: RegContainerProps) => {
+	return (
+		<div className="w-[40%]  mr-auto ml-auto  my-28">
+			<div>{bar}</div>
+			<div className="bg-white rounded-lg h-auto p-12">{children}</div>
+		</div>
+	);
+};

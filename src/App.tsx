@@ -29,6 +29,9 @@ import HomePage, {
 import OurService from "./components/LandingPage/mainPage/OurService";
 import OurPremium from "./components/LandingPage/mainPage/OurPremium";
 import RiskManagement from "./components/LandingPage/mainPage/RiskManagement";
+import AuthLayout from "./components/shared/AuthLayout";
+import Register from "./components/AuthPages/Professional/Register";
+import Auth from "./components/AuthPages";
 
 const App = () => {
 	return (
@@ -47,6 +50,10 @@ const App = () => {
 					<Route path="/payment-mode" element={<MakePayment />} />
 					<Route path="/general-risk" element={<GeneralRisk />} />
 					<Route path="/risk-profile" element={<RiskProfile />} />
+				</Route>
+				<Route path="/auth" element={<AuthLayout />}>
+					<Route index={true} element={<Auth />} />
+					<Route path="register" element={<Register />} />
 				</Route>
 				<Route path="/dashboard" element={<LoggedLayout />}>
 					<Route path="account-profile" element={<AccountProfile />} />

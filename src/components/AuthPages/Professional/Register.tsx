@@ -2,9 +2,8 @@ import { useState } from "react";
 import { RegContainer } from "@/components/shared/ReuseAble";
 import PageOne from "./PageOne";
 import PageTwo from "./PageTwo";
-// import PageThree from "./PageThree";
-// import PasswordPage from "./PasswordPage";
 import ProgressBar from "./ProgressBar";
+import PageThree from "./PageThree";
 
 const Register = () => {
 	const [currentStep, setCurrentStep] = useState(1);
@@ -23,8 +22,8 @@ const Register = () => {
 				return <PageOne onNext={handleNextStep} />;
 			case 2:
 				return <PageTwo onNext={handleNextStep} />;
-			// case 3:
-			// 	return <PageThree onNext={handleNextStep} />;
+			case 3:
+				return <PageThree />;
 			// case 4:
 			// 	return <PasswordPage />;
 			default:

@@ -2,15 +2,15 @@ import { Eye, EyeSlash } from "@phosphor-icons/react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const PageThree = () => {
+const PageFour = () => {
+	const navigate = useNavigate();
 	const [viewPassword, setViewPassword] = useState(false);
 	const [viewConfirmPassword, setViewConfirmPassword] = useState(false);
-	const Navigate = useNavigate();
 
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
 		// Add form validation here if needed
-		Navigate("/dashboard/account-profile");
+		navigate("/dashboard/account-profile");
 	};
 
 	return (
@@ -94,4 +94,4 @@ const PageThree = () => {
 	);
 };
 
-export default PageThree;
+export default PageFour;

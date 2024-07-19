@@ -30,8 +30,9 @@ import OurService from "./components/LandingPage/mainPage/OurService";
 import OurPremium from "./components/LandingPage/mainPage/OurPremium";
 import RiskManagement from "./components/LandingPage/mainPage/RiskManagement";
 import AuthLayout from "./components/shared/AuthLayout";
-import Register from "./components/AuthPages/Professional/Register";
 import Auth from "./components/AuthPages";
+import Login from "./components/AuthPages/Login/Login";
+import PasswordResetPage from "./components/AuthPages/Login";
 
 const App = () => {
 	return (
@@ -53,7 +54,8 @@ const App = () => {
 				</Route>
 				<Route path="/auth" element={<AuthLayout />}>
 					<Route index={true} element={<Auth />} />
-					<Route path="register" element={<Register />} />
+					<Route path="login" element={<Login />} />
+					<Route path="forgot-password" element={<PasswordResetPage />} />
 				</Route>
 				<Route path="/dashboard" element={<LoggedLayout />}>
 					<Route path="account-profile" element={<AccountProfile />} />

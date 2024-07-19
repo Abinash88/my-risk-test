@@ -1,39 +1,21 @@
 import { Eye, EyeSlash } from "@phosphor-icons/react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
-const PageThree = () => {
+const ResetPassword = () => {
 	const [viewPassword, setViewPassword] = useState(false);
 	const [viewConfirmPassword, setViewConfirmPassword] = useState(false);
-	const Navigate = useNavigate();
-
-	const handleSubmit = (e: React.FormEvent) => {
-		e.preventDefault();
-		// Add form validation here if needed
-		Navigate("/dashboard/account-profile");
-	};
-
 	return (
 		<>
-			<div>
-				<h2 className="text-[#000080] font-[600] text-[18px] mb-8">
-					Choose Password
-				</h2>
-			</div>
-			<form
-				action=""
-				className="w-full flex flex-col gap-4"
-				onSubmit={handleSubmit}
-			>
+			<h4 className="text-[22px] font-[600] text-black text-center mb-6">
+				Reset Password
+			</h4>
+			<form action="" className="w-full flex flex-col gap-4">
 				<div className="text-black text-left">
 					<label
 						htmlFor="password"
 						className="mb-2 block font-[600] text-black text-[18px]"
 					>
-						Password{" "}
-						<span className="text-[#777] font-[400] text-[12px]">
-							(One upper case, one lower case, minimum 7 characters)
-						</span>
+						Enter Password
 					</label>
 					<div className="flex w-full relative">
 						<input
@@ -55,7 +37,10 @@ const PageThree = () => {
 						htmlFor="c-password"
 						className="mb-2 block font-[600] text-black text-[18px]"
 					>
-						Confirm Password
+						Reconfirm Password{" "}
+						<span className="text-[#777] font-[400] text-[12px] block">
+							(One upper case, one lower case, minimum 7 characters)
+						</span>
 					</label>
 					<div className="flex w-full relative">
 						<input
@@ -76,13 +61,6 @@ const PageThree = () => {
 						</button>
 					</div>
 				</div>
-				<div className="flex items-center gap-1">
-					<input type="checkbox" />
-					<p className="text-black text-[12px]">
-						By creating an account you agree with our Terms of Service, Privacy
-						Policy.
-					</p>
-				</div>
 				<button
 					type="submit"
 					className="bg-[#000080] text-center text-white rounded-lg py-5 mt-4"
@@ -94,4 +72,4 @@ const PageThree = () => {
 	);
 };
 
-export default PageThree;
+export default ResetPassword;

@@ -1,4 +1,4 @@
-const GenerateRisk2 = () => {
+const GenerateRisk2 = ({ onNext }: { onNext: () => void }) => {
 	return (
 		<>
 			<div className="w-full ">
@@ -18,7 +18,10 @@ const GenerateRisk2 = () => {
 						placeholder="Enter uncertainly/event"
 						className="p-3 bg-[#F1F1F1] outline-none border-none rounded-lg flex-[1]"
 					/>
-					<button className="p-3 text-white rounded-lg bg-[#000080]">
+					<button
+						className="p-3 text-white rounded-lg bg-[#000080]"
+						onClick={() => onNext()}
+					>
 						Submit
 					</button>
 				</div>

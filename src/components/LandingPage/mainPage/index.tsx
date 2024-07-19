@@ -1,6 +1,7 @@
 import { BlogHeader } from "../../shared/ReuseAble";
 import NewsRoom from "./NewsRoom";
 import ServiceType from "./ServiceType";
+import SusbscribeSection from "./SusbscribeSection";
 import TandO from "./TandO";
 
 const LandingPage = () => {
@@ -14,6 +15,7 @@ const LandingPage = () => {
 			<ServiceType />
 			<NewsRoom />
 			<TandO />
+			<SusbscribeSection />
 		</div>
 	);
 };

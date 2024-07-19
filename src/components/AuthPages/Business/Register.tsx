@@ -3,9 +3,10 @@ import { RegContainer } from "@/components/shared/ReuseAble";
 import PageOne from "./PageOne";
 import PageTwo from "./PageTwo";
 import ProgressBar from "./ProgressBar";
+import PageFour from "./PageFour";
 import PageThree from "./PageThree";
 
-const ProfessionalRegister = () => {
+const BusinessRegister = () => {
 	const [currentStep, setCurrentStep] = useState(1);
 
 	const handleNextStep = () => {
@@ -23,7 +24,9 @@ const ProfessionalRegister = () => {
 			case 2:
 				return <PageTwo onNext={handleNextStep} />;
 			case 3:
-				return <PageThree />;
+				return <PageThree onNext={handleNextStep} />;
+			case 4:
+				return <PageFour />;
 			// case 4:
 			// 	return <PasswordPage />;
 			default:
@@ -35,10 +38,10 @@ const ProfessionalRegister = () => {
 		<>
 			<RegContainer
 				bar={
-					currentStep < 4 && (
+					currentStep < 5 && (
 						<ProgressBar
 							currentStep={currentStep}
-							totalSteps={3}
+							totalSteps={4}
 							onStepClick={handleStepClick}
 						/>
 					)
@@ -46,7 +49,7 @@ const ProfessionalRegister = () => {
 			>
 				<div>
 					<h4 className="text-[22px] font-[600] text-black text-center mb-6">
-						Professional Registration
+						Business Registration
 					</h4>
 				</div>
 				{renderPage()}
@@ -55,4 +58,4 @@ const ProfessionalRegister = () => {
 	);
 };
 
-export default ProfessionalRegister;
+export default BusinessRegister;

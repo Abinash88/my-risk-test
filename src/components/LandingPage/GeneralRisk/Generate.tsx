@@ -1,4 +1,4 @@
-const Generate = () => {
+const Generate = ({ onNext }: { onNext: () => void }) => {
 	return (
 		<>
 			<div className="w-full ">
@@ -25,7 +25,10 @@ const Generate = () => {
 				</div>
 			</div>
 			<div className="flex gap-3 w-full justify-center mt-3">
-				<button className="text-white p-3 rounded-lg bg-[#000080] w-[40%]">
+				<button
+					className="text-white p-3 rounded-lg bg-[#000080] w-[40%]"
+					onClick={() => onNext()}
+				>
 					Threat
 				</button>
 				<button className="text-white p-3 rounded-lg bg-[#6666B3] w-[40%]">

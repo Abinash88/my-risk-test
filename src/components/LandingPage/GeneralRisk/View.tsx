@@ -1,4 +1,4 @@
-const View = () => {
+const View = ({ onNext }: { onNext: () => void }) => {
 	return (
 		<>
 			<div className="w-full ">
@@ -36,7 +36,10 @@ const View = () => {
 				<button className="text-white p-3 rounded-lg bg-[#000080] w-[40%]">
 					Resubmit
 				</button>
-				<button className="text-white p-3 rounded-lg bg-[#000080] w-[40%]">
+				<button
+					className="text-white p-3 rounded-lg bg-[#000080] w-[40%]"
+					onClick={() => onNext()}
+				>
 					Generate
 				</button>
 			</div>

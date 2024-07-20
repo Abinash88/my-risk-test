@@ -71,7 +71,7 @@ export const customerService = [
 
 export const newsBox = [
 	{
-		image: "images/risk-image.png",
+		image: "/images/risk-image.png",
 		title: `Risk Management: Your Safety Forum`,
 		paragraph:
 			"Rorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc...",
@@ -79,7 +79,7 @@ export const newsBox = [
 		path: "/news",
 	},
 	{
-		image: "images/risk-image.png",
+		image: "/images/risk-image.png",
 		title: `Risk Management: Your Safety Forum`,
 		paragraph:
 			"Rorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc...",
@@ -87,7 +87,7 @@ export const newsBox = [
 		path: "/news",
 	},
 	{
-		image: "images/risk-image.png",
+		image: "/images/risk-image.png",
 		title: `Risk Management: Your Safety Forum`,
 		paragraph:
 			"Shakur ipsum dolor sit amet, consectetur adipiscing elit. Nunc...",
@@ -95,7 +95,7 @@ export const newsBox = [
 		path: "/news",
 	},
 	{
-		image: "images/risk-image.png",
+		image: "/images/risk-image.png",
 		title: `Risk Management: Your Safety Forum`,
 		paragraph:
 			"Salman ipsum dolor sit amet, consectetur adipiscing elit. Nunc...",
@@ -103,7 +103,7 @@ export const newsBox = [
 		path: "/news",
 	},
 	{
-		image: "images/risk-image.png",
+		image: "/images/risk-image.png",
 		title: `Risk Management: Your Safety Forum`,
 		paragraph:
 			"Salman ipsum dolor sit amet, consectetur adipiscing elit. Nunc...",
@@ -111,7 +111,7 @@ export const newsBox = [
 		path: "/news",
 	},
 	{
-		image: "images/risk-image.png",
+		image: "/images/risk-image.png",
 		title: `Risk Management: Your Safety Forum`,
 		paragraph:
 			"Salman ipsum dolor sit amet, consectetur adipiscing elit. Nunc...",
@@ -122,49 +122,49 @@ export const newsBox = [
 
 export const moreNews = [
 	{
-		image: "images/more-news.png",
+		image: "/images/more-news.png",
 		title: `Reduce Your Risks to your Employee`,
 		path: "/",
 		date: "10 May 2024",
 	},
 	{
-		image: "images/more-news.png",
+		image: "/images/more-news.png",
 		title: `Reduce Your Risks to your Employee`,
 		date: "10 May 2024",
 		path: "/",
 	},
 	{
-		image: "images/more-news.png",
+		image: "/images/more-news.png",
 		title: `Reduce Your Risks to your Employee`,
 		date: "10 May 2024",
 		path: "/",
 	},
 	{
-		image: "images/more-news.png",
+		image: "/images/more-news.png",
 		title: `Reduce Your Risks to your Employee`,
 		date: "10 May 2024",
 		path: "/",
 	},
 	{
-		image: "images/more-news.png",
+		image: "/images/more-news.png",
 		title: `Reduce Your Risks to your Employee`,
 		date: "10 May 2024",
 		path: "/",
 	},
 	{
-		image: "images/more-news.png",
+		image: "/images/more-news.png",
 		title: `Reduce Your Risks to your Employee`,
 		date: "10 May 2024",
 		path: "/",
 	},
 	{
-		image: "images/more-news.png",
+		image: "/images/more-news.png",
 		title: `Reduce Your Risks to your Employee`,
 		date: "10 May 2024",
 		path: "/",
 	},
 	{
-		image: "images/more-news.png",
+		image: "/images/more-news.png",
 		title: `Reduce Your Risks to your Employee`,
 		date: "10 May 2024",
 		path: "/",
@@ -173,7 +173,7 @@ export const moreNews = [
 
 export const breakingNews = [
 	{
-		image: "images/breaking-news.png",
+		image: "/images/breaking-news.png",
 		title: `Overview of Privacy Policy`,
 		paragraph:
 			"Rorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio ....",
@@ -181,7 +181,7 @@ export const breakingNews = [
 		path: "/news",
 	},
 	{
-		image: "images/risk-image.png",
+		image: "/images/risk-image.png",
 		title: `Overview of Risk-Manage Privacy`,
 		paragraph:
 			"Rorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio ....",
@@ -189,7 +189,7 @@ export const breakingNews = [
 		path: "/news",
 	},
 	{
-		image: "images/risk-image.png",
+		image: "/images/risk-image.png",
 		title: `Overview of Risk-Manage Privacy`,
 		paragraph:
 			"Rorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio ....",
@@ -200,27 +200,27 @@ export const breakingNews = [
 
 export const newsRoom = [
 	{
-		image: "images/risk-image.png",
+		image: "/images/risk-image.png",
 		title: `Overview of Privacy Policy`,
 		paragraph:
 			"A concise summary outlining the key points and principles of the privacy policy",
 		path: "/news",
 	},
 	{
-		image: "images/risk-image.png",
+		image: "/images/risk-image.png",
 		title: `Risk Management: Your Safety Forum`,
 		paragraph: "Systematically identifying potential threats",
 		path: "/news",
 	},
 	{
-		image: "images/risk-image.png",
+		image: "/images/risk-image.png",
 		title: `Reduce Risks to your Employees`,
 		paragraph:
 			"Implementing measures to minimize potential hazards or dangers in the workplace",
 		path: "/news",
 	},
 	{
-		image: "images/risk-image.png",
+		image: "/images/risk-image.png",
 		title: `AI Risk Profiles`,
 		paragraph:
 			"An assessment outlining potential risks with the development of artificial intelligence ",
@@ -311,5 +311,23 @@ export const riskConcept = [
 	{
 		title: "AI Powered Risk Profile",
 		text: "Unlock unlimited access to premium content with our subscription service, providing you with exclusive perks and features tailored to your interests Unlock unlimited access to premium content with our subscription service, providing you with exclusive perks and features tailored to your interests",
+	},
+];
+
+export const integratedService = [
+	{
+		title: "AI Powered Risk Profile",
+		text: "Unlock unlimited access to premium content with our subscription service, providing you with exclusive perks and features tailored to your interests Unlock unlimited access to premium content with our subscription service, providing you with exclusive perks and features tailored to your interests",
+		path: "/",
+	},
+	{
+		title: "AI Powered Risk Profile",
+		text: "Unlock unlimited access to premium content with our subscription service, providing you with exclusive perks and features tailored to your interests Unlock unlimited access to premium content with our subscription service, providing you with exclusive perks and features tailored to your interests",
+		path: "/",
+	},
+	{
+		title: "AI Powered Risk Profile",
+		text: "Unlock unlimited access to premium content with our subscription service, providing you with exclusive perks and features tailored to your interests Unlock unlimited access to premium content with our subscription service, providing you with exclusive perks and features tailored to your interests",
+		path: "/",
 	},
 ];

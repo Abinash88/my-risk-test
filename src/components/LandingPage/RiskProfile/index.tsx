@@ -8,7 +8,7 @@ const RiskProfile = () => {
 	const [result, setResult] = useState<"score" | "rating" | "heat">("score");
 	return (
 		<BgSection image="/images/background.png">
-			<div className="w-[80%] mr-auto ml-auto">
+			<div className="w-[100%] mr-auto ml-auto">
 				<div className="p-3 bg-[#000080] text-white rounded-lg mb-6">
 					<h4 className="font-[600] text-[20px]">Risk Profile</h4>
 				</div>

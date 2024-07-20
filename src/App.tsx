@@ -33,6 +33,9 @@ import AuthLayout from "./components/shared/AuthLayout";
 import Auth from "./components/AuthPages";
 import Login from "./components/AuthPages/Login/Login";
 import PasswordResetPage from "./components/AuthPages/Login";
+import BlogContent from "./components/LandingPage/Blog/BlogContent";
+import ProductSubscription from "./components/LandingPage/mainPage/ProductSubscription";
+import IntegratedService from "./components/LandingPage/mainPage/IntegratedService";
 
 const App = () => {
 	return (
@@ -42,11 +45,17 @@ const App = () => {
 					<Route index={true} element={<LandingPage />} />
 					<Route path="/service" element={<OurService />} />
 					<Route path="/premium" element={<OurPremium />} />
+					<Route
+						path="/product-subscription"
+						element={<ProductSubscription />}
+					/>
 					<Route path="/risk-management" element={<RiskManagement />} />
+					<Route path="/integrated-service" element={<IntegratedService />} />
 					<Route path="/home-page" element={<HomePage />} />
 					<Route path="/ai-model" element={<AIModel />} />
 					<Route path="/generate-download" element={<GenerateDownload />} />
 					<Route path="/blog" element={<Blog />} />
+					<Route path="/blog/:blogcontent" element={<BlogContent />} />
 					<Route path="/make-payment" element={<PaymentMode />} />
 					<Route path="/payment-mode" element={<MakePayment />} />
 					<Route path="/general-risk" element={<GeneralRisk />} />

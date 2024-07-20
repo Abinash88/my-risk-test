@@ -58,7 +58,7 @@ const BreakingNews = () => {
 							<p>{news.paragraph}</p>
 							<div className="flex justify-end ">
 								<Link
-									to={"/"}
+									to={news.title}
 									className="py-2 px-5 bg-[rgba(102,102,179,1)] text-white mt-9 rounded-md"
 								>
 									Read News

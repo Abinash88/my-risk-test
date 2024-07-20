@@ -2,9 +2,15 @@ import { useState } from "react";
 import { GroupImages } from "../../../lib/fakedata";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
+import JoinGroupModal from "./JoinGroupModal";
 
 const GroupJoined = () => {
 	const [showAll, setShowAll] = useState(false);
+	const [openModal, setOpenModal] = useState(false);
+
+	const handleClose = () => {
+		setOpenModal(false);
+	};
 
 	const handleToggleView = () => {
 		setShowAll((prevShowAll) => !prevShowAll);
@@ -68,10 +74,14 @@ const GroupJoined = () => {
 				</div>
 			</div>
 			<div className="flex items-center justify-end mt-9">
-				<button className="bg-[#6666B3] text-white px-9 py-3 rounded-lg text-[18px]">
+				<button
+					className="bg-[#6666B3] text-white px-9 py-3 rounded-lg text-[18px]"
+					onClick={() => setOpenModal(true)}
+				>
 					Join Group
 				</button>
 			</div>
+			<JoinGroupModal open={openModal} close={handleClose} />
 		</>
 	);
 };

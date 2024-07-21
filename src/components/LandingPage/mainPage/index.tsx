@@ -13,8 +13,8 @@ const LandingPage = () => {
 				path="/"
 			/>
 			<ServiceType />
-			<NewsRoom />
 			<TandO />
+			<NewsRoom />
 			<SusbscribeSection />
 		</div>
 	);

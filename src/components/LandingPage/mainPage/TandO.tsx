@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Container from "../../shared/HomeLayout/container";
+import Threat from "./Global/Threat";
 
 const TandO = () => {
 	const [page, setPage] = useState<"threat" | "opport">("threat");
@@ -35,9 +36,7 @@ const TandO = () => {
 					</button>
 				</div>
 				<div>
-					{page === "threat" && (
-						<div className="font-[600] text-[30px]">Threat Page</div>
-					)}
+					{page === "threat" && <Threat />}
 					{page === "opport" && (
 						<div className="font-[600] text-[30px]">Opportunity Page</div>
 					)}

@@ -238,3 +238,46 @@ export const referList = [
 		date: "15, May 2024",
 	},
 ];
+
+export const TandOData = [
+	{
+		rank: 1,
+		title: "Risk Title 1",
+		text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.",
+		riskRating: 98,
+		upVotes: 6335,
+		downVotes: 89,
+	},
+	{
+		rank: 2,
+		title: "Risk Title 2",
+		text: "Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.",
+		riskRating: 40,
+		upVotes: 254,
+		downVotes: 12,
+	},
+	{
+		rank: 3,
+		title: "Risk Title 3",
+		text: "Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
+		riskRating: 15,
+		upVotes: 78,
+		downVotes: 22,
+	},
+	{
+		rank: 4,
+		title: "Risk Title 4",
+		text: "Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
+		riskRating: 57,
+		upVotes: 440,
+		downVotes: 29,
+	},
+	{
+		rank: 5,
+		title: "Risk Title 5",
+		text: "Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
+		riskRating: 97,
+		upVotes: 230,
+		downVotes: 49,
+	},
+];

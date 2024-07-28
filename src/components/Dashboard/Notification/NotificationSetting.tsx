@@ -54,7 +54,7 @@ const NotificationSetting = () => {
 	return (
 		<>
 			<h3 className="font-[600] text-[25px] mb-5">Notification</h3>
-			<div className="mt-5 bg-white rounded-md px-9  py-14 h-auto">
+			<div className="mt-5 bg-white rounded-md px-4 md:px-9 py-14 h-auto">
 				<h3 className="font-[600] text-[25px] mb-5">Notification Settings</h3>
 				<div className="flex flex-col gap-7">
 					<div className="bg-[#F9F9F9] rounded-lg p-4">

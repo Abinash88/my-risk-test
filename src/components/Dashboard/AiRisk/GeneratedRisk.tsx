@@ -7,8 +7,11 @@ const GeneratedRisk = () => {
 			<div className="flex flex-col gap-8">
 				<h3 className="font-[600] text-[25px]">Generated Risks</h3>
 				{allrisk.map((risk, i) => (
-					<div key={i + 3} className="flex items-start justify-between gap-3">
-						<div className="w-[60%]">
+					<div
+						key={i + 3}
+						className="flex flex-col md:flex-row items-start justify-between gap-3"
+					>
+						<div className="w-full md:w-[60%]">
 							<TruncatedText
 								text={risk.text}
 								maxLength={50}

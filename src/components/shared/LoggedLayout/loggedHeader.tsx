@@ -54,16 +54,16 @@ const LoggedHeader = () => {
 				{navItems.map((item) => (
 					<li
 						key={item.id}
-						className="text-black py-2 px-4 hover:bg-[#000080] duration-300 hover:text-white cursor-pointe"
+						className="text-black py-2 px-4 hover:bg-[#000080] duration-300 hover:text-white cursor-pointer"
 					>
 						<Link to={item.path} onClick={handleNav}>
 							{item.text}
 						</Link>
 					</li>
 				))}
-				<li className="bg-[#000080] text-white ml-4 p-4 mt-4 w-[50%] rounded-md">
+				{/* <li className="bg-[#000080] text-white ml-4 p-4 mt-4 w-[50%] rounded-md">
 					Login
-				</li>
+				</li> */}
 			</ul>
 			<div className="flex items-center gap-4 ml-auto">
 				<div className="relative">

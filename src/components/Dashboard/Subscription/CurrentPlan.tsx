@@ -6,9 +6,11 @@ const CurrentPlan = () => {
 		<div>
 			<h3 className="font-[600] text-[25px] mb-5">Subscription</h3>
 			<div className="mt-5 bg-white rounded-md px-9 py-9 h-[90vh] overflow-y-auto scrollBar">
-				<h4 className="font-[600] text-[25px] mb-5">Current Subscription</h4>
-				<div className="flex flex-col gap-6 mt-8 w-[60%]">
-					<div className="flex items-center gap-2 justify-between">
+				<h4 className="font-[600] text-[19px] md:text-[25px] mb-5">
+					Current Subscription
+				</h4>
+				<div className="flex flex-col gap-6 mt-8 w-full md:w-[60%]">
+					<div className="flex items-center gap-2 justify-between flex-wrap md:flex-nowrap">
 						<h5 className="font-[600] text-[18px]">Standard Premium Package</h5>
 						<Link
 							to={"/dashboard/subscription/change-plan"}
@@ -17,11 +19,11 @@ const CurrentPlan = () => {
 							Change Plan
 						</Link>
 					</div>
-					<div className="flex items-center gap-2 justify-between">
+					<div className="flex items-center gap-2 justify-between flex-wrap md:flex-nowrap">
 						<h5 className="font-[600] text-[18px]">Start Date</h5>
 						<p className=" text-black text-[18px]">2nd, March, 2022</p>
 					</div>
-					<div className="flex items-center gap-2 justify-between">
+					<div className="flex items-center gap-2 justify-between flex-wrap md:flex-nowrap">
 						<h5 className="font-[600] text-[18px]">Next Payment Date</h5>
 						<p className=" text-black text-[18px]">2nd, March, 2023</p>
 					</div>

@@ -7,8 +7,11 @@ const OpenRisk = () => {
 	return (
 		<div className="flex flex-col gap-8">
 			{allrisk.map((risk, i) => (
-				<div key={i + 3} className="flex items-start justify-between gap-3">
-					<div className="w-[60%]">
+				<div
+					key={i + 3}
+					className="flex items-start justify-between gap-3 flex-wrap md:flex-nowrap"
+				>
+					<div className="w-full md:w-[60%]">
 						<TruncatedText text={risk.text} maxLength={50} title={risk.title} />
 						<button className="mt-2 text-[rgba(0,0,0,0.4)] font-[600]">
 							View All Comments

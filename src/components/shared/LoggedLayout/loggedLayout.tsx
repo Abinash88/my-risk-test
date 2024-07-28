@@ -9,7 +9,7 @@ const LoggedLayout = () => {
 			<LoggedHeader />
 			<div className="flex flex-row h-auto min-h-screen overflow-hidden">
 				<LoggedSidebar />
-				<div className="flex-1 p-[4rem] min-h-0 overflow-y-auto bg-[#F3F3F3]">
+				<div className="flex-1 p-4 lg:p-[4rem] min-h-0 overflow-y-auto bg-[#F3F3F3]">
 					{<Outlet />}
 				</div>
 			</div>

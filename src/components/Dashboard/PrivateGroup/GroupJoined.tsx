@@ -18,13 +18,13 @@ const GroupJoined = () => {
 
 	return (
 		<>
-			<div className=" flex flex-col gap-7 mt-5 bg-white rounded-md px-9 py-9 h-[70vh] overflow-y-auto scrollBar">
+			<div className=" flex flex-col gap-7 mt-5 bg-white rounded-md px-2 md:px-9 py-9 h-[70vh] overflow-y-auto scrollBar">
 				<div className="w-full bg-white shadow-custom-all-sides px-3 py-4 rounded-lg flex justify-between gap-3 items-center">
 					<div className="flex gap-2 items-center w-[70%] flex-wrap">
 						<p className="font-[500] text-[23px] text-[rgba(0,0,0,0.7)]">
 							Group #627282
 						</p>
-						<div className="relative flex items-center">
+						<div className="relative flex items-center flex-wrap md:flex-nowrap">
 							{GroupImages.slice(0, showAll ? GroupImages.length : 5).map(
 								(item, index) => (
 									<div

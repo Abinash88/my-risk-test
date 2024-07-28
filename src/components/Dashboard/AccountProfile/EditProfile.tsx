@@ -32,7 +32,7 @@ const EditProfile = ({ handleExitEdit }: EditProfileProps) => {
 								id="first-name"
 								value={firstName} // Set value to state
 								onChange={handleFirstNameChange} // Handle changes
-								className="w-[60%] outline-none text-black border-4 p-3 rounded-md border-[#D9D9D9FF]"
+								className="w-[80%] outline-none text-black border-4 p-3 rounded-md border-[#D9D9D9FF]"
 							/>
 							<div className="flex gap-1 items-center cursor-pointer">
 								<FontAwesomeIcon
@@ -54,7 +54,7 @@ const EditProfile = ({ handleExitEdit }: EditProfileProps) => {
 							<input
 								type="text"
 								id="surname"
-								className="w-[60%] outline-none text-black border-4 p-3 rounded-md border-[#D9D9D9FF]"
+								className="w-[80%] outline-none text-black border-4 p-3 rounded-md border-[#D9D9D9FF]"
 							/>
 							<div className="flex gap-1 items-center cursor-pointer">
 								<FontAwesomeIcon
@@ -76,7 +76,7 @@ const EditProfile = ({ handleExitEdit }: EditProfileProps) => {
 							<input
 								type="text"
 								id="job-title"
-								className="w-[60%] outline-none text-black border-4 p-3 rounded-md border-[#D9D9D9FF]"
+								className="w-[80%] outline-none text-black border-4 p-3 rounded-md border-[#D9D9D9FF]"
 							/>
 							<div className="flex gap-1 items-center cursor-pointer">
 								<FontAwesomeIcon
@@ -98,7 +98,7 @@ const EditProfile = ({ handleExitEdit }: EditProfileProps) => {
 							<input
 								type="text"
 								id="company"
-								className="w-[60%] outline-none text-black border-4 p-3 rounded-md border-[#D9D9D9FF]"
+								className="w-[80%] outline-none text-black border-4 p-3 rounded-md border-[#D9D9D9FF]"
 							/>
 							<div className="flex gap-1 items-center cursor-pointer">
 								<FontAwesomeIcon
@@ -109,12 +109,12 @@ const EditProfile = ({ handleExitEdit }: EditProfileProps) => {
 							</div>
 						</div>
 					</div>
-					<div className="flex items-center gap-6">
+					<div className="flex flex-col md:flex-row items-start md:items-center gap-6">
 						<h3 className="text-[17px] font-[500]">Account Type</h3>
 						<select
 							name="account-type"
 							id="account-type"
-							className="bg-[#1D98F0] text-white p-4 text-[25px] outline-none"
+							className="bg-[#1D98F0] text-white p-2 md:p-4 text-[17px] lg:text-[25px] outline-none"
 						>
 							<option value="professional">Professional Account</option>
 							<option value="Personal Account">Personal Account</option>
@@ -123,7 +123,7 @@ const EditProfile = ({ handleExitEdit }: EditProfileProps) => {
 				</div>
 				<div className="flex items-center justify-end mt-8">
 					<button
-						className="bg-[#6666B3] text-white text-[17px] py-5 rounded-md w-[30%]"
+						className="bg-[#6666B3] text-white text-[17px] py-5 rounded-md w-full sm:w-[60%] md:w-[50%] lg:w-[30%]"
 						onClick={handleExitEdit}
 					>
 						Save and Exit

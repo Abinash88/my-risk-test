@@ -37,7 +37,7 @@ const Profile = ({ handleEditPage }: ProfileProps) => {
 						<h3 className="text-[rgba(0,0,0,0.7)] font-[600] text-[15px]">
 							Password
 						</h3>
-						<div className="flex gap-3 items-center">
+						<div className="flex flex-col md:flex-row gap-3 items-start md:items-center">
 							<p className="text-black font-[600] text-[20px]">*************</p>
 							<button className="p-2 bg-[rgba(217,217,217,0.87)] font-[500] text-black">
 								Change Password

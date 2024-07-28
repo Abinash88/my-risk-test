@@ -8,10 +8,10 @@ const NewNotification = () => {
 				<div className="flex flex-col gap-9">
 					{notify.map((notice, i) => (
 						<div
-							className="flex items-center gap-3 justify-between"
+							className="flex items-start md:items-center gap-3 justify-between"
 							key={i + notice.image}
 						>
-							<div className="flex gap-2 items-center">
+							<div className="flex gap-2 items-center w-[70%]">
 								<img
 									src={notice.image}
 									alt="profile-image"
@@ -21,7 +21,7 @@ const NewNotification = () => {
 									{notice.name}
 								</p>
 							</div>
-							<p>{notice.time}</p>
+							<p className="">{notice.time}</p>
 						</div>
 					))}
 				</div>

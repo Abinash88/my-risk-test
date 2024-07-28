@@ -5,7 +5,7 @@ import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 
 const LoggedSidebar = () => {
 	return (
-		<div className="bg-white shadow-md w-[20rem] py-3 px-8 flex flex-col text-black">
+		<div className="bg-white shadow-md w-[20rem] py-3 px-8 lg:flex flex-col text-black hidden">
 			<div className=" flex flex-col gap-1 justify-center items-center text-center mb-5">
 				<img
 					src="/images/profile-image.jpeg"

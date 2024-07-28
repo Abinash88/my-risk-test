@@ -8,7 +8,7 @@ const RiskProfile = () => {
 	const [result, setResult] = useState<"score" | "rating" | "heat">("score");
 	return (
 		<BgSection image="/images/background.png">
-			<div className="w-[100%] mr-auto ml-auto">
+			<div className="w-[100%] md:w-[60%] mr-auto ml-auto">
 				<div className="p-3 bg-[#000080] text-white rounded-lg mb-6">
 					<h4 className="font-[600] text-[20px]">Risk Profile</h4>
 				</div>
@@ -53,38 +53,42 @@ const RiskProfile = () => {
 						</div>
 					</div>
 					<div className="w-full">
-						<div className="flex gap-3 justify-between mb-4">
-							<button
-								className={`p-3 rounded-md shadow-md w-[50%] font-[600] ${
-									result === "score"
-										? "bg-[#000080] text-white"
-										: "bg-white text-[rgba(0,0,0,0.7)]"
-								}`}
-								onClick={() => setResult("score")}
-							>
-								Risk Scoring
-							</button>
-							<button
-								className={`p-3 rounded-md shadow-md w-[50%] font-[600] ${
-									result === "rating"
-										? "bg-[#000080] text-white"
-										: "bg-white text-[rgba(0,0,0,0.7)]"
-								}`}
-								onClick={() => setResult("rating")}
-							>
-								Change Rating Type
-							</button>
-							<button
-								className={`p-3 rounded-md shadow-md w-[50%] font-[600] ${
-									result === "heat"
-										? "bg-[#000080] text-white"
-										: "bg-white text-[rgba(0,0,0,0.7)]"
-								}`}
-								onClick={() => setResult("heat")}
-							>
-								View Heat Map
-							</button>
+						<div className="w-full overflow-x-auto pb-1 mb-3">
+							{" "}
+							<div className="flex gap-3 justify-between mb-4">
+								<button
+									className={`p-3 rounded-md shadow-md min-w-[120px] md:w-[50%] font-[600] ${
+										result === "score"
+											? "bg-[#000080] text-white"
+											: "bg-white text-[rgba(0,0,0,0.7)]"
+									}`}
+									onClick={() => setResult("score")}
+								>
+									Risk Scoring
+								</button>
+								<button
+									className={`p-3 rounded-md shadow-md min-w-[120px] md:w-[50%] font-[600] ${
+										result === "rating"
+											? "bg-[#000080] text-white"
+											: "bg-white text-[rgba(0,0,0,0.7)]"
+									}`}
+									onClick={() => setResult("rating")}
+								>
+									Change Rating Type
+								</button>
+								<button
+									className={`p-3 rounded-md shadow-md min-w-[120px] md:w-[50%] font-[600] ${
+										result === "heat"
+											? "bg-[#000080] text-white"
+											: "bg-white text-[rgba(0,0,0,0.7)]"
+									}`}
+									onClick={() => setResult("heat")}
+								>
+									View Heat Map
+								</button>
+							</div>
 						</div>
+
 						<div>
 							{result === "score" && <Score />}
 							{result === "rating" && <Rating />}

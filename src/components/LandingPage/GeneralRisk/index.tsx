@@ -32,7 +32,7 @@ const GeneralRisk = () => {
 	};
 	return (
 		<BgSection image="/images/background.png">
-			<div className="w-[55%] my-10">
+			<div className="w-full md:w-[55%] my-10">
 				<div className="mb-4">
 					{currentStep < 4 && (
 						<ProgressBar

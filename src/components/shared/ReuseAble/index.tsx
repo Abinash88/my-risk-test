@@ -20,7 +20,7 @@ export const BlogHeader = ({
 			style={{ backgroundImage: `url('images/background.png')` }}
 		>
 			<div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center gap-3 text-white text-center p-6">
-				<h1 className="text-white text-[50px] md:text-[80px] font-bold lg:w-[60%]">
+				<h1 className="text-white text-[50px] md:text-[80px] font-bold w-full lg:w-[60%]">
 					{title}
 				</h1>
 				<p className="text-[17px] md:text-[18px] font-[400]">{text}</p>
@@ -93,7 +93,7 @@ interface RegContainerProps {
 
 export const RegContainer = ({ children, bar }: RegContainerProps) => {
 	return (
-		<div className="w-[40%]  mr-auto ml-auto  my-28">
+		<div className="sm-[100%] md:[60%] lg:w-[40%]  mr-auto ml-auto  my-28">
 			<div>{bar}</div>
 			<div className="bg-white rounded-lg h-auto p-12">{children}</div>
 		</div>

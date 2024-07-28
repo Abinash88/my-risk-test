@@ -6,16 +6,16 @@ import { Link } from "react-router-dom";
 const HomePage = () => {
 	return (
 		<BgSection image="/images/background.png">
-			<div className="flex gap-12 justify-center">
-				<div className="bg-white  px-6 py-8 rounded-2xl text-black w-[40%]">
+			<div className="flex flex-col md:flex-row gap-12 justify-center">
+				<div className="bg-white  px-6 py-8 rounded-2xl text-black w-full md:w-[40%]">
 					<img
 						src="/images/Engage.png"
 						alt="Ai-Powered-Risk"
-						className="w-[30%] mr-auto ml-auto"
+						className="md:w-[30%] mr-auto ml-auto"
 					/>
 					<h3 className="font-[600] text-[30px]">AI Powered Risk Profile</h3>
 				</div>
-				<div className="bg-white  px-6 py-8 rounded-2xl text-black w-[40%]">
+				<div className="bg-white  px-6 py-8 rounded-2xl text-black w-full md:w-[40%]">
 					<img
 						src="/images/mechanical.png"
 						alt="Mechanical"
@@ -33,7 +33,7 @@ export default HomePage;
 export const AIModel = () => {
 	return (
 		<BgSection image="/images/background.png">
-			<div className="bg-white rounded-lg w-[50%]">
+			<div className="bg-white rounded-lg w-full md:w-[50%]">
 				<div className="text-left font-[600] text-[20px] mb-6">
 					<h4 className="text-[#000080] p-4 border-b border-b-[rgba(0,0,0,0.59)]">
 						Select AI model
@@ -101,7 +101,7 @@ export const AIModel = () => {
 export const GenerateDownload = () => {
 	return (
 		<BgSection image="/images/background.png">
-			<div className="flex flex-col gap-4 justify-center items-center w-[50%]">
+			<div className="flex flex-col gap-4 justify-center items-center w-full md:w-[50%]">
 				<button className="bg-white text-[#000080] p-5 font-[600] text-[20px] text-center w-full rounded-lg ">
 					Generate and Download
 				</button>

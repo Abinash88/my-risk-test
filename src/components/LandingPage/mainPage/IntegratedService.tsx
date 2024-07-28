@@ -15,7 +15,10 @@ const IntegratedService = () => {
 			<Container>
 				<div className=" flex flex-col gap-16 my-10">
 					{integratedService.map((integrated, i) => (
-						<div className="flex items-start gap-3 " key={i}>
+						<div
+							className="flex flex-col md:flex-row items-start gap-3 "
+							key={i}
+						>
 							<img src="/images/ai-icon.png" alt="Ai-icon" />
 							<div>
 								<h2 className="font-[600] text-[20px] text-black mb-2">

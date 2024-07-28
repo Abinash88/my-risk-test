@@ -5,7 +5,7 @@ const ProductSubscription = () => {
 	return (
 		<div className="my-20">
 			<Container>
-				<div className="text-black text-center w-[50%] mr-auto ml-auto">
+				<div className="text-black text-center w-full md:w-[50%] mr-auto ml-auto">
 					<h2 className="font-[600] text-[38px] mb-2">
 						Subscription Available
 					</h2>

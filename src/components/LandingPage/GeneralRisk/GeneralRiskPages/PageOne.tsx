@@ -7,7 +7,7 @@ const PageOne = ({ onNext }: { onNext: () => void }) => {
 		<>
 			<div className="flex gap-3 justify-between">
 				<button
-					className={`p-3 rounded-md shadow-md w-[50%] font-[600] ${
+					className={`p-3 rounded-md shadow-md w-full md:w-[50%] text-[15px] font-[600] ${
 						page === "generate"
 							? "bg-[#000080] text-white"
 							: "bg-white text-[rgba(0,0,0,0.7)]"
@@ -17,7 +17,7 @@ const PageOne = ({ onNext }: { onNext: () => void }) => {
 					Generate Risk Profile
 				</button>
 				<button
-					className={`p-3 rounded-md shadow-md w-[50%] font-[600] ${
+					className={`p-3 rounded-md shadow-md w-full md:w-[50%] font-[600] ${
 						page === "view"
 							? "bg-[#000080] text-white"
 							: "bg-white text-[rgba(0,0,0,0.7)]"
@@ -28,7 +28,7 @@ const PageOne = ({ onNext }: { onNext: () => void }) => {
 				</button>
 			</div>
 			<div className="mt-4">
-				<div className="bg-white text-black rounded-lg py-4  px-5 flex flex-col gap-3 items-start">
+				<div className="bg-white text-black rounded-lg py-4  px-1 md:px-5 flex flex-col gap-2 md:gap-3 items-start">
 					{page === "generate" && <Generate onNext={onNext} />}
 					{page === "view" && <div>What to view????</div>}
 				</div>

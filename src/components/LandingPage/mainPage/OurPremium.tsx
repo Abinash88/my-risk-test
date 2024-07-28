@@ -13,11 +13,11 @@ const OurPremium = () => {
 			/>
 			<Container>
 				<div className="my-12 flex flex-col gap-20">
-					<h3 className="font-[600] text-[29px] text-black mb-3 text-center">
+					<h3 className="font-[600] text-[24px] md:text-[29px] text-black mb-3 text-center">
 						Why T&O Premium Features?
 					</h3>
-					<div className="flex items-center justify-between gap-3">
-						<div className="w-[55%]">
+					<div className="flex flex-col md:flex-row items-center justify-between gap-3">
+						<div className="w-full md:w-[55%]">
 							<img src="/images/ai-icon.png" alt="" className="mb-2" />
 							<h3 className="font-[600] text-[21px] text-black mb-3">
 								Access to Custom AI Risk Generated Profile
@@ -32,11 +32,11 @@ const OurPremium = () => {
 						<img
 							src="/images/risk-image.png"
 							alt="Risk"
-							className="w-[40%] rounded-2xl"
+							className="w-full md:w-[40%] rounded-2xl"
 						/>
 					</div>
-					<div className="flex flex-row-reverse items-center justify-between gap-3">
-						<div className="w-[55%]">
+					<div className="flex flex-col md:flex-row-reverse items-center justify-between gap-3">
+						<div className="w-full md:w-[55%]">
 							<img src="/images/ai-icon.png" alt="" className="mb-2" />
 							<h3 className="font-[600] text-[21px] text-black mb-3">
 								Upload to T&O Standings (Main or Private)
@@ -51,11 +51,11 @@ const OurPremium = () => {
 						<img
 							src="/images/risk-image.png"
 							alt="Risk"
-							className="w-[40%] rounded-2xl"
+							className="w-full md:w-[40%] rounded-2xl"
 						/>
 					</div>
-					<div className="flex items-center justify-between gap-3">
-						<div className="w-[55%]">
+					<div className="flex flex-col md:flex-row items-center justify-between gap-3">
+						<div className="w-full md:w-[55%]">
 							<img src="/images/ai-icon.png" alt="" className="mb-2" />
 							<h3 className="font-[600] text-[21px] text-black mb-3">
 								Hold Private T&O Groups
@@ -70,12 +70,12 @@ const OurPremium = () => {
 						<img
 							src="/images/risk-image.png"
 							alt="Risk"
-							className="w-[40%] rounded-2xl"
+							className="w-full md:w-[40%] rounded-2xl"
 						/>
 					</div>
 					<Link
 						to="/auth"
-						className="bg-[#000080] text-center w-[30%]  mr-auto ml-auto text-white py-4 rounded-lg"
+						className="bg-[#000080] text-center w-full md:[50%] lg:w-[30%]  mr-auto ml-auto text-white py-4 rounded-lg"
 					>
 						Get Started Now
 					</Link>

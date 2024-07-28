@@ -7,7 +7,7 @@ const PageTwo = ({ onNext }: { onNext: () => void }) => {
 		<>
 			<div className="flex gap-3 justify-between">
 				<button
-					className={`p-3 rounded-md shadow-md w-[50%] font-[600] ${
+					className={`p-3 rounded-md shadow-md  w-full md:w-[50%] text-[15px] font-[600] ${
 						page === "generate"
 							? "bg-[#000080] text-white"
 							: "bg-white text-[rgba(0,0,0,0.7)]"
@@ -17,7 +17,7 @@ const PageTwo = ({ onNext }: { onNext: () => void }) => {
 					Generate Risk Profile
 				</button>
 				<button
-					className={`p-3 rounded-md shadow-md w-[50%] font-[600] ${
+					className={`p-3 rounded-md shadow-md w-full md:w-[50%] font-[600] ${
 						page === "view"
 							? "bg-[#000080] text-white"
 							: "bg-white text-[rgba(0,0,0,0.7)]"

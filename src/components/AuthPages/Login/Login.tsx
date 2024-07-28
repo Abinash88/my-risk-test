@@ -47,7 +47,7 @@ const Login = () => {
 							</button>
 						</div>
 					</div>
-					<div className="text-black flex items-center justify-between">
+					<div className="text-black flex items-center justify-between flex-wrap gap-2 md:gap-0">
 						<div className="text-[rgba(0,0,0,0.59)] font-[600]">
 							<input type="checkbox" id="remember" className="mr-1" />
 							<label htmlFor="remember">Remember Password</label>

@@ -8,20 +8,22 @@ const Threat = () => {
 
 	return (
 		<div>
-			<div className="flex gap-3 mb-6 justify-between">
-				{sections.map((sec) => (
-					<button
-						key={sec}
-						onClick={() => setSection(sec)}
-						className={`py-4 rounded-md shadow-md w-[23%] font-[600] ${
-							section === sec
-								? "bg-[#000080] text-white"
-								: "bg-white text-[rgba(0,0,0,0.7)]"
-						}`}
-					>
-						Section {sec}
-					</button>
-				))}
+			<div className="overflow-x-auto">
+				<div className="flex gap-3 mb-6 min-w-max">
+					{sections.map((sec) => (
+						<button
+							key={sec}
+							onClick={() => setSection(sec)}
+							className={`py-4 rounded-md shadow-md md:w-[23%] w-[150px] font-[600] ${
+								section === sec
+									? "bg-[#000080] text-white"
+									: "bg-white text-[rgba(0,0,0,0.7)]"
+							}`}
+						>
+							Section {sec}
+						</button>
+					))}
+				</div>
 			</div>
 			<div>
 				{section === "1" && <Section1 />}

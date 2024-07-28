@@ -6,7 +6,7 @@ const MakePayment = () => {
 	return (
 		<>
 			<BgSection image="images/background.png">
-				<div className="bg-white rounded-lg w-[35%] mr-auto ml-auto py-6">
+				<div className="bg-white rounded-lg w-full md:w-[35%] mr-auto ml-auto py-6">
 					<h4 className="text-[#000080] border-b border-[#777] text-left pb-3 pl-5 font-[600]">
 						Make Payment
 					</h4>
@@ -15,19 +15,19 @@ const MakePayment = () => {
 							<input
 								type="radio"
 								className="p-8 w-5 h-5  specifyColor"
-								id="receive"
+								id="pay"
 								checked={isChecked}
 								onClick={() => setIsChecked(!isChecked)}
 								readOnly
 							/>
 							<label
 								htmlFor="pay"
-								className="block text-black font-[600] text-[19px]"
+								className="block text-black font-[600] text-[14px] md:text-[19px]"
 							>
 								Pay with Credit or Debit Card
 							</label>
 						</div>
-						<div className="mt-3 flex items-center gap-4 ml-8">
+						<div className="mt-3 flex items-center gap-4 ml-1 md:ml-8">
 							<img src="/images/master.png" alt="" className="w-[50px]" />
 							<img src="/images/visa.png" alt="" className="w-[50px]" />
 							<img src="/images/maestro.png" alt="" className="w-[50px]" />

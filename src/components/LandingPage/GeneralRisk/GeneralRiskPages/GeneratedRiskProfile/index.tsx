@@ -59,39 +59,43 @@ const GneratedRiskPRofile = () => {
 								</div>
 							</div>
 							<div className="w-full">
-								<div className="flex gap-3 justify-between mb-4">
-									<button
-										className={`p-3 rounded-md shadow-md w-[50%] font-[600] ${
-											result === "score"
-												? "bg-[#000080] text-white"
-												: "bg-white text-[rgba(0,0,0,0.7)]"
-										}`}
-										onClick={() => setResult("score")}
-									>
-										Risk Scoring
-									</button>
-									<button
-										className={`p-3 rounded-md shadow-md w-[50%] font-[600] ${
-											result === "rating"
-												? "bg-[#000080] text-white"
-												: "bg-white text-[rgba(0,0,0,0.7)]"
-										}`}
-										onClick={() => setResult("rating")}
-									>
-										Change Rating Type
-									</button>
-									<button
-										className={`p-3 rounded-md shadow-md w-[50%] font-[600] ${
-											result === "heat"
-												? "bg-[#000080] text-white"
-												: "bg-white text-[rgba(0,0,0,0.7)]"
-										}`}
-										onClick={() => setResult("heat")}
-									>
-										View Heat Map
-									</button>
+								<div className="w-full overflow-x-auto mb-4">
+									{" "}
+									<div className="flex gap-3 justify-between mb-4">
+										<button
+											className={`p-2 md:p-3 rounded-md shadow-md w-[100%] md:w-[50%] font-[600] ${
+												result === "score"
+													? "bg-[#000080] text-white"
+													: "bg-white text-[rgba(0,0,0,0.7)]"
+											}`}
+											onClick={() => setResult("score")}
+										>
+											Risk Scoring
+										</button>
+										<button
+											className={`p-2 md:p-3 rounded-md shadow-md w-[100%] md:w-[50%] font-[600] ${
+												result === "rating"
+													? "bg-[#000080] text-white"
+													: "bg-white text-[rgba(0,0,0,0.7)]"
+											}`}
+											onClick={() => setResult("rating")}
+										>
+											Change Rating Type
+										</button>
+										<button
+											className={`p-2 md:p-3 rounded-md shadow-md w-[100%] md:w-[50%] font-[600] ${
+												result === "heat"
+													? "bg-[#000080] text-white"
+													: "bg-white text-[rgba(0,0,0,0.7)]"
+											}`}
+											onClick={() => setResult("heat")}
+										>
+											View Heat Map
+										</button>
+									</div>
 								</div>
-								<div>
+
+								<div className="w-full px-2 md:px-0">
 									{result === "score" && <Score />}
 									{result === "rating" && <Rating />}
 									{result === "heat" && <HeatMap />}

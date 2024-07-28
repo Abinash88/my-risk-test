@@ -12,13 +12,13 @@ const OurService = () => {
 			/>
 			<Container>
 				<div className="my-12 flex flex-col gap-20">
-					<div className="flex items-center justify-between gap-3">
+					<div className="flex flex-col-reverse md:flex-row items-center justify-between gap-3 ">
 						<img
 							src="/images/risk-image.png"
 							alt="Risk"
-							className="w-[40%] rounded-2xl"
+							className=" w-full md:w-[40%] rounded-2xl"
 						/>
-						<div className="w-[55%]">
+						<div className="w-full md:w-[55%]">
 							<h3 className="font-[600] text-[21px] text-black mb-3">
 								AI Powered Risk Profile
 							</h3>
@@ -31,8 +31,8 @@ const OurService = () => {
 							</p>
 						</div>
 					</div>
-					<div className="flex items-center justify-between gap-3">
-						<div className="w-[55%]">
+					<div className="flex flex-col md:flex-row items-center justify-between gap-3">
+						<div className="w-full md:w-[55%]">
 							<h3 className="font-[600] text-[21px] text-black mb-3">
 								Engage with T&O Standings
 							</h3>
@@ -47,7 +47,7 @@ const OurService = () => {
 						<img
 							src="/images/threat-tree.png"
 							alt="Risk"
-							className="w-[40%] rounded-2xl"
+							className="w-full md:w-[40%] rounded-2xl"
 						/>
 					</div>
 				</div>

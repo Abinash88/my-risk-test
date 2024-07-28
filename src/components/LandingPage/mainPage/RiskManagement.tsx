@@ -13,8 +13,8 @@ const RiskManagement = () => {
 			/>
 			<Container>
 				<div className=" flex flex-col gap-6 my-10">
-					{riskConcept.map((risk) => (
-						<div>
+					{riskConcept.map((risk, i) => (
+						<div key={risk.title + i}>
 							<h2 className="font-[600] text-[20px] text-black mb-2">
 								{risk.title}
 							</h2>

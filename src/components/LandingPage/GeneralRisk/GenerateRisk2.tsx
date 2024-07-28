@@ -12,7 +12,7 @@ const GenerateRisk2 = ({ onNext }: { onNext: () => void }) => {
 						className="w-full outline-none text-black rounded-lg mt-4 border-2 border-[#6666] p-3"
 					/>
 				</div>
-				<div className="flex items-center gap-2 mt-4">
+				<div className="flex items-center gap-2 mt-4 flex-wrap md:flex-nowrap">
 					<input
 						type="text"
 						placeholder="Enter uncertainly/event"

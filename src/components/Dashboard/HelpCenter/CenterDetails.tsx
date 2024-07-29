@@ -20,7 +20,7 @@ const CenterDetails = () => {
 			<h2 className="font-[600] text-black text-[26px] mt-6">
 				{formattedSegment}
 			</h2>
-			<div className="mt-5 bg-white rounded-md px-9 py-9 h-auto overflow-y-auto scrollBar">
+			<div className="mt-5 bg-white rounded-md px-4 md:px-9 py-9 h-auto overflow-y-auto scrollBar">
 				<h5 className="font-[600] text-black text-[20px] mb-3">
 					Common Questions
 				</h5>

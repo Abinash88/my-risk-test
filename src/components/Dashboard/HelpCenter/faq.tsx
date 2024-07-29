@@ -11,7 +11,7 @@ const FAQComponent = () => {
 	return (
 		<div className=" flex items-start justify-between flex-wrap gap-1">
 			{faqs.map((faq, index) => (
-				<div key={index} className="py-4 w-[49%]">
+				<div key={index} className="py-4 w-full md:w-[49%]">
 					<div
 						className="text-[16px] font-semibold cursor-pointer flex justify-between items-center text-[#6666B3]"
 						onClick={() => toggleFAQ(index)}

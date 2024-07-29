@@ -3,13 +3,13 @@ import { referList } from "../../../lib/fakedata";
 const Referral = () => {
 	return (
 		<div>
-			<div className="flex items-center justify-between">
+			<div className="flex items-center justify-between flex-wrap gap-2">
 				<h4 className="font-[600] text-black text-[20px]">Referral Page</h4>
 				<button className="text-white p-3 bg-[#6666B3] rounded-lg">
 					Generate Referral Code
 				</button>
 			</div>
-			<div className=" flex flex-col gap-7 mt-5 bg-white rounded-md px-9 py-9 h-auto overflow-y-auto scrollBar">
+			<div className=" flex flex-col gap-7 mt-5 bg-white rounded-md px-4 md:px-9 py-9 h-auto overflow-y-auto scrollBar">
 				<div>
 					<h3 className="font-[600] text-[20px] text-black mb-4">
 						Referral Code
@@ -49,7 +49,7 @@ const Referral = () => {
 						{referList.map((refer, i) => (
 							<div className="flex item-start gap-3" key={i}>
 								<p className="w-[50%]">{refer.name}</p>
-								<div className="w-[50%] flex items-center gap-8">
+								<div className="w-[50%] flex items-center gap-4 md:gap-8 flex-wrap">
 									<p className="">{refer.date}</p>
 									<button className="text-white bg-[#AB2626] p-2 font-[400] text-[14px] rounded-lg">
 										Cancel Invite

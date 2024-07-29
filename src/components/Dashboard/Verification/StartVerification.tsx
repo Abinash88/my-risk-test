@@ -20,7 +20,7 @@ const StartVerification = () => {
 					and double vote feature!
 				</p>
 				<button
-					className="text-white bg-[#000080] font-[400] text-[15px] py-3 px-5 text-center rounded-lg mt-9 w-[70%] ml-auto mr-auto"
+					className="text-white bg-[#000080] font-[400] text-[15px] py-3 px-5 text-center rounded-lg mt-9 w-full md:w-[70%] ml-auto mr-auto"
 					onClick={() => setOpenForm(true)}
 				>
 					Start Verification

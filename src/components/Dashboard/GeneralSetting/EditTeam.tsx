@@ -14,7 +14,7 @@ const EditTeam = () => {
 			<div className=" bg-white rounded-md px-9 py-9 h-auto overflow-y-auto scrollBar">
 				<h3 className="font-[600] text-[22px]">Group #827282 Team Members</h3>
 				<div className="flex flex-col gap-6">
-					<div className="flex items-center justify-between mt-5">
+					<div className="flex items-center justify-between flex-wrap gap-2 mt-5">
 						<div className="flex items-center gap-3">
 							<img
 								src="/images/profile-image.jpeg"
@@ -26,7 +26,7 @@ const EditTeam = () => {
 								<span className="text-[#1D98F0] text-[13px]">Full Access</span>
 							</h4>
 						</div>
-						<div className="flex gap-3 items-center">
+						<div className="flex gap-3 items-center flex-wrap">
 							<button className="bg-[#218A3E] text-white py-3 px-4">
 								Switch to Basic
 							</button>
@@ -35,7 +35,7 @@ const EditTeam = () => {
 							</button>
 						</div>
 					</div>
-					<div className="flex items-center justify-between mt-5">
+					<div className="flex items-center justify-between flex-wrap gap-2 mt-5">
 						<div className="flex items-center gap-3">
 							<img
 								src="/images/profile-image.jpeg"
@@ -47,7 +47,7 @@ const EditTeam = () => {
 								<span className="text-[#218A3E] text-[13px]">Basic Access</span>
 							</h4>
 						</div>
-						<div className="flex gap-3 items-center">
+						<div className="flex gap-3 items-center flex-wrap">
 							<button className="bg-[#1D98F0] text-white py-3 px-5">
 								Switch to Full
 							</button>

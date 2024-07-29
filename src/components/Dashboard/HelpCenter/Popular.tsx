@@ -52,10 +52,12 @@ const Popular = () => {
 					{currentTopics.map((topic, i) => (
 						<Link
 							to={getNewPath(topic.title)}
-							className="w-[22%] bg-[#000080] text-white px-8 py-8 rounded-lg text-center mt-5"
+							className="w-[45%] md:w-[22%] bg-[#000080] text-white px-4 md:px-8 py-8 rounded-lg text-center mt-5"
 							key={topic.title + 3 + i}
 						>
-							<h4 className="font-[400] text-[25px]">{topic.title}</h4>
+							<h4 className="font-[400] text-[20px] md:text-[25px]">
+								{topic.title}
+							</h4>
 						</Link>
 					))}
 				</div>

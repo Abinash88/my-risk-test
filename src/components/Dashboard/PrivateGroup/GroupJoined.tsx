@@ -2,7 +2,7 @@ import { useState } from "react";
 import { GroupImages } from "../../../lib/fakedata";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
-import JoinGroupModal from "./JoinGroupModal";
+import JoinGroupModal2 from "./JoinGroupModal2";
 
 const GroupJoined = () => {
 	const [showAll, setShowAll] = useState(false);
@@ -81,7 +81,8 @@ const GroupJoined = () => {
 					Join Group
 				</button>
 			</div>
-			<JoinGroupModal open={openModal} close={handleClose} />
+			{/* <JoinGroupModal open={openModal} close={handleClose} /> */}
+			<JoinGroupModal2 isModalOpen={openModal} closeModal={handleClose} />
 		</>
 	);
 };

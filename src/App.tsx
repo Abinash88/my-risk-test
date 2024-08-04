@@ -36,6 +36,8 @@ import PasswordResetPage from "./components/AuthPages/Login";
 import BlogContent from "./components/LandingPage/Blog/BlogContent";
 import ProductSubscription from "./components/LandingPage/mainPage/ProductSubscription";
 import IntegratedService from "./components/LandingPage/mainPage/IntegratedService";
+import CommentsSection from "./components/Dashboard/ManageRIsk/CommentModal/comments";
+import StepsSection from "./components/Dashboard/ManageRIsk/CommentModal/steps";
 
 const App = () => {
 	return (
@@ -45,6 +47,8 @@ const App = () => {
 					<Route index={true} element={<LandingPage />} />
 					<Route path="/service" element={<OurService />} />
 					<Route path="/premium" element={<OurPremium />} />
+					<Route path="/testing" element={<CommentsSection />} />
+					<Route path="/testing2" element={<StepsSection />} />
 					<Route
 						path="/product-subscription"
 						element={<ProductSubscription />}

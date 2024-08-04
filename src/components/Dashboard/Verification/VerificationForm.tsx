@@ -12,6 +12,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { X } from "@phosphor-icons/react";
 import { AlertDialogCancel } from "@radix-ui/react-alert-dialog";
 import { useRef, useState } from "react";
+import FileUpload from "./FileUpload"; // Adjust the import path as needed
+
 interface verifyProps {
 	open?: boolean;
 	close?: () => void;
@@ -19,22 +21,24 @@ interface verifyProps {
 
 export function VerificationForm({ open, close }: verifyProps) {
 	const nameInputRef = useRef<HTMLInputElement>(null);
-	const [openSucess, setOpenSucess] = useState(false);
+	const [openSuccess, setOpenSuccess] = useState(false);
+	const [uploadedFile, setUploadedFile] = useState<File | null>(null);
+
 	const handleClose = () => {
-		setOpenSucess(false);
+		setOpenSuccess(false);
+	};
+
+	const handleFileUpload = (file: File) => {
+		setUploadedFile(file);
 	};
 
 	return (
 		<>
 			<AlertDialog open={open}>
-				{/* <AlertDialogTrigger asChild>
-				<Button variant="outline">Show Dialog</Button>
-			</AlertDialogTrigger> */}
 				<AlertDialogContent>
 					<AlertDialogHeader>
 						<AlertDialogTitle className="flex items-center justify-between">
 							<p className="font-[600] text-[24px] text-black"> Verification</p>
-
 							<AlertDialogAction className="bg-transparent hover:bg-transparent">
 								<X
 									size={20}
@@ -99,12 +103,12 @@ export function VerificationForm({ open, close }: verifyProps) {
 									<label htmlFor="proof" className="text-[15px]">
 										Proof of Employment
 									</label>
-									<input
-										type="text"
-										id="proof"
-										name="proof"
-										className="outline-none rounded-lg border border-[#999999] focus:border-[#999999] p-2"
-									/>
+									<FileUpload onFileUpload={handleFileUpload} />
+									{uploadedFile && (
+										<p className="text-green-600 mt-2">
+											Uploaded file: {uploadedFile.name}
+										</p>
+									)}
 								</div>
 							</div>
 						</AlertDialogDescription>
@@ -112,13 +116,13 @@ export function VerificationForm({ open, close }: verifyProps) {
 					<AlertDialogFooter>
 						<button
 							className="bg-[#000080] text-white py-3 px-4 rounded-lg w-full"
-							onClick={() => setOpenSucess(true)}
+							onClick={() => setOpenSuccess(true)}
 						>
 							Submit
 						</button>
 					</AlertDialogFooter>
 				</AlertDialogContent>
-				<UnderVerification open={openSucess} close={handleClose} />
+				<UnderVerification open={openSuccess} close={handleClose} />
 			</AlertDialog>
 		</>
 	);

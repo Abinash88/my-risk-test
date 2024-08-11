@@ -14,7 +14,7 @@ const CommentModal: React.FC<CommentModalProps> = ({
 			<Modal
 				isOpen={isModalOpen}
 				onClose={closeModal}
-				contentClassName="bg-white rounded-lg shadow-lg w-[95%] md:[90%] lg:w-[80%] overflow-y-auto scrollBar h-auto max-h-[760px]"
+				contentClassName="bg-white rounded-lg shadow-lg w-[95%] md:[90%] lg:w-[80%] overflow-y-auto scrollBar h-auto max-h-[90vh]"
 			>
 				<div
 					className="bg-[#000080] flex items-center justify-center absolute rounded-full h-4 w-4 p-4 text-white right-2 top-1 cursor-pointer"
@@ -22,11 +22,11 @@ const CommentModal: React.FC<CommentModalProps> = ({
 				>
 					X
 				</div>
-				<div className="flex gap-4">
-					<div className="w-[45%]">
+				<div className="flex gap-4 flex-col-reverse lg:flex-row">
+					<div className="w-full lg:w-[45%] ">
 						<StepsSection />
 					</div>
-					<div className="w-[55%]">
+					<div className="w-full lg:w-[55%]">
 						<CommentsSection />
 					</div>
 				</div>

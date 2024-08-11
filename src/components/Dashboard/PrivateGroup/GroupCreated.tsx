@@ -3,15 +3,20 @@ import { GroupImages } from "../../../lib/fakedata";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import AddGroupModal from "./AddgroupModal";
+import DeleteModal from "../ManageRIsk/CommentModal/DeleteModal";
+import GridSidebar from "@/components/shared/LoggedLayout/GridSidebar";
 
 const GroupCreated = () => {
 	const [showAll, setShowAll] = useState(false);
+	const [openDelete, setOpenDelete] = useState(false);
 	const [openModal, setOpenModal] = useState(false);
 
 	const handleClose = () => {
 		setOpenModal(false);
 	};
-
+	const handleCloseDelete = () => {
+		setOpenDelete(false);
+	};
 	const handleToggleView = () => {
 		setShowAll((prevShowAll) => !prevShowAll);
 	};
@@ -66,7 +71,12 @@ const GroupCreated = () => {
 						</div>
 					</div>
 					<div className="flex gap-4">
-						<div className="text-white bg-[rgba(160,11,11,0.8)] shadow-custom-all-sides py-2 px-3 flex flex-col gap-1 items-center justify-center rounded-md cursor-pointer">
+						<div
+							className="text-white bg-[rgba(160,11,11,0.8)] shadow-custom-all-sides
+	 py-2 px-3 flex flex-col gap-1 items-center justify-center 
+	 rounded-md cursor-pointer"
+							onClick={() => setOpenDelete(true)}
+						>
 							<FontAwesomeIcon icon={faTrashCan} className="font-light " />
 							<p className="text-[11px] font-[600]">Delete</p>
 						</div>
@@ -82,6 +92,8 @@ const GroupCreated = () => {
 				</button>
 			</div>
 			<AddGroupModal open={openModal} close={handleClose} />
+			{<DeleteModal isModalOpen={openDelete} closeModal={handleCloseDelete} />}
+			<GridSidebar />
 		</>
 	);
 };

@@ -3,14 +3,17 @@ import { Link } from "react-router-dom";
 import { navItems } from "../../../lib/const/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faBell, faXmark } from "@fortawesome/free-solid-svg-icons";
+import GridSidebar from "./GridSidebar";
 
 const LoggedHeader = () => {
 	const [nav, setNav] = useState(false);
+	const [openGrid, setOpenGrid] = useState(false);
+
 	const handleNav = () => {
 		setNav(!nav);
 	};
 	return (
-		<div className="bg-white shadow-lg px-[2rem] lg:px-[2rem] py-[1rem] flex items-center gap-4 w-full ">
+		<div className="bg-white shadow-lg px-[2rem] lg:px-[2rem] py-[1rem] flex items-center gap-4 w-full relative">
 			<img
 				src="/images/logo.png"
 				alt="logo"
@@ -80,7 +83,8 @@ const LoggedHeader = () => {
 				<img
 					src="/images/grid.png"
 					alt="grid"
-					className=" w-[19px] md:w-[25px]"
+					className=" w-[19px] md:w-[25px] cursor-pointer"
+					onClick={() => setOpenGrid(!openGrid)}
 				/>
 				<div className="flex items-center gap-1">
 					<img
@@ -96,6 +100,7 @@ const LoggedHeader = () => {
 					</div>
 				</div>
 			</div>
+			{openGrid && <GridSidebar />}
 		</div>
 	);
 };

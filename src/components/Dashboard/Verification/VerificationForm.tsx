@@ -166,3 +166,5 @@ const UnderVerification = ({ open, close }: SuccessProps) => {
 		</AlertDialog>
 	);
 };
+
+export default UnderVerification;

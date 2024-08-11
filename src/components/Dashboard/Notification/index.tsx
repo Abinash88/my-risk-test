@@ -4,7 +4,7 @@ import NewNotification from "./NewNotification";
 const Notification = () => {
 	return (
 		<div>
-			<div className="flex items-center justify-between">
+			<div className="flex items-center justify-between flex-wrap">
 				<h3 className="font-[600] text-[25px] mb-5">Notification</h3>
 				<div className="flex items-center gap-4">
 					<Link

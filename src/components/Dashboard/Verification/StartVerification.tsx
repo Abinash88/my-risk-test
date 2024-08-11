@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { VerificationForm } from "./VerificationForm";
+import VerificationFormModal from "./VerificationFormModal";
 
 const StartVerification = () => {
 	const [openForm, setOpenForm] = useState(false);
@@ -26,7 +26,8 @@ const StartVerification = () => {
 					Start Verification
 				</button>
 			</div>
-			<VerificationForm open={openForm} close={handleCloseForm} />
+		<VerificationFormModal isModalOpen={openForm} closeModal={handleCloseForm} />
+			{/* <VerificationForm open={openForm} close={handleCloseForm} /> */}
 		</>
 	);
 };

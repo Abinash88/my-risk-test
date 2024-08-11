@@ -89,14 +89,14 @@ const CommentsSection: React.FC = () => {
 			<div className="space-y-4">
 				{comments.map((comment) => (
 					<div key={comment.id} className="border-b pb-4">
-						<div className="flex items-start space-x-4">
+						<div className="flex items-start space-x-2 flex-wrap">
 							<div className="flex gap-2 items-start flex-1">
 								<img
 									src={`https://i.pravatar.cc/40?u=${comment.id}`}
 									alt={comment.author}
 									className="w-10 h-10 rounded-full"
 								/>
-								<div>
+								<div className="w-full md:w-[98%]">
 									<h3 className="font-semibold">{comment.author}</h3>
 									<p>{comment.content}</p>
 									<div className="flex items-center space-x-2 mt-2">

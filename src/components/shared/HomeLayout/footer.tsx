@@ -74,11 +74,16 @@ const Footer = () => {
 						<p className="mb-2 text-[1rem] font-[400]">
 							Subscribe to Newsletter
 						</p>
-						<input
-							type="text"
-							placeholder="Enter email address"
-							className="rounded-md p-2 outline-none border-none text-black"
-						/>
+						<div className="rounded-md px-3 py-2 outline-none border-none text-black bg-white flex items-center w-full gap-y-2">
+							<input
+								type="email"
+								placeholder="Enter email address"
+								className="outline-none text-black mr-3 w-[60%] md:w-[65%]"
+							/>
+							<button className="bg-[#3838F0] text-white p-3 rounded-lg w-[40%] md:w-[30%]">
+								Subscribe
+							</button>
+						</div>
 					</form>
 				</div>
 			</div>

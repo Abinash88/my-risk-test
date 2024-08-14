@@ -10,7 +10,7 @@ const LandingPage = () => {
 			<BlogHeader
 				title="HERMANDAI RISK PLATFORM"
 				text="Generate AI Risk Profile . Engage with T & O Standing"
-				path="/"
+				path="/auth"
 			/>
 			<ServiceType />
 			<TandO />

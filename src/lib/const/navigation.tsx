@@ -42,11 +42,11 @@ export const Legal = [
 export const aboutUs = [
 	{
 		link: "Who we are",
-		path: "/",
+		path: "/service",
 	},
 	{
 		link: "Newsroom",
-		path: "/",
+		path: "/blog",
 	},
 	{
 		link: "Products",
@@ -57,11 +57,11 @@ export const aboutUs = [
 export const customerService = [
 	{
 		link: "How it Works",
-		path: "/",
+		path: "/our-work",
 	},
 	{
 		link: "Help Centre ",
-		path: "/",
+		path: "/dashboard/help-center",
 	},
 	{
 		link: "User Tips",

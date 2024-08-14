@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import AddGroupModal from "./AddgroupModal";
 import DeleteModal from "../ManageRIsk/CommentModal/DeleteModal";
-import GridSidebar from "@/components/shared/LoggedLayout/GridSidebar";
 
 const GroupCreated = () => {
 	const [showAll, setShowAll] = useState(false);
@@ -93,7 +92,6 @@ const GroupCreated = () => {
 			</div>
 			<AddGroupModal open={openModal} close={handleClose} />
 			{<DeleteModal isModalOpen={openDelete} closeModal={handleCloseDelete} />}
-			<GridSidebar />
 		</>
 	);
 };

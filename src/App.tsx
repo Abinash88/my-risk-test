@@ -38,6 +38,9 @@ import ProductSubscription from "./components/LandingPage/mainPage/ProductSubscr
 import IntegratedService from "./components/LandingPage/mainPage/IntegratedService";
 import CommentsSection from "./components/Dashboard/ManageRIsk/CommentModal/comments";
 import StepsSection from "./components/Dashboard/ManageRIsk/CommentModal/steps";
+import OurWorks from "./components/LandingPage/mainPage/OurWorks";
+import { Upload } from "./components/LandingPage/mainPage/Upload";
+import Map from "./components/LandingPage/Map";
 
 const App = () => {
 	return (
@@ -47,6 +50,7 @@ const App = () => {
 					<Route index={true} element={<LandingPage />} />
 					<Route path="/service" element={<OurService />} />
 					<Route path="/premium" element={<OurPremium />} />
+					<Route path="/our-work" element={<OurWorks />} />
 					<Route path="/testing" element={<CommentsSection />} />
 					<Route path="/testing2" element={<StepsSection />} />
 					<Route
@@ -61,9 +65,11 @@ const App = () => {
 					<Route path="/blog" element={<Blog />} />
 					<Route path="/blog/:blogcontent" element={<BlogContent />} />
 					<Route path="/make-payment" element={<PaymentMode />} />
+					<Route path="/upload" element={<Upload />} />
 					<Route path="/payment-mode" element={<MakePayment />} />
 					<Route path="/general-risk" element={<GeneralRisk />} />
 					<Route path="/risk-profile" element={<RiskProfile />} />
+					<Route path="/map" element={<Map />} />
 				</Route>
 				<Route path="/auth" element={<AuthLayout />}>
 					<Route index={true} element={<Auth />} />

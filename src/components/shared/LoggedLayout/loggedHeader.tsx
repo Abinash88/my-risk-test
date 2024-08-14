@@ -14,11 +14,14 @@ const LoggedHeader = () => {
 	};
 	return (
 		<div className="bg-white shadow-lg px-[2rem] lg:px-[2rem] py-[1rem] flex items-center gap-4 w-full relative">
-			<img
-				src="/images/logo.png"
-				alt="logo"
-				className="w-[8rem] md:w-[12rem]"
-			/>
+			<Link to="/">
+				<img
+					src="/images/logo.png"
+					alt="logo"
+					className="w-[8rem] md:w-[12rem]"
+				/>
+			</Link>
+
 			<ul className="text-black hidden md:flex items-center justify-center gap-6 lg:gap-8 ml-8 ">
 				{navItems.map((item) => (
 					<li key={item.id}>
@@ -26,7 +29,7 @@ const LoggedHeader = () => {
 					</li>
 				))}
 			</ul>
-			<div onClick={handleNav} className="block md:hidden">
+			<div onClick={handleNav} className="hidden">
 				{nav ? (
 					<FontAwesomeIcon
 						icon={faXmark}
@@ -47,14 +50,17 @@ const LoggedHeader = () => {
 				}
 			>
 				{/* Mobile Logo */}
-				<img
-					src="/images/logo.png"
-					alt="logo"
-					className="w-[10rem] mt-3 ml-4 mb-6"
-				/>
+				<Link to="/">
+					{" "}
+					<img
+						src="/images/logo.png"
+						alt="logo"
+						className="w-[10rem] mt-3 ml-4 mb-6"
+					/>
+				</Link>
 
 				{/* Mobile Navigation Items */}
-				{navItems.map((item) => (
+				{/* {navItems.map((item) => (
 					<li
 						key={item.id}
 						className="text-black py-2 px-4 hover:bg-[#000080] duration-300 hover:text-white cursor-pointer"
@@ -63,7 +69,7 @@ const LoggedHeader = () => {
 							{item.text}
 						</Link>
 					</li>
-				))}
+				))} */}
 				{/* <li className="bg-[#000080] text-white ml-4 p-4 mt-4 w-[50%] rounded-md">
 					Login
 				</li> */}

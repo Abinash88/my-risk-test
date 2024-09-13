@@ -4,18 +4,32 @@ import {
   DASHBOARD_SIDEBAR_LINKS,
 } from "../../../lib/const/sidebarNavigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
+import {
+  faArrowRightFromBracket,
+  faClose,
+} from "@fortawesome/free-solid-svg-icons";
 
-const AdminDashboardSidebar = () => {
+const AdminDashboardSidebar = ({
+  setOpenSidebar,
+}: {
+  setOpenSidebar: Function;
+}) => {
   return (
-    <div className="bg-[#000E56] shadow-md w-[18rem] py-3 px-8 lg:flex flex-col text-white hidden">
-      <Link to="/">
-        <img
-          src="/images/logo.png"
-          alt="logo"
-          className="w-[8rem] md:w-[10rem]"
+    <div className="">
+      <div className="flex justify-between">
+        <Link to="/">
+          <img
+            src="/images/logo.png"
+            alt="logo"
+            className="w-[8rem] md:w-[10rem]"
+          />
+        </Link>
+        <FontAwesomeIcon
+          icon={faClose}
+          className="md:hidden text-white cursor-pointer"
+          onClick={(e) => setOpenSidebar(false)}
         />
-      </Link>
+      </div>
       <div className="py-8 flex flex-1 flex-col gap-3">
         {ADMIN_DASHBOARD_SIDEBAR_LINKS.map((item) => (
           <SidebarLink key={item.key} item={item} />

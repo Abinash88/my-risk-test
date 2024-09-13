@@ -4,8 +4,16 @@ import { navItems } from "../../../lib/const/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faBell, faXmark } from "@fortawesome/free-solid-svg-icons";
 import AdminDashboardGridSidebar from "./AdminDashboardGridSidebar";
+import AdminDashboardSidebar from "./AdminDashboardSidebar";
+import { BlockList } from "net";
 
-const AdminDashboardHeader = () => {
+const AdminDashboardHeader = ({
+  setOpenSidebar,
+  openSidebar,
+}: {
+  setOpenSidebar: Function;
+  openSidebar: boolean;
+}) => {
   const [nav, setNav] = useState(false);
   const [openGrid, setOpenGrid] = useState(false);
 
@@ -14,11 +22,21 @@ const AdminDashboardHeader = () => {
   };
   return (
     <div className="bg-white shadow-lg px-[2rem] lg:px-[2rem] py-[1rem] flex items-center gap-4 w-full relative">
-      <Link className="" to="/admin/dashboard">Dashboard</Link>
+      <button
+        onClick={() => setOpenSidebar(!openSidebar)} // Toggle sidebar open/close
+        className="block lg:hidden text-xl"
+      >
+        <FontAwesomeIcon icon={faBars} />
+      </button>
 
+      <Link className="hidden lg:block" to="/admin/dashboard">
+        {" "}
+        {/* Hidden on small screens */}
+        Dashboard
+      </Link>
       <div className="flex items-center gap-4 ml-auto">
-		<p>Good morning, Admin</p>
-		
+        <p>Good morning, Admin</p>
+
         <div className="relative">
           <FontAwesomeIcon
             icon={faBell}

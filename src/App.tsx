@@ -43,6 +43,7 @@ import { Upload } from "./components/LandingPage/mainPage/Upload";
 import Map from "./components/LandingPage/Map";
 import DownloadedRisk from "./components/LandingPage/GeneralRisk/GeneralRiskPages/DownloadedRisk";
 import AdminDashboardLayout from "./components/shared/AdminDashboardLayout/AdminDashboardLayout";
+import IndexAdminDashboard from "./components/AdminDashboard";
 
 const App = () => {
   return (
@@ -102,12 +103,9 @@ const App = () => {
           <Route path="general-setting/:edit-team" element={<EditTeam />} />
           <Route path="verification" element={<Verification />} />
         </Route>
-        <Route
-          path="/admin/dashboard"
-          element={<AdminDashboardLayout />}
-        >
-			
-		</Route>
+        <Route path="/admin/dashboard" element={<AdminDashboardLayout />}>
+          <Route path="" element={<IndexAdminDashboard />} />
+        </Route>
 
         <Route path="*" element={<ErrorPage />} />
       </Routes>

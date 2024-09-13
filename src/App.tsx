@@ -44,6 +44,9 @@ import Map from "./components/LandingPage/Map";
 import DownloadedRisk from "./components/LandingPage/GeneralRisk/GeneralRiskPages/DownloadedRisk";
 import AdminDashboardLayout from "./components/shared/AdminDashboardLayout/AdminDashboardLayout";
 import IndexAdminDashboard from "./components/AdminDashboard";
+import VerificationRequest from "./components/AdminDashboard/VerificationRequest";
+import AdminUserComponent from "./components/AdminDashboard/User/index";
+import UserDetail from "./components/AdminDashboard/User/UserDetail/UserDetail";
 
 const App = () => {
   return (
@@ -103,8 +106,14 @@ const App = () => {
           <Route path="general-setting/:edit-team" element={<EditTeam />} />
           <Route path="verification" element={<Verification />} />
         </Route>
-        <Route path="/admin/dashboard" element={<AdminDashboardLayout />}>
+        <Route path="/admin/dashboard/" element={<AdminDashboardLayout />}>
           <Route path="" element={<IndexAdminDashboard />} />
+          <Route
+            path="verification-request"
+            element={<VerificationRequest />}
+          />
+          <Route path="user" element={<AdminUserComponent />} />
+          <Route path="user/:id" element={<UserDetail />} />
         </Route>
 
         <Route path="*" element={<ErrorPage />} />

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { ApexOptions } from "apexcharts";
 import ReactApexChart from "react-apexcharts";
 import { DatePicker, Space } from "antd";
+import dayjs from "dayjs";
 const { RangePicker } = DatePicker;
 const options: ApexOptions = {
   colors: ["#3C50E0", "#3C5AAA"],
@@ -90,9 +91,9 @@ export default function BarChart() {
   });
   return (
     <div>
-      <div className="flex">
+      <div className="flex justify-between">
         <p className="text-black text-xl font-medium">AI Performance</p>
-        <RangePicker />
+        <RangePicker defaultValue={[dayjs(),dayjs()]}/>
       </div>
       <ReactApexChart
         options={options}

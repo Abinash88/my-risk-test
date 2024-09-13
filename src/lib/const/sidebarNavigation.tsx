@@ -104,7 +104,7 @@ export const ADMIN_DASHBOARD_SIDEBAR_LINKS = [
   {
     key: "Verification",
     label: "Verification",
-    path: "/admin/dashboard/verification",
+    path: "/admin/dashboard/verification-request",
     icon: <FontAwesomeIcon icon={faCheckCircle} />,
   },
   {

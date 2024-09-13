@@ -7,6 +7,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Tabs, TabsProps } from "antd";
 import React from "react";
 import Business from "./Business";
+import Professional from "./Professional";
+import RegistrationRequest from "./RegistrationRequest";
 
 export default function index() {
   const items: TabsProps["items"] = [
@@ -28,7 +30,7 @@ export default function index() {
           <p>Professional</p>
         </div>
       ),
-      children: "Content of Tab Pane 2",
+      children: <Professional />,
     },
     {
       key: "3",
@@ -38,7 +40,7 @@ export default function index() {
           <p>Registration Request</p>
         </div>
       ),
-      children: "Content of Tab Pane 3",
+      children: <RegistrationRequest />,
     },
   ];
 

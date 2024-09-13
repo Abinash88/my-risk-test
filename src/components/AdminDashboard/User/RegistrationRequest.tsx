@@ -1,94 +1,84 @@
 import { Button, Divider, Input, Table, TableColumnsType } from "antd";
 import React, { useState } from "react";
 import { PlusOutlined, SearchOutlined } from "@ant-design/icons";
-import { ArrowUp, CheckCircle, FilterIcon, Verified } from "lucide-react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { ArrowUp, FilterIcon, Verified } from "lucide-react";
 
 const users = [
   {
     name: "Mashood Adam",
     email: "mashoodadam@gmail.com",
-    ceoName: "Taofeeq Moha",
-    businessName: "Samusa Enterprise",
-    verified: "",
+    jobTitle: "Marketer",
+    companyName: "Jando Ltd",
+    account: "Professional",
     date: "July 1, 2024 - 10:30AM",
   },
   {
     name: "Mashood Adam",
     email: "mashoodadam@gmail.com",
-    ceoName: "Taofeeq Moha",
-    businessName: "Samusa Enterprise",
-    verified: "",
+    jobTitle: "Marketer",
+    companyName: "Jando Ltd",
+    account: "Professional",
     date: "July 1, 2024 - 10:30AM",
   },
   {
     name: "Mashood Adam",
     email: "mashoodadam@gmail.com",
-    ceoName: "Taofeeq Moha",
-    businessName: "Samusa Enterprise",
-    verified: "",
+    jobTitle: "Marketer",
+    companyName: "Jando Ltd",
+    account: "Professional",
     date: "July 1, 2024 - 10:30AM",
   },
   {
     name: "Mashood Adam",
     email: "mashoodadam@gmail.com",
-    ceoName: "Taofeeq Moha",
-    businessName: "Samusa Enterprise",
-    verified: "",
+    jobTitle: "Marketer",
+    companyName: "Jando Ltd",
+    account: "Professional",
     date: "July 1, 2024 - 10:30AM",
   },
   {
     name: "Mashood Adam",
     email: "mashoodadam@gmail.com",
-    ceoName: "Taofeeq Moha",
-    businessName: "Samusa Enterprise",
-    verified: "",
+    jobTitle: "Marketer",
+    companyName: "Jando Ltd",
+    account: "Professional",
     date: "July 1, 2024 - 10:30AM",
   },
   {
     name: "Mashood Adam",
     email: "mashoodadam@gmail.com",
-    ceoName: "Taofeeq Moha",
-    businessName: "Samusa Enterprise",
-    verified: "",
+    jobTitle: "Marketer",
+    companyName: "Jando Ltd",
+    account: "Professional",
     date: "July 1, 2024 - 10:30AM",
   },
   {
     name: "Mashood Adam",
     email: "mashoodadam@gmail.com",
-    ceoName: "Taofeeq Moha",
-    businessName: "Samusa Enterprise",
-    verified: "",
+    jobTitle: "Marketer",
+    companyName: "Jando Ltd",
+    account: "Professional",
     date: "July 1, 2024 - 10:30AM",
   },
   {
     name: "Mashood Adam",
     email: "mashoodadam@gmail.com",
-    ceoName: "Taofeeq Moha",
-    businessName: "Samusa Enterprise",
-    verified: "",
+    jobTitle: "Marketer",
+    companyName: "Jando Ltd",
+    account: "Professional",
     date: "July 1, 2024 - 10:30AM",
   },
   {
     name: "Mashood Adam",
     email: "mashoodadam@gmail.com",
-    ceoName: "Taofeeq Moha",
-    businessName: "Samusa Enterprise",
-    verified: "",
-    date: "July 1, 2024 - 10:30AM",
-  },
-  {
-    name: "Mashood Adam",
-    email: "mashoodadam@gmail.com",
-    ceoName: "Taofeeq Moha",
-    businessName: "Samusa Enterprise",
-    verified: "",
+    jobTitle: "Marketer",
+    companyName: "Jando Ltd",
+    account: "Professional",
     date: "July 1, 2024 - 10:30AM",
   },
 ];
 
-export default function Business() {
+export default function RegistrationRequest() {
   const columns: TableColumnsType<any> = [
     {
       title: "Name",
@@ -100,34 +90,28 @@ export default function Business() {
       dataIndex: "email",
     },
     {
-      title: "CEO Name",
-      dataIndex: "ceoName",
+      title: "Job Title",
+      dataIndex: "jobTitle",
     },
     {
-      title: "Business Name",
-      dataIndex: "businessName",
+      title: "Company Name",
+      dataIndex: "companyName",
     },
     {
-      title: "Verified",
-      dataIndex: "verified",
-      render: (value, record) => (
-        <>
-          <Verified className="bg-[#4B4BFF] text-white rounded-full"/>
-          {/* <FontAwesomeIcon icon={faCheck} className="text-[#6666B3] w-5 h-5" /> */}
-        </>
-      ),
+      title: "Account",
+      dataIndex: "account",
     },
     {
       title: "Date Registered",
       dataIndex: "date",
     },
   ];
-  
+
   return (
     <div className="flex flex-col bg-white rounded-md">
       <div className="grid grid-cols-4 gap-6 mx-2 my-3">
         <div className="col-span-1 justify-start">
-          <p className="text-xl text-medium text-black">30,000 Users</p>
+          <p className="text-xl text-medium text-black">30,000 Requests</p>
         </div>
         <div className="col-span-3">
           <div className="flex justify-end">
@@ -145,12 +129,12 @@ export default function Business() {
                 <option>50</option>
               </select>
             </Button>
-            <Button className="py-1 px-5 mr-2">
+            {/* <Button className="py-1 px-5 mr-2">
               <FilterIcon /> Filters
             </Button>
             <Button className="mr-2 rounded-md bg-[#3838F0] text-white py-1 px-5">
               Invite User
-            </Button>
+            </Button> */}
             <Button className="mr-2 rounded-md bg-[#3838F0] text-white py-1 px-5">
               <PlusOutlined className="text-white" /> Export <ArrowUp />
             </Button>

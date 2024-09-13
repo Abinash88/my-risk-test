@@ -1,9 +1,7 @@
 import { Button, Divider, Input, Table, TableColumnsType } from "antd";
 import React, { useState } from "react";
 import { PlusOutlined, SearchOutlined } from "@ant-design/icons";
-import { ArrowUp, CheckCircle, FilterIcon, Verified } from "lucide-react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { ArrowUp, FilterIcon, Verified } from "lucide-react";
 
 const users = [
   {
@@ -88,7 +86,7 @@ const users = [
   },
 ];
 
-export default function Business() {
+export default function Professional() {
   const columns: TableColumnsType<any> = [
     {
       title: "Name",

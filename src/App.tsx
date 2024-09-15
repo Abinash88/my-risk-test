@@ -48,6 +48,8 @@ import VerificationRequest from "./components/AdminDashboard/Verification/index"
 import AdminUserComponent from "./components/AdminDashboard/User/index";
 import UserDetail from "./components/AdminDashboard/User/UserDetail/UserDetail";
 import LandingPageContentSettings from "./components/AdminDashboard/ContentSetting/LandingPage";
+import EditSection from "./components/AdminDashboard/ContentSetting/LandingPage/Links/Edit";
+import MenuContentSettings from "./components/AdminDashboard/ContentSetting/Menus";
 
 const App = () => {
   return (
@@ -124,7 +126,15 @@ const App = () => {
             path="/admin/dashboard/content-setting/landing-page"
             element={<LandingPageContentSettings />}
           />
+          <Route
+            path="/admin/dashboard/content-setting/landing-page/image-edit/:id"
+            element={<EditSection />}
+          />
 
+          <Route
+            path="/admin/dashboard/content-setting/menu"
+            element={<MenuContentSettings />}
+          />
           {/* </Route> */}
         </Route>
 

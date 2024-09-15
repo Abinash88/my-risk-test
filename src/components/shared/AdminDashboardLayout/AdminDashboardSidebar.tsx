@@ -6,8 +6,12 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowRightFromBracket,
+  faChevronDown,
+  faChevronRight,
+  faChevronUp,
   faClose,
 } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
 
 const AdminDashboardSidebar = ({
   setOpenSidebar,
@@ -48,16 +52,53 @@ const AdminDashboardSidebar = ({
 function SidebarLink({ item }: any) {
   const { pathname } = useLocation();
   const isActive = pathname === item.path || pathname.startsWith(item.path);
+  const [isOpen, setIsOpen] = useState(false); // State to track if child items are open
+
+  const hasChildren = item.child && item.child.length > 0;
+
+  const handleToggle = () => {
+    if (hasChildren) {
+      setIsOpen(!isOpen);
+    }
+  };
+
   return (
-    <Link
-      to={item.path}
-      className={`flex items-center gap-2 font-[300] px-4 py-1 hover:bg-[#000080c8] hover:text-white hover:no-underline active:bg-[#000080] rounded-lg  ${
-        isActive ? "bg-[#000080] text-white" : "text-white"
-      }`}
-    >
-      <span className="text-lg">{item.icon}</span>
-      {item.label}
-    </Link>
+    <>
+      <div
+        className={`flex items-center justify-between gap-2 font-[300] px-4 py-1 hover:bg-[#000080c8] hover:text-white hover:no-underline active:bg-[#000080] rounded-lg cursor-pointer ${
+          isActive ? "bg-[#000080] text-white" : "text-white"
+        }`}
+        onClick={handleToggle} // Toggle child dropdown on click
+      >
+        <div className="flex items-center gap-2">
+          <span className="text-lg">{item.icon}</span>
+          {item.label}
+        </div>
+        {hasChildren && (
+          <FontAwesomeIcon icon={isOpen ? faChevronDown : faChevronUp} />
+        )}
+      </div>
+
+      {/* Render child links if isOpen */}
+      {hasChildren && isOpen && (
+        <div className="pl-8">
+          {item.child.map((childItem: any) => (
+            <Link
+              key={childItem.key}
+              to={childItem.path}
+              className={`flex items-center gap-2 font-[300] px-4 py-1 hover:bg-[#000080c8] hover:text-white hover:no-underline active:bg-[#000080] rounded-lg ${
+                pathname === childItem.path ? "bg-[#000080] text-white" : "text-white"
+              }`}
+            >
+              {/* <span className="text-lg">{childItem.icon}</span> */}
+              {childItem.label}
+            </Link>
+          ))}
+        </div>
+      )}
+    </>
   );
 }
+
+
 export default AdminDashboardSidebar;

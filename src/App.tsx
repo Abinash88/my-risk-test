@@ -47,6 +47,7 @@ import IndexAdminDashboard from "./components/AdminDashboard";
 import VerificationRequest from "./components/AdminDashboard/Verification/index";
 import AdminUserComponent from "./components/AdminDashboard/User/index";
 import UserDetail from "./components/AdminDashboard/User/UserDetail/UserDetail";
+import LandingPageContentSettings from "./components/AdminDashboard/ContentSetting/LandingPage";
 
 const App = () => {
   return (
@@ -108,13 +109,22 @@ const App = () => {
         </Route>
         <Route path="/" element={<AdminDashboardLayout />}>
           {/* <Route path="/admin/dashboard/" element={<AdminDashboardLayout />}> */}
-            <Route path="" element={<IndexAdminDashboard />} />
-            <Route
-              path="/admin/dashboard/verification-request"
-              element={<VerificationRequest />}
-            />
-            <Route path="/admin/dashboard/user" element={<AdminUserComponent />} />
-            <Route path="/admin/dashboard/user/:id" element={<UserDetail />} />
+          <Route path="" element={<IndexAdminDashboard />} />
+          <Route
+            path="/admin/dashboard/verification-request"
+            element={<VerificationRequest />}
+          />
+          <Route
+            path="/admin/dashboard/user"
+            element={<AdminUserComponent />}
+          />
+          <Route path="/admin/dashboard/user/:id" element={<UserDetail />} />
+
+          <Route
+            path="/admin/dashboard/content-setting/landing-page"
+            element={<LandingPageContentSettings />}
+          />
+
           {/* </Route> */}
         </Route>
 

@@ -112,6 +112,23 @@ export const ADMIN_DASHBOARD_SIDEBAR_LINKS = [
     label: "Content Settings",
     path: "/admin/dashboard/content-setting",
     icon: <FontAwesomeIcon icon={faPaperPlane} />,
+    child: [
+      {
+        key: "Landing Pages",
+        label: "Landing Pages",
+        path: "/admin/dashboard/content-setting/landing-page",
+      },
+      {
+        key: "Menus",
+        label: "Menus",
+        path: "/admin/dashboard/content-setting/menu",
+      },
+      {
+        key: "Footers",
+        label: "Footers",
+        path: "/admin/dashboard/content-setting/footer",
+      },
+    ],
   },
   {
     key: "AI Providers",

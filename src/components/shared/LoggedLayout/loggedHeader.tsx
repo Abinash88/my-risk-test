@@ -18,7 +18,7 @@ const LoggedHeader = () => {
 				<img
 					src="/images/logo.png"
 					alt="logo"
-					className="w-[8rem] md:w-[12rem]"
+					className="w-[8rem] md:w-[12rem] scale-90"
 				/>
 			</Link>
 

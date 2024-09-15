@@ -44,7 +44,7 @@ import Map from "./components/LandingPage/Map";
 import DownloadedRisk from "./components/LandingPage/GeneralRisk/GeneralRiskPages/DownloadedRisk";
 import AdminDashboardLayout from "./components/shared/AdminDashboardLayout/AdminDashboardLayout";
 import IndexAdminDashboard from "./components/AdminDashboard";
-import VerificationRequest from "./components/AdminDashboard/VerificationRequest";
+import VerificationRequest from "./components/AdminDashboard/Verification/index";
 import AdminUserComponent from "./components/AdminDashboard/User/index";
 import UserDetail from "./components/AdminDashboard/User/UserDetail/UserDetail";
 
@@ -54,7 +54,7 @@ const App = () => {
       <Routes>
         <Route path="/risk-downloaded" element={<DownloadedRisk />} />
 
-        <Route path="/" element={<HomeLayout />}>
+        {/* <Route path="/" element={<HomeLayout />}>
           <Route index={true} element={<LandingPage />} />
           <Route path="/service" element={<OurService />} />
           <Route path="/premium" element={<OurPremium />} />
@@ -78,7 +78,7 @@ const App = () => {
           <Route path="/general-risk" element={<GeneralRisk />} />
           <Route path="/risk-profile" element={<RiskProfile />} />
           <Route path="/map" element={<Map />} />
-        </Route>
+        </Route> */}
         <Route path="/auth" element={<AuthLayout />}>
           <Route index={true} element={<Auth />} />
           <Route path="login" element={<Login />} />
@@ -106,14 +106,16 @@ const App = () => {
           <Route path="general-setting/:edit-team" element={<EditTeam />} />
           <Route path="verification" element={<Verification />} />
         </Route>
-        <Route path="/admin/dashboard/" element={<AdminDashboardLayout />}>
-          <Route path="" element={<IndexAdminDashboard />} />
-          <Route
-            path="verification-request"
-            element={<VerificationRequest />}
-          />
-          <Route path="user" element={<AdminUserComponent />} />
-          <Route path="user/:id" element={<UserDetail />} />
+        <Route path="/" element={<AdminDashboardLayout />}>
+          {/* <Route path="/admin/dashboard/" element={<AdminDashboardLayout />}> */}
+            <Route path="" element={<IndexAdminDashboard />} />
+            <Route
+              path="/admin/dashboard/verification-request"
+              element={<VerificationRequest />}
+            />
+            <Route path="/admin/dashboard/user" element={<AdminUserComponent />} />
+            <Route path="/admin/dashboard/user/:id" element={<UserDetail />} />
+          {/* </Route> */}
         </Route>
 
         <Route path="*" element={<ErrorPage />} />

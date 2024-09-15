@@ -10,7 +10,7 @@ const Header = () => {
 		setNav(!nav);
 	};
 	return (
-		<div className="bg-white shadow-lg px-[2rem] lg:px-[4rem] py-[1rem] flex justify-between items-center gap-4 w-full ">
+		<div className="fixed z-10 bg-white shadow-lg px-[2rem] lg:px-[4rem] py-[1rem] flex justify-between items-center gap-4 w-full ">
 			<Link to="/">
 				<img
 					src="images/logo.png"

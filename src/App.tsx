@@ -41,6 +41,8 @@ import StepsSection from "./components/Dashboard/ManageRIsk/CommentModal/steps";
 import OurWorks from "./components/LandingPage/mainPage/OurWorks";
 import { Upload } from "./components/LandingPage/mainPage/Upload";
 import Map from "./components/LandingPage/Map";
+import BusinessRegister from "./components/AuthPages/Business/Register";
+import ProfessionalRegister from "./components/AuthPages/Professional/Register";
 
 const App = () => {
 	return (
@@ -73,6 +75,8 @@ const App = () => {
 				</Route>
 				<Route path="/auth" element={<AuthLayout />}>
 					<Route index={true} element={<Auth />} />
+					<Route path="business" element={<BusinessRegister />} />
+					<Route path="professional" element={<ProfessionalRegister />} />
 					<Route path="login" element={<Login />} />
 					<Route path="forgot-password" element={<PasswordResetPage />} />
 				</Route>

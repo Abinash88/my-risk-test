@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { RegContainer } from "@/components/shared/ReuseAble";
 import PageOne from "./PageOne";
 import PageTwo from "./PageTwo";
@@ -6,6 +6,17 @@ import ProgressBar from "./ProgressBar";
 import PageThree from "./PageThree";
 
 const ProfessionalRegister = () => {
+	
+	const goToTop = () => {
+		window.scrollTo({
+		  top: 0,
+		  behavior: "smooth",
+		});
+	  };
+	
+	  useEffect(() => {
+		goToTop();
+	  }, []);
 	const [currentStep, setCurrentStep] = useState(1);
 
 	const handleNextStep = () => {

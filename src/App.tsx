@@ -50,6 +50,9 @@ import UserDetail from "./components/AdminDashboard/User/UserDetail/UserDetail";
 import LandingPageContentSettings from "./components/AdminDashboard/ContentSetting/LandingPage";
 import EditSection from "./components/AdminDashboard/ContentSetting/LandingPage/Links/Edit";
 import MenuContentSettings from "./components/AdminDashboard/ContentSetting/Menus";
+import FooterContentSettings from "./components/AdminDashboard/ContentSetting/Footer";
+import DuplicatePage from "./components/AdminDashboard/ContentSetting/Footer/Active/DuplicatePage";
+import AIProviders from './components/AdminDashboard/AIProviders'
 
 const App = () => {
   return (
@@ -134,6 +137,18 @@ const App = () => {
           <Route
             path="/admin/dashboard/content-setting/menu"
             element={<MenuContentSettings />}
+          />
+          <Route
+            path="/admin/dashboard/content-setting/footer"
+            element={<FooterContentSettings />}
+          />
+          <Route
+            path="/admin/dashboard/content-setting/footer/duplicate"
+            element={<DuplicatePage />}
+          />
+          <Route
+            path="/admin/dashboard/ai-providers"
+            element={<AIProviders />}
           />
           {/* </Route> */}
         </Route>

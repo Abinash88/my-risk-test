@@ -70,10 +70,23 @@ function SidebarLink({ item }: any) {
         }`}
         onClick={handleToggle} // Toggle child dropdown on click
       >
-        <div className="flex items-center gap-2">
-          <span className="text-lg">{item.icon}</span>
-          {item.label}
-        </div>
+        {hasChildren ? (
+          <div className="flex items-center gap-2">
+            <span className="text-lg">{item.icon}</span>
+            {item.label}
+          </div>
+        ) : (
+          <Link
+            key={item.key}
+            to={item.path}
+            className={`flex items-center gap-2 font-[300] px-4 py-1 hover:bg-[#000080c8] hover:text-white hover:no-underline active:bg-[#000080] rounded-lg ${
+              pathname === item.path ? "bg-[#000080] text-white" : "text-white"
+            }`}
+          >
+            <span className="text-lg">{item.icon}</span>
+            {item.label}
+          </Link>
+        )}
         {hasChildren && (
           <FontAwesomeIcon icon={isOpen ? faChevronDown : faChevronUp} />
         )}
@@ -87,7 +100,9 @@ function SidebarLink({ item }: any) {
               key={childItem.key}
               to={childItem.path}
               className={`flex items-center gap-2 font-[300] px-4 py-1 hover:bg-[#000080c8] hover:text-white hover:no-underline active:bg-[#000080] rounded-lg ${
-                pathname === childItem.path ? "bg-[#000080] text-white" : "text-white"
+                pathname === childItem.path
+                  ? "bg-[#000080] text-white"
+                  : "text-white"
               }`}
             >
               {/* <span className="text-lg">{childItem.icon}</span> */}
@@ -99,6 +114,5 @@ function SidebarLink({ item }: any) {
     </>
   );
 }
-
 
 export default AdminDashboardSidebar;

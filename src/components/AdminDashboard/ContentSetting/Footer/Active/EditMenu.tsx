@@ -35,10 +35,10 @@ export default function EditMenu() {
         className="mr-3 rounded-md px-6 py-2 text-white bg-[#000080]"
         onClick={showSelectionModal}
       >
-        Edit Menu
+        Edit Footer
       </button>
       <Modal
-        title="Select Menu To Edit"
+        title="Select Footer To Edit"
         open={openSelection}
         onOk={handleSelectionOk}
         // confirmLoading={confirmLoading}
@@ -118,11 +118,11 @@ export default function EditMenu() {
             }}
           >
             <Form.Item label="Menu Title" name="menu_title">
-              <Input className="p-2 bg-[#F9F9F9]" placeholder="Menu Title" />
+              <Input className="p-2 bg-[#EEF5F9]" placeholder="Menu Title" />
             </Form.Item>
             <Form.Item label="Link(available)" name="link">
               <Input
-                className="p-2 bg-[#F9F9F9]"
+                className="p-2 bg-[#EEF5F9]"
                 placeholder="Enter link/url"
               />
             </Form.Item>

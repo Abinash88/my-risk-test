@@ -38,6 +38,19 @@ const aiProviders = [
 ];
 
 export default function index() {
+  const [open, setOpen] = useState(false);
+  const showModal = () => {
+    console.log("clicked")
+    setOpen(true);
+  };
+
+  const handleOk = () => {
+    setOpen(false);
+  };
+
+  const handleCancel = () => {
+    setOpen(false);
+  };
   const columns: TableColumnsType<any> = [
     {
       title: "AI Provider Name",
@@ -76,11 +89,7 @@ export default function index() {
     {
       title: "Action",
       render: (value, record) => (
-        <Button
-          type="primary"
-          danger
-          //   onClick={showModal}
-        >
+        <Button type="primary" danger onClick={showModal}>
           Remove
         </Button>
       ),
@@ -138,46 +147,39 @@ export default function index() {
           className="rounded-md border border-grey mb-3"
         />
       </div>
-      {/* <Modal
+
+      <Modal
         title={
           <div className="flex items-center">
             <Warning className="mr-3 text-[#FF4949] bg-[#FFE5E5] w-7 h-7 p-1 rounded-full" />
-            <p>Decline Verification</p>
+            <p>Remove AI Provider</p>
           </div>
         }
-        open={openApprove}
-        onOk={handleApproveOk}
-        onCancel={handleApproveCancel}
+        open={open}
+        onOk={handleOk}
+        // confirmLoading={confirmLoading}
+        onCancel={handleCancel}
+        // okButtonProps={{ title: "Suspend" }}
+        // cancelButtonProps={{ disabled: true }}
         footer={[
           <>
-             <Button onClick={handleApproveCancel}>Cancel</Button> 
+            <Button onClick={handleCancel}>Cancel</Button>
             <Button
-              className="text-white w-full px-2 py-5 mx-3 bg-indigo-600 text-white text-lg rounded-md hover:bg-indigo-700"
-              onClick={handleApproveCancel}
+              type="primary"
+              danger
+              className="text-white"
+              onClick={handleOk}
             >
-              Okay!
+              Remove
             </Button>
           </>,
         ]}
       >
-        <div className="text-center">
-          <div className="flex justify-center mb-4">
-            <FontAwesomeIcon
-              icon={faCheckCircle}
-              className="text-indigo-500"
-              size="4x"
-            />
-          </div>
-          <h2 className="text-xl font-semibold mb-2">
-            Verification Request Approved
-          </h2>
-          <p className="text-gray-600 mb-6">
-            You have successfully approved verification for{" "}
-            <span className="text-indigo-600 font-medium">Taofeeq Moha</span>
-          </p>
-          
-        </div>
-      </Modal> */}
+        <p className="py-3">
+          Are you sure you want to remove this AI provider? Removing this AI
+          provider will permanently erase it from the system.
+        </p>
+      </Modal>
     </div>
   );
 }

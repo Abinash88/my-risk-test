@@ -38,9 +38,11 @@ const aiProviders = [
 ];
 
 export default function index() {
+  const [type, setType] = useState("public");
+
   const [open, setOpen] = useState(false);
   const showModal = () => {
-    console.log("clicked")
+    console.log("clicked");
     setOpen(true);
   };
 
@@ -134,6 +136,30 @@ export default function index() {
             placeholder="Search"
           />
           <AddAIProvider />
+        </div>
+      </div>
+      <div className="flex flex-col">
+        <div className=" flex justify-around">
+          <button
+            className={`${
+              type == "public"
+                ? "bg-[#000080] text-white"
+                : "bg-white text-black"
+            } rounded-lg w-1/5 py-3 shadow-md`}
+            onClick={() => setType("public")}
+          >
+            Public T & O Standing
+          </button>
+          <button
+            className={`${
+              type == "private"
+                ? "bg-[#000080] text-white"
+                : "bg-white text-black"
+            } rounded-lg w-1/5 py-3 shadow-md`}
+            onClick={() => setType("private")}
+          >
+            Private T & O Standing
+          </button>
         </div>
       </div>
       <div className=" mt-3 mx-2">

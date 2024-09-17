@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Pages from "./Pages";
-import MenuHeaders from "./MenuHeaders";
+import FooterHeaders from "./FooterHeaders";
 
 export default function index() {
   const [type, setType] = useState("pages");
@@ -18,17 +18,17 @@ export default function index() {
         </button>
         <button
           className={`${
-            type == "menu_headers"
+            type == "footer_headers"
               ? "bg-[#000080] text-white"
               : "bg-white text-black"
           } rounded-lg w-1/5 py-3 shadow-md`}
-          onClick={() => setType("menu_headers")}
+          onClick={() => setType("footer_headers")}
         >
-          Menu Headers
+          Footer Headers
         </button>
       </div>
       {type == "pages" && <Pages />}
-      {type == "menu_headers" && <MenuHeaders />}
+      {type == "footer_headers" && <FooterHeaders />}
     </div>
   );
 }

@@ -53,6 +53,7 @@ import MenuContentSettings from "./components/AdminDashboard/ContentSetting/Menu
 import FooterContentSettings from "./components/AdminDashboard/ContentSetting/Footer";
 import DuplicatePage from "./components/AdminDashboard/ContentSetting/Footer/Active/DuplicatePage";
 import AIProviders from './components/AdminDashboard/AIProviders'
+import Standings from './components/AdminDashboard/TAndOStanding'
 
 const App = () => {
   return (
@@ -149,6 +150,10 @@ const App = () => {
           <Route
             path="/admin/dashboard/ai-providers"
             element={<AIProviders />}
+          />
+          <Route
+            path="/admin/dashboard/standings"
+            element={<Standings />}
           />
           {/* </Route> */}
         </Route>

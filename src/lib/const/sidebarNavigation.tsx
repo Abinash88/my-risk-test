@@ -139,7 +139,7 @@ export const ADMIN_DASHBOARD_SIDEBAR_LINKS = [
   {
     key: "T&O Standings",
     label: "T&O Standings",
-    path: "/admin/dashboard/to-standings",
+    path: "/admin/dashboard/standings",
     icon: <FontAwesomeIcon icon={faPaperPlane} />,
   },
   {

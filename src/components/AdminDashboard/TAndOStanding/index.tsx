@@ -1,7 +1,13 @@
 import { SearchOutlined } from "@ant-design/icons";
-import { Button, Input, Table, TableColumnsType } from "antd";
-import React from "react";
+import { Button, Input, Select, Table, TableColumnsType } from "antd";
+import React, { useState } from "react";
 import AddTAndOStanding from "./AddTAndOStanding";
+import { truncateText } from "@/lib/utils";
+import PauseVisibility from "./PauseVisibility";
+import RemoveRisk from "./RemoveRisk";
+import RepostRisk from "./RepostRisk";
+import Public from "./Public";
+import Private from "./Private";
 
 const risks = [
   {
@@ -9,27 +15,30 @@ const risks = [
     vote: "",
     title: "lorem ipsum",
     description: "lorem ipsum",
-    rating: "",
-    up_vote: 3000,
-    down_vote: 299090,
-    date: "Jul 24, 2024 - 10:35AM",
-    duration: 3,
-    status: "Active",
-  },{
-    rank: 2,
-    vote: "",
-    title: "lorem ipsum",
-    description: "lorem ipsum",
-    rating: "",
+    rating: 99,
     up_vote: 3000,
     down_vote: 299090,
     date: "Jul 24, 2024 - 10:35AM",
     duration: 3,
     status: "Active",
   },
+  {
+    rank: 2,
+    vote: "",
+    title: "lorem ipsum",
+    description: "lorem ipsum",
+    rating: 80,
+    up_vote: 3000,
+    down_vote: 299090,
+    date: "Jul 24, 2024 - 10:35AM",
+    duration: 3,
+    status: "Closed",
+  },
 ];
 
 export default function index() {
+  const [type, setType] = useState("public");
+
   const columns: TableColumnsType<any> = [
     {
       title: "Rank",
@@ -54,19 +63,23 @@ export default function index() {
       //   width: "200px",
       render: (value, record) => (
         <div className="flex flex-col">
-          <div className="flex">
-            <p>Risk Title</p>
-            <p>{record.title}</p>
+          <div className="flex items-center">
+            <p className="font-semibold">Risk Title</p>
+            <p className="ml-1">{record.title}</p>
           </div>
-          <p>{record.description}</p>
-          <p>View all comments</p>
+          <p className="flex">
+            {truncateText(record.description, 15)}{" "}
+            <span className="text-[#D9D9D9]">more</span>
+          </p>
+          <p className="text-[#D9D9D9]">View all comments</p>
         </div>
       ),
     },
     {
       title: "Risk Rating",
       dataIndex: "rating",
-      //   width: "200px",
+      width: "100px",
+      className: "bg-[#540303] text-white",
       render: (value, record) => (
         <>
           <p>{value} %</p>
@@ -85,18 +98,27 @@ export default function index() {
       title: "Admin Control",
       render: (value, record) => (
         <div className="flex flex-col">
-          <div className="flex">
-            <p>Posted:</p>
+          <div className="flex items-center">
+            <p className="font-semibold mr-2">Posted:</p>
             <p>{record.date}</p>
           </div>
           <div className="flex">
-            <p>Duration:</p>
+            <p className="font-semibold mr-2">Duration:</p>
             <p>{record.duration} Weeks</p>
           </div>
           <p>{record.status}</p>
           <div className="flex justify-between">
-            <button>Pause Visibility</button>
-            <button>Remove Risk</button>
+            {record.status == "Active" && (
+              <>
+                <PauseVisibility />
+                <RemoveRisk />
+              </>
+            )}
+            {record.status == "Closed" && (
+              <>
+                <RepostRisk />
+              </>
+            )}
           </div>
         </div>
       ),
@@ -104,7 +126,7 @@ export default function index() {
   ];
 
   return (
-    <div className="flex flex-col bg-white rounded-lg mt-5">
+    <div className="flex flex-col bg-[#FAFAFA] rounded-lg mt-5">
       <div className="w-full flex items-center p-5">
         <p className="text-xl text-medium text-black">3,400 Risks</p>
         <div className="flex ml-auto">
@@ -116,13 +138,45 @@ export default function index() {
           <AddTAndOStanding />
         </div>
       </div>
-      <div></div>
-      <div className=" mt-3 mx-2">
-        <Table
-          columns={columns}
-          dataSource={risks}
-          className="rounded-md border border-grey mb-3"
-        />
+      <div className="bg-white m-3">
+        <div className="flex flex-col">
+          <div className=" flex justify-around items-center">
+            <button
+              className={`${
+                type == "public"
+                  ? "bg-[#000080] text-white"
+                  : "bg-white text-black"
+              } rounded-lg w-1/5 py-3 shadow-md`}
+              onClick={() => setType("public")}
+            >
+              Public T & O Standing
+            </button>
+            <button
+              className={`${
+                type == "private"
+                  ? "bg-[#000080] text-white"
+                  : "bg-white text-black"
+              } rounded-lg w-1/5 py-3 shadow-md`}
+              onClick={() => setType("private")}
+            >
+              Private T & O Standing
+            </button>
+            <Select
+              defaultValue="Filter By"
+              className="h-10 w-32"
+              // onChange={}
+              options={[
+                { value: "Sectors", label: "Sectors" },
+                { value: "Risk Status", label: "Risk Status" },
+                { value: "Exposure  Date", label: "Exposure  Date" },
+                { value: "Country", label: "Country" },
+                { value: "Risk Rating", label: "Risk Rating" },
+              ]}
+            />
+          </div>
+        </div>
+        {type == "public" && <Public />}
+        {type == "private" && <Private />}
       </div>
 
       {/* <Modal

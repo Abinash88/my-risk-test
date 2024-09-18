@@ -143,9 +143,9 @@ export const ADMIN_DASHBOARD_SIDEBAR_LINKS = [
     icon: <FontAwesomeIcon icon={faPaperPlane} />,
   },
   {
-    key: "T&O Groups",
-    label: "T&O Groups",
-    path: "/admin/dashboard/to-groups",
+    key: "T/O Groups",
+    label: "T/O Groups",
+    path: "/admin/dashboard/groups",
     icon: <FontAwesomeIcon icon={faUserGroup} />,
   },
   {

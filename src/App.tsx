@@ -54,6 +54,7 @@ import FooterContentSettings from "./components/AdminDashboard/ContentSetting/Fo
 import DuplicatePage from "./components/AdminDashboard/ContentSetting/Footer/Active/DuplicatePage";
 import AIProviders from './components/AdminDashboard/AIProviders'
 import Standings from './components/AdminDashboard/TAndOStanding'
+import Groups from './components/AdminDashboard/Groups'
 
 const App = () => {
   return (
@@ -154,7 +155,10 @@ const App = () => {
           <Route
             path="/admin/dashboard/standings"
             element={<Standings />}
-          />
+          /> <Route
+          path="/admin/dashboard/groups"
+          element={<Groups />}
+        />
           {/* </Route> */}
         </Route>
 

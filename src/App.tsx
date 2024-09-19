@@ -52,9 +52,11 @@ import EditSection from "./components/AdminDashboard/ContentSetting/LandingPage/
 import MenuContentSettings from "./components/AdminDashboard/ContentSetting/Menus";
 import FooterContentSettings from "./components/AdminDashboard/ContentSetting/Footer";
 import DuplicatePage from "./components/AdminDashboard/ContentSetting/Footer/Active/DuplicatePage";
-import AIProviders from './components/AdminDashboard/AIProviders'
-import Standings from './components/AdminDashboard/TAndOStanding'
-import Groups from './components/AdminDashboard/Groups'
+import AIProviders from "./components/AdminDashboard/AIProviders";
+import Standings from "./components/AdminDashboard/TAndOStanding";
+import Groups from "./components/AdminDashboard/Groups";
+import Communications from "./components/AdminDashboard/Communications";
+import Locations from './components/AdminDashboard/Locations'
 
 const App = () => {
   return (
@@ -152,13 +154,11 @@ const App = () => {
             path="/admin/dashboard/ai-providers"
             element={<AIProviders />}
           />
-          <Route
-            path="/admin/dashboard/standings"
-            element={<Standings />}
-          /> <Route
-          path="/admin/dashboard/groups"
-          element={<Groups />}
-        />
+          <Route path="/admin/dashboard/standings" element={<Standings />} />
+          <Route path="/admin/dashboard/groups" element={<Groups />} />
+          <Route path="/admin/dashboard/communications" element={<Communications />} />
+          <Route path="/admin/dashboard/locations" element={<Locations />} />
+
           {/* </Route> */}
         </Route>
 

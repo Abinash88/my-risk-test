@@ -79,7 +79,7 @@ function SidebarLink({ item }: any) {
           <Link
             key={item.key}
             to={item.path}
-            className={`flex items-center gap-2 font-[300] px-4 py-1 hover:bg-[#000080c8] hover:text-white hover:no-underline active:bg-[#000080] rounded-lg ${
+            className={`flex items-center gap-2 font-[300]  py-1 hover:bg-[#000080c8] hover:text-white hover:no-underline active:bg-[#000080] rounded-lg ${
               pathname === item.path ? "bg-[#000080] text-white" : "text-white"
             }`}
           >

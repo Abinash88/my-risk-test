@@ -15,10 +15,10 @@ interface teamProps {
   close?: () => void;
 }
 
-const AddGroupModal = ({ open, close }: teamProps) => {
+const InviteMembers = ({ open, close }: teamProps) => {
   return (
     <AlertDialog open={open}>
-      <AlertDialogContent className="scale-75">
+      <AlertDialogContent className="scale-[80%]">
         <AlertDialogHeader>
           <AlertDialogTitle className="flex  items-center justify-between pb-2 mb-2">
             <div className="w-2" />
@@ -33,53 +33,58 @@ const AddGroupModal = ({ open, close }: teamProps) => {
             </AlertDialogAction>
           </AlertDialogTitle>
           <p className="font-[600] pb-6 border-b border-b-[rgba(0,0,0,0.59)] text-[#000080] text-center">
-            Create Private Group
+            Invite Participants
           </p>
-          {/* <AlertDialogTitle className="flex items-center justify-between border-b border-b-[rgba(0,0,0,0.59)] pb-2 mb-9">
-            <p className="font-[600] text-[#000080]">Create Private Group</p>
-
-            <AlertDialogAction className="bg-transparent hover:bg-transparent">
-              <X
-                size={20}
-                color="#fff"
-                className=" bg-[#6666B3] rounded-full h-8 w-8 p-1 "
-                onClick={close}
-              />
-            </AlertDialogAction>
-          </AlertDialogTitle> */}
-          <div className="h-8"/>
-          <AlertDialogDescription className="text-md mt-8 flex-col">
+          <AlertDialogDescription className="text-md mt-2 flex-col">
+            <div className="flex flex-row ml-[-20px] justify-evenly mb-8">
+              <div>
+                <label htmlFor="invite" className="mt-4 block">
+                  First Name
+                </label>
+                <input
+                  id="invite"
+                  type="email"
+                  className="p-3 border border-[rgba(0,0,0,0.59)] block w-52 rounded-lg mt-3 outline-none"
+                />
+              </div>
+              <div>
+                <label htmlFor="invite" className="mt-4 block">
+                  Last name
+                </label>
+                <input
+                  id="invite"
+                  type="email"
+                  className="p-3 border border-[rgba(0,0,0,0.59)] block w-52 rounded-lg mt-3 outline-none"
+                />
+              </div>
+            </div>
             <>
-              <label htmlFor="name">Name Group</label>
+              <label htmlFor="name">Email</label>
               <input
                 id="name"
                 type="text"
-                className="p-3 border text-md border-[rgba(0,0,0,0.59)] block w-full rounded-lg mt-3 outline-none"
-              />
-            </>
-            <>
-              <label htmlFor="invite" className="mt-4 block">
-                Invite Participant via Email
-              </label>
-              <input
-                id="invite"
-                type="email"
                 className="p-3 border border-[rgba(0,0,0,0.59)] block w-full rounded-lg mt-3 outline-none"
               />
             </>
           </AlertDialogDescription>
         </AlertDialogHeader>
-        <AlertDialogFooter>
+        <AlertDialogFooter className="flex justify-center mt-2">
           <AlertDialogAction
             onClick={close}
-            className="py-3 px-4 w-[40%] bg-[#000080] text-white rounded-lg hover:bg-[#000080]"
+            className="py-3 mt-8 px-4 w-[40%] bg-[#000080] text-white rounded-lg hover:bg-[#000080]"
           >
-            Create Group
+            Invite Participant
           </AlertDialogAction>
         </AlertDialogFooter>
+        <p
+          className="font-[600] text-[#000080] text-center"
+          style={{ textShadow: "2px 2px lightblue" }}
+        >
+          T&C Applies
+        </p>
       </AlertDialogContent>
     </AlertDialog>
   );
 };
 
-export default AddGroupModal;
+export default InviteMembers;

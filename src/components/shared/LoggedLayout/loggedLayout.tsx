@@ -11,10 +11,10 @@ const LoggedLayout = () => {
       <div className="flex flex-row h-[100vh] overflow-hidden">
         <LoggedSidebar />
 		
-        <div className="w-2/12 mb-10"></div>
-        <div className="nobar ml-10 mt-[-15px] flex-1 p-4 pb-56 lg:p-[4rem] h-[100vh] overflow-y-auto bg-[#F3F3F3]">
+        <div className="invisible lg:visible lg:w-2/12 lg:mb-10"></div>
+        <div className="nobar lg:ml-10 lg:mt-[-30px] flex-1 p-4 pb-56 lg:p-[4rem] lg:h-[110vh] overflow-y-auto bg-[#F3F3F3]">
           {<Outlet />}
-          <div className="h-20" />
+          <div className="lg:h-20" />
         </div>
       </div>
       <Footer />

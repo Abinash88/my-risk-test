@@ -19,11 +19,11 @@ const LoggedHeader = () => {
           <img
             src="/images/logo.png"
             alt="logo"
-            className="w-[8rem] scale-[80%] md:w-[12rem]"
+            className=" w-[8rem] scale-[80%] md:w-[12rem]"
           />
         </Link>
       </div>
-      <div className="w-[60%]">
+      <div className="lg:w-[60%]">
         <ul className="text-black hidden md:flex items-center justify-center gap-6 lg:gap-8 ml-8 ">
           {navItems.map((item) => (
             <li key={item.id}>
@@ -32,7 +32,7 @@ const LoggedHeader = () => {
           ))}
         </ul>
       </div>
-      <div className="scale-75 flex">
+      <div className="lg:scale-75 flex">
         <div onClick={handleNav} className="hidden">
           {nav ? (
             <FontAwesomeIcon
@@ -54,14 +54,14 @@ const LoggedHeader = () => {
           }
         >
           {/* Mobile Logo */}
-          <Link to="/">
+          {/* <Link to="/">
             {" "}
             <img
               src="/images/logo.png"
               alt="logo"
-              className="w-[10rem] md:hidden lg:hidden mt-3 ml-4 mb-6"
+              className="w-56 md:hidden lg:hidden mt-3 ml-4 mb-6"
             />
-          </Link>
+          </Link> */}
 
           {/* Mobile Navigation Items */}
           {/* {navItems.map((item) => (

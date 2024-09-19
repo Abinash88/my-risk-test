@@ -1,3 +1,4 @@
+import Notificate from "../assets/images/notificate.jpg"
 export const allrisk = [
 	{
 		title: "Risk title",
@@ -157,6 +158,26 @@ export const notify = [
 	{
 		image: "https://randomuser.me/api/portraits/men/7.jpg",
 		name: "Kelvin57 likes your reply",
+		time: "3 mins ago",
+	},
+	{
+		image: Notificate,
+		name: "Congratulations! You've purchased a new subscription plan. Explore its benefits now.",
+		time: "3 mins ago",
+	},
+	{
+		image: Notificate,
+		name: "Congratulations! You've purchased a new subscription plan. Explore its benefits now.",
+		time: "3 mins ago",
+	},
+	{
+		image: Notificate,
+		name: "Congratulations! You've purchased a new subscription plan. Explore its benefits now.",
+		time: "3 mins ago",
+	},
+	{
+		image: Notificate,
+		name: "Congratulations! You've purchased a new subscription plan. Explore its benefits now.",
 		time: "3 mins ago",
 	},
 	{

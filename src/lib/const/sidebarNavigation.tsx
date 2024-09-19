@@ -4,6 +4,7 @@ import {
 	faCheckDouble,
 	faCircleQuestion,
 	faGear,
+	faHistory,
 	faPenToSquare,
 	faSackDollar,
 	faUser,
@@ -60,6 +61,12 @@ export const DASHBOARD_SIDEBAR_LINKS = [
 		label: "General Settings",
 		path: "/dashboard/general-setting",
 		icon: <FontAwesomeIcon icon={faGear} />,
+	},
+	{
+		key: "Engagement Log",
+		label: "Engagement Log",
+		path: "/dashboard/engagement-log",
+		icon: <FontAwesomeIcon icon={faHistory} />,
 	},
 	{
 		key: "Help Center",

@@ -14,7 +14,7 @@ const LoggedSidebar = () => {
         />
         <h4 className="mt-2 text-md">UtherMatin</h4>
       </div>
-      <div className="py-2 flex scale-90 flex-1 flex-col gap-2">
+      <div className="mt-[-20px] flex scale-90 flex-1 flex-col gap-2">
         {DASHBOARD_SIDEBAR_LINKS.map((item) => (
           <SidebarLink key={item.key} item={item} />
         ))}
@@ -24,7 +24,7 @@ const LoggedSidebar = () => {
           </span>
           Logout
         </div>
-        <div className="h-24" />
+        <div className="h-16" />
 
       </div>
     </div>

@@ -1,0 +1,13 @@
+.nobar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.nobar::-webkit-scrollbar {
+  display: none;
+}
+
+#account-type:after {
+  background-color: white;
+  color:red
+}

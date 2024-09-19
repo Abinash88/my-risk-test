@@ -2,20 +2,24 @@ import { Outlet } from "react-router-dom";
 import LoggedHeader from "./loggedHeader";
 import LoggedSidebar from "./loggedSidebar";
 import Footer from "../HomeLayout/footer";
+import "./forced.css";
 
 const LoggedLayout = () => {
-	return (
-		<div>
-			<LoggedHeader />
-			<div className="flex flex-row h-auto min-h-screen overflow-hidden">
-				<LoggedSidebar />
-				<div className="flex-1 p-4 lg:p-[4rem] min-h-0 overflow-y-auto bg-[#F3F3F3]">
-					{<Outlet />}
-				</div>
-			</div>
-			<Footer />
-		</div>
-	);
+  return (
+    <div>
+      <LoggedHeader />
+      <div className="flex flex-row h-[100vh] overflow-hidden">
+        <LoggedSidebar />
+		
+        <div className="w-2/12 mb-10"></div>
+        <div className="nobar ml-10 mt-[-15px] flex-1 p-4 pb-56 lg:p-[4rem] h-[100vh] overflow-y-auto bg-[#F3F3F3]">
+          {<Outlet />}
+          <div className="h-20" />
+        </div>
+      </div>
+      <Footer />
+    </div>
+  );
 };
 
 export default LoggedLayout;

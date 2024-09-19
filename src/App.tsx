@@ -56,7 +56,8 @@ import AIProviders from "./components/AdminDashboard/AIProviders";
 import Standings from "./components/AdminDashboard/TAndOStanding";
 import Groups from "./components/AdminDashboard/Groups";
 import Communications from "./components/AdminDashboard/Communications";
-import Locations from './components/AdminDashboard/Locations'
+import Locations from "./components/AdminDashboard/Locations";
+import Reports from "./components/AdminDashboard/Reports";
 
 const App = () => {
   return (
@@ -156,8 +157,12 @@ const App = () => {
           />
           <Route path="/admin/dashboard/standings" element={<Standings />} />
           <Route path="/admin/dashboard/groups" element={<Groups />} />
-          <Route path="/admin/dashboard/communications" element={<Communications />} />
+          <Route
+            path="/admin/dashboard/communications"
+            element={<Communications />}
+          />
           <Route path="/admin/dashboard/locations" element={<Locations />} />
+          <Route path="/admin/dashboard/reports" element={<Reports />} />
 
           {/* </Route> */}
         </Route>

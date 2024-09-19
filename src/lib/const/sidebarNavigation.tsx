@@ -10,6 +10,7 @@ import {
   faCircleQuestion,
   faDashboard,
   faDollar,
+  faFileExport,
   faGear,
   faLocation,
   faMessage,
@@ -182,7 +183,7 @@ export const ADMIN_DASHBOARD_SIDEBAR_LINKS = [
     key: "Reports",
     label: "Reports",
     path: "/admin/dashboard/reports",
-    icon: <FontAwesomeIcon icon={faReacteurope} />,
+    icon: <FontAwesomeIcon icon={faFileExport} />,
   },
   {
     key: "Site Settings",

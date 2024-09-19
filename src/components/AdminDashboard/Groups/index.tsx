@@ -14,7 +14,7 @@ export default function index() {
       label: (
         <div className="flex items-center">
           <FontAwesomeIcon icon={faUsers} className="mr-3" />
-          <p>Business</p>
+          <p>All Groups</p>
         </div>
       ),
       children: <AllGroups />,

@@ -5,20 +5,20 @@ import MoreNews from "./MoreNews";
 import News from "./News";
 
 const Blog = () => {
-	return (
-		<div>
-			<BlogHeader
-				title="Blog & Newsroom"
-				text="Generate AI Risk Profile . Engage with T & O Standing"
-				path="/"
-			/>
-			<Container>
-				<BreakingNews />
-				<News />
-				<MoreNews />
-			</Container>
-		</div>
-	);
+  return (
+    <div>
+      <BlogHeader
+        title="Blog & Newsroom"
+        text="Generate AI Risk Profile . Engage with T & O Standing"
+        path="/"
+      />
+      <Container>
+        <BreakingNews />
+        <News />
+        <MoreNews />
+      </Container>
+    </div>
+  );
 };
 
 export default Blog;

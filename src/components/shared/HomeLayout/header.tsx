@@ -1,25 +1,55 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { navItems } from "../../../lib/const/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
+import {
+  faAngleDown,
+  faBars,
+  faXmark,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
   const [nav, setNav] = useState(false);
   const handleNav = () => {
     setNav(!nav);
   };
+  const navigate = useNavigate();
+  const [colorChange, setColorchange] = useState(false);
+  const changeNavbarColor = () => {
+    if (window.scrollY >= 600) {
+      setColorchange(true);
+    } else {
+      setColorchange(false);
+    }
+  };
+  window.addEventListener("scroll", changeNavbarColor);
   return (
-    <div className="fixed z-10 bg-transparent px-[2rem] lg:px-[4rem] py-[1rem] flex justify-between items-center gap-4 w-full ">
+    <div
+      className="fixed z-10 ease-in-out duration-300  bg-transparent px-[2rem] lg:px-[4rem] py-[1rem] flex justify-between items-center gap-4 w-full "
+      style={{ backgroundColor: colorChange ? "white" : "transparent" }}
+    >
       <Link to="/">
-        <img
-          src="images/logo.png"
-          alt="logo"
-          className="w-[10rem] md:w-[12rem]"
-        />
+        <div className="ease-in-out duration-1000 ">
+          {colorChange ? (
+            <img
+              src="images/logo-removebg.png"
+              alt="logo"
+              className="w-[9rem] md:w-[11rem]"
+            />
+          ) : (
+            <img
+              src="images/auth-logo.png"
+              alt="logo"
+              className="w-[10rem] md:w-[12rem]"
+            />
+          )}
+        </div>
       </Link>
 
-      <ul className="text-white font-semibold hidden md:flex items-center justify-center gap-6 lg:gap-8 flex-[2] ">
+      <ul
+        style={{ color: colorChange ? "black" : "white" }}
+        className=" font-medium hidden md:flex items-center justify-center gap-6 lg:gap-8 flex-[2] "
+      >
         {navItems.map((item) => (
           <li key={item.id}>
             <Link to={item.path}>{item.text}</Link>
@@ -27,11 +57,11 @@ const Header = () => {
         ))}
       </ul>
       <div onClick={handleNav} className="block md:hidden">
-        
-          <FontAwesomeIcon
-            icon={faBars}
-            className="text-[2rem] text-white shadow-lg"
-          />
+        <FontAwesomeIcon
+          icon={faBars}
+          className="text-xl text-white shadow-lg"
+          style={{ color: colorChange ? "black" : "white" }}
+        />
       </div>
       <ul
         className={
@@ -45,30 +75,58 @@ const Header = () => {
           <img
             src="images/logo.png"
             alt="logo"
-            className="w-[10rem] mt-3 ml-4 mb-6"
+            className="w-[10rem] mt-8 ml-4 mb-6"
           />
           <div onClick={handleNav} className="block md:hidden">
             <FontAwesomeIcon
               icon={faXmark}
-              className="text-[2rem] text-black z-10 mr-6 mt-3"
+              className="text-[2rem] text-black z-10 mr-6 mt-8"
             />
           </div>
         </div>
 
         {/* Mobile Navigation Items */}
-        {navItems.map((item) => (
-          <li
-            key={item.id}
-            className="text-black py-2 px-4 hover:bg-[#000080] duration-300 hover:text-white cursor-pointe"
-          >
-            <Link to={item.path} onClick={handleNav}>
-              {item.text}
-            </Link>
+
+        <div className="flex gap-6 flex-col mt-6">
+          {navItems.map((item) => (
+            <li
+              key={item.id}
+              className=" w-[100vw]  py-2 px-4  duration-300 hover:text-white"
+            >
+              <div className="py-3 border hover:bg-[#000080] hover:bg-opacity-80 rounded-2xl shadow-sm px-6 flex flex-row justify-between">
+                <div
+                  className="tracking-wide "
+                  onClick={() => {
+                    handleNav();
+                    navigate(item.path);
+                  }}
+                >
+                  {item.text}
+                </div>
+                {item.text === "Learn" && (
+                  <FontAwesomeIcon
+                    icon={faAngleDown}
+                    className="text-[1rem] "
+                  />
+                )}
+                {item.text === "Product" && (
+                  <FontAwesomeIcon
+                    icon={faAngleDown}
+                    className="text-[1rem] "
+                  />
+                )}
+              </div>
+            </li>
+          ))}
+        </div>
+        <div className="flex flex-col w-[100%] mt-56 items-center justify-end">
+          <li className="bg-[#000080] text-center text-white ml-4 p-4 mt-4 w-[80%] rounded-full">
+            Login
           </li>
-        ))}
-        <li className="bg-[#000080] text-white ml-4 p-4 mt-4 w-[50%] rounded-md">
-          Login
-        </li>
+          <li className="text-[#000080] border bg-white shadow-lg text-center ml-4 p-4 mt-4 w-[80%] rounded-full">
+            Register
+          </li>
+        </div>
       </ul>
       <div className="hidden md:block">
         <Link

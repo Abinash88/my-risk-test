@@ -21,12 +21,12 @@ export const BlogHeader = ({
       style={{ backgroundImage: `url(${Background})` }}
     >
       <div className="absolute lg:pt-20 inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center gap-3 text-white text-center p-6">
-        <h1 className="text-white text-4xl  lg:text-7xl lg:scale-110 md:text-[80px] font-bold w-full lg:w-[60%]">
+        <h1 className="text-white text-4xl mb-6 tracking-wide  lg:text-7xl lg:scale-110 md:text-[80px] font-bold w-full lg:w-[60%]">
           {title}
         </h1>
         <p className="text-[17px] md:text-[18px] font-[400]">{text}</p>
         {showLink && (
-          <Link to={path} className="bg-[#000080] py-4 px-10 rounded-lg mt-5">
+          <Link to={path} className="bg-[#000080] py-4 px-10 rounded-lg mt-10">
             Get Started
           </Link>
         )}

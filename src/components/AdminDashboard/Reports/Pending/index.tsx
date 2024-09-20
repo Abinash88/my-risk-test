@@ -101,7 +101,7 @@ export default function index() {
   ];
 
   return (
-    <div className="mt-5 mx-3">
+    <div className="mt-5 mx-3 pb-3">
       <Table
         style={{ marginBottom: "20px" }}
         columns={columns}

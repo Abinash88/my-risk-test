@@ -58,6 +58,8 @@ import Groups from "./components/AdminDashboard/Groups";
 import Communications from "./components/AdminDashboard/Communications";
 import Locations from "./components/AdminDashboard/Locations";
 import Reports from "./components/AdminDashboard/Reports";
+import AdminUsers from './components/AdminDashboard/AdminUsers'
+
 
 const App = () => {
   return (
@@ -163,6 +165,7 @@ const App = () => {
           />
           <Route path="/admin/dashboard/locations" element={<Locations />} />
           <Route path="/admin/dashboard/reports" element={<Reports />} />
+          <Route path="/admin/dashboard/admin-users" element={<AdminUsers />} />
 
           {/* </Route> */}
         </Route>

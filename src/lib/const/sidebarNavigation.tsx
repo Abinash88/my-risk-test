@@ -45,8 +45,8 @@ export const DASHBOARD_SIDEBAR_LINKS = [
 		icon: <FontAwesomeIcon icon={faUserGroup} />,
 	},
 	{
-		key: "Subscription",
-		label: "Subscription",
+		key: "Finance",
+		label: "Finance",
 		path: "/dashboard/subscription",
 		icon: <FontAwesomeIcon icon={faSackDollar} />,
 	},

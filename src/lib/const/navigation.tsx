@@ -2,7 +2,7 @@ export const navItems = [
 	{ id: 1, text: "Product", path: "/product" },
 	{ id: 2, text: "Learn", path: "/learn" },
 	{ id: 3, text: "Support", path: "/support" },
-	{ id: 4, text: "T & Q Standing", path: "/tq-standing" },
+	{ id: 4, text: "T & O Standing", path: "/tq-standing" },
 ];
 
 export const quickLinks = [
@@ -15,7 +15,7 @@ export const quickLinks = [
 		path: "/",
 	},
 	{
-		link: " T & Q Standing",
+		link: " T & O Standing",
 		path: "/",
 	},
 ];

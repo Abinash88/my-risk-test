@@ -5,6 +5,7 @@ import { faCog, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import AddGroupModal from "./AddgroupModal";
 import DeleteModal from "../ManageRIsk/CommentModal/DeleteModal";
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/react";
+import { Link } from "react-router-dom";
 
 const GroupCreated = () => {
   const [showAll, setShowAll] = useState(false);
@@ -91,9 +92,9 @@ const GroupCreated = () => {
                   anchor="top start"
                   className="flex flex-col bg-white px-4 py-2  rounded-lg border border-gray-200"
                 >
-                  <a href="/dashboard/group-settings" className="text-xs">
+                  <Link to={"/dashboard/group-settings"} className="text-xs">
                     Group Settings
-                  </a>
+                  </Link>
                 </PopoverPanel>
               </Popover>
             </div>

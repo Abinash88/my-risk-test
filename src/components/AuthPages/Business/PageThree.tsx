@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import Process from "./Process";
 import Success from "./Success";
+import { useMediaQuery } from "@mui/material";
 
 const PageThree = ({ onNext }: { onNext: () => void }) => {
+  const matches = useMediaQuery("(min-width:1080px)");
   const goToTop = () => {
     window.scrollTo({
       top: 100,
@@ -11,7 +13,7 @@ const PageThree = ({ onNext }: { onNext: () => void }) => {
   };
 
   useEffect(() => {
-    goToTop();
+    if (matches === true) goToTop();
   }, []);
   const [showLoader, setShowLoader] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
@@ -40,7 +42,7 @@ const PageThree = ({ onNext }: { onNext: () => void }) => {
               htmlFor="house"
               className="mb-2 block font-[600] text-black text-[18px]"
             >
-              House No / House Name
+              House No / House Name {String(matches)}
             </label>
             <input
               type="text"

@@ -1,7 +1,15 @@
 import { DownOutlined, PlusOutlined, SearchOutlined } from "@ant-design/icons";
-import { Divider, Input, Popover, Table, TableColumnsType } from "antd";
+import {
+  Checkbox,
+  Divider,
+  Input,
+  Popover,
+  Table,
+  TableColumnsType,
+} from "antd";
 import { ArrowUp } from "lucide-react";
 import React, { useState } from "react";
+import AddAdminUser from "../AdminU/AddAdminUser";
 
 const users = [
   {
@@ -44,18 +52,38 @@ export default function index() {
     {
       title: "Assistance Admin",
       dataIndex: "assistance_admin",
+      render: (value, record) => (
+        <>
+          <Checkbox value={value} />
+        </>
+      ),
     },
     {
       title: "Marketing Manager",
       dataIndex: "marketing_manager",
+      render: (value, record) => (
+        <>
+          <Checkbox value={value} />
+        </>
+      ),
     },
     {
       title: "Customer Support",
       dataIndex: "customer_support",
+      render: (value, record) => (
+        <>
+          <Checkbox value={value} />
+        </>
+      ),
     },
     {
       title: "Sales Representative",
       dataIndex: "sales_representative",
+      render: (value, record) => (
+        <>
+          <Checkbox value={value} />
+        </>
+      ),
     },
   ];
 
@@ -70,7 +98,7 @@ export default function index() {
             addonBefore={<SearchOutlined />}
             placeholder="Search"
           />
-          {/* <AddAdminUser /> */}
+          <AddAdminUser />
           <button className="flex ml-2 rounded-md bg-[#3838F0] text-white py-2 px-5">
             <PlusOutlined className="text-white" /> Export <ArrowUp />
           </button>
@@ -80,6 +108,25 @@ export default function index() {
         <Table
           columns={columns}
           dataSource={users}
+          components={{
+            body: {
+              cell: ({ children, ...restProps }:any) => (
+                <td {...restProps} className="border border-gray-200 p-2">
+                  {children}
+                </td>
+              ),
+            },
+            header: {
+              cell: ({ children, ...restProps }:any) => (
+                <th
+                  {...restProps}
+                  className="border border-gray-200 p-2 "
+                >
+                  {children}
+                </th>
+              ),
+            },
+          }}
           className="mt-3 border border-grey rounded-md"
         />
       </div>

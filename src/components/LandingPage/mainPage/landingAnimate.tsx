@@ -25,10 +25,23 @@ export const BlogHeader = ({
   };
   window.addEventListener("scroll", changeNavbarColor);
   const dynamic = (100 - (opac / 13) * 2) / 100;
+  const buttonx = scrollY === 0 ? dynamic : dynamic - 0.5
   return (
     <>
       {/* <h1 className="text-red-300 fixed">{String(dynamic)}</h1> */}
-      <div className="relative w-full h-screen -z-10 "></div>
+      <div className="relative w-full h-screen z-10 ">
+        {showLink && (
+          <div className="fixed flex justify-center w-full bottom-0 mb-60 md:mb-24">
+            <Link
+              style={{ opacity: buttonx }}
+              to={path}
+              className="bg-[#000080] relative text-white bottom-0 items-center  py-4 px-10 rounded-lg "
+            >
+              Get Started
+            </Link>
+          </div>
+        )}
+      </div>
       <div
         className="fixed -z-10 top-0 w-full h-screen bg-cover bg-center"
         style={{ backgroundImage: `url(${Background})` }}
@@ -46,15 +59,6 @@ export const BlogHeader = ({
           >
             {text}
           </p>
-          {showLink && (
-            <Link
-              style={{ opacity: dynamic }}
-              to={path}
-              className="bg-[#000080] py-4 px-10 rounded-lg mt-10"
-            >
-              Get Started
-            </Link>
-          )}
         </div>
       </div>
     </>

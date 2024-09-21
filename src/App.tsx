@@ -61,7 +61,7 @@ import Reports from "./components/AdminDashboard/Reports";
 import AdminUsers from "./components/AdminDashboard/AdminUsers";
 import SiteSettings from "./components/AdminDashboard/SiteSettings";
 import ViewPaymentProcessor from "./components/AdminDashboard/SiteSettings/PaymentProcessors/ViewPaymentProcessor";
-
+import Finance from "./components/AdminDashboard/Finance";
 const App = () => {
   return (
     <Router>
@@ -174,6 +174,10 @@ const App = () => {
           <Route
             path="/admin/dashboard/site-settings/view"
             element={<ViewPaymentProcessor />}
+          />
+          <Route
+            path="/admin/dashboard/finance"
+            element={<Finance />}
           />
           {/* </Route> */}
         </Route>

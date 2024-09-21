@@ -1,4 +1,4 @@
-import { BlogHeader } from "../../shared/ReuseAble";
+import { BlogHeader } from "./landingAnimate";
 import NewsRoom from "./NewsRoom";
 import ServiceType from "./ServiceType";
 import SusbscribeSection from "./SusbscribeSection";
@@ -12,10 +12,12 @@ const LandingPage = () => {
         text="Generate AI Risk Profile. Engage with T & O Standing"
         path="/auth"
       />
-      <ServiceType />
-      <TandO />
-      <NewsRoom />
-      <SusbscribeSection />
+      <div className="bg-white">
+        <ServiceType />
+        <TandO />
+        <NewsRoom />
+        <SusbscribeSection />
+      </div>
     </div>
   );
 };

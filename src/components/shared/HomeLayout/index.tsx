@@ -3,14 +3,14 @@ import Footer from "./footer";
 import Header from "./header";
 
 const HomeLayout = () => {
-	return (
-		<>
-			<Header />
-			{/* <Testnav /> */}
-			<Outlet />
-			<Footer />
-		</>
-	);
+  return (
+    <>
+      <Header />
+      {/* <Testnav /> */}
+      <Outlet />
+      <Footer />
+    </>
+  );
 };
 
 export default HomeLayout;

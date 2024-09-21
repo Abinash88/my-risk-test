@@ -87,15 +87,15 @@ const Header = () => {
 
         {/* Mobile Navigation Items */}
 
-        <div className="flex gap-6 flex-col mt-6">
+        <div className="flex gap-4 flex-col mt-6">
           {navItems.map((item) => (
             <li
               key={item.id}
-              className=" w-[100vw]  py-2 px-4  duration-300 hover:text-white"
+              className=" w-[100vw] flex items-center justify-center  py-2 px-4  duration-300 hover:text-white"
             >
-              <div className="py-3 border hover:bg-[#000080] hover:bg-opacity-80 rounded-2xl shadow-sm px-6 flex flex-row justify-between">
+              <div className="py-2 mr-4 w-[85vw] border hover:bg-[#000080] hover:bg-opacity-80 rounded-2xl shadow-sm px-6 flex flex-row justify-between">
                 <div
-                  className="tracking-wide "
+                  className="tracking-wide text-sm"
                   onClick={() => {
                     handleNav();
                     navigate(item.path);
@@ -103,12 +103,6 @@ const Header = () => {
                 >
                   {item.text}
                 </div>
-                {item.text === "Learn" && (
-                  <FontAwesomeIcon
-                    icon={faAngleDown}
-                    className="text-[1rem] "
-                  />
-                )}
                 {item.text === "Product" && (
                   <FontAwesomeIcon
                     icon={faAngleDown}
@@ -119,11 +113,11 @@ const Header = () => {
             </li>
           ))}
         </div>
-        <div className="flex flex-col w-[100%] mt-56 items-center justify-end">
-          <li className="bg-[#000080] text-center text-white ml-4 p-4 mt-4 w-[80%] rounded-full">
+        <div className="flex  flex-col w-[100%] mt-32 items-center justify-center">
+          <li className="bg-[#000080] scale-90 text-center text-white p-4 mt-4 w-[80%] rounded-full">
             Login
           </li>
-          <li className="text-[#000080] border bg-white shadow-lg text-center ml-4 p-4 mt-4 w-[80%] rounded-full">
+          <li className="text-[#000080] scale-90 border bg-white shadow-lg text-center p-4 mt-4 w-[80%] rounded-full">
             Register
           </li>
         </div>

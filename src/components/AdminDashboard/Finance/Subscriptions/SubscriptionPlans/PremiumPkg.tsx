@@ -6,6 +6,7 @@ import {
 	faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import DeleteSubscription from "../DeleteSubscription";
 
 interface FakeDataItem {
 	id: number;
@@ -169,9 +170,8 @@ const PremiumPkg: React.FC = () => {
 				</h3>
 			</div>
 			<div className="px-3 flex justify-between items-center">
-				<button className="bg-[#FF4949] text-white font-[600] px-5 py-3 rounded-lg mr-3">
-					Delete
-				</button>
+				
+			<DeleteSubscription/>
 				<button className="bg-[#3838F0] text-white font-[600] px-5 py-3 rounded-lg">
 					Edit
 				</button>

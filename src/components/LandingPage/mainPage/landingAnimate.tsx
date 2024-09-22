@@ -1,6 +1,8 @@
-import { ReactNode, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Background from "../../../assets/images/background.png";
+import Background2 from "../../../assets/images/auth-image.png";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 interface BlogProps {
   title: string;
@@ -23,13 +25,32 @@ export const BlogHeader = ({
       setOpac(window.scrollY);
     }
   };
+  const [c, setc] = useState(false);
   window.addEventListener("scroll", changeNavbarColor);
   const dynamic = (100 - (opac / 13) * 2) / 100;
-  const buttonx = scrollY === 0 ? dynamic : dynamic - 0.5
+  const buttonx = scrollY === 0 ? dynamic : dynamic - 0.5;
+
+  useEffect(() => {
+    if (window.innerWidth < 1000) {
+      const interval = setInterval(() => {
+        setc((x) => !x);
+      }, 3000);
+      return () => clearInterval(interval);
+    }
+  }, []);
   return (
     <>
       {/* <h1 className="text-red-300 fixed">{String(dynamic)}</h1> */}
-      <div className="relative w-full h-screen z-10 ">
+      <div className="relative w-full h-screen z-10 flex flex-row justify-between ">
+        <div
+          onClick={() => {
+            setc((x) => !x);
+          }}
+          style={{ opacity: buttonx }}
+          className="rounded-full hidden md:flex  bg-white md:mt-[50vh] md:ml-24  p-2 h-fit"
+        >
+          <ArrowLeft className="text-[#000080] scale-75" />
+        </div>
         {showLink && (
           <div className="fixed flex justify-center w-full bottom-0 mb-[15vh] md:mb-24">
             <Link
@@ -41,23 +62,37 @@ export const BlogHeader = ({
             </Link>
           </div>
         )}
+        <div
+          onClick={() => {
+            setc((x) => !x);
+            console.log(c);
+          }}
+          style={{ opacity: buttonx }}
+          className="rounded-full hidden md:flex bg-white md:mt-[50vh] md:mr-24  p-2 h-fit"
+        >
+          <ArrowRight className="text-[#000080] scale-75" />
+        </div>
       </div>
       <div
-        className="fixed -z-10 top-0 w-full h-screen bg-cover bg-center"
-        style={{ backgroundImage: `url(${Background})` }}
+        className="fixed -z-10 top-0 w-full ease-in-out duration-500 h-screen bg-cover bg-center"
+        style={{ backgroundImage: `url(${c ? Background2 : Background})` }}
       >
         <div className="absolute -z-10 lg:pt-20 inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center gap-3 text-white text-center p-6">
-          <h1
-            style={{ opacity: dynamic }}
-            className="text-white text-4xl mb-6 tracking-wide  lg:text-7xl lg:scale-110 md:text-[80px] font-bold w-full lg:w-[60%]"
-          >
-            {title}
-          </h1>
+          <div className="flex w-full justify-center flex-row">
+            <h1
+              style={{ opacity: dynamic }}
+              className="text-white text-4xl mb-6 tracking-wide  lg:text-7xl lg:scale-110 md:text-[80px] font-bold w-full lg:w-[60%]"
+            >
+              {title}
+            </h1>
+          </div>
           <p
             style={{ opacity: dynamic }}
             className="text-[17px] md:text-[18px] font-[400]"
           >
-            {text}
+            {c
+              ? "Have a part in our T & O Engagements for your private groups."
+              : text}
           </p>
         </div>
       </div>

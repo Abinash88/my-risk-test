@@ -134,18 +134,18 @@ const Header = () => {
                   <div
                     className={`opacity-80 text-sm font-normal my-1`}
                     onClick={() => {
-                      navigate("/service");
+                      navigate("/our-work");
                       setNav(false);
                       goToTop();
                     }}
                   >
-                    Our services
+                    How it works
                   </div>
                   <div className={`opacity-80 text-sm font-normal my-1`}>
-                    Premium Features
+                    Help Centre
                   </div>
                   <div className={`opacity-80 text-sm font-normal my-1`}>
-                    Subscription Services
+                    User Tips
                   </div>
                 </div>
               )}
@@ -260,7 +260,7 @@ const Header = () => {
                 className="opacity-70 text-sm flex ease-in-out duration-300 flex-col w-full  items-start ml-14 space-y-4 mt-2 justify-center"
               >
                 {prod && item.text === "Product" && (
-                  <div>
+                  <>
                     <div
                       className={`text-[#000080]`}
                       onClick={() => {
@@ -273,7 +273,7 @@ const Header = () => {
                     </div>
                     <div className="text-[#000080]">Premium Features</div>
                     <div className="text-[#000080]">Subscription Services</div>
-                  </div>
+                  </>
                 )}
                 {learn && item.text === "Learn" && (
                   <>

@@ -18,7 +18,7 @@ interface teamProps {
 const InviteMembers = ({ open, close }: teamProps) => {
   return (
     <AlertDialog open={open}>
-      <AlertDialogContent className="scale-[80%]">
+      <AlertDialogContent className="lg:scale-[80%] scale-95 rounded-xl">
         <AlertDialogHeader>
           <AlertDialogTitle className="flex  items-center justify-between pb-2 mb-2">
             <div className="w-2" />
@@ -32,34 +32,34 @@ const InviteMembers = ({ open, close }: teamProps) => {
               />
             </AlertDialogAction>
           </AlertDialogTitle>
-          <p className="font-[600] pb-6 border-b border-b-[rgba(0,0,0,0.59)] text-[#000080] text-center">
+          <p className="font-[600] items-center flex justify-center pb-6 border-b border-b-[rgba(0,0,0,0.59)] text-[#000080] text-center">
             Invite Participants
           </p>
-          <AlertDialogDescription className="text-md mt-2 flex-col">
-            <div className="flex flex-row ml-[-20px] justify-evenly mb-8">
+          <AlertDialogDescription className="text-md mt-2 flex flex-col">
+            <div className="flex flex-col md:flex-row md:ml-[-20px] lg:justify-evenly mb-8">
               <div>
-                <label htmlFor="invite" className="mt-4 block">
+                <label htmlFor="invite" className="mt-4 text-start block">
                   First Name
                 </label>
                 <input
                   id="invite"
                   type="email"
-                  className="p-3 border border-[rgba(0,0,0,0.59)] block w-52 rounded-lg mt-3 outline-none"
+                  className="p-3 border border-[rgba(0,0,0,0.59)] block w-full lg:w-52 rounded-lg mt-3 outline-none"
                 />
               </div>
               <div>
-                <label htmlFor="invite" className="mt-4 block">
+                <label htmlFor="invite" className="mt-4 text-start block">
                   Last name
                 </label>
                 <input
                   id="invite"
                   type="email"
-                  className="p-3 border border-[rgba(0,0,0,0.59)] block w-52 rounded-lg mt-3 outline-none"
+                  className="p-3 border border-[rgba(0,0,0,0.59)] block w-full lg:w-52 rounded-lg mt-3 outline-none"
                 />
               </div>
             </div>
             <>
-              <label htmlFor="name">Email</label>
+              <label htmlFor="name" className="text-start">Email</label>
               <input
                 id="name"
                 type="text"
@@ -68,7 +68,7 @@ const InviteMembers = ({ open, close }: teamProps) => {
             </>
           </AlertDialogDescription>
         </AlertDialogHeader>
-        <AlertDialogFooter className="flex justify-center mt-2">
+        <AlertDialogFooter className="flex items-center justify-center mt-2">
           <AlertDialogAction
             onClick={close}
             className="py-3 mt-8 px-4 w-[40%] bg-[#000080] text-white rounded-lg hover:bg-[#000080]"

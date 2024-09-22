@@ -34,8 +34,8 @@ const HelpCenter = () => {
 
   return (
     <div>
-      <div className="bg-[#6666B3] mt-[0] md:-mt-[5rem] w-[100%] flex flex-col md:flex-row items-start md:items-center gap-3 md:gap-6 text-white p-5 md:pb-0">
-        <img src={Drone} alt="" className="w-[40%] hidden md:block" />
+      <div className="bg-[#6666B3] mt-[0] md:-mt-10 w-[100%] flex flex-col md:flex-row items-start md:items-center gap-3 md:gap-6 text-white p-5 md:pb-0">
+        <img src={Drone} alt="" className="w-[30%] md:block" />
         <div>
           <p className="font-[500] text-[17px] mb-4">Help Center</p>
           <h4 className="font-[500] text-[35px]">How can we help you</h4>
@@ -62,7 +62,7 @@ const HelpCenter = () => {
                 className="w-[45%] md:w-[22%] bg-[#000080] text-white px-4 md:px-8 py-8 rounded-lg text-center mt-5"
                 key={topic.title + 3 + i}
               >
-                <h4 className="font-[400] text-[20px] md:text-[25px] text-center">
+                <h4 className="font-[400] text-md md:text-lg text-center">
                   {topic.title}
                 </h4>
               </Link>

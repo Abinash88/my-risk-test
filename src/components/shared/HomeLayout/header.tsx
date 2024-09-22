@@ -63,9 +63,9 @@ const Header = () => {
         {navItems.map((item) => (
           <li key={item.id}>
             <li
-              onMouseOver={() => {
+              onMouseEnter={() => {
                 if (item.text === "Product") {
-                  setProd((x) => !x);
+                  setProd(true);
                   setlearn(false);
                   setSupport(false);
                 }
@@ -79,11 +79,16 @@ const Header = () => {
                   setlearn(false);
                   setSupport((x) => !x);
                 }
-                if (item.text ==="T & O Standing") {
+                if (item.text === "T & O Standing") {
                   setProd(false);
                   setlearn(false);
                   setSupport(false);
                 }
+              }}
+              onMouseLeave={() => {
+                setProd(false);
+                setlearn(false);
+                setSupport(false);
               }}
             >
               {item.text}
@@ -184,7 +189,7 @@ const Header = () => {
 
         {/* Mobile Navigation Items */}
 
-        <div className="flex gap-4 flex-col mt-6">
+        <div className="flex gap-3 flex-col mt-6">
           {navItems.map((item) => (
             <div>
               <li
@@ -196,7 +201,7 @@ const Header = () => {
                     if (item.text !== "Product") {
                       setProd(false);
                     } else {
-                      setProd((x) => !x);
+                      setProd(true);
                       setlearn(false);
                       setSupport(false);
                     }
@@ -248,9 +253,14 @@ const Header = () => {
                   )}
                 </div>
               </li>
-              <div className="opacity-70 text-sm flex ease-in-out duration-300 flex-col w-full  items-start ml-14 space-y-4 mt-2 justify-center">
+              <div
+                // onMouseLeave={() => {
+                //   setProd(false);
+                // }}
+                className="opacity-70 text-sm flex ease-in-out duration-300 flex-col w-full  items-start ml-14 space-y-4 mt-2 justify-center"
+              >
                 {prod && item.text === "Product" && (
-                  <>
+                  <div>
                     <div
                       className={`text-[#000080]`}
                       onClick={() => {
@@ -263,7 +273,7 @@ const Header = () => {
                     </div>
                     <div className="text-[#000080]">Premium Features</div>
                     <div className="text-[#000080]">Subscription Services</div>
-                  </>
+                  </div>
                 )}
                 {learn && item.text === "Learn" && (
                   <>

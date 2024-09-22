@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const GridSidebar = () => {
   return (
     <>
-      <div className="bg-[#fff] p-4 md:p-5 rounded-lg flex gap-4 w-[100%] scale-75 md:w-[50%] lg:w-[35%] flex-wrap absolute top-[.1rem] md:top-[2rem] right-4 justify-between max-h-[90vh] overflow-y-auto z-50 shadow-md border border-[rgba(51,51,51,0.1)]">
+      <div className="bg-[#fff] p-4 md:p-5 rounded-lg flex gap-4 w-[100%] scale-75 md:w-[50%] lg:w-[35%] flex-wrap absolute top-[.1rem] md:top-[2rem] right-4 justify-between max-h-[90vh] overflow-y-auto shadow-md border border-[rgba(51,51,51,0.1)]">
         {DASHBOARD_SIDEBAR_LINKS.map((item, i) => (
           <Link
             to={item.path}

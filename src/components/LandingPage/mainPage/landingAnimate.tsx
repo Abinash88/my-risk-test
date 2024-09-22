@@ -31,7 +31,7 @@ export const BlogHeader = ({
       {/* <h1 className="text-red-300 fixed">{String(dynamic)}</h1> */}
       <div className="relative w-full h-screen z-10 ">
         {showLink && (
-          <div className="fixed flex justify-center w-full bottom-0 mb-60 md:mb-24">
+          <div className="fixed flex justify-center w-full bottom-0 mb-[15vh] md:mb-24">
             <Link
               style={{ opacity: buttonx }}
               to={path}

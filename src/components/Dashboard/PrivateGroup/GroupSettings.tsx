@@ -40,7 +40,7 @@ const GroupSettings = () => {
         </p>
         <div className="flex justify-center">
           <div className="lg:w-[80%] space-y-5 mt-2">
-            <div className="flex flex-row justify-between">
+            <div className="flex flex-col md:flex-row md:justify-between">
               <div>
                 <label
                   htmlFor="first-name"
@@ -66,7 +66,7 @@ const GroupSettings = () => {
               <div>
                 <label
                   htmlFor="first-name"
-                  className="block text-[rgba(0,0,0,0.7)] font-[600] text-sm mb-2"
+                  className="block text-[rgba(0,0,0,0.7)] font-[600] text-sm mt-4 md:mt-0 md:mb-2"
                 >
                   Visibility
                 </label>

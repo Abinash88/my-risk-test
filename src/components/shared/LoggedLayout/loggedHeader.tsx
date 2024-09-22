@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { navItems } from "../../../lib/const/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faBell, faXmark } from "@fortawesome/free-solid-svg-icons";
@@ -8,12 +8,22 @@ import GridSidebar from "./GridSidebar";
 const LoggedHeader = () => {
   const [nav, setNav] = useState(false);
   const [openGrid, setOpenGrid] = useState(false);
+  const goToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
+  const [prod, setProd] = useState(false);
+  const [learn, setlearn] = useState(false);
+  const [support, setSupport] = useState(false);
   const handleNav = () => {
     setNav(!nav);
   };
+  const navigate = useNavigate();
   return (
-    <div className="z-20 bg-white shadow-sm px-[2rem] lg:h-20 lg:px-[2rem] py-[1rem] flex items-center justify-between gap-4 w-full relative">
+    <div className="z-20 lg:overflow-hidden bg-white shadow-sm px-[2rem] lg:h-20 lg:px-[2rem] py-[1rem] flex items-center justify-between gap-4 w-full relative">
       <div>
         <Link to="/">
           <img
@@ -23,12 +33,99 @@ const LoggedHeader = () => {
           />
         </Link>
       </div>
-      <div className="lg:w-[60%]">
-        <ul className="text-black hidden md:flex items-center justify-center gap-6 lg:gap-8 ml-8 ">
+      <div className="lg:w-[100%] -ml-8 fixed md:absolute">
+        <ul className="text-black hidden md:flex items-center justify-center gap-6 lg:gap-8 ">
           {navItems.map((item) => (
             <li key={item.id}>
-              <Link to={item.path}>{item.text}</Link>
+            <li
+              onMouseEnter={() => {
+                if (item.text === "Product") {
+                  setProd(true);
+                  setlearn(false);
+                  setSupport(false);
+                }
+                if (item.text === "Learn") {
+                  setSupport(false);
+                  setProd(false);
+                  setlearn((x) => !x);
+                }
+                if (item.text === "Support") {
+                  setProd(false);
+                  setlearn(false);
+                  setSupport((x) => !x);
+                }
+                if (item.text === "T & O Standing") {
+                  setProd(false);
+                  setlearn(false);
+                  setSupport(false);
+                }
+              }}
+              onMouseLeave={() => {
+                setProd(false);
+                setlearn(false);
+                setSupport(false);
+              }}
+            >
+              {item.text}
+              {item.text === "Product" && prod && (
+                <div className="fixed">
+                  <div
+                    className={`opacity-80 text-sm font-normal my-1`}
+                    onClick={() => {
+                      navigate("/service");
+                      setNav(false);
+                      goToTop();
+                    }}
+                  >
+                    Our services
+                  </div>
+                  <div className={`opacity-80 text-sm font-normal my-1`}>
+                    Premium Features
+                  </div>
+                  <div className={`opacity-80 text-sm font-normal my-1`}>
+                    Subscription Services
+                  </div>
+                </div>
+              )}
+              {item.text === "Learn" && learn && (
+                <div className="fixed">
+                  <div
+                    className={`opacity-80 text-sm font-normal my-1`}
+                    // onClick={() => {
+                    //   navigate("/service");
+                    //   setNav(false);
+                    //   goToTop();
+                    // }}
+                  >
+                    Risk Management Concept
+                  </div>
+                  <div className={`opacity-80 text-sm font-normal my-1`}>
+                    Integrated AI Services
+                  </div>
+                </div>
+              )}
+              {item.text === "Support" && support && (
+                <div className="fixed z-10">
+                  <div
+                    className={`opacity-80 text-sm font-normal my-1`}
+                    onClick={() => {
+                      navigate("/service");
+                      setNav(false);
+                      goToTop();
+                    }}
+                  >
+                    Our services
+                  </div>
+                  <div className={`opacity-80 text-sm font-normal my-1`}>
+                    Premium Features
+                  </div>
+                  <div className={`opacity-80 text-sm font-normal my-1`}>
+                    Subscription Services
+                  </div>
+                </div>
+              )}
             </li>
+          </li>
           ))}
         </ul>
       </div>

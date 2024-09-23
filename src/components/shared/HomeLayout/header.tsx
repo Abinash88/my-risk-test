@@ -201,7 +201,7 @@ const Header = () => {
                     if (item.text !== "Product") {
                       setProd(false);
                     } else {
-                      setProd(true);
+                      setProd((x) => !x);
                       setlearn(false);
                       setSupport(false);
                     }

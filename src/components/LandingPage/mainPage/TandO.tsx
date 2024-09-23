@@ -83,6 +83,7 @@ const TandO = () => {
             <X
               onClick={() => {
                 closeModal();
+                setSel("");
               }}
               className="mt-1 mr-2 z-20"
             />
@@ -95,9 +96,9 @@ const TandO = () => {
               <div
                 className={`flex ${
                   stuff === 1
-                    ? "flex-row md:flex-col md:w-fit md:overflow-hidden md:mr-4 space-x-6"
+                    ? "flex-row md:flex-col md:w-fit  md:mr-4 space-x-6"
                     : "flex-col space-x-3"
-                } overflow-x-scroll text-sm md:space-y-3 md:justify-center md:items-start scrollBar py-2 w-[80vw] md:w-fit md:px-12`}
+                } overflow-x-scroll md:overflow-hidden text-sm md:space-y-3 md:justify-center md:items-start scrollBar py-2 w-[80vw] md:w-fit md:px-12`}
               >
                 {Continents.map((x) => (
                   <p

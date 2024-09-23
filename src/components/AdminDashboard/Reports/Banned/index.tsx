@@ -77,7 +77,8 @@ export default function index() {
         style={{ marginBottom: "20px" }}
         columns={columns}
         dataSource={reports}
-        className="rounded-lg border border-gray"
+        className="rounded-lg border border-gray w-[calc(100% - 6px)]"
+        scroll={{ x: true }}
       />
     </div>
   );

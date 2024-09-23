@@ -85,7 +85,8 @@ const index = () => {
       <Table
       columns={columns}
       dataSource={durations}
-      className='rounded-lg border  border-grey' 
+      className='rounded-lg border  border-grey w-[calc(100% - 6px)] mb-3' 
+      scroll={{ x: true }}
       />
     </div>
   </div>

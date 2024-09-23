@@ -65,7 +65,10 @@ export default function Deleted() {
   ];
   return (
     <div className=" mt-3 mx-2">
-      <Table columns={columns} dataSource={deletedImages} />
+      <Table columns={columns} dataSource={deletedImages} 
+      className="rounded-lg border border-gray w-[calc(100% - 6px)] mb-3" 
+      scroll={{ x: true }}
+      />
     </div>
   );
 }

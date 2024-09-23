@@ -142,7 +142,10 @@ export default function index() {
           </button>
         </Popover>
 
-        <Table columns={columns} dataSource={pages} className="mt-3" />
+        <Table columns={columns} dataSource={pages} 
+        className="mt-3 rounded-lg border border-gray w-[calc(100% - 6px)] mb-3" 
+        scroll={{ x: true }}
+        />
       </div>
 
       <Modal

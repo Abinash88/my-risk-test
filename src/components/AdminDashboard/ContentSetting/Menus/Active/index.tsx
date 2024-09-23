@@ -128,7 +128,9 @@ export default function index() {
         <button className="ml-auto rounded-md px-6 py-2 text-white bg-[#3838F0]">
           Add New Page
         </button>
-        <Table columns={columns} dataSource={pages} className="mt-3" />
+        <Table columns={columns} dataSource={pages} className="mt-3 rounded-lg border border-gray w-[calc(100% - 6px)] mb-3" 
+          scroll={{ x: true }}
+        />
       </div>
 
       <Modal

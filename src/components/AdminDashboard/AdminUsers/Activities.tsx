@@ -57,7 +57,8 @@ export default function Activities() {
         <Table
           columns={columns}
           dataSource={activities}
-          className="mt-3 border border-grey rounded-md"
+          className="mt-3 border border-grey rounded-md w-[calc(100% - 6px)]"
+          scroll={{ x: true }}
         />
       </div>
     </div>

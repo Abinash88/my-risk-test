@@ -147,7 +147,8 @@ export default function index() {
           }}
           columns={columns}
           dataSource={aiProviders}
-          className="rounded-md border border-grey mb-3"
+          className="rounded-md border border-grey mb-3 w-[calc(100% - 6px)]"
+          scroll={{ x: true }}
         />
       </div>
 

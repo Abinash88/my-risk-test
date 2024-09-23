@@ -109,6 +109,8 @@ export default function index() {
           }}
           columns={columns}
           dataSource={regions}
+          className="rounded-lg border border-gray w-[calc(100% - 6px)] mb-3"
+          scroll={{ x: true }}
         />
       </div>
     </div>

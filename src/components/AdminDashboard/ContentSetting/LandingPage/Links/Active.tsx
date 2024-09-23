@@ -84,7 +84,10 @@ export default function Active() {
 
   return (
     <div className=" mt-3 mx-2">
-      <Table columns={columns} dataSource={activeLinks} />
+      <Table columns={columns} dataSource={activeLinks} 
+      className="rounded-lg border border-gray w-[calc(100% - 6px)] mb-3" 
+      scroll={{ x: true }}
+      />
     </div>
   );
 }

@@ -226,14 +226,17 @@ export default function NewRequest() {
   return (
     <div className="flex flex-col bg-white rounded-lg">
       <TabHeader title="245 Requests" />
-      <div className=" mt-3 mx-2">
+      <div className="w-full mt-3 px-2 justify-center">
         <Table
+          className="w-[calc(100% - 10px)] px-3"
           rowSelection={{
             type: selectionType,
             ...rowSelection,
           }}
           columns={columns}
           dataSource={requests}
+          scroll={{ x: true }}
+
         />
       </div>
       <Modal

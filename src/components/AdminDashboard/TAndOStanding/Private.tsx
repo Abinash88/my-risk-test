@@ -120,12 +120,13 @@ export default function Private() {
   ];
 
   return (
-    <>
+    <div className="w-full mt-3 px-2 justify-center">
       <Table
         columns={columns}
         dataSource={risks}
-        className="rounded-md border border-grey mb-3 m-3"
+        className="w-[calc(100% - 6px)]  rounded-md border border-grey mb-3 my-3"
+        scroll={{ x: true }}
       />
-    </>
+    </div>
   );
 }

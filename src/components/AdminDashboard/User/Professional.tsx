@@ -155,8 +155,14 @@ export default function Professional() {
           </div>
         </div>
       </div>
-      <div className=" mt-3 mx-2">
-        <Table columns={columns} dataSource={users} />
+      
+      <div className="w-full mt-3 px-2 justify-center">
+        <Table 
+          className="w-[calc(100% - 10px)] px-3"
+          columns={columns} 
+          dataSource={users}
+          scroll={{ x: true }}
+        />
       </div>
     </div>
   );

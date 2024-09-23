@@ -60,7 +60,12 @@ export default function Pages() {
 
   return (
     <div className="mt-6">
-      <Table columns={columns} dataSource={deletedPages} className="" />
+      <Table
+        columns={columns}
+        dataSource={deletedPages}
+        className="rounded-lg border border-gray w-[calc(100% - 6px)] mb-3"
+        scroll={{ x: true }}
+      />
     </div>
   );
 }

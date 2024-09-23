@@ -125,11 +125,11 @@ export default function Business() {
   
   return (
     <div className="flex flex-col bg-white rounded-md">
-      <div className="grid grid-cols-4 gap-6 mx-2 my-3">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mx-2 my-3">
         <div className="col-span-1 justify-start">
           <p className="text-xl text-medium text-black">30,000 Users</p>
         </div>
-        <div className="col-span-3">
+        <div className="md:col-span-3 col-span-1">
           <div className="flex justify-end">
             <Input
               className="px-5 mr-2 w-56"
@@ -157,8 +157,13 @@ export default function Business() {
           </div>
         </div>
       </div>
-      <div className=" mt-3 mx-2">
-        <Table columns={columns} dataSource={users} />
+      <div className="w-full mt-3 px-2 justify-center">
+        <Table 
+          className="w-[calc(100% - 10px)] px-3"
+          columns={columns} 
+          dataSource={users}
+          scroll={{ x: true }}
+        />
       </div>
     </div>
   );

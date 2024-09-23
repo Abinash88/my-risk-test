@@ -61,7 +61,8 @@ export default function FormerSubscribers() {
         <Table
           columns={columns}
           dataSource={formerSubscribers}
-          className="rounded-md border border-grey mb-3"
+          className="rounded-md border border-grey mb-3 w-[calc(100% - 6px)]"
+          scroll={{ x: true }}
         />
       </div>
     </div>

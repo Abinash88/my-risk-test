@@ -191,7 +191,10 @@ export default function index() {
         </div>
       </div>
       <div className="px-3">
-        <Table columns={columns} dataSource={groups} className="mt-3" />
+        <Table columns={columns} dataSource={groups} 
+        className="mt-3 rounded-lg border border-gray w-[calc(100% - 6px)] mb-3"
+        scroll={{ x: true }}
+        />
       </div>
     </div>
   );

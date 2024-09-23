@@ -62,6 +62,8 @@ import AdminUsers from "./components/AdminDashboard/AdminUsers";
 import SiteSettings from "./components/AdminDashboard/SiteSettings";
 import ViewPaymentProcessor from "./components/AdminDashboard/SiteSettings/PaymentProcessors/ViewPaymentProcessor";
 import Finance from "./components/AdminDashboard/Finance";
+import AdminHelpCenter from "./components/AdminDashboard/HelpCenter";
+
 const App = () => {
   return (
     <Router>
@@ -178,6 +180,11 @@ const App = () => {
           <Route
             path="/admin/dashboard/finance"
             element={<Finance />}
+          />
+
+   <Route
+            path="/admin/dashboard/help-center"
+            element={<AdminHelpCenter />}
           />
           {/* </Route> */}
         </Route>

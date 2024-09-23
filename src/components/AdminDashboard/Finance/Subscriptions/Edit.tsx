@@ -18,7 +18,7 @@ const fakeFeatures: FakeFeatureItem[] = [
 	{ id: 1, type: "item", name: "AI Generated risk profile", qty: 1, price: 4 },
 ];
 
-export default function AddNew() {
+export default function Edit() {
   const [open, setOpen] = useState(false);
   const showModal = () => {
     setOpen(true);
@@ -42,7 +42,7 @@ export default function AddNew() {
         className="rounded-md px-6 py-2 text-white bg-[#3838F0] flex items-center"
         onClick={() => showModal()}
       >
-        Create New Page
+        Edit
       </button>
       <Modal
       width={800}
@@ -65,7 +65,7 @@ export default function AddNew() {
               className="rounded-md text-white bg-[#3838F0] py-2 px-3"
               onClick={handleOk}
             >
-              Create Package
+              Update Changes
             </button>
           </div>,
         ]}

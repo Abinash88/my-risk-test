@@ -10,12 +10,12 @@ const LiveNews = () => {
  <p className="text-lg font-bold">8 Posts</p>
   <div className="flex items-center mt-5 mg:mt-0 justify-between">
   <div className="flex items-center border border-gray-300 rounded-md px-3 py-2 w-64">
-<SearchOutlined className="text-gray-500 mr-2" />
-<input
+  <SearchOutlined className="text-gray-500 mr-2" />
+  <input
   type="text"
   placeholder="Search"
   className="outline-none bg-transparent w-full text-gray-500"
-/>
+  />
   </div>
   <button className='rounded-lg ml-3 bg-[#3838F0] text-white font-lg px-5 py-2' 
         // onClick={showModal}

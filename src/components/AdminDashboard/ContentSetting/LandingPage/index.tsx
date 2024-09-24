@@ -7,7 +7,7 @@ export default function index() {
   const [type, setType] = useState("image");
 
   return (
-    <div className="flex flex-col p-3">
+    <div className="flex flex-col md:p-3">
       <div className=" flex justify-between">
         <button
           className={`${

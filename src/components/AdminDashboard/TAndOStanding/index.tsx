@@ -127,17 +127,31 @@ export default function index() {
 
   return (
     <div className="flex flex-col bg-[#FAFAFA] rounded-lg mt-5">
-      <div className="w-full flex items-center p-5">
-        <p className="text-xl text-medium text-black">3,400 Risks</p>
-        <div className="flex ml-auto">
-          <Input
-            className="px-5 mr-2 w-56"
-            addonBefore={<SearchOutlined />}
-            placeholder="Search"
-          />
-          <AddTAndOStanding />
+
+<div className="grid grid-cols-1 md:grid-cols-4 gap-6 mx-2 my-3 items-center">
+        <div className="col-span-1 justify-start">
+          <p className="text-xl text-medium text-black">3,400 Risks</p>
+        </div>
+        <div className="md:col-span-3 col-span-1">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-4 gap-x-2">
+          <div className="hidden md:block"></div>
+          <div className="hidden md:block"></div>
+          <div className="hidden md:block"></div>
+          <div className="flex items-center border border-gray-300 rounded-md px-3 py-2">
+              
+
+              <SearchOutlined className="text-gray-500 mr-2" />
+              <input
+                type="text"
+                placeholder="Search"
+                className="outline-none bg-transparent w-full text-gray-500"
+              />
+            </div>
+            <AddTAndOStanding />
+          </div>
         </div>
       </div>
+       
       <div className="bg-white m-3">
         <div className="flex flex-col">
           <div className=" flex justify-around items-center">

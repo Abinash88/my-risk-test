@@ -28,7 +28,7 @@ const AdminDashboardLayout = () => {
   return (
     <div>
       {/* <LoggedHeader /> */}
-      <div className="flex flex-row h-auto min-h-screen overflow-hidden">
+      <div className="flex flex-row h-auto max-h-screen overflow-hidden">
         <div
           className={`bg-[#000E56] shadow-md w-[18rem] py-3 px-8 lg:flex flex-col text-white hidden`}
         >

@@ -6,13 +6,13 @@ export default function index() {
   const [type, setType] = useState("active");
 
   return (
-    <div className="p-3 flex flex-col">
+    <div className="p-1 md:p-3 flex flex-col">
       <div className="flex items-center justify-between">
         <div className="flex">
           <button
             className={`${
               type == "active" ? "text-[#3838F0]" : "text-[#838384]"
-            } relative text-lg font-medium mr-4 px-4 py-2`}
+            } relative text-lg font-medium mr-2 md:mr-4 px-4 py-2`}
             onClick={() => setType("active")}
           >
             Active
@@ -23,7 +23,7 @@ export default function index() {
           <button
             className={`${
               type == "deleted" ? "text-[#3838F0]" : "text-[#838384]"
-            } relative text-lg font-medium mr-4 px-4 py-2`}
+            } relative text-lg font-medium mr-2 md:mr-4 px-4 py-2`}
             onClick={() => setType("deleted")}
           >
             Deleted

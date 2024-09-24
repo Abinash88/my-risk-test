@@ -19,7 +19,7 @@ const AdminDashboardSidebar = ({
   setOpenSidebar: Function;
 }) => {
   return (
-    <div className="">
+    <div className="h-screen">
       <div className="flex justify-between">
         <Link to="/">
           <img
@@ -34,11 +34,11 @@ const AdminDashboardSidebar = ({
           onClick={(e) => setOpenSidebar(false)}
         />
       </div>
-      <div className="py-8 flex flex-1 flex-col gap-3">
+      <div className="h-full py-8 flex flex-1 flex-col gap-3 overflow-y-auto overflow-hidden">
         {ADMIN_DASHBOARD_SIDEBAR_LINKS.map((item) => (
           <SidebarLink key={item.key} item={item} />
         ))}
-        <div className="flex items-center gap-2 font-[400] px-4 py-3 hover:bg-[#000080c8] text-white hover:no-underline active:bg-[#000080] rounded-lg cursor-pointer text-[rgba(0,0,0,0.7)]">
+        <div className="mb-4 flex items-center gap-2 font-[400] px-4 py-3 hover:bg-[#000080c8] text-white hover:no-underline active:bg-[#000080] rounded-lg cursor-pointer text-[rgba(0,0,0,0.7)]">
           <span className="text-xl">
             <FontAwesomeIcon icon={faArrowRightFromBracket} />
           </span>

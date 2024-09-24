@@ -63,6 +63,8 @@ import SiteSettings from "./components/AdminDashboard/SiteSettings";
 import ViewPaymentProcessor from "./components/AdminDashboard/SiteSettings/PaymentProcessors/ViewPaymentProcessor";
 import Finance from "./components/AdminDashboard/Finance";
 import AdminHelpCenter from "./components/AdminDashboard/HelpCenter";
+import AdminNewsRoom from "./components/AdminDashboard/NewsRoom";
+import CreateNews from "./components/AdminDashboard/NewsRoom/CreateNews";
 
 const App = () => {
   return (
@@ -182,9 +184,17 @@ const App = () => {
             element={<Finance />}
           />
 
-   <Route
+        <Route
             path="/admin/dashboard/help-center"
             element={<AdminHelpCenter />}
+          />
+          <Route
+            path="/admin/dashboard/news-room"
+            element={<AdminNewsRoom />}
+          />
+          <Route
+            path="/admin/dashboard/news-room/create"
+            element={<CreateNews />}
           />
           {/* </Route> */}
         </Route>

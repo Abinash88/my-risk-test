@@ -14,13 +14,13 @@ const HelpCenterQAndA = () => {
 
   return (
     <div className='flex flex-col  mt-5'>
-      <div className="flex justify-between mt-4 p-5">
-        <button
+      <div className="flex justify-between md:p-5">
+      <button
           className={`${
             type === tabs.CURRENT_QANDA
               ? "bg-[#6666B3] text-white"
               : "bg-white text-black"
-          } rounded-lg w-1/5 py-2 shadow-md shadow-black`}
+          } rounded-lg md:w-1/5 py-2 px-2 shadow-md shadow-black mr-2`}
           onClick={() => setType(tabs.CURRENT_QANDA)}
         >
           Current Q&A
@@ -30,7 +30,7 @@ const HelpCenterQAndA = () => {
             type === tabs.ARCHIVED_QANDA
               ? "bg-[#6666B3] text-white"
               : "bg-white text-black"
-          } rounded-lg w-1/5 py-2 shadow-md shadow-black`}
+          } rounded-lg md:w-1/5 py-2 px-2 shadow-md shadow-black mr-2`}
           onClick={() => setType(tabs.ARCHIVED_QANDA)}
         >
           Archived Q&A
@@ -40,7 +40,7 @@ const HelpCenterQAndA = () => {
             type === tabs.DELETED_QANDA
               ? "bg-[#6666B3] text-white"
               : "bg-white text-black"
-          } rounded-lg w-1/5 py-2 shadow-md shadow-black`}
+          } rounded-lg md:w-1/5 py-2 px-2 shadow-md shadow-black mr-2`}
           onClick={() => setType(tabs.DELETED_QANDA)}
         >
           Deleted Q&A

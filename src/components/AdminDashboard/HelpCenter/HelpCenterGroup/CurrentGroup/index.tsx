@@ -64,8 +64,12 @@ const CurrentGroup = () => {
             <GroupCarousel/>
         </div>
         <button className='w-full bg-[#000080] text-[#FFFFFF] font-semibold text-lg px-5 py-3 my-5 rounded-lg'>Group 1 Help center</button>
-        <div>
-            <Table dataSource={dataSource} columns={columns} showHeader={false} />;
+        <div className='w-full'>
+            <Table dataSource={dataSource} columns={columns} 
+            showHeader={false} 
+            className='mt-3 rounded-lg border border-gray w-[calc(100% - 6px)] mb-3'
+            scroll={{ x: true }}
+            />;
         </div>
     </div>
   )

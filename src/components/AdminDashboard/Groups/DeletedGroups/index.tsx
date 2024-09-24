@@ -143,20 +143,23 @@ export default function index() {
 
   return (
     <div className="flex flex-col bg-white rounded-lg mt-5">
-      <div className="w-full flex items-center p-5">
-        <div className="flex ml-auto">
-          <Input
-            className="px-5 mr-2 w-56"
-            addonBefore={<SearchOutlined />}
-            placeholder="Search"
-          />
+     <div className="w-full flex items-center p-5">
+        <div className="flex ml-auto ">
+            <div className="flex items-center border border-gray-300 rounded-md px-3 ">
+              <SearchOutlined className="text-gray-500 mr-2" />
+              <input
+                type="text"
+                placeholder="Search"
+                className="outline-none bg-transparent w-full text-gray-500"
+              />
+            </div>
 
-          <Button className="mr-2 rounded-md bg-[#3838F0] text-white py-1 px-5">
+          <Button className="ml-2 rounded-md bg-[#3838F0] text-white py-1 px-5">
             <PlusOutlined className="text-white" /> Export <ArrowUp />
           </Button>
         </div>
       </div>
-      <div className="px-3">
+      <div className="px-2 md:px-3">
         <Table columns={columns} dataSource={groups} 
         className="mt-3 rounded-lg border border-gray w-[calc(100% - 6px)] mb-3"
         scroll={{ x: true }}

@@ -18,6 +18,9 @@ import GeneralSetting from "./components/Dashboard/GeneralSetting";
 import Verification from "./components/Dashboard/Verification";
 import ErrorPage from "./components/shared/ErrorPage";
 import EditTeam from "./components/Dashboard/GeneralSetting/EditTeam";
+import UserNewsRoom from "./components/Dashboard/NewsRoom";
+import UserNewsRoomContent from "./components/Dashboard/NewsRoom/BlogContent";
+
 import MakePayment from "./components/LandingPage/Payment/MakePayment";
 import PaymentMode from "./components/LandingPage/Payment";
 import GeneralRisk from "./components/LandingPage/GeneralRisk";
@@ -123,6 +126,9 @@ const App = () => {
           <Route path="general-setting" element={<GeneralSetting />} />
           <Route path="general-setting/:edit-team" element={<EditTeam />} />
           <Route path="verification" element={<Verification />} />
+
+          {/* <Route path="news-room" element={<UserNewsRoom />} />
+          <Route path="news-room/:blogcontent" element={<UserNewsRoomContent />} /> */}
         </Route>
         <Route path="/" element={<AdminDashboardLayout />}>
           {/* <Route path="/admin/dashboard/" element={<AdminDashboardLayout />}> */}

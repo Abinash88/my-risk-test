@@ -89,19 +89,26 @@ export default function index() {
 
   return (
     <div className="flex flex-col bg-white rounded-lg mt-5">
-      <div className="w-full flex items-center p-5">
-        <p className="text-xl text-medium text-black">4 Admin Users</p>
 
-        <div className="flex ml-auto">
-          <Input
-            className="px-5 mr-2 w-56"
-            addonBefore={<SearchOutlined />}
-            placeholder="Search"
-          />
+<div className="grid grid-cols-1 md:grid-cols-4 gap-6 mx-2 my-3">
+        <div className="col-span-1 justify-start">
+          <p className="text-xl text-medium text-black">2 Admin Users</p>
+        </div>
+        <div className="md:col-span-3 col-span-1">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-y-4 gap-x-2">
+            <div className="flex items-center border border-gray-300 rounded-md px-3 py-2">
+              <SearchOutlined className="text-gray-500 mr-2" />
+              <input
+                type="text"
+                placeholder="Search"
+                className="outline-none bg-transparent w-full text-gray-500"
+              />
+            </div>
           <AddAdminUser />
           <button className="flex ml-2 rounded-md bg-[#3838F0] text-white py-2 px-5">
             <PlusOutlined className="text-white" /> Export <ArrowUp />
           </button>
+          </div>
         </div>
       </div>
       <div className="px-3 pb-3">

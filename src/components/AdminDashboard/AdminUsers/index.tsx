@@ -16,8 +16,9 @@ export default function index() {
   const [activeTab, setActiveTab] = useState<string>(tabs.ADMIN_USERS);
 
   return (
-    <div className="bg-white rounded-lg m-3">
+    <div className="bg-white rounded-lg m-3 w-[calc(100%-6px)]">
       <div className="pt-3 flex items-center justify-between border-b border-gray">
+      <div className="flex overflow-x-auto scrollbar-hide items-center">
         <div className="flex">
           <button
             className={`${
@@ -57,6 +58,7 @@ export default function index() {
             )}
           </button>
         </div>
+      </div>
       </div>
       <div className="mt-3">
         {activeTab == tabs.ADMIN_USERS && <AdminUsers />}

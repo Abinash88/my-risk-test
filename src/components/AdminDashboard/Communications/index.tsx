@@ -7,13 +7,13 @@ export default function index() {
 
   return (
     <div className="flex flex-col p-3">
-      <div className=" flex justify-between">
-        <button
+      <div className=" flex justify-between mt-4">
+      <button
           className={`${
             type == "current"
               ? "bg-[#000080] text-white"
               : "bg-white text-black"
-          } rounded-lg w-2/5 py-3 shadow-md`}
+          } rounded-lg md:w-2/5 py-3 shadow-md shadow-black px-1`}
           onClick={() => setType("current")}
         >
           Current Subscribers
@@ -21,7 +21,7 @@ export default function index() {
         <button
           className={`${
             type == "former" ? "bg-[#000080] text-white" : "bg-white text-black"
-          } rounded-lg w-2/5 py-3 shadow-md`}
+          } rounded-lg md:w-2/5 py-3 shadow-md shadow-black px-1`}
           onClick={() => setType("former")}
         >
           Former Subscribers

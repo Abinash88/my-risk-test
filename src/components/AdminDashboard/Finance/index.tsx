@@ -19,58 +19,59 @@ export default function index() {
   const [activeTab, setActiveTab] = useState<string>(tabs.SUBSCRIPTIONS);
 
   return (
-    <div className="bg-white rounded-lg m-3">
-      <div className="pt-3 flex items-center justify-between border-b border-gray">
-        <div className="flex">
-          <button
-            className={`${
-              activeTab == tabs.SUBSCRIPTIONS
-                ? "text-[#3838F0]"
-                : "text-[#838384]"
-            } relative text-lg font-medium mr-4 px-4 py-2 flex items-center`}
-            onClick={() => setActiveTab(tabs.SUBSCRIPTIONS)}
-          >
-            <Verified className="mr-2" /> Subscriptions
-            {activeTab === tabs.SUBSCRIPTIONS && (
-              <span className="absolute left-0 bottom-0 w-full h-1 bg-[#3838F0]"></span>
-            )}
-          </button>
-          <button
-            className={`${
-              activeTab == tabs.PREMIUM_FEATURES
-                ? "text-[#3838F0]"
-                : "text-[#838384]"
-            } relative text-lg font-medium mr-4 px-4 py-2 flex items-center`}
-            onClick={() => setActiveTab(tabs.PREMIUM_FEATURES)}
-          >
-            <Ticket className="mr-2" /> Premium Features
-            {activeTab === tabs.PREMIUM_FEATURES && (
-              <span className="absolute left-0 bottom-0 w-full h-1 bg-[#3838F0]"></span>
-            )}
-          </button>
-          <button
-            className={`${
-              activeTab == tabs.DURATIONS ? "text-[#3838F0]" : "text-[#838384]"
-            } relative text-lg font-medium mr-4 px-4 py-2 flex items-center`}
-            onClick={() => setActiveTab(tabs.DURATIONS)}
-          >
-            <RotateCcwSquare className="mr-2" /> Durations
-            {activeTab === tabs.DURATIONS && (
-              <span className="absolute left-0 bottom-0 w-full h-1 bg-[#3838F0]"></span>
-            )}
-          </button>
-          <button
-            className={`${
-              activeTab == tabs.PAYMENTS ? "text-[#3838F0]" : "text-[#838384]"
-            } relative text-lg font-medium mr-4 px-4 py-2 flex items-center`}
-            onClick={() => setActiveTab(tabs.PAYMENTS)}
-          >
-            <HashStraight className="mr-2" /> Payments
-            {activeTab === tabs.PAYMENTS && (
-              <span className="absolute left-0 bottom-0 w-full h-1 bg-[#3838F0]"></span>
-            )}
-          </button>
-          
+    <div className="bg-white rounded-lg p-3 w-[calc(100%-6px)]">
+      <div className=" pt-3 flex items-center justify-between border-b border-gray">
+        <div className="flex overflow-x-auto scrollbar-hide">
+          <div className="flex">
+            <button
+              className={`${
+                activeTab == tabs.SUBSCRIPTIONS
+                  ? "text-[#3838F0]"
+                  : "text-[#838384]"
+              } relative text-lg font-medium mr-4 px-4 py-2 flex items-center whitespace-nowrap`}
+              onClick={() => setActiveTab(tabs.SUBSCRIPTIONS)}
+            >
+              <Verified className="mr-2" /> Subscriptions
+              {activeTab === tabs.SUBSCRIPTIONS && (
+                <span className="absolute left-0 bottom-0 w-full h-1 bg-[#3838F0]"></span>
+              )}
+            </button>
+            <button
+              className={`${
+                activeTab == tabs.PREMIUM_FEATURES
+                  ? "text-[#3838F0]"
+                  : "text-[#838384]"
+              } relative text-lg font-medium mr-4 px-4 py-2 flex items-center whitespace-nowrap`}
+              onClick={() => setActiveTab(tabs.PREMIUM_FEATURES)}
+            >
+              <Ticket className="mr-2" /> Premium Features
+              {activeTab === tabs.PREMIUM_FEATURES && (
+                <span className="absolute left-0 bottom-0 w-full h-1 bg-[#3838F0]"></span>
+              )}
+            </button>
+            <button
+              className={`${
+                activeTab == tabs.DURATIONS ? "text-[#3838F0]" : "text-[#838384]"
+              } relative text-lg font-medium mr-4 px-4 py-2 flex items-center whitespace-nowrap`}
+              onClick={() => setActiveTab(tabs.DURATIONS)}
+            >
+              <RotateCcwSquare className="mr-2" /> Durations
+              {activeTab === tabs.DURATIONS && (
+                <span className="absolute left-0 bottom-0 w-full h-1 bg-[#3838F0]"></span>
+              )}
+            </button>
+            <button
+              className={`${
+                activeTab == tabs.PAYMENTS ? "text-[#3838F0]" : "text-[#838384]"
+              } relative text-lg font-medium mr-4 px-4 py-2 flex items-center whitespace-nowrap`}
+              onClick={() => setActiveTab(tabs.PAYMENTS)}
+            >
+              <HashStraight className="mr-2" /> Payments
+              {activeTab === tabs.PAYMENTS && (
+                <span className="absolute left-0 bottom-0 w-full h-1 bg-[#3838F0]"></span>
+              )}
+            </button>
+          </div>
         </div>
       </div>
       <div className="mt-3">

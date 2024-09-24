@@ -11,7 +11,7 @@ export default function index() {
         <div className="w-full flex flex-col">
           <span className="text-gray-500 mb-4 text-center ">Preview</span>
           <div className="flex justify-around items-center">
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {/* Social media link cards */}
               <SocialLinkCard icon={<XIcon />} label="X (Formerly Twitter)" />
               <SocialLinkCard icon={<Linkedin />} label="LinkedIn" />
@@ -55,7 +55,7 @@ const SocialLinkCard = ({ icon, label }: { icon: any; label: string }) => {
 // Component for logo row
 const LogoRow = ({ label }: { label: string }) => {
   return (
-    <div className="flex justify-between items-center p-4 bg-white shadow-lg rounded-lg">
+    <div className="flex flex-col md:flex-row justify-between item-start md:items-center p-4 bg-white shadow-lg rounded-lg">
       <div className="flex flex-col items-start">
         <span className="text-gray-700 mb-2">{label}</span>
 
@@ -65,7 +65,7 @@ const LogoRow = ({ label }: { label: string }) => {
           //   className="w-10 h-10 mr-4"
         />
       </div>
-      <button className="bg-[#3838F0] text-white px-6 py-2 rounded">
+      <button className="bg-[#3838F0] text-white px-6 py-2 rounded mt-3 md:mt-0">
         Upload New
       </button>
     </div>

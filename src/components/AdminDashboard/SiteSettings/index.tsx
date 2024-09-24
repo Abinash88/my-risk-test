@@ -16,8 +16,9 @@ export default function index() {
   const [activeTab, setActiveTab] = useState<string>(tabs.PAYMENT_PROCESSORS);
 
   return (
-    <div className=" rounded-lg m-3">
+    <div className=" rounded-lg m-3 w-[calc(100%-6px)]">
       <div className="pt-3 flex items-center justify-between border-b border-gray">
+      <div className="flex overflow-x-auto scrollbar-hide items-center">
         <div className="flex">
           <button
             className={`${
@@ -59,6 +60,7 @@ export default function index() {
             )}
           </button>
         </div>
+      </div>
       </div>
       <div className="mt-3">
         {activeTab == tabs.PAYMENT_PROCESSORS && <PaymentProcessors />}

@@ -67,19 +67,24 @@ export default function CurrentSubscribers() {
 
   return (
     <div className="flex flex-col bg-white rounded-lg mt-5">
-      <div className="w-full flex items-center p-5">
-        <p className="text-xl text-medium text-black">2,320 Subscribers</p>
-        <div className="flex ml-auto">
-          <Input
-            className="px-5 mr-2 w-56"
-            addonBefore={<SearchOutlined />}
-            placeholder="Search"
-          />
-          <Button className="mr-2 rounded-md bg-[#3838F0] text-white py-1 px-5">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mx-2  items-center mt-2">
+       <div className="col-span-1 justify-start">
+         <p className="text-xl text-medium text-black">2,320 Subscribers</p>
+        </div>
+        <div className="flex md:ml-auto">
+           <div className="flex items-center border border-gray-300 rounded-md px-3 ">
+              <SearchOutlined className="text-gray-500 mr-2" />
+              <input
+                type="text"
+                placeholder="Search"
+                className="outline-none bg-transparent w-full text-gray-500"
+              />
+            </div>
+          <Button className="mr-2 rounded-md bg-[#3838F0] text-white py-1 px-5 ml-3">
             <PlusOutlined className="text-white" /> Export <ArrowUp />
           </Button>
         </div>
-      </div>
+    </div>
 
       <div className=" mt-3 mx-2">
         <Table

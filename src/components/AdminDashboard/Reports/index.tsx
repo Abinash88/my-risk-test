@@ -18,8 +18,10 @@ export default function index() {
   const [activeTab, setActiveTab] = useState<string>(tabs.PENDING);
 
   return (
-    <div className="bg-white rounded-lg m-3">
+    <div className="bg-white rounded-lg p-3 w-[calc(100%-6px)]">
       <div className="pt-3 flex items-center justify-between border-b border-gray">
+        <div className="flex overflow-x-auto scrollbar-hide items-center">
+
         <div className="flex">
           <button
             className={`${
@@ -66,10 +68,12 @@ export default function index() {
             )}
           </button>
         </div>
-        {/* {type == "active" && ( */}
         <Button className="mr-2 rounded-md bg-[#3838F0] text-white py-1 px-5">
           <PlusOutlined className="text-white" /> Export <ArrowUp />
         </Button>
+        </div>
+        {/* {type == "active" && ( */}
+        
         {/* )} */}
       </div>
       <div className="mt-3">

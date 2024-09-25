@@ -41,6 +41,9 @@ dependencies:
   '@radix-ui/react-slot':
     specifier: ^1.1.0
     version: 1.1.0(@types/react@18.3.5)(react@18.3.1)
+  '@react-map/continents':
+    specifier: ^1.0.5
+    version: 1.0.5(react-dom@18.3.1)(react@18.3.1)
   '@reduxjs/toolkit':
     specifier: ^2.2.7
     version: 2.2.7(react@18.3.1)
@@ -1660,6 +1663,16 @@ packages:
       rc-motion: 2.9.2(react-dom@18.3.1)(react@18.3.1)
       rc-resize-observer: 1.4.0(react-dom@18.3.1)(react@18.3.1)
       rc-util: 5.43.0(react-dom@18.3.1)(react@18.3.1)
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+    dev: false
+
+  /@react-map/continents@1.0.5(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-Nm/qgkYjAa3H7j26uKgGI+Vga6JjtmEFXOFLCNMVSzGv3gEfU6ee3djQv7p2miS7Njz+hg3MMRtcBBLXWO0L1g==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+    dependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
     dev: false

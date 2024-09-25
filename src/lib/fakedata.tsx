@@ -100,46 +100,57 @@ export const GroupImages = [
 	{
 		image: "https://randomuser.me/api/portraits/women/2.jpg",
 		name: "Bobby",
+		group: "Group #313311",
 	},
 	{
 		image: "https://randomuser.me/api/portraits/men/2.jpg",
 		name: "Shakur",
+		group: "Group #313311",
 	},
 	{
 		image: "https://randomuser.me/api/portraits/men/7.jpg",
 		name: "Alabi",
+		group: "Group #313311",
 	},
 	{
 		image: "https://randomuser.me/api/portraits/men/5.jpg",
 		name: "Wizzy",
+		group: "Group #313311",
 	},
 	{
 		image: "https://randomuser.me/api/portraits/women/15.jpg",
-		name: "Toyin",
+		name: "Toyin",	
+		group: "Group #313311",
 	},
 	{
 		image: "https://randomuser.me/api/portraits/women/11.jpg",
 		name: "Seguny",
+		group: "Group #313311",
 	},
 	{
 		image: "https://randomuser.me/api/portraits/men/9.jpg",
 		name: "Taye",
+		group: "Group #313311",
 	},
 	{
 		image: "https://randomuser.me/api/portraits/men/18.jpg",
 		name: "Shakr",
+		group: "Group #313311",
 	},
 	{
 		image: "https://randomuser.me/api/portraits/women/14.jpg",
 		name: "Salman",
+		group: "Group #313311",
 	},
 	{
 		image: "https://randomuser.me/api/portraits/men/6.jpg",
 		name: "Samad",
+		group: "Group #313311",
 	},
 	{
 		image: "https://randomuser.me/api/portraits/men/5.jpg",
 		name: "Segun",
+		group: "Group #313311",
 	},
 ];
 
@@ -281,3 +292,34 @@ export const TandOData = [
 		downVotes: 49,
 	},
 ];
+export const sectorData = [
+	{
+		name: "Sector 1",
+		id: 1,
+	},
+	{
+		name: "Sector 2",
+		id: 2,
+	},
+	{
+		name: "Sector 3",
+		id: 3,
+	},
+	{
+		name: "Sector 4",
+		id: 4,
+	},
+	{
+		name: "Sector 5",
+		id: 5,
+	},
+	{
+		name: "Sector 6",
+		id: 6,
+	},
+	{
+		name: "Sector 7",
+		id: 7,
+	},
+
+]

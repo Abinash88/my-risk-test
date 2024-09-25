@@ -18,6 +18,8 @@ import GeneralSetting from "./components/Dashboard/GeneralSetting";
 import Verification from "./components/Dashboard/Verification";
 import ErrorPage from "./components/shared/ErrorPage";
 import EditTeam from "./components/Dashboard/GeneralSetting/EditTeam";
+import EngageWithTAndO from "./components/Dashboard/EngageWithTAndO";
+
 import UserNewsRoom from "./components/Dashboard/NewsRoom";
 import UserNewsRoomContent from "./components/Dashboard/NewsRoom/BlogContent";
 
@@ -44,6 +46,7 @@ import StepsSection from "./components/Dashboard/ManageRIsk/CommentModal/steps";
 import OurWorks from "./components/LandingPage/mainPage/OurWorks";
 import { Upload } from "./components/LandingPage/mainPage/Upload";
 import Map from "./components/LandingPage/Map";
+
 import DownloadedRisk from "./components/LandingPage/GeneralRisk/GeneralRiskPages/DownloadedRisk";
 import AdminDashboardLayout from "./components/shared/AdminDashboardLayout/AdminDashboardLayout";
 import IndexAdminDashboard from "./components/AdminDashboard";
@@ -127,8 +130,8 @@ const App = () => {
           <Route path="general-setting/:edit-team" element={<EditTeam />} />
           <Route path="verification" element={<Verification />} />
 
-          {/* <Route path="news-room" element={<UserNewsRoom />} />
-          <Route path="news-room/:blogcontent" element={<UserNewsRoomContent />} /> */}
+          <Route path="risk" element={<EngageWithTAndO />} />
+         {/* <Route path="news-room/:blogcontent" element={<UserNewsRoomContent />} />  */}
         </Route>
         <Route path="/" element={<AdminDashboardLayout />}>
           {/* <Route path="/admin/dashboard/" element={<AdminDashboardLayout />}> */}

@@ -36,28 +36,20 @@ const Header = () => {
   return (
     <div
       className="fixed z-20 ease-in-out duration-300  bg-transparent px-[2rem] lg:px-[4rem] py-[1rem] flex justify-between items-center gap-4 w-full "
-      style={{ backgroundColor: colorChange ? "white" : "transparent" }}
+      style={{ backgroundColor: "white" }}
     >
       <Link to="/">
         <div className="ease-in-out duration-1000 ">
-          {colorChange ? (
-            <img
+          <img
               src="images/logo-removebg.png"
-              alt="logo"
-              className="w-[9rem] md:w-[11rem]"
-            />
-          ) : (
-            <img
-              src="images/auth-logo.png"
-              alt="logo"
-              className="w-[10rem] md:w-[12rem]"
-            />
-          )}
+            alt="logo"
+            className="w-[10rem] md:w-[12rem]"
+          />
         </div>
       </Link>
 
       <ul
-        style={{ color: colorChange ? "black" : "white" }}
+        style={{ color: "black" }}
         className=" font-medium hidden md:flex items-start justify-center gap-6 lg:gap-14 flex-[2] "
       >
         {navItems.map((item) => (
@@ -135,20 +127,10 @@ const Header = () => {
                     //   setNav(false);
                     //   goToTop();
                     // }}
-                    onClick={() => {
-                      navigate("/risk-management");
-                      goToTop();
-                    }}
                   >
                     Risk Management Concept
                   </div>
-                  <div
-                    className={`opacity-80 text-sm font-normal my-1`}
-                    onClick={() => {
-                      navigate("/integrated-service");
-                      goToTop();
-                    }}
-                  >
+                  <div className={`opacity-80 text-sm font-normal my-1`}>
                     Integrated AI Services
                   </div>
                 </div>
@@ -181,7 +163,7 @@ const Header = () => {
         <FontAwesomeIcon
           icon={faBars}
           className="text-xl text-white shadow-lg"
-          style={{ color: colorChange ? "black" : "white" }}
+          style={{ color: "black"}}
         />
       </div>
       <ul
@@ -295,50 +277,16 @@ const Header = () => {
                     >
                       Our services
                     </div>
-                    <div
-                      className="text-[#000080]"
-                      onClick={() => {
-                        navigate("/premium");
-                        setNav(false);
-                        goToTop();
-                      }}
-                    >
-                      Premium Features
-                    </div>
-                    <div
-                      className="text-[#000080]"
-                      onClick={() => {
-                        navigate("/product-subscription");
-                        setNav(false);
-                        goToTop();
-                      }}
-                    >
-                      Subscription Services
-                    </div>
+                    <div className="text-[#000080]">Premium Features</div>
+                    <div className="text-[#000080]">Subscription Services</div>
                   </>
                 )}
                 {learn && item.text === "Learn" && (
                   <>
-                    <div
-                      className={`text-[#000080]`}
-                      onClick={() => {
-                        navigate("/risk-management");
-                        setNav(false);
-                        goToTop();
-                      }}
-                    >
+                    <div className={`text-[#000080]`}>
                       Risk Management Concept
                     </div>
-                    <div
-                      className="text-[#000080]"
-                      onClick={() => {
-                        navigate("/integrated-service");
-                        setNav(false);
-                        goToTop();
-                      }}
-                    >
-                      Integrated AI Services
-                    </div>
+                    <div className="text-[#000080]">Integrated AI Services</div>
                   </>
                 )}
                 {support && item.text === "Support" && (

@@ -1,5 +1,7 @@
 import Container from "@/components/shared/HomeLayout/container";
 import { BlogHeader } from "@/components/shared/ReuseAble";
+import { ArrowLeft } from "lucide-react";
+import { useState } from "react";
 
 const steps = [
   {
@@ -16,6 +18,7 @@ const steps = [
   },
 ];
 const OurWorks = () => {
+  const [history, setHistory] = useState(false);
   return (
     <div>
       <BlogHeader
@@ -25,20 +28,59 @@ const OurWorks = () => {
         path="/"
       />
       <Container>
-        <div className="flex justify-center gap-8 my-16 flex-wrap">
+        <div className="flex flex-row w-full mt-9 justify-center">
+          <button
+            onClick={() => setHistory(false)}
+            className={
+              history
+                ? "font-[600] rounded-full scale-90 md:scale-75 text-blue-900 bg-white w-[50%] text-center text-xs md:text-lg mb-5 border shadow-lg py-2"
+                : "font-[600] rounded-full scale-90 md:scale-75 bg-blue-900 text-white w-[50%] text-center text-xs md:text-lg mb-5 shadow-lg border py-2"
+            }
+          >
+            Business Sign-up
+          </button>
+          <button
+            onClick={() => setHistory(true)}
+            className={
+              !history
+                ? "font-[600] rounded-full scale-90 md:scale-75 text-blue-900 bg-white w-[50%] md:w-[50%] text-center text-xs md:text-lg mb-5 border shadow-lg py-2"
+                : "font-[600] rounded-full scale-90 md:scale-75 bg-blue-900 text-white w-[50%] md:w-[50%] text-center text-xs md:text-lg mb-5 shadow-lg border py-2"
+            }
+          >
+            Professional Sign-up
+          </button>
+        </div>
+        <div className="flex flex-row justify-center items-center gap-8 my-16 flex-wrap md:flex-nowrap">
+          <div className="rounded-full hidden md:flex opacity-80 bg-[#000080]  p-2 h-fit">
+            <ArrowLeft className="text-white scale-75" />
+          </div>
           {steps.map((step, i) => (
             <div
               key={i}
-              className="w-[100%] md:[33%] lg:w-[28%] bg-white shadow-lg p-6 text-center flex flex-col items-center rounded-lg gap-y-5"
+              className="w-[100%] md:w-[28%] bg-white shadow-lg p-6 text-center flex flex-col items-center rounded-lg gap-y-5"
             >
               <img src="/images/ai-icon.png" alt="ai-icon" />
-              <h4 className="text-[#000000] font-[600] text-[24px]">
+              <h4 className="text-[#000000] font-[600] text-lg">
                 {step.title}
               </h4>
-              <p className="text-[rgba(0,0,0,0.6)] text-[19px]">{step.text}</p>
+              <p className="text-[rgba(0,0,0,0.6)] text-sm">{step.text}</p>
             </div>
           ))}
+          <div className="rounded-full hidden md:flex opacity-80 bg-[#000080]  p-2 h-fit">
+            <ArrowLeft className="text-white scale-75" />
+          </div>
         </div>
+        <div className="w-full flex items-center justify-center mb-10">
+
+        <button
+          // onClick={() => setHistory(false)}
+          className={
+            "font-[600] rounded-full bg-blue-900 text-white w-[50%] md:w-[30%] text-center text-xs md:text-lg mb-5 shadow-lg border py-2"
+          }
+          >
+          Create Account
+        </button>
+          </div>
       </Container>
     </div>
   );

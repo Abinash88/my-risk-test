@@ -3,7 +3,7 @@ import Container from "@/components/shared/HomeLayout/container";
 
 const ProductSubscription = () => {
   return (
-    <div className="my-20">
+    <div className="py-20 md:py-36">
       <Container>
         <div className="text-black text-center w-full md:w-[50%] mr-auto ml-auto">
           <h2 className="font-[600] text-[38px] mb-2">

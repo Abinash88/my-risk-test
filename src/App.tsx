@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomeLayout from "./components/shared/HomeLayout";
+import HomeLayout2 from "./components/shared/HomeLayout2";
 import Blog from "./components/LandingPage/Blog";
 import LandingPage from "./components/LandingPage/mainPage";
 import LoggedLayout from "./components/shared/LoggedLayout/loggedLayout";
@@ -55,15 +56,17 @@ const App = () => {
           <Route path="/service" element={<OurService />} />
           <Route path="/premium" element={<OurPremium />} />
           <Route path="/our-work" element={<OurWorks />} />
+          <Route path="/integrated-service" element={<IntegratedService />} />
+          <Route path="/risk-management" element={<RiskManagement />} />
+          <Route path="/home-page" element={<HomePage />} />
+        </Route>
+        <Route path="/" element={<HomeLayout2 />}>
           <Route path="/testing" element={<CommentsSection />} />
           <Route path="/testing2" element={<StepsSection />} />
           <Route
             path="/product-subscription"
             element={<ProductSubscription />}
           />
-          <Route path="/risk-management" element={<RiskManagement />} />
-          <Route path="/integrated-service" element={<IntegratedService />} />
-          <Route path="/home-page" element={<HomePage />} />
           <Route path="/ai-model" element={<AIModel />} />
           <Route path="/generate-download" element={<GenerateDownload />} />
           <Route path="/blog" element={<Blog />} />

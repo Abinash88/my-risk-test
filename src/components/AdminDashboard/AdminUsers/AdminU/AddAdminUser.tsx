@@ -18,7 +18,7 @@ export default function AddAdminUser() {
   return (
     <div>
       <button
-        className="rounded-md px-6 py-2 text-white bg-[#3838F0]"
+        className="rounded-md px-2 md:px-4 lg:px-6 py-2 text-white bg-[#3838F0]"
         onClick={() => showModal()}
       >
         Add Admin User

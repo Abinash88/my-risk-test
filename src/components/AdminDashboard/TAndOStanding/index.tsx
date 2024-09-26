@@ -128,7 +128,7 @@ export default function index() {
   return (
     <div className="flex flex-col bg-[#FAFAFA] rounded-lg mt-5">
 
-<div className="grid grid-cols-1 md:grid-cols-4 gap-6 mx-2 my-3 items-center">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mx-2 my-3 items-center">
         <div className="col-span-1 justify-start">
           <p className="text-xl text-medium text-black">3,400 Risks</p>
         </div>
@@ -160,7 +160,7 @@ export default function index() {
                 type == "public"
                   ? "bg-[#000080] text-white"
                   : "bg-white text-black"
-              } rounded-lg w-1/5 py-3 shadow-md`}
+              } rounded-lg w-1/5 py-3 shadow-md text-sm md:text-lg`}
               onClick={() => setType("public")}
             >
               Public T & O Standing
@@ -170,14 +170,14 @@ export default function index() {
                 type == "private"
                   ? "bg-[#000080] text-white"
                   : "bg-white text-black"
-              } rounded-lg w-1/5 py-3 shadow-md`}
+              } rounded-lg w-1/5 py-3 shadow-md text-sm md:text-lg`}
               onClick={() => setType("private")}
             >
               Private T & O Standing
             </button>
             <Select
               defaultValue="Filter By"
-              className="h-10 w-32"
+              className=" text-sm md:text-lg"
               // onChange={}
               options={[
                 { value: "Sectors", label: "Sectors" },

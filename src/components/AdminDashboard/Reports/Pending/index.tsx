@@ -90,7 +90,7 @@ export default function index() {
             Dismiss
           </Button>
           <Button
-            className="bg-[#3838F0] text-white ml-2"
+            className="bg-[#3838F0] text-white mt-2 md:mt-0 md:ml-2"
             // onClick={showApproveModal}
           >
             Review
@@ -101,7 +101,10 @@ export default function index() {
   ];
 
   return (
-    <div className="mt-5 mx-3 pb-3">
+    <div className="mt-2 mx-3 pb-3 flex flex-col">
+        <Button className="mr-2 rounded-md bg-[#3838F0] text-white py-1 px-5 ml-auto mb-2">
+          <PlusOutlined className="text-white" /> Export <ArrowUp />
+        </Button>
       <Table
         style={{ marginBottom: "20px" }}
         columns={columns}

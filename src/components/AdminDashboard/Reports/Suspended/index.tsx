@@ -72,8 +72,10 @@ export default function index() {
   ];
 
   return (
-    <div className="mt-5 mx-3 pb-3">
-      <Table
+      <div className="mt-2 mx-3 pb-3 flex flex-col">
+        <Button className="mr-2 rounded-md bg-[#3838F0] text-white py-1 px-5 ml-auto mb-2">
+          <PlusOutlined className="text-white" /> Export <ArrowUp />
+        </Button>      <Table
         style={{ marginBottom: "20px" }}
         columns={columns}
         dataSource={reports}

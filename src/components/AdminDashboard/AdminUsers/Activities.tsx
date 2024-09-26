@@ -48,7 +48,7 @@ export default function Activities() {
             addonBefore={<SearchOutlined />}
             placeholder="Search"
           /> */}
-          <button className="flex ml-2 rounded-md bg-[#3838F0] text-white py-2 px-5">
+          <button className="flex justify-around ml-2 rounded-md bg-[#3838F0] text-white py-2 px-2 md:px-4 lg:px-6">
             <PlusOutlined className="text-white" /> Export <ArrowUp />
           </button>
         </div>

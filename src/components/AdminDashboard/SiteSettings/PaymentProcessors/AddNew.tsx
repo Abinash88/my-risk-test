@@ -19,10 +19,10 @@ export default function AddNew() {
   return (
     <div>
       <button
-        className="rounded-md px-6 py-2 text-white bg-[#3838F0] flex items-center"
+        className="rounded-md px-2 md:px-4 lg:px-6 py-2 text-white bg-[#3838F0] flex items-center"
         onClick={() => showModal()}
       >
-        <Plus className="mr-3" /> Add New
+        <Plus className="md:mr-3 mr-1" /> Add New
       </button>
       <Modal
         title="Add New Payment Processor"

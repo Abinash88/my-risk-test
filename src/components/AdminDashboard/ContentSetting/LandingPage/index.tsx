@@ -8,19 +8,23 @@ export default function index() {
 
   return (
     <div className="flex flex-col md:p-3">
-      <div className=" flex justify-between">
+      <div className="flex justify-between gap-3 mx-3">
         <button
-          className={`${
-            type == "image" ? "bg-[#000080] text-white" : "bg-white text-black"
-          } rounded-lg w-2/5 py-3 shadow-md`}
+					className={`p-3 rounded-md shadow-md w-[45%] md:w-[23%] font-[600] ${
+						type === "image"
+							? "bg-[#000080] text-white"
+							: "bg-white text-[rgba(0,0,0,0.7)]"
+					}`}
           onClick={() => setType("image")}
         >
           Image/Video Overlay
         </button>
         <button
-          className={`${
-            type == "link" ? "bg-[#000080] text-white" : "bg-white text-black"
-          } rounded-lg w-2/5 py-3 shadow-md` }
+					className={`p-3 rounded-md shadow-md w-[45%] md:w-[23%] font-[600] ${
+						type === "link"
+							? "bg-[#000080] text-white"
+							: "bg-white text-[rgba(0,0,0,0.7)]"
+					}`}
           onClick={() => setType("link")}
         >
           Quick Links

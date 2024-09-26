@@ -101,7 +101,7 @@ export default function Private() {
             <p>{record.duration} Weeks</p>
           </div>
           <p>{record.status}</p>
-          <div className="flex justify-between">
+          <div className="flex justify-between gap-x-2">
             {record.status == "Active" && (
               <>
                 <PauseVisibility />

@@ -6,7 +6,7 @@ export default function index() {
   const [type, setType] = useState("current");
 
   return (
-    <div className="flex flex-col p-3">
+    <div className="flex flex-col p-3 bg-white">
       <div className=" flex justify-between mt-4">
       <button
           className={`${

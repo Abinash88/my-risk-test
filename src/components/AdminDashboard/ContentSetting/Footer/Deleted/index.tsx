@@ -6,22 +6,24 @@ export default function index() {
   const [type, setType] = useState("pages");
 
   return (
-    <div className="flex flex-col px-3 mt-10">
-      <div className=" flex justify-around">
+    <div className="flex flex-col md:px-3 mt-5 md:mt-10">
+      <div className="flex justify-between md:justify-around">
         <button
-          className={`${
-            type == "pages" ? "bg-[#000080] text-white" : "bg-white text-black"
-          } rounded-lg w-1/5 py-3 shadow-md`}
+          className={`p-3 rounded-md shadow-md w-[45%] md:w-[23%] font-[600] ${
+						type === "pages"
+							? "bg-[#000080] text-white"
+							: "bg-white text-[rgba(0,0,0,0.7)]"
+					}`}
           onClick={() => setType("pages")}
         >
           Pages
         </button>
         <button
-          className={`${
-            type == "footer_headers"
-              ? "bg-[#000080] text-white"
-              : "bg-white text-black"
-          } rounded-lg w-1/5 py-3 shadow-md`}
+          className={`p-3 rounded-md shadow-md w-[45%] md:w-[23%] font-[600] ${
+						type === "footer_headers"
+							? "bg-[#000080] text-white"
+							: "bg-white text-[rgba(0,0,0,0.7)]"
+					}`}
           onClick={() => setType("footer_headers")}
         >
           Footer Headers

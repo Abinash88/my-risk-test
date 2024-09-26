@@ -169,7 +169,7 @@ export default function NewRequest() {
             Decline
           </Button>
           <Button
-            className="bg-[#3838F0] text-white ml-2"
+            className="bg-[#3838F0] text-white mt-1 md:mt-0 md:ml-2 "
             onClick={showApproveModal}
           >
             Approve

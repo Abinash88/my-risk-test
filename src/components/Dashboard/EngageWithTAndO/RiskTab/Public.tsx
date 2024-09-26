@@ -1,6 +1,7 @@
 import { Table, TableColumnsType } from "antd";
 import { truncateText } from "@/lib/utils";
 import Continents from "@react-map/continents";
+import ViewCommnts from "../ViewCommnts";
 
 const risks = [
   {
@@ -162,7 +163,8 @@ export default function Public() {
             {truncateText(record.description, 15)}{" "}
             <span className="text-[#D9D9D9]">more</span>
           </p>
-          <p className="text-[#D9D9D9]">View all comments</p>
+          <ViewCommnts />
+          {/* <p className="">View all comments</p> */}
         </div>
       ),
     },

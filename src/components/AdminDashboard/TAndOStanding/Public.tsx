@@ -91,7 +91,7 @@ export default function Public() {
     {
       title: "Admin Control",
       render: (value, record) => (
-        <div className="flex flex-col">
+        <div className="flex flex-col ">
           <div className="flex items-center">
             <p className="font-semibold mr-2">Posted:</p>
             <p>{record.date}</p>
@@ -101,7 +101,7 @@ export default function Public() {
             <p>{record.duration} Weeks</p>
           </div>
           <p>{record.status}</p>
-          <div className="flex justify-between">
+          <div className="flex justify-between gap-x-2">
             {record.status == "Active" && (
               <>
                 <PauseVisibility />

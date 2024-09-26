@@ -83,7 +83,12 @@ export default function Active() {
   ];
 
   return (
-    <div className=" mt-3 mx-2">
+    <div className="mt-3 mx-2 flex flex-col">
+    <div className="flex justify-end">
+    <button className="rounded-lg py-2 px-8 my-2 bg-[#3838F0] text-white">
+          Add
+    </button>
+    </div>
       <Table columns={columns} dataSource={activeLinks} 
       className="rounded-lg border border-gray w-[calc(100% - 6px)] mb-3" 
       scroll={{ x: true }}

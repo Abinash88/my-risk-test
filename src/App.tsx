@@ -71,6 +71,7 @@ import Finance from "./components/AdminDashboard/Finance";
 import AdminHelpCenter from "./components/AdminDashboard/HelpCenter";
 import AdminNewsRoom from "./components/AdminDashboard/NewsRoom";
 import CreateNews from "./components/AdminDashboard/NewsRoom/CreateNews";
+import ViewCommnts from "./components/Dashboard/EngageWithTAndO/ViewCommnts";
 
 const App = () => {
   return (
@@ -131,6 +132,7 @@ const App = () => {
           <Route path="verification" element={<Verification />} />
 
           <Route path="risk" element={<EngageWithTAndO />} />
+          <Route path="risk/view-comments" element={<ViewCommnts />} />
          {/* <Route path="news-room/:blogcontent" element={<UserNewsRoomContent />} />  */}
         </Route>
         <Route path="/" element={<AdminDashboardLayout />}>

@@ -13,9 +13,56 @@ const RiskTab = () => {
 		<div>
       <SectorSlider/>
       
-      <div className="w-full my-5">
-        <Continents type="select-multiple" mapColor="#A2E2C6" size={700}/>
+      <div className="relative w-full h-[600px] my-5">
+        <div className="absolute top-2 left-2 z-10">
+          <button className="bg-white text-[#6666B3] border border-[#6666B3] px-4 py-4 rounded-md flex flex-col items-center text-sm md:text-lg">
+            <p>Total Risk</p>
+            <p>999</p>
+          </button>
         </div>
+        <div className="absolute top-2 right-2 z-10 flex items-start">
+        <div className="flex gap-2">
+        <select
+						name="days"
+						id="days"
+						className="p-3  rounded-lg bg-[#1D98F0] text-white outline-none"
+					>						
+            <option value="Least-recent">Least Month</option>
+						<option value="most-recent">Most Recent</option>
+						<option value="last-recent">Last Recent</option>
+					</select>
+          <select
+						name="days"
+						id="days"
+						className="p-3 rounded-lg bg-[#1D98F0] text-white outline-none"
+					>
+						<option value="most-recent">Open Risks</option>
+						<option value="last-recent">Last Recent</option>
+						<option value="Least-recent">Least Month</option>
+					</select>
+        </div>
+          <div className="flex flex-col items-center gap-2 ">
+          <button className="bg-[#6666B3] text-white text-sm border border-[#6666B3] p-2 rounded-md flex flex-col items-center">
+            <p>Total Risk</p>
+            <p>435</p>
+          </button>
+          <button className="bg-[#6666B3] text-white text-sm border border-[#6666B3] p-2 rounded-md flex flex-col items-center">
+            <p>Total Comments</p>
+            <p>435</p>
+          </button>
+
+          <button className="bg-[#6666B3] text-white text-sm border border-[#6666B3] p-2 rounded-md flex flex-col items-center">
+            <p>Total Liks</p>
+            <p>435</p>
+          </button>
+          <button className="bg-[#6666B3] text-white text-sm border border-[#6666B3] p-2 rounded-md flex flex-col items-center">
+            <p>Total Dislikes</p>
+            <p>435</p>
+          </button>
+          </div>
+        </div>
+        <img src="/images/map.png" alt="map" className="w-full h-full object-cover"/>
+      </div>
 			<div className="flex gap-5">
 				<button
 					className={`p-3 rounded-md shadow-md w-[23%] font-[600] ${

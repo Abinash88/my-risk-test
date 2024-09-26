@@ -9,19 +9,23 @@ export default function index() {
     <div className="flex flex-col p-3">
       <div className=" flex justify-between">
         <button
-          className={`${
-            type == "active" ? "bg-[#000080] text-white" : "bg-white text-black"
-          } rounded-lg w-2/5 py-3 shadow-md`}
+          
+					className={`p-3 rounded-md shadow-md w-[45%] md:w-[23%] font-[600] ${
+						type === "active"
+							? "bg-[#000080] text-white"
+							: "bg-white text-[rgba(0,0,0,0.7)]"
+					}`}
           onClick={() => setType("active")}
         >
           Active
         </button>
         <button
-          className={`${
-            type == "deleted"
-              ? "bg-[#000080] text-white"
-              : "bg-white text-black"
-          } rounded-lg w-2/5 py-3 shadow-md`}
+          
+					className={`p-3 rounded-md shadow-md w-[45%] md:w-[23%] font-[600] ${
+						type === "deleted"
+							? "bg-[#000080] text-white"
+							: "bg-white text-[rgba(0,0,0,0.7)]"
+					}`}
           onClick={() => setType("deleted")}
         >
           Deleted

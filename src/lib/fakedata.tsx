@@ -323,3 +323,78 @@ export const sectorData = [
 	},
 
 ]
+
+export const comments = [
+	{
+		image: "https://randomuser.me/api/portraits/women/2.jpg",
+		name: "Evanmodriv",
+		comment: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+		time: "3 mins ago",
+		likes: 23,
+		reply:[
+			{
+				image: "https://randomuser.me/api/portraits/women/2.jpg",
+				name: "Evanmodriv",
+				comment: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+				time: "3 mins ago",
+				likes: 23,
+			}
+		]
+	},
+	{
+		image: "https://randomuser.me/api/portraits/men/2.jpg",
+		name: "Evanmodriv",
+		comment: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+		time: "3 mins ago",
+		likes: 23,
+	},
+	{
+		image: "https://randomuser.me/api/portraits/men/7.jpg",
+		name: "Evanmodriv",
+		comment: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+		time: "3 mins ago",
+		likes: 23,
+	},
+	{
+		image: "https://randomuser.me/api/portraits/men/5.jpg",
+		name: "Evanmodriv",
+		comment: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+		time: "3 mins ago",
+		likes: 23,
+	},
+	{
+		image: "https://randomuser.me/api/portraits/women/7.jpg",
+		name: "Evanmodriv",
+		comment: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+		time: "3 mins ago",
+		likes: 23,
+	},
+];
+
+export const menuData = [
+	{
+		name: "Product",
+		link: "/",
+		id: 1,
+	},
+	{
+		name: "Learn",
+		link: "/",
+		id: 2,
+	},
+	{
+		name: "Support",
+		link: "/",
+		id: 3,
+	},
+	{
+		name: "Home",
+		link: "/",
+		id: 4,
+	},
+	{
+		name: "T & O Standings",
+		link: "/",
+		id: 5,
+	},
+];

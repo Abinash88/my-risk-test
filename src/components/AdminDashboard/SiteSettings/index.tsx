@@ -1,5 +1,5 @@
 import { PlusOutlined } from "@ant-design/icons";
-import { Button } from "antd";
+import { Button, Tabs, TabsProps } from "antd";
 import { ArrowUp, Info, KeyRound, UserPlus } from "lucide-react";
 import React, { useState } from "react";
 import PaymentProcessors from "./PaymentProcessors";
@@ -14,59 +14,26 @@ const enum tabs {
 
 export default function index() {
   const [activeTab, setActiveTab] = useState<string>(tabs.PAYMENT_PROCESSORS);
-
+  const items: TabsProps["items"] = [
+    {
+      key: "1",
+      label: tabs.PAYMENT_PROCESSORS,
+      children: <PaymentProcessors />,
+    },
+    {
+      key: "2",
+      label: tabs.SOCIAL_LINKS,
+      children: <SocialLinks />,
+    },
+    {
+      key: "3",
+      label: tabs.MAINTENANCE_MODE,
+      children: <MaintenanceMode />,
+    },
+  ];
   return (
-    <div className=" rounded-lg m-3 w-[calc(100%-6px)]">
-      <div className="pt-3 flex items-center justify-between border-b border-gray">
-      <div className="flex overflow-x-auto scrollbar-hide items-center">
-        <div className="flex">
-          <button
-            className={`${
-              activeTab == tabs.PAYMENT_PROCESSORS
-                ? "text-[#3838F0]"
-                : "text-[#838384]"
-            } relative text-lg font-medium mr-4 px-4 py-2 flex items-center`}
-            onClick={() => setActiveTab(tabs.PAYMENT_PROCESSORS)}
-          >
-            Payment Processors
-            {activeTab === tabs.PAYMENT_PROCESSORS && (
-              <span className="absolute left-0 bottom-0 w-full h-1 bg-[#3838F0]"></span>
-            )}
-          </button>
-          <button
-            className={`${
-              activeTab == tabs.SOCIAL_LINKS
-                ? "text-[#3838F0]"
-                : "text-[#838384]"
-            } relative text-lg font-medium mr-4 px-4 py-2 flex items-center`}
-            onClick={() => setActiveTab(tabs.SOCIAL_LINKS)}
-          >
-            Social Links
-            {activeTab === tabs.SOCIAL_LINKS && (
-              <span className="absolute left-0 bottom-0 w-full h-1 bg-[#3838F0]"></span>
-            )}
-          </button>
-          <button
-            className={`${
-              activeTab == tabs.MAINTENANCE_MODE
-                ? "text-[#3838F0]"
-                : "text-[#838384]"
-            } relative text-lg font-medium mr-4 px-4 py-2 flex items-center`}
-            onClick={() => setActiveTab(tabs.MAINTENANCE_MODE)}
-          >
-            Maintenance Mode
-            {activeTab === tabs.MAINTENANCE_MODE && (
-              <span className="absolute left-0 bottom-0 w-full h-1 bg-[#3838F0]"></span>
-            )}
-          </button>
-        </div>
-      </div>
-      </div>
-      <div className="mt-3">
-        {activeTab == tabs.PAYMENT_PROCESSORS && <PaymentProcessors />}
-        {activeTab == tabs.SOCIAL_LINKS && <SocialLinks />}
-        {activeTab == tabs.MAINTENANCE_MODE && <MaintenanceMode />}
-      </div>
+    <div className=" rounded-lg m-3  ">
+      <Tabs defaultActiveKey="1" items={items} />
     </div>
   );
 }

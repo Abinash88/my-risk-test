@@ -19,6 +19,7 @@ import {
 import { Expand } from "lucide-react";
 import React, { useState } from "react";
 import EditMenu from "./EditMenu";
+import MenuList from "../../MenuList";
 
 const pages = [
   {
@@ -98,8 +99,8 @@ export default function index() {
 
   return (
     <div className="flex flex-col mt-6">
-      <div className="flex justify-end">
-        <EditMenu />
+      <div className="flex justify-between md:justify-end">
+      <EditMenu />
         <button
           className="rounded-md px-6 py-2 text-white bg-[#3838F0]"
           onClick={() => showModal()}
@@ -108,23 +109,9 @@ export default function index() {
         </button>
       </div>
 
-      <div className="flex mt-5">
-        <button className="mr-5 bg-[#3838F0] px-10 py-3 text-lg text-white ">
-          Product <RightOutlined className="ml-3" />
-        </button>
-        <button className="border border-[#C7C8C9] mr-5 bg-[#ECECEE] px-10 py-3 text-lg text-black ">
-          <LeftOutlined className="mr-3" />
-          Learn <RightOutlined className="ml-3" />
-        </button>
-        <button className="border border-[#C7C8C9] mr-5 bg-[#ECECEE] px-10 py-3 text-lg text-black ">
-          <LeftOutlined className="mr-3" />
-          Support <RightOutlined className="ml-3" />
-        </button>
-        <button className="border border-[#C7C8C9] mr-5 bg-[#ECECEE] px-10 py-3 text-lg text-black ">
-          <LeftOutlined className="mr-3" />
-          T & O Standings <RightOutlined className="ml-3" />
-        </button>
-      </div>
+      <div className="mt-5 mx-5">
+      <MenuList />
+     </div>
       <div className="flex flex-col mt-8">
         <Popover
           placement="bottom"

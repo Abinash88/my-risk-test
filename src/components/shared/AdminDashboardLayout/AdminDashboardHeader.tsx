@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { navItems } from "../../../lib/const/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,6 +7,8 @@ import AdminDashboardGridSidebar from "./AdminDashboardGridSidebar";
 import AdminDashboardSidebar from "./AdminDashboardSidebar";
 import { BlockList } from "net";
 import { Badge, Button, Divider, Popover } from "antd";
+import { notifications } from "@/lib/fakedata";
+import NotificationItem from "../ReuseAble/NotificationItem";
 
 const AdminDashboardHeader = ({
   setOpenSidebar,
@@ -24,9 +26,18 @@ const AdminDashboardHeader = ({
   
   const location = useLocation(); 
 
-  
+  const [open, setOpen] = useState(false);
+
+  const hide = () => {
+    setOpen(false);
+  };
+
+  const handleOpenChange = (newOpen: boolean) => {
+    setOpen(newOpen);
+  };
+
   return (
-    <div className="bg-white shadow-lg px-[2rem] lg:px-[2rem] py-[1rem] flex items-center gap-4 w-full relative">
+    <div className="bg-white shadow-lg px-[2rem] lg:px-[2rem] flex items-center gap-4 w-full relative h-[60px]">
       <button
         onClick={() => setOpenSidebar(!openSidebar)} // Toggle sidebar open/close
         className="block lg:hidden text-xl"
@@ -56,49 +67,22 @@ const AdminDashboardHeader = ({
 
         <div className="relative">
           <Popover
+            open={open}
+            onOpenChange={handleOpenChange}
             placement="bottomRight"
             title={<p className="text-xl">Notifications</p>}
             content={
-              <div className="flex flex-col">
-                <div className="flex flex-col my-2">
-                  <Badge className="bg-[#E8E8F6] p-2 rounded-md mb-1">
-                    Jul 10th, 2024 • 12:00
-                  </Badge>
-                  <p className="text-lg font-medium nb-1">
-                    Payment Status Update
-                  </p>
-                  <p className=" mb-1">Status</p>
-                  <p className=" mb-1">
-                    Payment received from Micheal Rosse for AI Premium
-                  </p>
-                  <Divider type="horizontal" className="my-2"/>
+              <div className="flex flex-col w-[300px] md:w-[400px] h-[calc(100vh-150px)]">
+                <div className="flex flex-col h-full overflow-y-auto">
+                {notifications.map((item)=>(
+                    <NotificationItem {...item}/>
+                ))}
                 </div>
-                <div className="flex flex-col my-2">
-                  <Badge className="bg-[#E8E8F6] p-2 rounded-md mb-1">
-                    Jul 10th, 2024 • 12:00
-                  </Badge>
-                  <p className="text-lg font-medium nb-1">
-                    Payment Status Update
-                  </p>
-                  <p className=" mb-1">Status</p>
-                  <p className=" mb-1">
-                    Payment received from Micheal Rosse for AI Premium
-                  </p>
-                  <Divider type="horizontal" className="my-2"/>
-                </div><div className="flex flex-col my-2">
-                  <Badge className="bg-[#E8E8F6] p-2 rounded-md mb-1">
-                    Jul 10th, 2024 • 12:00
-                  </Badge>
-                  <p className="text-lg font-medium nb-1">
-                    Payment Status Update
-                  </p>
-                  <p className=" mb-1">Status</p>
-                  <p className=" mb-1">
-                    Payment received from Micheal Rosse for AI Premium.
-                    10 Apr 2025
-                  </p>
-                  <Divider type="horizontal" className="my-2"/>
-                </div>
+                <button className="bg-[#000080] text-white rounded-md py-1 px-3 ml-auto"
+                  onClick={() => {
+                    hide()
+                  }}
+                  >Clear Notifications</button>
               </div>
             }
             trigger="click"
@@ -114,7 +98,6 @@ const AdminDashboardHeader = ({
           </Popover>
         </div>
       </div>
-      {openGrid && <AdminDashboardGridSidebar />}
     </div>
   );
 };

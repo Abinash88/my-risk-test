@@ -11,7 +11,7 @@ export default function index() {
         <button
           className={`${
             type == "active" ? "bg-[#000080] text-white" : "bg-white text-black"
-          } rounded-lg w-2/5 py-3 shadow-md`}
+          } rounded-lg w-[45%] py-3 shadow-md`}
           onClick={() => setType("active")}
         >
           Active
@@ -21,7 +21,7 @@ export default function index() {
             type == "deleted"
               ? "bg-[#000080] text-white"
               : "bg-white text-black"
-          } rounded-lg w-2/5 py-3 shadow-md`}
+          } rounded-lg w-[45%] py-3 shadow-md`}
           onClick={() => setType("deleted")}
         >
           Deleted

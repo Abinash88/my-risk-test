@@ -14,6 +14,7 @@ import {
 } from "antd";
 import { ArrowUp, FilterIcon } from "lucide-react";
 import React, { useState } from "react";
+import PreviewDocument from "./PreviewDocument";
 
 const requests = [
   {
@@ -104,12 +105,7 @@ export default function DeclinedRequest() {
       title: "Employement Proof",
       dataIndex: "employement",
       render: (value, record) => (
-        <>
-          <FontAwesomeIcon
-            icon={faFilePdf}
-            className="text-[#6666B3] w-5 h-5"
-          />
-        </>
+        <PreviewDocument/>
       ),
     },
     {
@@ -128,14 +124,14 @@ export default function DeclinedRequest() {
   return (
     <div className="flex flex-col bg-white rounded-lg">
 
-       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mx-2 my-3">
-        <div className="col-span-1 justify-start">
+       <div className="grid grid-cols-1 md:grid-cols-5 gap-6 mx-2 my-3">
+        <div className="col-span-1 md:col-span-2 justify-start">
           <p className="text-xl text-medium text-black">34 Declined Requests</p>
         </div>
         <div className="md:col-span-3 col-span-1">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-4 gap-x-2">
-          <Input
-              className=" mr-2 "
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-y-4 gap-x-2">
+            <Input
+              className="mr-2"
               addonBefore={<SearchOutlined />}
               placeholder="Search"
             />
@@ -147,13 +143,6 @@ export default function DeclinedRequest() {
                 <option>25</option>
                 <option>50</option>
               </select>
-            </Button>
-      
-            <Button danger className="mr-2 rounded-md py-1 px-5">
-              Bulk Reject
-            </Button>
-            <Button className="mr-2 rounded-md bg-[#3838F0] text-white py-1 px-5">
-              Bulk Accept
             </Button>
             <Button className="mr-2 rounded-md bg-[#3838F0] text-white py-1 px-5">
               <PlusOutlined className="text-white" /> Export <ArrowUp />

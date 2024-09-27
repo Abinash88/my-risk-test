@@ -10,7 +10,7 @@ export default function index() {
     <div className="flex flex-col md:p-3">
       <div className="flex justify-between gap-3 mx-3">
         <button
-					className={`p-3 rounded-md shadow-md w-[45%] md:w-[23%] font-[600] ${
+					className={`p-3 rounded-md shadow-md w-[45%]  font-[600] ${
 						type === "image"
 							? "bg-[#000080] text-white"
 							: "bg-white text-[rgba(0,0,0,0.7)]"
@@ -20,7 +20,7 @@ export default function index() {
           Image/Video Overlay
         </button>
         <button
-					className={`p-3 rounded-md shadow-md w-[45%] md:w-[23%] font-[600] ${
+					className={`p-3 rounded-md shadow-md w-[45%]  font-[600] ${
 						type === "link"
 							? "bg-[#000080] text-white"
 							: "bg-white text-[rgba(0,0,0,0.7)]"

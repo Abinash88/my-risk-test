@@ -75,6 +75,11 @@ import AdminNewsRoom from "./components/AdminDashboard/NewsRoom";
 import CreateNews from "./components/AdminDashboard/NewsRoom/CreateNews";
 import ViewCommnts from "./components/Dashboard/EngageWithTAndO/ViewCommnts";
 
+import AdminAuthLayout from "./components/AdminDashboard/User/Auth";
+import AdminLogin from "./components/AdminDashboard/User/Auth/Login";
+import AdminLoginOTP from "./components/AdminDashboard/User/Auth/Otp";
+import Welcome from "./components/AdminDashboard/Welcome";
+
 const App = () => {
   return (
     <Router>
@@ -111,6 +116,11 @@ const App = () => {
           <Route path="login" element={<Login />} />
           <Route path="forgot-password" element={<PasswordResetPage />} />
         </Route>
+        <Route path="/admin/auth" element={<AdminAuthLayout />}>
+          <Route index={true} element={<AdminLogin />} />
+          <Route path="login" element={<AdminLogin />} />
+          <Route path="otp" element={<AdminLoginOTP />} />
+        </Route>
         <Route path="/dashboard" element={<LoggedLayout />}>
           <Route path="account-profile" element={<AccountProfile />} />
           <Route path="manage-risk" element={<ManageRisk />} />
@@ -139,7 +149,8 @@ const App = () => {
         </Route>
         <Route path="/" element={<AdminDashboardLayout />}>
           {/* <Route path="/admin/dashboard/" element={<AdminDashboardLayout />}> */}
-          <Route path="" element={<IndexAdminDashboard />} />
+          <Route path="/admin/dashboard" element={<IndexAdminDashboard />} />
+          <Route path="" element={<Welcome />} />
           <Route
             path="/admin/dashboard/verification-request"
             element={<VerificationRequest />}

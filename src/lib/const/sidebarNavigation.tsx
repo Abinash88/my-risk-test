@@ -93,8 +93,7 @@ export const ADMIN_DASHBOARD_SIDEBAR_LINKS = [
   {
     key: "Dashboard",
     label: "Dashboard",
-    // path: "/admin/dashboard/",
-    path: "/",
+    path: "/admin/dashboard/",
     icon: <FontAwesomeIcon icon={faDashboard} />,
   },
   {

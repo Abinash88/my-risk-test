@@ -1,3 +1,5 @@
+import { NotificationItemType } from "@/components/shared/ReuseAble/NotificationItem";
+
 export const allrisk = [
 	{
 		title: "Risk title",
@@ -398,3 +400,63 @@ export const menuData = [
 		id: 5,
 	},
 ];
+
+export const notifications:NotificationItemType[]=[
+	{
+		date:"Jul 10th, 2024 • 12:00",
+		title:"Payment Status Update",
+		status:"Status",
+		message:"Payment received from Micheal Rosse for AI Premium"
+
+	},
+
+	{
+		date:"Jul 10th, 2024 • 12:00",
+		title:"Payment Status Update",
+		status:"Status",
+		message:"Payment received from Micheal Rosse for AI Premium"
+
+	},
+	{
+		date:"Jul 10th, 2024 • 12:00",
+		title:"Payment Status Update",
+		status:"Status",
+		message:"Payment received from Micheal Rosse for AI Premium"
+
+	},
+	{
+		date:"Jul 10th, 2024 • 12:00",
+		title:"Payment Status Update",
+		status:"Status",
+		message:"Payment received from Micheal Rosse for AI Premium"
+
+	},
+	{
+		date:"Jul 10th, 2024 • 12:00",
+		title:"Payment Status Update",
+		status:"Status",
+		message:"Payment received from Micheal Rosse for AI Premium"
+
+	},
+	{
+		date:"Jul 10th, 2024 • 12:00",
+		title:"Payment Status Update",
+		status:"Status",
+		message:"Payment received from Micheal Rosse for AI Premium"
+
+	},
+	{
+		date:"Jul 10th, 2024 • 12:00",
+		title:"Payment Status Update",
+		status:"Status",
+		message:"Payment received from Micheal Rosse for AI Premium"
+
+	},
+	{
+		date:"Jul 10th, 2024 • 12:00",
+		title:"Payment Status Update",
+		status:"Status",
+		message:"Payment received from Micheal Rosse for AI Premium"
+
+	},
+]

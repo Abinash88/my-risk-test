@@ -8,8 +8,14 @@ import { Warning } from "@phosphor-icons/react";
 import Activities from "./Activities";
 import Referals from "./Referals";
 import ReportAndViolations from "./ReportAndViolations";
+import RejectRegistration from "./RejectRegistration";
+import SendVerificationLink from "./SendVerificationLink";
+import { useParams } from "react-router-dom";
+import TourGuide from "./TourGuide";
 
 export default function UserDetail() {
+  const { id } = useParams();
+  console.log("User ID:", id);
   const items: TabsProps["items"] = [
     {
       key: "1",
@@ -34,7 +40,7 @@ export default function UserDetail() {
     {
       key: "5",
       label: "Tour Guides",
-      children: <></>,
+      children: <TourGuide/>,
     },
 
     {
@@ -74,7 +80,8 @@ export default function UserDetail() {
     <div className="p-3 flex flex-col">
       <div className="flex justify-between">
         <p className="text-bold text-lg">Mashood Adam</p>
-        <div className="flex justify-end ">
+        {
+          id&&parseInt(id?.toString())%2==0?<div className="flex justify-end ">
           <Button danger className="p-5 mr-2" onClick={showModal}>
             <CloseCircleFilled /> Suspended User
           </Button>
@@ -86,7 +93,11 @@ export default function UserDetail() {
           >
             <BanIcon /> Ban User
           </Button>
+        </div>:<div className="flex justify-end ">
+          <RejectRegistration/>
+          <SendVerificationLink/>
         </div>
+        }
       </div>
 
       <div className="bg-white rounded-md mt-5">

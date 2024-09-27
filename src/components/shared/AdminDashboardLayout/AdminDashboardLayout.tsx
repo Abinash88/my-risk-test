@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import AdminDashboardHeader from "./AdminDashboardHeader";
 import AdminDashboardSidebar from "./AdminDashboardSidebar";
 import { useEffect, useRef, useState } from "react";
@@ -7,7 +7,9 @@ const AdminDashboardLayout = () => {
   const [openSidebar, setOpenSidebar] = useState(false);
 
   const sidebarRef: any = useRef(null); // Create a reference for the sidebar
+  const location = useLocation();
 
+  console.log("location", location);
   // Close the sidebar when clicking outside of it
   useEffect(() => {
     const handleClickOutside = (event: any) => {
@@ -48,6 +50,7 @@ const AdminDashboardLayout = () => {
         {/* {openSidebar && <AdminDashboardSidebar />} */}
         <div className="flex flex-col w-full">
           <AdminDashboardHeader
+            key={location.pathname}
             openSidebar={openSidebar}
             setOpenSidebar={setOpenSidebar}
           />

@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { navItems } from "../../../lib/const/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faBell, faXmark } from "@fortawesome/free-solid-svg-icons";
@@ -21,6 +21,10 @@ const AdminDashboardHeader = ({
   const handleNav = () => {
     setNav(!nav);
   };
+  
+  const location = useLocation(); 
+
+  
   return (
     <div className="bg-white shadow-lg px-[2rem] lg:px-[2rem] py-[1rem] flex items-center gap-4 w-full relative">
       <button
@@ -30,11 +34,23 @@ const AdminDashboardHeader = ({
         <FontAwesomeIcon icon={faBars} />
       </button>
 
-      <Link className="hidden lg:block" to="/admin/dashboard">
-        {" "}
-        {/* Hidden on small screens */}
-        Dashboard
-      </Link>
+      <div className="hidden lg:flex items-center space-x-2 text-[#1E3A89]">
+        {location.pathname.split('/').filter(Boolean).map((path, index, array) => {
+          const url = `/${array.slice(0, index + 1).join('/')}`;
+          const isLast = index === array.length - 1;
+          const isFirst = index === 0;
+          return (
+            <React.Fragment key={path}>
+              {index > 1 && <span>/</span>}
+              
+                {!isFirst && <Link to={url} className="capitalize hover:underline">
+                  {path.split('-').join(' ')}
+                </Link>}
+              
+            </React.Fragment>
+          );
+        })}
+      </div>
       <div className="flex items-center gap-4 ml-auto">
         <p>Good morning, Admin</p>
 

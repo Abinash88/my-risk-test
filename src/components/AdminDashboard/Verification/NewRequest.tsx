@@ -10,6 +10,7 @@ import React, { useState } from "react";
 const requests = [
   {
     name: "Mashood Adam",
+    image: "https://randomuser.me/api/portraits/women/2.jpg",
     email: "mashoodadam@gmail.com",
     jobTitle: "Talent Acquisition Manager",
     employer: "Samusa Enterprise",
@@ -25,6 +26,7 @@ const requests = [
   },
   {
     name: "Mashood Adam",
+    image: "https://randomuser.me/api/portraits/women/2.jpg",
     email: "mashoodadam@gmail.com",
     jobTitle: "Talent Acquisition Manager",
     employer: "Samusa Enterprise",
@@ -40,6 +42,7 @@ const requests = [
   },
   {
     name: "Mashood Adam",
+    image: "https://randomuser.me/api/portraits/women/2.jpg",
     email: "mashoodadam@gmail.com",
     jobTitle: "Talent Acquisition Manager",
     employer: "Samusa Enterprise",
@@ -55,6 +58,7 @@ const requests = [
   },
   {
     name: "Mashood Adam",
+    image: "https://randomuser.me/api/portraits/women/2.jpg",
     email: "mashoodadam@gmail.com",
     jobTitle: "Talent Acquisition Manager",
     employer: "Samusa Enterprise",
@@ -70,6 +74,7 @@ const requests = [
   },
   {
     name: "Mashood Adam",
+    image: "https://randomuser.me/api/portraits/women/2.jpg",
     email: "mashoodadam@gmail.com",
     jobTitle: "Talent Acquisition Manager",
     employer: "Samusa Enterprise",
@@ -85,6 +90,7 @@ const requests = [
   },
   {
     name: "Mashood Adam",
+    image: "https://randomuser.me/api/portraits/women/2.jpg",
     email: "mashoodadam@gmail.com",
     jobTitle: "Talent Acquisition Manager",
     employer: "Samusa Enterprise",
@@ -100,6 +106,7 @@ const requests = [
   },
   {
     name: "Mashood Adam",
+    image: "https://randomuser.me/api/portraits/women/2.jpg",
     email: "mashoodadam@gmail.com",
     jobTitle: "Talent Acquisition Manager",
     employer: "Samusa Enterprise",
@@ -115,6 +122,7 @@ const requests = [
   },
   {
     name: "Mashood Adam",
+    image: "https://randomuser.me/api/portraits/women/2.jpg",
     email: "mashoodadam@gmail.com",
     jobTitle: "Talent Acquisition Manager",
     employer: "Samusa Enterprise",
@@ -135,7 +143,16 @@ export default function NewRequest() {
     {
       title: "Name",
       dataIndex: "name",
-      render: (text: string) => <a>{text}</a>,
+      render: (text: string,record:any) =><div
+      className="flex items-center"
+      >
+        <img
+									src={record.image}
+									alt="profile-image"
+									className="mr-2 rounded-full aspect-square object-cover h-[25px] w-[25px] md:h-[53px] md:w-[53px]"
+								/>
+        <a>{text}</a>
+      </div> 
     },
     {
       title: "Email",

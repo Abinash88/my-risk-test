@@ -20,6 +20,7 @@ import { Expand } from "lucide-react";
 import React, { useState } from "react";
 import EditMenu from "./EditMenu";
 import MenuList from "../../MenuList";
+import AddNewPage from "./AddNewPage";
 
 const pages = [
   {
@@ -113,21 +114,7 @@ export default function index() {
       <MenuList />
      </div>
       <div className="flex flex-col mt-8">
-        <Popover
-          placement="bottom"
-          title={"Add New Page"}
-          content={
-            <div className="flex flex-col">
-              <button className="mb-4">Duplicate Service Type Page</button>
-              <button className="mb-4">Duplicate Premium Page</button>
-              <button className="mb-4">Create New Page</button>
-            </div>
-          }
-        >
-          <button className="ml-auto rounded-md px-6 py-2 text-white bg-[#3838F0]">
-            Add New Page
-          </button>
-        </Popover>
+        <AddNewPage />
 
         <Table columns={columns} dataSource={pages} 
         className="mt-3 rounded-lg border border-gray w-[calc(100% - 6px)] mb-3" 

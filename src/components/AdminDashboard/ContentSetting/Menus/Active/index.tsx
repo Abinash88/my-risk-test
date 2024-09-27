@@ -19,6 +19,7 @@ import { Expand } from "lucide-react";
 import React, { useState } from "react";
 import EditMenu from "./EditMenu";
 import MenuList from "../../MenuList";
+import AddNewPage from "./AddNewPage";
 
 const pages = [
   {
@@ -112,9 +113,7 @@ export default function index() {
    </div>
       
       <div className="flex flex-col mt-8">
-        <button className="ml-auto rounded-md px-6 py-2 text-white bg-[#3838F0]">
-          Add New Page
-        </button>
+        <AddNewPage />
         <Table columns={columns} dataSource={pages} className="mt-3 rounded-lg border border-gray w-[calc(100% - 6px)] mb-3" 
           scroll={{ x: true }}
         />

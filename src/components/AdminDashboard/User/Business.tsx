@@ -7,6 +7,7 @@ import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 const users = [
   {
+    id: 1,
     name: "Mashood Adam",
     email: "mashoodadam@gmail.com",
     ceoName: "Taofeeq Moha",
@@ -15,6 +16,7 @@ const users = [
     date: "July 1, 2024 - 10:30AM",
   },
   {
+    id: 2,
     name: "Mashood Adam",
     email: "mashoodadam@gmail.com",
     ceoName: "Taofeeq Moha",
@@ -23,6 +25,7 @@ const users = [
     date: "July 1, 2024 - 10:30AM",
   },
   {
+    id: 3,
     name: "Mashood Adam",
     email: "mashoodadam@gmail.com",
     ceoName: "Taofeeq Moha",
@@ -31,6 +34,7 @@ const users = [
     date: "July 1, 2024 - 10:30AM",
   },
   {
+    id: 4,
     name: "Mashood Adam",
     email: "mashoodadam@gmail.com",
     ceoName: "Taofeeq Moha",
@@ -39,6 +43,7 @@ const users = [
     date: "July 1, 2024 - 10:30AM",
   },
   {
+    id: 5,
     name: "Mashood Adam",
     email: "mashoodadam@gmail.com",
     ceoName: "Taofeeq Moha",
@@ -47,6 +52,16 @@ const users = [
     date: "July 1, 2024 - 10:30AM",
   },
   {
+    id: 6,
+      name: "Mashood Adam",
+    email: "mashoodadam@gmail.com",
+    ceoName: "Taofeeq Moha",
+    businessName: "Samusa Enterprise",
+    verified: "",
+    date: "July 1, 2024 - 10:30AM",
+  },
+  {
+    id: 7,
     name: "Mashood Adam",
     email: "mashoodadam@gmail.com",
     ceoName: "Taofeeq Moha",
@@ -55,6 +70,7 @@ const users = [
     date: "July 1, 2024 - 10:30AM",
   },
   {
+    id: 8,
     name: "Mashood Adam",
     email: "mashoodadam@gmail.com",
     ceoName: "Taofeeq Moha",
@@ -63,6 +79,7 @@ const users = [
     date: "July 1, 2024 - 10:30AM",
   },
   {
+    id: 9,
     name: "Mashood Adam",
     email: "mashoodadam@gmail.com",
     ceoName: "Taofeeq Moha",
@@ -71,14 +88,7 @@ const users = [
     date: "July 1, 2024 - 10:30AM",
   },
   {
-    name: "Mashood Adam",
-    email: "mashoodadam@gmail.com",
-    ceoName: "Taofeeq Moha",
-    businessName: "Samusa Enterprise",
-    verified: "",
-    date: "July 1, 2024 - 10:30AM",
-  },
-  {
+    id: 10,
     name: "Mashood Adam",
     email: "mashoodadam@gmail.com",
     ceoName: "Taofeeq Moha",
@@ -161,7 +171,16 @@ export default function Business() {
       <div className="w-full mt-3 px-2 justify-center">
         <Table 
           className="w-[calc(100% - 10px)] px-3"
-          columns={columns} 
+          columns={columns.map(column => ({
+            ...column,
+            onCell: (record:any) => ({
+              onClick: () => {
+                // Agelgay: Redirect to /admin/dashboard/user/:id
+                window.location.href = `/admin/dashboard/user/${record.id}`;
+              },
+              style: { cursor: 'pointer' }
+            }),
+          }))}
           dataSource={users}
           scroll={{ x: true }}
         />

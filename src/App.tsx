@@ -51,10 +51,12 @@ import DownloadedRisk from "./components/LandingPage/GeneralRisk/GeneralRiskPage
 import AdminDashboardLayout from "./components/shared/AdminDashboardLayout/AdminDashboardLayout";
 import IndexAdminDashboard from "./components/AdminDashboard";
 import VerificationRequest from "./components/AdminDashboard/Verification/index";
-import AdminUserComponent from "./components/AdminDashboard/User/index";
+import AdminDashboardUserComponent from "./components/AdminDashboard/User/index";
 import UserDetail from "./components/AdminDashboard/User/UserDetail/UserDetail";
 import LandingPageContentSettings from "./components/AdminDashboard/ContentSetting/LandingPage";
-import EditSection from "./components/AdminDashboard/ContentSetting/LandingPage/Links/Edit";
+import EditImageSection from "./components/AdminDashboard/ContentSetting/LandingPage/ImageVideo/Edit";
+import EditLinkSection from "./components/AdminDashboard/ContentSetting/LandingPage/Links/Edit";
+
 import MenuContentSettings from "./components/AdminDashboard/ContentSetting/Menus";
 import FooterContentSettings from "./components/AdminDashboard/ContentSetting/Footer";
 import DuplicatePage from "./components/AdminDashboard/ContentSetting/Footer/Active/DuplicatePage";
@@ -144,7 +146,7 @@ const App = () => {
           />
           <Route
             path="/admin/dashboard/user"
-            element={<AdminUserComponent />}
+            element={<AdminDashboardUserComponent />}
           />
           <Route path="/admin/dashboard/user/:id" element={<UserDetail />} />
 
@@ -153,10 +155,13 @@ const App = () => {
             element={<LandingPageContentSettings />}
           />
           <Route
-            path="/admin/dashboard/content-setting/landing-page/image-edit/:id"
-            element={<EditSection />}
+            path="/admin/dashboard/content-setting/landing-page/edit-image"
+            element={<EditImageSection />}
           />
-
+         <Route
+            path="/admin/dashboard/content-setting/landing-page/edit-link"
+            element={<EditLinkSection />}
+          />
           <Route
             path="/admin/dashboard/content-setting/menu"
             element={<MenuContentSettings />}
@@ -166,7 +171,7 @@ const App = () => {
             element={<FooterContentSettings />}
           />
           <Route
-            path="/admin/dashboard/content-setting/footer/duplicate"
+            path="/admin/dashboard/content-setting/duplicate"
             element={<DuplicatePage />}
           />
           <Route

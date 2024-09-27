@@ -16,8 +16,8 @@ const DuplicatePage = () => {
     <div className="w-full mx-auto p-6">
       {/* Title Section */}
       <div className="mb-6 rounded-lg border border-grey bg-white">
-        <div className="flex justify-between p-3 mb-5">
-          <div className="w-2/5">
+        <div className="flex flex-col md:flex-row justify-between p-3 mb-5">
+          <div className="w-full md:w-2/5 mt-2 md:mt-0">
             <label htmlFor="title" className="block text-lg font-semibold">
               Page Link
             </label>
@@ -28,7 +28,7 @@ const DuplicatePage = () => {
               placeholder="link/url"
             />
           </div>
-          <div className="w-2/5">
+          <div className="w-full md:w-2/5 mt-2 md:mt-0">
             <label htmlFor="title" className="block text-lg font-semibold">
               Page Title
             </label>
@@ -50,7 +50,7 @@ const DuplicatePage = () => {
             Add
           </button>
         </div>
-        <div className="">
+        <div className="h-10 p-5 flex items-center justify-center">
           <div className="mt-2 rounded-lg flex items-center justify-center cursor-pointer">
             <input
               id="fileInput"
@@ -71,8 +71,8 @@ const DuplicatePage = () => {
           )}
         </div>
 
-        <div className="mt-4 px-3 flex w-full">
-          <div className="w-1/3 mr-7">
+        <div className="mt-4 px-3 flex flex-col md:flex-row w-full">
+          <div className="w-full md:w-1/3 md:mr-7 mb-4 md:mb-0">
             <label htmlFor="title" className="block text-lg font-semibold">
               Page Link
             </label>
@@ -83,7 +83,7 @@ const DuplicatePage = () => {
               placeholder="link/url"
             />
           </div>
-          <div className="w-1/3">
+          <div className="w-full md:w-1/3 mb-4 md:mb-0">
             <label htmlFor="title" className="block text-lg font-semibold">
               Page Title
             </label>
@@ -122,11 +122,11 @@ const DuplicatePage = () => {
       <div className="border-t border-gray-300 pt-6 mt-6">
         {/* {selectedFile && ( */}
         <div className="flex flex-col mb-20">
-          <div className="flex items-center">
+          <div className="flex flex-col md:flex-row items-center">
             <img
               src="/images/risk-image.png"
               alt="Display"
-              className="w-1/3 mr-4"
+              className="w-full md:w-1/3 p-5 md:p-0  md:mr-4"
             />
             <div className="ml-6">
               <img
@@ -150,13 +150,13 @@ const DuplicatePage = () => {
 
         {/* Action Buttons */}
         <div className="flex justify-around mt-10">
-          <button className="px-6 py-3 bg-[#3838F0] text-white rounded-lg">
+          <button className="px-4 py-2 md:px-6 md:py-3 bg-[#3838F0] text-white rounded-lg">
             Preview
           </button>
-          <button className="px-6 py-3 bg-[#FF4949] text-white rounded-lg">
+          <button className="px-4 py-2 md:px-6 md:py-3 bg-[#FF4949] text-white rounded-lg">
             Remove
           </button>
-          <button className="px-6 py-3 bg-[#000080] text-white rounded-lg">
+          <button className="px-4 py-2 md:px-6 md:py-3 bg-[#000080] text-white rounded-lg">
             Confirm
           </button>
         </div>

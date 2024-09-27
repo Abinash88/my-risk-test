@@ -1,4 +1,4 @@
-import { SearchOutlined } from "@ant-design/icons";
+import { CloseOutlined, SearchOutlined } from "@ant-design/icons";
 import { Divider, Form, Input, Modal, Select, Switch } from "antd";
 import React, { useState } from "react";
 
@@ -75,10 +75,10 @@ export default function EditMenu() {
             </Form.Item>
 
             <div className="flex flex-col">
-              <p className="text-lg font-bold mb-2">Product</p>
-              <p className="text-lg font-bold mb-2">Learn</p>
-              <p className="text-lg font-bold mb-2">Support</p>
-              <p className="text-lg font-bold mb-2">T & O Standings</p>
+              <a className="text-lg font-bold mb-1.5">Product</a>
+              <a className="text-lg font-bold mb-1.5">Learn</a>
+              <a className="text-lg font-bold mb-1.5">Support</a>
+              <a className="text-lg font-bold mb-1.5">T & O Standings</a>
             </div>
           </Form>
         </div>
@@ -128,13 +128,18 @@ export default function EditMenu() {
             </Form.Item>
             <div className="flex justify-between items-center">
               <Switch defaultChecked />
-              <Form.Item label="Add created pages" name="pages">
+              
+              <div className="flex flex-col">
+                <label className="text-sm mb-2">Add created pages</label>
+              <button className="mb-1.5 text-[#000080] rounded-3xl border border-grey-200 py-1 px-2 flex items-center">Page 1 <CloseOutlined /></button>
+              <Form.Item label="" name="pages">
                 <Select>
                   <Select.Option value="Select Pages">
                     Select Pages
                   </Select.Option>
                 </Select>
               </Form.Item>
+              </div>
             </div>
           </Form>
         </div>

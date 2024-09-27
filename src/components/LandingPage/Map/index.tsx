@@ -2,24 +2,25 @@ import Container from "@/components/shared/HomeLayout/container";
 import { useState } from "react";
 import PublicStanding from "./PublicStanding";
 import PrivateStanding from "./PrivateStanding";
+import RiskTable from "../mainPage/RiskTable";
 
 const Map = () => {
   const [page, setPage] = useState<"private" | "public">("public");
   return (
-    <div className="pt-20">
+    <div className="pt-20 mb-20">
       <Container>
         <iframe
           src="https://www.google.com/maps/embed/v1/place?q=uk&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
           style={{
             border: "0",
-            width: "90vw",
+            width: "86vw",
             height:"70vh",
           }}
           loading="lazy"
           title="location"
           referrerPolicy="no-referrer-when-downgrade"
         />
-        <div className="flex gap-3 justify-between items-center flex-wrap">
+        <div className="flex gap-3 justify-between items-center flex-wrap py-4">
           <button
             className={`p-3 rounded-md shadow-md w-[38%] font-[600] ${
               page === "public"
@@ -50,7 +51,7 @@ const Map = () => {
             <option value="Country">Country</option>
           </select>
         </div>
-        {page === "public" && <PublicStanding />}
+        {page === "public" && <RiskTable />}
         {page === "private" && <PrivateStanding />}
       </Container>
     </div>

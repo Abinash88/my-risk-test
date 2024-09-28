@@ -63,6 +63,9 @@ const Header = () => {
         {navItems.map((item) => (
           <li key={item.id}>
             <li
+              onClick={() => {
+                if (item.text === "T&O Standing") navigate("/map");
+              }}
               onMouseEnter={() => {
                 if (item.text === "Product") {
                   setProd(true);
@@ -239,14 +242,17 @@ const Header = () => {
                       setProd(false);
                       setSupport((x) => !x);
                     }
+                    if (item.text === "T & O Standing") {
+                      navigate("/map");
+                    }
                   }}
                   className="py-2 mr-4 w-[85vw] border hover:bg-[#000080] hover:bg-opacity-80 rounded-2xl shadow-sm px-6 flex flex-row justify-between"
                 >
                   <div
                     className="tracking-wide text-sm"
                     onClick={() => {
-                      handleNav();
-                      navigate(item.path);
+                      // handleNav();
+                      // navigate(item.path);
                     }}
                   >
                     {item.text}
@@ -275,6 +281,7 @@ const Header = () => {
                       }`}
                     />
                   )}
+                  
                 </div>
               </li>
               <div

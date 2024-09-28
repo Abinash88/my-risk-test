@@ -42,7 +42,7 @@ const TandO = () => {
               name="top"
               onClick={() => setIsOpen(true)}
               id="top"
-              className="py-3 z-20 px-5 w-full justify-between flex rounded-lg bg-white border-[1px] outline-none border-[black]"
+              className="py-3  px-5 w-full justify-between flex rounded-lg bg-white border-[1px] outline-none border-[black]"
             >
               {countryx ? countryx : "Select Country"}&nbsp;&nbsp;
               <FontAwesomeIcon icon={faAngleDown} />

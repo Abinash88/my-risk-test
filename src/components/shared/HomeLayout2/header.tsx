@@ -221,14 +221,17 @@ const Header = () => {
                       setProd(false);
                       setSupport((x) => !x);
                     }
+                    if (item.text === "T & O Standing") {
+                      navigate("/map");
+                    }
                   }}
                   className="py-2 mr-4 w-[85vw] border hover:bg-[#000080] hover:bg-opacity-80 rounded-2xl shadow-sm px-6 flex flex-row justify-between"
                 >
-                  <div
+                    <div
                     className="tracking-wide text-sm"
                     onClick={() => {
-                      handleNav();
-                      navigate(item.path);
+                      // handleNav();
+                      // navigate(item.path);
                     }}
                   >
                     {item.text}
@@ -277,16 +280,50 @@ const Header = () => {
                     >
                       Our services
                     </div>
-                    <div className="text-[#000080]">Premium Features</div>
-                    <div className="text-[#000080]">Subscription Services</div>
+                    <div
+                      className="text-[#000080]"
+                      onClick={() => {
+                        navigate("/premium");
+                        setNav(false);
+                        goToTop();
+                      }}
+                    >
+                      Premium Features
+                    </div>
+                    <div
+                      className="text-[#000080]"
+                      onClick={() => {
+                        navigate("/product-subscription");
+                        setNav(false);
+                        goToTop();
+                      }}
+                    >
+                      Subscription Services
+                    </div>
                   </>
                 )}
                 {learn && item.text === "Learn" && (
                   <>
-                    <div className={`text-[#000080]`}>
+                    <div
+                      className={`text-[#000080]`}
+                      onClick={() => {
+                        navigate("/risk-management");
+                        setNav(false);
+                        goToTop();
+                      }}
+                    >
                       Risk Management Concept
                     </div>
-                    <div className="text-[#000080]">Integrated AI Services</div>
+                    <div
+                      className="text-[#000080]"
+                      onClick={() => {
+                        navigate("/integrated-service");
+                        setNav(false);
+                        goToTop();
+                      }}
+                    >
+                      Integrated AI Services
+                    </div>
                   </>
                 )}
                 {support && item.text === "Support" && (

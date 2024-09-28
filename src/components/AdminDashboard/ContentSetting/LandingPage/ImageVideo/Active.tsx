@@ -1,136 +1,154 @@
-import { SettingFilled } from "@ant-design/icons";
-import { Gear } from "@phosphor-icons/react";
-import { Switch, TableColumnsType, Table, Popover } from "antd";
-import { Expand, Eye } from "lucide-react";
-import { useState } from "react";
-import RemoveContent from "../../RemoveContent";
+import React, { useContext, useMemo } from 'react';
+import type { DragEndEvent } from '@dnd-kit/core';
+import { DndContext } from '@dnd-kit/core';
+import type { SyntheticListenerMap } from '@dnd-kit/core/dist/hooks/utilities';
+import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
+import {
+  arrayMove,
+  SortableContext,
+  useSortable,
+  verticalListSortingStrategy,
+} from '@dnd-kit/sortable';
+import { CSS } from '@dnd-kit/utilities';
+import { Button, Switch, Table } from 'antd';
+import type { TableColumnsType } from 'antd';
+import { Expand } from 'lucide-react';
+import Preview from './Preview';
+import Setting from './Setting';
+import { DragHandle,DragableRow } from '@/components/shared/ReuseAble/DragableTable';
 
-const activeImages = [
+interface DataType {
+  key: string;
+  item: string;
+  button_title: string;
+  link:string;
+  last_modified: string;
+  visibility:boolean;
+  action:string
+}
+
+
+
+const columns: TableColumnsType<DataType> = [
+  { key: 'sort', align: 'center', width: 80, render: () => <DragHandle /> },
   {
-    item: "Mashood Adam",
-    preview: "mashoodadam@gmail.com",
-    last_modified: "July 22, 2024 - 10:45pm",
-    visibility: true,
-    action: "",
+    title: "Item",
+    dataIndex: "item",
+    render: (text: string) => (
+      <img src="/images/background.png" className="w-15 h-10" />
+    ),
   },
   {
-    item: "Mashood Adam",
-    preview: "mashoodadam@gmail.com",
-    last_modified: "July 22, 2024 - 10:45pm",
-    visibility: true,
-    action: "",
+    title: "Preview",
+    dataIndex: "preview",
+    render: (text: string,record:any) => <Preview record={record}/>,
   },
   {
-    item: "Mashood Adam",
-    preview: "mashoodadam@gmail.com",
-    last_modified: "July 22, 2024 - 10:45pm",
-    visibility: true,
-    action: "",
+    title: "Last Modified",
+    dataIndex: "last_modified",
   },
   {
-    item: "Mashood Adam",
-    preview: "mashoodadam@gmail.com",
-    last_modified: "July 22, 2024 - 10:45pm",
-    visibility: false,
-    action: "",
+    title: "Visibility",
+    dataIndex: "visibility",
+    render: (value, record) => (
+      <>
+        <Switch defaultValue={record.visibility} />
+      </>
+    ),
   },
   {
-    item: "Mashood Adam",
-    preview: "mashoodadam@gmail.com",
-    last_modified: "July 22, 2024 - 10:45pm",
-    visibility: true,
-    action: "",
-  },
-  {
-    item: "Mashood Adam",
-    preview: "mashoodadam@gmail.com",
-    last_modified: "July 22, 2024 - 10:45pm",
-    visibility: false,
-    action: "",
+    title: "Action",
+    dataIndex: "action",
+    render: (value, record,index) => (
+      <Setting index={index}/>
+    ),
   },
 ];
-export default function Active() {
-  const [open, setOpen] = useState(false);
-  const [openPopoverKey, setOpenPopoverKey] = useState(null);
-  const hide = () => {
-    setOpen(false);
-  };
 
-  const handleOpenChange = (newOpen: boolean, key: any) => {
-    setOpen(newOpen);
-    if (newOpen) {
-      setOpenPopoverKey(key); // Set the key of the opened Popover
-    } else {
-      setOpenPopoverKey(null); // Close the Popover
+const initialData: DataType[] = [
+    { 
+        key:"1",
+        item: "Mashood Adam 1",
+        button_title: "Get Started",
+        link:"",
+        last_modified: "July 22, 2024 - 10:45pm",
+        visibility: true,
+        action: "",
+      },
+      { 
+        key:"2",
+        item: "Mashood Adam 2",
+        button_title: "Get Started",
+        link:"",
+        last_modified: "July 22, 2024 - 10:45pm",
+        visibility: true,
+        action: "",
+      },
+      { 
+        key:"3",
+        item: "Mashood Adam 3",
+        button_title: "Get Started",
+        link:"",
+        last_modified: "July 22, 2024 - 10:45pm",
+        visibility: true,
+        action: "",
+      },
+      { 
+        key:"4",
+        item: "Mashood Adam 4",
+        button_title: "Get Started",
+        link:"",
+        last_modified: "July 22, 2024 - 10:45pm",
+        visibility: false,
+        action: "",
+      },
+      { 
+        key:"5",
+        item: "Mashood Adam 5",
+        button_title: "Get Started",
+        link:"",
+        last_modified: "July 22, 2024 - 10:45pm",
+        visibility: true,
+        action: "",
+      },
+];
+
+
+
+const Active: React.FC = () => {
+  const [dataSource, setDataSource] = React.useState<DataType[]>(initialData);
+
+  const onDragEnd = ({ active, over }: DragEndEvent) => {
+    if (active.id !== over?.id) {
+      setDataSource((prevState) => {
+        const activeIndex = prevState.findIndex((record) => record.key === active?.id);
+        const overIndex = prevState.findIndex((record) => record.key === over?.id);
+        return arrayMove(prevState, activeIndex, overIndex);
+      });
     }
   };
-  const columns: TableColumnsType<any> = [
-    {
-      dataIndex: "",
-      render: (text: string) => <Expand className="mr-2" />,
-    },
-    {
-      title: "Item",
-      dataIndex: "item",
-      render: (text: string) => (
-        <img src="/images/background.png" className="w-15 h-10" />
-      ),
-    },
-    {
-      title: "Preview",
-      dataIndex: "preview",
-      render: (text: string) => <Eye />,
-    },
-    {
-      title: "Last Modified",
-      dataIndex: "last_modified",
-    },
-    {
-      title: "Visibility",
-      dataIndex: "visibility",
-      render: (value, record) => (
-        <>
-          <Switch defaultValue={record.visibility} />
-        </>
-      ),
-    },
-    {
-      title: "Action",
-      dataIndex: "action",
-      render: (value, record,index) => (
-        <div className="" key={index}>
-          <Popover
-            key={index}
-            content={
-              <div className="flex flex-col p-2">
-                <a className="text-[#1A1A1A] my-1" href="/admin/dashboard/content-setting/landing-page/edit-image" >Edit</a>
-                <RemoveContent />
-              </div>
-            }
-            trigger="click"
-            placement="bottom"
-            open={open && openPopoverKey === index}
-            onOpenChange={(open) => handleOpenChange(open, index)}
-          >
-                      <Gear className="w-8 h-8" />
-
-          </Popover>
-        </div>
-      ),
-    },
-  ];
 
   return (
-    <div className="mt-3 mx-2 flex flex-col">
+    <div className="mx-2 flex flex-col">
       <div className="flex justify-end">
       <button className="rounded-lg py-2 px-8 my-2 bg-[#3838F0] text-white">
-            Add
+        Add
       </button>
       </div>
-      <Table columns={columns} dataSource={activeImages} 
-      className="rounded-lg border border-gray w-[calc(100% - 6px)] mb-3" 
-      scroll={{ x: true }}
-      />
+    <DndContext modifiers={[restrictToVerticalAxis]} onDragEnd={onDragEnd}>
+      <SortableContext items={dataSource.map((i) => i.key)} strategy={verticalListSortingStrategy}>
+        <Table<DataType>
+          rowKey="key"
+          components={{ body: { row: DragableRow } }}
+          columns={columns}
+          dataSource={dataSource}
+         className="rounded-lg border border-gray w-[calc(100% - 6px)] mb-3" 
+         scroll={{ x: true }}
+        />
+      </SortableContext>
+    </DndContext>
     </div>
   );
-}
+};
+
+export default Active;

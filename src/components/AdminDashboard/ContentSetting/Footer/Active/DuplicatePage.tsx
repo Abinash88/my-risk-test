@@ -2,6 +2,8 @@ import { CloudUploadIcon, PencilIcon } from "lucide-react";
 import React, { useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import RemoveContent from "../../RemoveContent";
+import Remove from "../../LandingPage/Remove";
 
 const DuplicatePage = () => {
   const [editorContent, setEditorContent] = useState("");
@@ -150,12 +152,12 @@ const DuplicatePage = () => {
 
         {/* Action Buttons */}
         <div className="flex justify-around mt-10">
-          <button className="px-4 py-2 md:px-6 md:py-3 bg-[#3838F0] text-white rounded-lg">
+          <button 
+          onClick={() => window.location.href = '/admin/dashboard/content-setting/preview'}
+          className="px-4 py-2 md:px-6 md:py-3 bg-[#3838F0] text-white rounded-lg">
             Preview
           </button>
-          <button className="px-4 py-2 md:px-6 md:py-3 bg-[#FF4949] text-white rounded-lg">
-            Remove
-          </button>
+          <Remove/>
           <button className="px-4 py-2 md:px-6 md:py-3 bg-[#000080] text-white rounded-lg">
             Confirm
           </button>

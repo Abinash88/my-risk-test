@@ -22,8 +22,54 @@ import EditMenu from "./EditMenu";
 import MenuList from "../../MenuList";
 import AddNewPage from "./AddNewPage";
 
-const pages = [
+import { DragHandle,DragableRow } from '@/components/shared/ReuseAble/DragableTable';
+import { DndContext, DragEndEvent } from "@dnd-kit/core";
+import { arrayMove, SortableContext, verticalListSortingStrategy } from "@dnd-kit/sortable";
+import { restrictToVerticalAxis } from "@dnd-kit/modifiers";
+
+interface DataType {
+  key: string;
+  title: string;
+  owner: string;
+  visibility:boolean;
+  action:string
+}
+
+const columns: TableColumnsType<DataType> = [
+  { key: 'sort', align: 'center', width: 80, render: () => <DragHandle /> },
   {
+    title: "Title",
+    dataIndex: "title",
+  },
+
+  {
+    title: "Visibility",
+    dataIndex: "visibility",
+    render: (value, record) => (
+      <>
+        <Switch defaultValue={record.visibility} />
+      </>
+    ),
+  },
+  {
+    title: "Owner",
+    dataIndex: "owner",
+  },
+  {
+    title: "Action",
+    dataIndex: "action",
+    render: (value, record) => (
+      <>
+        <EditOutlined className="w-10 h-10  text-[#000080]" />
+        <DeleteOutlined className="w-10 h-10 text-[#F24E1E]" />
+      </>
+    ),
+  },
+];
+
+const initialData: DataType[] = [
+  {
+    key:'1',
     title: "Terms And Condition",
     owner: "System",
     visibility: true,
@@ -31,18 +77,21 @@ const pages = [
   },
 
   {
+    key:'2',
     title: "Terms And Condition",
     owner: "System",
     visibility: true,
     action: "",
   },
   {
+    key:'3',
     title: "Terms And Condition",
     owner: "System",
     visibility: true,
     action: "",
   },
   {
+    key:'4',
     title: "Terms And Condition",
     owner: "System",
     visibility: true,
@@ -50,40 +99,17 @@ const pages = [
   },
 ];
 export default function index() {
-  const columns: TableColumnsType<any> = [
-    {
-      dataIndex: "",
-      render: (text: string) => <Expand className="mr-2" />,
-    },
-    {
-      title: "Title",
-      dataIndex: "title",
-    },
+  const [dataSource, setDataSource] = React.useState<DataType[]>(initialData);
 
-    {
-      title: "Visibility",
-      dataIndex: "visibility",
-      render: (value, record) => (
-        <>
-          <Switch defaultValue={record.visibility} />
-        </>
-      ),
-    },
-    {
-      title: "Owner",
-      dataIndex: "owner",
-    },
-    {
-      title: "Action",
-      dataIndex: "action",
-      render: (value, record) => (
-        <>
-          <EditOutlined className="w-10 h-10  text-[#000080]" />
-          <DeleteOutlined className="w-10 h-10 text-[#F24E1E]" />
-        </>
-      ),
-    },
-  ];
+  const onDragEnd = ({ active, over }: DragEndEvent) => {
+    if (active.id !== over?.id) {
+      setDataSource((prevState) => {
+        const activeIndex = prevState.findIndex((record) => record.key === active?.id);
+        const overIndex = prevState.findIndex((record) => record.key === over?.id);
+        return arrayMove(prevState, activeIndex, overIndex);
+      });
+    }
+  };
 
   const [open, setOpen] = useState(false);
   const showModal = () => {
@@ -115,11 +141,18 @@ export default function index() {
      </div>
       <div className="flex flex-col mt-8">
         <AddNewPage />
-
-        <Table columns={columns} dataSource={pages} 
-        className="mt-3 rounded-lg border border-gray w-[calc(100% - 6px)] mb-3" 
-        scroll={{ x: true }}
+      <DndContext modifiers={[restrictToVerticalAxis]} onDragEnd={onDragEnd}>
+      <SortableContext items={dataSource.map((i) => i.key)} strategy={verticalListSortingStrategy}>
+        <Table<DataType>
+          rowKey="key"
+          components={{ body: { row: DragableRow } }}
+          columns={columns}
+          dataSource={dataSource}
+         className="rounded-lg border border-gray w-[calc(100% - 6px)] mb-3" 
+         scroll={{ x: true }}
         />
+      </SortableContext>
+      </DndContext>
       </div>
 
       <Modal

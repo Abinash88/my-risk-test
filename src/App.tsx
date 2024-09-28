@@ -79,6 +79,8 @@ import AdminAuthLayout from "./components/AdminDashboard/User/Auth";
 import AdminLogin from "./components/AdminDashboard/User/Auth/Login";
 import AdminLoginOTP from "./components/AdminDashboard/User/Auth/Otp";
 import Welcome from "./components/AdminDashboard/Welcome";
+import PagePreview from "./components/AdminDashboard/ContentSetting/PagePreview";
+import AIGeneratedRisks from "./components/AdminDashboard/AIGeneratedRisk";
 
 const App = () => {
   return (
@@ -185,6 +187,10 @@ const App = () => {
             path="/admin/dashboard/content-setting/duplicate"
             element={<DuplicatePage />}
           />
+         <Route
+            path="/admin/dashboard/content-setting/preview"
+            element={<PagePreview />}
+          />
           <Route
             path="/admin/dashboard/ai-providers"
             element={<AIProviders />}
@@ -222,6 +228,10 @@ const App = () => {
           <Route
             path="/admin/dashboard/news-room/create"
             element={<CreateNews />}
+          />
+          <Route
+            path="/admin/dashboard/ai-generated-risks"
+            element={<AIGeneratedRisks />}
           />
           {/* </Route> */}
         </Route>

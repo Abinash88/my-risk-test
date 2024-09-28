@@ -2,6 +2,7 @@ import React from 'react'
 import GroupCarousel from './GroupCarousel'
 import { Switch, Table } from 'antd'
 import AddGroup from '../AddGroup'
+import { ChevronDown, ChevronUp } from 'lucide-react'
 const dataSource=[
     {
         key: '1',
@@ -48,10 +49,9 @@ const ArchivedGroup = () => {
         key: 'key',
         width: '100',
         render: (text: string,record:any) =><>
-        <button className="bg-orange-500 text-white px-4 py-1 rounded-md">
-              Archive
+            <button className="bg-orange-500 text-white px-4 py-1 rounded-md">
+              UnArchive
             </button>
-            
         </>
       },
       {
@@ -79,7 +79,26 @@ const ArchivedGroup = () => {
         </div>
         <button className='w-full bg-[#000080] text-[#FFFFFF] font-semibold text-lg px-5 py-3 my-5 rounded-lg'>Group 1 Help center</button>
         <div>
-            <Table dataSource={dataSource} columns={columns} showHeader={false} />
+            <Table dataSource={dataSource} 
+            columns={columns} 
+             
+            expandable={{
+              expandedRowRender: (record) => <p style={{ margin: 0 }}>{record.answer}</p>,
+              rowExpandable: (record) => record.question !== 'Not Expandable',
+              expandIcon: ({ expanded, onExpand, record }) => (
+                <div 
+                // style={{marginLeft:'0px', paddingRight: '16px' }}
+                className='flex justify-end'
+                >
+                  {expanded ? (
+                    <ChevronUp onClick={(e:any) => onExpand(record, e)} style={{ fontSize: '24px' }} />
+                  ) : (
+                    <ChevronDown onClick={(e:any) => onExpand(record, e)} style={{ fontSize: '24px' }} />
+                  )}
+                </div>
+              ),
+            }}
+            showHeader={false} />
         </div>
     </div>
   )

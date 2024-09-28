@@ -132,6 +132,12 @@ export const ADMIN_DASHBOARD_SIDEBAR_LINKS = [
     ],
   },
   {
+    key: "AI Generated Risks",
+    label: "AI Generated Risks",
+    path: "/admin/dashboard/ai-generated-risks",
+    icon: <FontAwesomeIcon icon={faPaperPlane} />,
+  },
+  {
     key: "AI Providers",
     label: "AI Providers",
     path: "/admin/dashboard/ai-providers",

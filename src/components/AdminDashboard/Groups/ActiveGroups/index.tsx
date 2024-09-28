@@ -12,6 +12,7 @@ import {
 import React, { useState } from "react";
 import DeleteGroup from "../DeleteGroup";
 import RestrictGroup from "../RestrictGroup";
+import GroupMember from "../GroupMember";
 
 const groups = [
   {
@@ -64,6 +65,11 @@ export default function index() {
     }
   };
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   const columns: TableColumnsType<any> = [
     {
       dataIndex: "S/N",
@@ -72,6 +78,7 @@ export default function index() {
     {
       title: "Group Name",
       dataIndex: "name",
+      render:(value,record)=><p onClick={()=>setIsModalOpen(true)}>{value}</p>
     },
     {
       title: "Created By",
@@ -168,6 +175,8 @@ export default function index() {
           scroll={{ x: true }}
         />
       </div>
+      <GroupMember isModalOpen={isModalOpen} closeModal={closeModal}/>
+
     </div>
   );
 }

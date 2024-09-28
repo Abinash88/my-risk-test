@@ -1,6 +1,7 @@
 import { Divider } from "antd";
 import { Cloud, Eye, UploadCloud } from "lucide-react";
 import React, { useState } from "react";
+import Remove from "../Remove";
 
 function EditSection() {
   const [buttonText, setButtonText] = useState("Get Started");
@@ -101,9 +102,7 @@ function EditSection() {
         <button className="border border-[#000080] rounded-md bg-white text-black py-2 px-6">
           Exit
         </button>
-        <button className="rounded-md bg-[#FF3B30] text-white py-2 px-6">
-          Remove
-        </button>
+        <Remove/>
         <button className="rounded-md bg-[#3838F0] text-white py-2 px-6">
           Confirm
         </button>

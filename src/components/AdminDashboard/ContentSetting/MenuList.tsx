@@ -28,8 +28,8 @@ const MenuList = () => {
 				
 				
 			</CarouselContent>
-			<CarouselPrevious className="bg-blue-800 text-white mx-5 h-10 w-10" />
-			<CarouselNext className="bg-blue-800 text-white mx-5 h-10 w-10" />
+			{/* <CarouselPrevious className="bg-blue-800 text-white mx-5 h-10 w-10" />
+			<CarouselNext className="bg-blue-800 text-white mx-5 h-10 w-10" /> */}
 		</Carousel>
 	);
 };

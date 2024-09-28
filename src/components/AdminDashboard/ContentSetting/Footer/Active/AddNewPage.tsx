@@ -27,7 +27,7 @@ const AddNewPage = () => {
             open={open}
             onOpenChange={(open:any) => handleOpenChange(open)}
           >
-        <button className="ml-auto rounded-md px-6 py-2 text-white bg-[#3838F0]">
+        <button className="ml-auto rounded-md px-6 py-2 mb-2 text-white bg-[#3838F0]">
           Add New Page
         </button>
     </Popover>

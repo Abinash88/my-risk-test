@@ -18,7 +18,7 @@ const fakeFeatures: FakeFeatureItem[] = [
 	{ id: 1, type: "item", name: "AI Generated risk profile", qty: 1, price: 4 },
 ];
 
-export default function Edit() {
+export default function Edit({data}:{data:any}) {
   const [open, setOpen] = useState(false);
   const showModal = () => {
     setOpen(true);
@@ -32,7 +32,6 @@ export default function Edit() {
     setOpen(false);
   };
 
-  const [data, setData] = useState(fakeFeatures);
 	const [isBenefitsVisible, setIsBenefitsVisible] = useState(true);
 
 
@@ -95,8 +94,8 @@ export default function Edit() {
             </div>
             <div className="flex flex-col gap-4">
               {data
-                .filter((item) => item.type === "item")
-                .map((item) => (
+                .filter((item:any) => item.type === "item")
+                .map((item:any) => (
                   <div
                     key={item.id}
                     className="text-white text-sm flex justify-between gap-4"

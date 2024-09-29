@@ -19,6 +19,8 @@ export default function AddAIProvider() {
     setOpen(false);
   };
 
+  const [previewImage,setPreviewImage]=useState<any>(null)
+
   return (
     <>
       <button
@@ -76,9 +78,49 @@ export default function AddAIProvider() {
           <Form layout="vertical" initialValues={{}}>
             <div className="flex flex-col">
               <p className="text-lg font-semiBold">AI Logo</p>
-              <div className="flex justify-center py-5 text-[#3838F0]">
-                <CloudUploadIcon className="h-6 w-6 mr-2" />
-                <span>Click to Add image/Video</span>
+              <div className="flex flex-col items-center py-5">
+                <input
+                  type="file"
+                  accept="image/*"
+                  id="imageUpload"
+                  className="hidden"
+                  style={{ display: 'none' }}
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    if (file) {
+                      const reader = new FileReader();
+                      reader.onload = (event) => {
+                        setPreviewImage(event.target?.result as string);
+                      };
+                      reader.readAsDataURL(file);
+                    }
+                  }}
+                />
+                {previewImage ? (
+                  <div className="flex flex-col items-center">
+                    <img
+                      src={previewImage}
+                      alt="Preview"
+                      className="w-24 h-24 rounded-full object-cover mb-3"
+                    />
+                    <label
+                      htmlFor="imageUpload"
+                      className="cursor-pointer text-[#3838F0]"
+                    >
+                      <CloudUploadIcon className="h-6 w-6 mr-2" />
+                      <span>Change</span>
+                      
+                    </label>
+                  </div>
+                ) : (
+                  <label
+                    htmlFor="imageUpload"
+                    className="flex items-center cursor-pointer text-[#3838F0]"
+                  >
+                    <CloudUploadIcon className="h-6 w-6 mr-2" />
+                    <span>Click to Add image</span>
+                  </label>
+                )}
               </div>
             </div>
             <div className="flex flex-col my-7">

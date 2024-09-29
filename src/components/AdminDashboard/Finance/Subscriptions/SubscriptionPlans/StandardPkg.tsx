@@ -7,6 +7,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import DeleteSubscription from "../DeleteSubscription";
+import Edit from "../Edit";
 
 interface FakeDataItem {
 	id: number;
@@ -76,6 +77,20 @@ const StandardPkg: React.FC = () => {
 		setData((prevData) => prevData.filter((item) => item.id !== id));
 	};
 
+	const handleRemoveItem = (id: number) => {
+		setData((prevData) =>
+			prevData.map((item) =>
+				item.id === id ? { ...item, type: "extra" } : item
+			)
+		);
+	};
+	const handleAddItem = (id: number) => {
+		setData((prevData) =>
+			prevData.map((item) =>
+				item.id === id ? { ...item, type: "item" } : item
+			)
+		);	};
+
 	return (
 		<div className="bg-white border border-gray-500 shadow-md rounded-lg w-full pb-5">
 			<div className="w-full bg-[#000080] text-white rounded-t-lg rounded-tr-lg p-3 mb-5">
@@ -100,7 +115,7 @@ const StandardPkg: React.FC = () => {
 									<FontAwesomeIcon
 										icon={faXmark}
 										className="text-[#FF0000] text-[26px] cursor-pointer"
-										onClick={() => handleRemove(item.id)}
+										onClick={() => handleRemoveItem(item.id)}
 									/>
 									<p className="px-2 py-5 bg-[#6666b3] rounded-lg flex-1">
 										{item.name}
@@ -168,11 +183,8 @@ const StandardPkg: React.FC = () => {
 				</h3>
 			</div>
 			<div className="px-3 flex justify-between items-center">
-				
-			<DeleteSubscription/>
-				<button className="bg-[#3838F0] text-white font-[600] px-5 py-3 rounded-lg">
-					Edit
-				</button>
+			  <DeleteSubscription/>
+			  <Edit data={data}/>
 			</div>
 			<div className="my-5 px-3">
 				<h3 className="bg-[#F0F0FF] font-[400] p-3 text-[20px] rounded-lg w-full text-center text-[#000080] mb-5">
@@ -190,7 +202,7 @@ const StandardPkg: React.FC = () => {
 									<FontAwesomeIcon
 										icon={faPlus}
 										className="cursor-pointer text-[#06DC1B]"
-										onClick={() => handleIncrease(item.id)}
+										onClick={() => handleAddItem(item.id)}
 									/>
 									<p className="px-2 py-5 bg-[#6666b3] rounded-lg flex-1">
 										{item.name}

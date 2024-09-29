@@ -5,7 +5,7 @@ import { CloudUpload, Plus, PlusIcon } from "lucide-react";
 import React, { useState } from "react";
 
 
-interface FakeFeatureItem {
+interface FakeDataItem {
 	id: number;
 	type: "item" | "benefit" | "extra";
 	name?: string;
@@ -14,8 +14,33 @@ interface FakeFeatureItem {
 	description?: string;
 }
 
-const fakeFeatures: FakeFeatureItem[] = [
+const fakeData: FakeDataItem[] = [
 	{ id: 1, type: "item", name: "AI Generated risk profile", qty: 1, price: 4 },
+	{ id: 2, type: "item", name: "Power System Risk", qty: 1, price: 4 },
+	{
+		id: 3,
+		type: "benefit",
+		description:
+			"Interact with our T&O standings such as vote risk up/down, like and comment.",
+	},
+	{
+		id: 4,
+		type: "benefit",
+		description:
+			"Refer others to join and participate through our referral channel.",
+	},
+	{
+		id: 5,
+		type: "benefit",
+		description: "Manage risks you have added to the T&O standings",
+	},
+	{
+		id: 6,
+		type: "extra",
+		name: "AI Generated risk profile",
+		qty: 1,
+		price: 4,
+	},
 ];
 
 export default function AddNew() {
@@ -32,7 +57,7 @@ export default function AddNew() {
     setOpen(false);
   };
 
-  const [data, setData] = useState(fakeFeatures);
+  const [data, setData] = useState(fakeData);
 	const [isBenefitsVisible, setIsBenefitsVisible] = useState(true);
 
 
@@ -206,12 +231,12 @@ export default function AddNew() {
             <p className="text-[#FD1E20]">No Extra</p>
             </div>
             <div className="flex flex-col gap-4">
-            <div
+                <div
                     // key={item.id}
-                    className="text-white text-sm flex justify-between gap-4 mt-3"
+                    className="w-full text-white text-sm flex justify-between gap-4 mt-3"
                   >
                     <div className="w-[52%] flex gap-1 items-center justify-between">
-                   <input placeholder="Write here" className="bg-[#6666B3] rounded-lg px-2 py-4 flex items-center text-lg focus:outline-none"/>
+                      <input placeholder="Write here" className="w-full bg-[#6666B3] rounded-lg px-2 py-4 flex items-center text-lg focus:outline-none"/>
                     </div>
 
                     <div className="border border-[#6666b3] rounded-lg flex w-[25%]">
@@ -257,8 +282,8 @@ export default function AddNew() {
                     <p className="px-1 bg-[#6666B3] flex justify-center items-center w-[12%] rounded-lg">
                       10
                     </p>
-                  </div>
-                  <button className="flex items-center text-[#6969F4]"> <PlusIcon className="mr-2"/> Add Extra</button>
+                </div>
+                <button className="flex items-center text-[#6969F4]"> <PlusIcon className="mr-2"/> Add Extra</button>
             </div>
           </div>
         </div>

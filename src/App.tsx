@@ -81,6 +81,7 @@ import AdminLoginOTP from "./components/AdminDashboard/User/Auth/Otp";
 import Welcome from "./components/AdminDashboard/Welcome";
 import PagePreview from "./components/AdminDashboard/ContentSetting/PagePreview";
 import AIGeneratedRisks from "./components/AdminDashboard/AIGeneratedRisk";
+import EditNews from "./components/AdminDashboard/NewsRoom/EditNews";
 
 const App = () => {
   return (
@@ -228,6 +229,11 @@ const App = () => {
           <Route
             path="/admin/dashboard/news-room/create"
             element={<CreateNews />}
+          />
+
+          <Route
+            path="/admin/dashboard/news-room/edit"
+            element={<EditNews />}
           />
           <Route
             path="/admin/dashboard/ai-generated-risks"

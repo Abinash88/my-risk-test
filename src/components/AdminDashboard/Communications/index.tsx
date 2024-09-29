@@ -13,7 +13,7 @@ export default function index() {
             type == "current"
               ? "bg-[#000080] text-white"
               : "bg-white text-black"
-          } rounded-lg md:w-2/5 py-3 shadow-md shadow-black px-1`}
+          } rounded-lg w-[45%] py-3 shadow-md shadow-black px-1`}
           onClick={() => setType("current")}
         >
           Current Subscribers
@@ -21,7 +21,7 @@ export default function index() {
         <button
           className={`${
             type == "former" ? "bg-[#000080] text-white" : "bg-white text-black"
-          } rounded-lg md:w-2/5 py-3 shadow-md shadow-black px-1`}
+          } rounded-lg w-[45%] py-3 shadow-md shadow-black px-1`}
           onClick={() => setType("former")}
         >
           Former Subscribers

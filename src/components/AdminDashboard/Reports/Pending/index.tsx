@@ -1,6 +1,7 @@
 import { Button, Divider, Input, Table, TableColumnsType } from "antd";
 import { PlusOutlined, SearchOutlined } from "@ant-design/icons";
 import { ArrowUp, FilterIcon, Verified } from "lucide-react";
+import Review from "./Review";
 
 const reports = [
   {
@@ -83,19 +84,14 @@ export default function index() {
       title: "Action",
       dataIndex: "action",
       render: (value, record) => (
-        <>
+        <div className="flex gap-x-2">
           <Button type="primary" danger 
         //   onClick={showModal}
           >
             Dismiss
           </Button>
-          <Button
-            className="bg-[#3838F0] text-white mt-2 md:mt-0 md:ml-2"
-            // onClick={showApproveModal}
-          >
-            Review
-          </Button>
-        </>
+          <Review/>
+        </div>
       ),
     },
   ];

@@ -3,7 +3,7 @@ import { UploadCloud } from 'lucide-react'
 import React from 'react'
 import ReactQuill from 'react-quill'
 
-export default function CreateNews() {
+export default function EditNews() {
   return (
     <div className='flex flex-col bg-white rounded-lg mt-5'>
         <div className='flex flex-col m-4 p-4 rounded-lg border border-gray-200'>
@@ -13,6 +13,10 @@ export default function CreateNews() {
             // onFinishFailed={onFinishFailed}
             autoComplete='off'
             className='w-full'
+            initialValues={{
+              title:"Risk management: Your Safety Forum",
+              content:"In today’s fast-paced and ever-changing world, risk management has become an essential aspect of ensuring safety and stability across various domains. Whether it’s in business, personal life, or community endeavors, understanding and managing risks can make the difference between success and failure. Welcome to your ultimate safety forum on risk management, where we explore the key principles, strategies, and tools to safeguard your interests.Understanding Risk Management Risk management is the process of identifying, assessing, and prioritizing risks, followed by coordinated efforts to minimize, monitor, and control the probability or impact of unfortunate events. This discipline is crucial in various sectors, including finance, healthcare, construction, and information technology, among others.Key Principles of Risk Management Risk Identification: The first step is to recognize potential risks that could affect your objectives. This could include financial uncertainties, legal liabilities, strategic management errors, accidents, and natural disasters."
+            }}
           >
             <Form.Item
               label='Title'
@@ -29,7 +33,6 @@ export default function CreateNews() {
                 <button className='w-[100%] bg-[#F9F9F9] rounded-md flex items-center justify-center gap-2 text-[#3838F0] p-2 border border-grey-200'><UploadCloud/> Click to Upload Image</button>
               </div>
             </Form.Item>
-            
             <Form.Item
               label='Content'
               name='content'
@@ -65,7 +68,7 @@ export default function CreateNews() {
         
         <div className='flex justify-end my-5 mx-4'>
          <button className='mr-3 bg-white border border-gray-200 text-black px-4 py-2 rounded-md'>Cancel</button>
-          <button className='bg-[#3838F0] text-white px-4 py-2 rounded-md'>Post</button>
+          <button className='bg-[#3838F0] text-white px-4 py-2 rounded-md'>Update Post</button>
         </div>
     </div>
   )

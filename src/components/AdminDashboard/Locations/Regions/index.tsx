@@ -7,17 +7,17 @@ import RemoveRegion from "./RemoveRegion";
 
 const regions = [
   {
-    name: "Mashood Adam",
+    name: "Africa",
     visibility: false,
     action: "",
   },
   {
-    name: "Mashood Adam",
+    name: "Asia",
     visibility: false,
     action: "",
   },
   {
-    name: "Mashood Adam",
+    name: "Caribbean",
     visibility: true,
     action: "",
   },

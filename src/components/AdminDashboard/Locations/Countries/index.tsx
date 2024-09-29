@@ -7,17 +7,17 @@ import RemoveCountry from "./RemoveCountry";
 
 const countries = [
   {
-    name: "Mashood Adam",
+    name: "Afghanistan",
     visibility: false,
     action: "",
   },
   {
-    name: "Mashood Adam",
+    name: "Albania",
     visibility: false,
     action: "",
   },
   {
-    name: "Mashood Adam",
+    name: "Algeria",
     visibility: true,
     action: "",
   },

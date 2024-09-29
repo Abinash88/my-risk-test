@@ -7,13 +7,14 @@ import PremiumFeatures from "./PremiumFeatures";
 import Payments from "./Payments";
 import Durations from "./Durations";
 import { ContactlessPayment, HashStraight } from "@phosphor-icons/react";
-
+import AIGeneratedRisks from './AIGeneratedRisks'
 
 const enum tabs {
   SUBSCRIPTIONS = "Subscriptions",
   PREMIUM_FEATURES = "Premium Features",
   PAYMENTS = "Payments",
   DURATIONS = "Durations",
+  AI_GENERATED_RISK="AI Generated Risk"
 }
 export default function index() {
   const [activeTab, setActiveTab] = useState<string>(tabs.SUBSCRIPTIONS);
@@ -38,8 +39,19 @@ export default function index() {
       ),
       children: <PremiumFeatures />,
     },
+
     {
       key: "3",
+      label: (
+        <div className="flex items-center">
+            <Ticket className="mr-2" />
+            <p className="text-lg font-medium text-[#838384]">AI Generated Risks</p>
+        </div>
+      ),
+      children: <AIGeneratedRisks />,
+    },
+    {
+      key: "4",
       label: (
         <div className="flex items-center">
             <RotateCcwSquare className="mr-2" />
@@ -49,7 +61,7 @@ export default function index() {
       children: <Payments />,
     },
     {
-      key: "4",
+      key: "5",
       label: (
         <div className="flex items-center">
             <HashStraight className="mr-2" />

@@ -6,6 +6,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import DeleteSubscription from "../DeleteSubscription";
+import Edit from "../Edit";
 
 interface FakeDataItem {
 	id: number;
@@ -142,9 +143,7 @@ const FreePlan: React.FC = () => {
 			</div>
 			<div className="px-3 flex justify-between items-center">
 				<DeleteSubscription/>
-				<button className="bg-[#3838F0] text-white font-[600] px-5 py-3 rounded-lg">
-					Edit
-				</button>
+				<Edit data={data}/>
 			</div>
 		</div>
 	);

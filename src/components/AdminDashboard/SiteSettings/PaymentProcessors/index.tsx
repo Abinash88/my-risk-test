@@ -18,24 +18,30 @@ import { ArrowUp, Settings } from "lucide-react";
 import React, { useState } from "react";
 import AddNew from "./AddNew";
 
-const settings = [
+const settingData = [
   {
     priority: 1,
+    top_priority:true,
     payment_processor: "Stripe",
+    img:"/images/stripe.png",
     order: "",
     enabled: false,
     action: "",
   },
   {
-    priority: 2,
-    payment_processor: "Stripe",
+    priority: 2,   
+    top_priority:false,
+    payment_processor: "Adyen",
+    img:"/images/adyen.png",
     order: "",
     enabled: true,
     action: "",
   },
   {
-    priority: 3,
+    priority: 3,   
+    top_priority:false,
     payment_processor: "PayPal",
+    img:"/images/paypallogo.png",
     order: "",
     enabled: false,
     action: "",
@@ -58,6 +64,8 @@ export default function AdminUser() {
     }
   };
 
+  const [settings,setSettings]=useState(settingData)
+
   const columns: TableColumnsType<any> = [
     {
       title: "Priority",
@@ -66,11 +74,40 @@ export default function AdminUser() {
     {
       title: "Payment Processor",
       dataIndex: "payment_processor",
+      render:(value,record,index)=>(
+        <div className="flex gap-2 items-center">
+          <div className="flex flex-col gap-2 ">
+            <p>{record.payment_processor}</p>
+            <img src={record.img} className="w-[50px] h-[30px]"/>
+          </div>
+     {  record.top_priority&& <button className="p-2 rounded-lg text-[#3838F0] border border-[#3838F0] ">Top Priority</button>}        </div>
+      )
     },
     {
       title: "Change Order",
       dataIndex: "order",
-      render: (value, record) => <>{<UpOutlined />} </>,
+      render: (value, record, index) => (
+        <div className="flex flex-col justify-center gap-y-4">
+          {index !== 0 && (
+            <UpOutlined 
+              onClick={() => {
+                const newSettings = [...settings];
+                [newSettings[index - 1], newSettings[index]] = [newSettings[index], newSettings[index - 1]];
+                setSettings(newSettings);
+              }}
+            />
+          )}
+          {index !== settings.length - 1 && (
+            <DownOutlined 
+              onClick={() => {
+                const newSettings = [...settings];
+                [newSettings[index], newSettings[index + 1]] = [newSettings[index + 1], newSettings[index]];
+                setSettings(newSettings);
+              }}
+            />
+          )}
+        </div>
+      ),
     },
     {
       title: "Enabled",
@@ -90,7 +127,10 @@ export default function AdminUser() {
             key={index}
             content={
               <div className="flex flex-col">
-                <Divider type="horizontal" className="w-full my-2" />
+                <a className="my-2">Set As Top Priority</a>
+                <a className="my-2">View / Edit</a>
+                <a className="my-2 text-[#EA1C1C]">Remove</a>
+                {/* <Divider type="horizontal" className="w-full my-2" /> */}
               </div>
             }
             trigger="click"

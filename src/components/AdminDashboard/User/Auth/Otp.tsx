@@ -30,7 +30,7 @@ const Otp = () => {
 					</Form.Item>
 					<button
 						type="submit"
-                        onClick={()=>navigate('/admin/dashboard')}
+                        onClick={()=>navigate('/admin')}
 						className="bg-[#3838F0] text-center text-white rounded-lg py-5 mt-4"
 					>
 						Login

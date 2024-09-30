@@ -10,7 +10,7 @@ const risks = [
     vote: "",
     title: "lorem ipsum",
     description: "lorem ipsum",
-    rating: 99,
+    rating: 73,
     up_vote: 3000,
     down_vote: 299090,
     date: "Jul 24, 2024 - 10:35AM",
@@ -23,6 +23,30 @@ const risks = [
     title: "lorem ipsum",
     description: "lorem ipsum",
     rating: 80,
+    up_vote: 3000,
+    down_vote: 299090,
+    date: "Jul 24, 2024 - 10:35AM",
+    duration: 3,
+    status: "Closed",
+  },
+  {
+    rank: 3,
+    vote: "",
+    title: "lorem ipsum",
+    description: "lorem ipsum",
+    rating: 60,
+    up_vote: 3000,
+    down_vote: 299090,
+    date: "Jul 24, 2024 - 10:35AM",
+    duration: 3,
+    status: "Closed",
+  },
+  {
+    rank: 4,
+    vote: "",
+    title: "lorem ipsum",
+    description: "lorem ipsum",
+    rating: 99,
     up_vote: 3000,
     down_vote: 299090,
     date: "Jul 24, 2024 - 10:35AM",
@@ -73,12 +97,32 @@ export default function Public() {
       title: "Risk Rating",
       dataIndex: "rating",
       width: "100px",
-      className: "bg-[#540303] text-white",
-      render: (value, record) => (
-        <>
-          <p>{value} %</p>
-        </>
-      ),
+      render: (value, record) => {
+        let bgColor = '';
+        if (value >= 0 && value <= 49) {
+          bgColor = 'green';
+        } else if (value >= 50 && value <= 69) {
+          bgColor = 'yellow';
+        } else if (value >= 70 && value <= 79) {
+          bgColor = '#D2B48C'; // Fawn Brown
+        } else if (value >= 80 && value <= 89) {
+          bgColor = 'red';
+        } else if (value >= 90 && value <= 100) {
+          bgColor = '#8B0000';
+        }        
+  
+        return {
+          children:<p className={`${bgColor=="yellow"?'text-black':'text-white'}`}>{value} %</p>,
+          props: {
+            style: {
+              backgroundColor:bgColor, // Apply background color to the full cell
+              height: '100%',  // Ensure it takes full height
+              width: '100px',   // Ensure it takes full width
+              textAlign: 'center', // Optional: center the text
+            },
+          },
+        };
+      },
     },
     {
       title: "Up Votes",

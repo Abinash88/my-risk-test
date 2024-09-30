@@ -1,6 +1,7 @@
 import { Divider } from "antd";
 import { Facebook, Instagram, Linkedin, Twitter, XIcon } from "lucide-react";
 import React from "react";
+import UploadNew from "./UploadNew";
 
 export default function index() {
   return (
@@ -20,7 +21,9 @@ export default function index() {
             </div>
           </div>
           <div className="flex flex-col items-center mt-10">
-            <button className="bg-[#3838F0] text-white px-6 py-2 rounded">
+            <button className="bg-[#3838F0] text-white px-6 py-2 rounded"
+            onClick={() => window.location.href = '/admin/dashboard/site-settings/edit-social-link'}
+            >
               Edit
             </button>
           </div>
@@ -36,6 +39,7 @@ export default function index() {
           <LogoRow label="Website logo" />
           <LogoRow label="Admin logo" />
           <LogoRow label="Fav Icon" />
+          <LogoRow label="Footer Icon" />
         </div>
       </div>
     </div>
@@ -45,8 +49,8 @@ export default function index() {
 // Component for social media link card
 const SocialLinkCard = ({ icon, label }: { icon: any; label: string }) => {
   return (
-    <div className="flex items-center p-4 bg-white shadow rounded-md">
-      <div className="mr-4">{icon}</div>
+    <div className="flex flex-col md:flex-row items-center p-4 bg-white shadow rounded-md">
+      <div className="mb-3 md:mb-0 md:mr-4 ">{icon}</div>
       <span className="text-gray-700">{label}</span>
     </div>
   );
@@ -65,9 +69,7 @@ const LogoRow = ({ label }: { label: string }) => {
           //   className="w-10 h-10 mr-4"
         />
       </div>
-      <button className="bg-[#3838F0] text-white px-6 py-2 rounded mt-3 md:mt-0">
-        Upload New
-      </button>
+      <UploadNew img="/images/blue-logo.png"/>
     </div>
   );
 };

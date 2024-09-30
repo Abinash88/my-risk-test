@@ -2,7 +2,7 @@ import { Warning } from '@phosphor-icons/react';
 import { Button, Input, Modal } from 'antd';
 import React, { useState } from 'react'
 
-export default function CloseWebsite({isMaintenanceMode}: {isMaintenanceMode: boolean}) {
+export default function CloseWebsite({isMaintenanceMode,setIsMaintenanceMode}: {isMaintenanceMode: boolean,setIsMaintenanceMode:Function}) {
     const [open, setOpen] = useState(false);
 
     const showModal = () => {
@@ -10,6 +10,7 @@ export default function CloseWebsite({isMaintenanceMode}: {isMaintenanceMode: bo
     };
   
     const handleOk = () => {
+      setIsMaintenanceMode((prev:boolean)=>!prev)
       setOpen(false);
     };
   

@@ -1,8 +1,9 @@
 import { Button, Form, Input, InputNumber, Modal } from 'antd'
 import React,{useState} from 'react'
+import IssueWarning from './IssueWarning';
 
 export default function Review() {
-    const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
   const showModal = () => {
     setOpen(true);
   };
@@ -25,7 +26,7 @@ export default function Review() {
             Review
           </Button>
 
-        <Modal
+      <Modal
         title="Report Details"
         open={open}
         onOk={handleOk}
@@ -39,17 +40,12 @@ export default function Review() {
               View Violation
             </button>
             <button
-              className="ml-2 rounded-md text-white bg-[#6666B3] p-1"
-              onClick={handleOk}
-            >
-              Issue Warning
-            </button>
-            <button
               className="ml-2 p-1 rounded-md text-white bg-[#FAB503]"
               onClick={handleOk}
             >
               Restrict User
             </button>
+            <IssueWarning/>
             <button
               className="ml-2 rounded-md text-white bg-[#FF9500] p-1"
               onClick={handleOk}

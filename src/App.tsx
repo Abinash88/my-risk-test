@@ -82,7 +82,7 @@ import Welcome from "./components/AdminDashboard/Welcome";
 import PagePreview from "./components/AdminDashboard/ContentSetting/PagePreview";
 import AIGeneratedRisks from "./components/AdminDashboard/AIGeneratedRisk";
 import EditNews from "./components/AdminDashboard/NewsRoom/EditNews";
-
+import EditSocialLink from './components/AdminDashboard/SiteSettings/SocialLinks/Edit'
 const App = () => {
   return (
     <Router>
@@ -119,11 +119,6 @@ const App = () => {
           <Route path="login" element={<Login />} />
           <Route path="forgot-password" element={<PasswordResetPage />} />
         </Route>
-        <Route path="/admin/auth" element={<AdminAuthLayout />}>
-          <Route index={true} element={<AdminLogin />} />
-          <Route path="login" element={<AdminLogin />} />
-          <Route path="otp" element={<AdminLoginOTP />} />
-        </Route>
         <Route path="/dashboard" element={<LoggedLayout />}>
           <Route path="account-profile" element={<AccountProfile />} />
           <Route path="manage-risk" element={<ManageRisk />} />
@@ -150,93 +145,102 @@ const App = () => {
           <Route path="risk/view-comments" element={<ViewCommnts />} />
          {/* <Route path="news-room/:blogcontent" element={<UserNewsRoomContent />} />  */}
         </Route>
-        <Route path="/" element={<AdminDashboardLayout />}>
+        <Route path="/" element={<AdminAuthLayout />}>
+          <Route index={true} element={<AdminLogin />} />
+          <Route path="login" element={<AdminLogin />} />
+          <Route path="otp" element={<AdminLoginOTP />} />
+        </Route>
+        <Route path="/admin" element={<AdminDashboardLayout />}>
           {/* <Route path="/admin/dashboard/" element={<AdminDashboardLayout />}> */}
-          <Route path="/admin/dashboard" element={<IndexAdminDashboard />} />
           <Route path="" element={<Welcome />} />
+          <Route path="admin/dashboard" element={<IndexAdminDashboard />} />
           <Route
-            path="/admin/dashboard/verification-request"
+            path="dashboard/verification-request"
             element={<VerificationRequest />}
           />
           <Route
-            path="/admin/dashboard/user"
+            path="dashboard/user"
             element={<AdminDashboardUserComponent />}
           />
-          <Route path="/admin/dashboard/user/:id" element={<UserDetail />} />
+          <Route path="dashboard/user/:id" element={<UserDetail />} />
 
           <Route
-            path="/admin/dashboard/content-setting/landing-page"
+            path="dashboard/content-setting/landing-page"
             element={<LandingPageContentSettings />}
           />
           <Route
-            path="/admin/dashboard/content-setting/landing-page/edit-image"
+            path="dashboard/content-setting/landing-page/edit-image"
             element={<EditImageSection />}
           />
          <Route
-            path="/admin/dashboard/content-setting/landing-page/edit-link"
+            path="dashboard/content-setting/landing-page/edit-link"
             element={<EditLinkSection />}
           />
           <Route
-            path="/admin/dashboard/content-setting/menu"
+            path="dashboard/content-setting/menu"
             element={<MenuContentSettings />}
           />
           <Route
-            path="/admin/dashboard/content-setting/footer"
+            path="dashboard/content-setting/footer"
             element={<FooterContentSettings />}
           />
           <Route
-            path="/admin/dashboard/content-setting/duplicate"
+            path="dashboard/content-setting/duplicate"
             element={<DuplicatePage />}
           />
          <Route
-            path="/admin/dashboard/content-setting/preview"
+            path="dashboard/content-setting/preview"
             element={<PagePreview />}
           />
           <Route
-            path="/admin/dashboard/ai-providers"
+            path="dashboard/ai-providers"
             element={<AIProviders />}
           />
-          <Route path="/admin/dashboard/standings" element={<Standings />} />
-          <Route path="/admin/dashboard/groups" element={<Groups />} />
+          <Route path="dashboard/standings" element={<Standings />} />
+          <Route path="dashboard/groups" element={<Groups />} />
           <Route
-            path="/admin/dashboard/communications"
+            path="dashboard/communications"
             element={<Communications />}
           />
-          <Route path="/admin/dashboard/locations" element={<Locations />} />
-          <Route path="/admin/dashboard/reports" element={<Reports />} />
-          <Route path="/admin/dashboard/admin-users" element={<AdminUsers />} />
+          <Route path="dashboard/locations" element={<Locations />} />
+          <Route path="dashboard/reports" element={<Reports />} />
+          <Route path="dashboard/admin-users" element={<AdminUsers />} />
           <Route
-            path="/admin/dashboard/site-settings"
+            path="dashboard/site-settings"
             element={<SiteSettings />}
           />
           <Route
-            path="/admin/dashboard/site-settings/view"
+            path="dashboard/site-settings/view"
             element={<ViewPaymentProcessor />}
           />
+        <Route
+            path="dashboard/site-settings/edit-social-link"
+            element={<EditSocialLink />}
+          />   
           <Route
-            path="/admin/dashboard/finance"
+            path="dashboard/finance"
             element={<Finance />}
           />
 
         <Route
-            path="/admin/dashboard/help-center"
+            path="dashboard/help-center"
             element={<AdminHelpCenter />}
           />
           <Route
-            path="/admin/dashboard/news-room"
+            path="dashboard/news-room"
             element={<AdminNewsRoom />}
           />
           <Route
-            path="/admin/dashboard/news-room/create"
+            path="dashboard/news-room/create"
             element={<CreateNews />}
           />
 
           <Route
-            path="/admin/dashboard/news-room/edit"
+            path="dashboard/news-room/edit"
             element={<EditNews />}
           />
           <Route
-            path="/admin/dashboard/ai-generated-risks"
+            path="dashboard/ai-generated-risks"
             element={<AIGeneratedRisks />}
           />
           {/* </Route> */}

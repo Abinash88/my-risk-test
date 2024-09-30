@@ -10,7 +10,7 @@ export default function index() {
         <div className={`text-9xl mb-8 ${isMaintenanceMode ? 'text-blue-500' : 'text-red-500'}`}>
           🛠️
         </div>
-        <CloseWebsite isMaintenanceMode={isMaintenanceMode} />
+        <CloseWebsite isMaintenanceMode={isMaintenanceMode} setIsMaintenanceMode={setIsMaintenanceMode} />
       </div>
       
     </div>

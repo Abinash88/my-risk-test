@@ -84,7 +84,7 @@ export default function index() {
       title: "Action",
       dataIndex: "action",
       render: (value, record) => (
-        <div className="flex gap-x-2">
+        <div className="flex flex-col md:flex-row gap-x-2">
           <Button type="primary" danger 
         //   onClick={showModal}
           >

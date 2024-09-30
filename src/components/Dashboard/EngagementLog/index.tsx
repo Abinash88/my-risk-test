@@ -6,8 +6,12 @@ import {
   faThumbsUp,
   faTrashCan,
 } from "@fortawesome/free-solid-svg-icons";
+import {Table} from 'antd'
+import { useState } from 'react';
 
 const EngagementLog = () => {
+  const [filterType, setFilterType] = useState("all");
+
   const testLogs = [
     {
       name: "You disliked Risk (Heartburn) specific to Country under Sector A",
@@ -42,6 +46,54 @@ const EngagementLog = () => {
       type: "comment",
     },
   ];
+
+  const filteredLogs = filterType === "all" ? testLogs : testLogs.filter(log => log.type === filterType);
+
+  const columns:any=[
+{
+  title:"Description",
+  render:(value:any,record:any)=>(
+    <div className="flex gap-2 items-center w-[70%]">
+                  {record.type === "like" && (
+                    <FontAwesomeIcon
+                      icon={faThumbsUp}
+                      className="text-2xl text-blue-600"
+                    />
+                  )}
+                  {record.type === "dislike" && (
+                    <FontAwesomeIcon
+                      icon={faThumbsDown}
+                      className="text-2xl text-red-600"
+                    />
+                  )}
+                  {record.type === "comment" && (
+                    <FontAwesomeIcon
+                      icon={faComment}
+                      className="text-2xl text-green-600"
+                    />
+                  )}
+                  <p className="font-[500] w-4/6 text-black text-sm ml-4">
+                    {record.name}
+                  </p>
+    </div>
+  )
+},
+{
+  title:"Action",
+  render:(value:any,record:any)=>(
+    <p className="text-sm">
+    <FontAwesomeIcon icon={faEye} />
+  </p>
+  )
+},
+
+{
+  title:"Time",
+  render:(value:any,record:any,index:number)=>(
+    <p className="text-sm">{index} mins ago</p>
+  )
+}
+  ]
   return (
     <div>
       <div className="flex items-center justify-between flex-wrap pb-10">
@@ -51,50 +103,25 @@ const EngagementLog = () => {
             name="days"
             id="days"
             className="p-2 text-sm px-6 border-2 border-[#000080] rounded-lg bg-transparent outline-none"
+            onChange={(e) => setFilterType(e.target.value)}
           >
-            <option value="most-recent">All</option>
+            <option value="all">All</option>
+            <option value="like">Likes</option>
+            <option value="dislike">Dislikes</option>
+            <option value="comment">Comments</option>
           </select>
         </div>
       </div>
       <>
         <div className=" bg-white rounded-md px-9 py-3 lg:h-[58vh] overflow-y-auto scrollBar">
-          <h3 className="font-[600] text-xl mb-5">Description</h3>
-          <div className="flex flex-col gap-6">
-            {testLogs.map((notice, i) => (
-              <div
-                className="flex items-start md:items-center gap-2 justify-between"
-                key={i}
-              >
-                <div className="flex gap-2 items-center w-[70%]">
-                  {notice.type === "like" && (
-                    <FontAwesomeIcon
-                      icon={faThumbsUp}
-                      className="text-2xl text-blue-600"
-                    />
-                  )}
-                  {notice.type === "dislike" && (
-                    <FontAwesomeIcon
-                      icon={faThumbsDown}
-                      className="text-2xl text-red-600"
-                    />
-                  )}
-                  {notice.type === "comment" && (
-                    <FontAwesomeIcon
-                      icon={faComment}
-                      className="text-2xl text-green-600"
-                    />
-                  )}
-                  <p className="font-[500] w-4/6 text-black text-sm ml-4">
-                    {notice.name}
-                  </p>
-                </div>
-                <p className="text-sm">
-                  <FontAwesomeIcon icon={faEye} />
-                </p>
-                <p className="text-sm">{i} mins ago</p>
-              </div>
-            ))}
-          </div>
+          <Table
+            dataSource={filteredLogs}
+            pagination={false}
+            bordered={false}
+            columns={columns}
+            // rowKey={(record, index) => index}
+            // showHeader={false}
+          />          
         </div>
       </>
     </div>

@@ -1,13 +1,15 @@
 import { useState } from "react";
 
-type NotificationGroups = "system" | "marketing" | "finance";
+type NotificationGroups = "system" | "marketing" | "finance"|"engagement"|"email";
 type NotificationSettingKeys =
   | "receivePromotions"
   | "allowLikes"
   | "ads"
   | "market"
   | "text"
-  | "finance";
+  | "finance"
+  |"engagement"
+  |"email";
 
 interface NotificationSettingState {
   receivePromotions: boolean;
@@ -16,11 +18,15 @@ interface NotificationSettingState {
   market: boolean;
   text: boolean;
   finance: boolean;
+  engagement:boolean;
+  email:boolean;
 }
 interface OpenSectionsState {
   system: boolean;
   marketing: boolean;
   finance: boolean;
+  engagement:boolean;
+  email:boolean;
 }
 
 const NotificationSetting = () => {
@@ -31,11 +37,15 @@ const NotificationSetting = () => {
     market: true,
     text: true,
     finance: true,
+    engagement:true,
+    email:true,
   });
   const [openSections, setOpenSections] = useState<OpenSectionsState>({
     system: true,
     marketing: false,
     finance: false,
+    engagement:false,
+    email:false
   });
   const toggleSection = (section: NotificationGroups) => {
     setOpenSections((prevState) => ({
@@ -181,6 +191,66 @@ const NotificationSetting = () => {
                   />
                   <label htmlFor="finance" className="text-sm">
                     Allow all Finance Notifications
+                  </label>
+                </div>
+              </div>
+            )}
+          </div>
+          <div className="bg-[#F9F9F9] rounded-lg p-4 w-11/12">
+            <h4
+              className="font-[600] text-md mb-5 cursor-pointer"
+              onClick={() => toggleSection("engagement")}
+            >
+              <div className="flex items-center justify-between">
+                <h3>Engagement</h3>
+                <p className="text-[15px]">
+                  {openSections.engagement ? "▼" : "▶"}
+                </p>
+              </div>
+            </h4>
+            {openSections.engagement && (
+              <div className="flex flex-col gap-5">
+                <div className="flex gap-2">
+                  <input
+                    type="radio"
+                    className="p-8 w-6 h-6 specifyColor"
+                    id="engagement"
+                    checked={isChecked.engagement}
+                    onClick={() => handleToggle("engagement")}
+                    readOnly
+                  />
+                  <label htmlFor="engagement" className="text-sm">
+                    Allow all Engagement Notifications
+                  </label>
+                </div>
+              </div>
+            )}
+          </div>
+          <div className="bg-[#F9F9F9] rounded-lg p-4 w-11/12">
+            <h4
+              className="font-[600] text-md mb-5 cursor-pointer"
+              onClick={() => toggleSection("email")}
+            >
+              <div className="flex items-center justify-between">
+                <h3>Email</h3>
+                <p className="text-[15px]">
+                  {openSections.email ? "▼" : "▶"}
+                </p>
+              </div>
+            </h4>
+            {openSections.email && (
+              <div className="flex flex-col gap-5">
+                <div className="flex gap-2">
+                  <input
+                    type="radio"
+                    className="p-8 w-6 h-6 specifyColor"
+                    id="finance"
+                    checked={isChecked.email}
+                    onClick={() => handleToggle("email")}
+                    readOnly
+                  />
+                  <label htmlFor="email" className="text-sm">
+                    Allow all email Notifications
                   </label>
                 </div>
               </div>

@@ -372,7 +372,7 @@ const Header = () => {
       </ul>
       <div className="hidden md:block">
         <Link
-          to="/login"
+          to="/auth/login"
           className="bg-[#000080] text-white py-3 px-10 rounded-lg"
         >
           Login

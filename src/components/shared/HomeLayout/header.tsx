@@ -7,6 +7,7 @@ import {
   faBars,
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
+import LoggedMenu from "../LoggedLayout/Menu";
 
 const Header = () => {
   const [nav, setNav] = useState(false);
@@ -56,127 +57,12 @@ const Header = () => {
         </div>
       </Link>
 
-      <ul
-        style={{ color: colorChange ? "black" : "white" }}
+      <div
+        // style={{ color: colorChange ? "black" : "white" }}
         className=" font-medium hidden md:flex items-start justify-center gap-6 lg:gap-14 flex-[2] "
       >
-        {navItems.map((item) => (
-          <li key={item.id}>
-            <li
-              onMouseEnter={() => {
-                if (item.text === "Product") {
-                  setProd(true);
-                  setlearn(false);
-                  setSupport(false);
-                }
-                if (item.text === "Learn") {
-                  setSupport(false);
-                  setProd(false);
-                  setlearn((x) => !x);
-                }
-                if (item.text === "Support") {
-                  setProd(false);
-                  setlearn(false);
-                  setSupport((x) => !x);
-                }
-                if (item.text === "T & O Standing") {
-                  setProd(false);
-                  setlearn(false);
-                  setSupport(false);
-                }
-              }}
-              onMouseLeave={() => {
-                setProd(false);
-                setlearn(false);
-                setSupport(false);
-              }}
-            >
-              {item.text}
-              {item.text === "Product" && prod && (
-                <div className="absolute">
-                  <div
-                    className={`opacity-80 text-sm font-normal my-1`}
-                    onClick={() => {
-                      navigate("/service");
-                      setNav(false);
-                      goToTop();
-                    }}
-                  >
-                    Our services
-                  </div>
-                  <div
-                    className={`opacity-80 text-sm font-normal my-1`}
-                    onClick={() => {
-                      navigate("/premium");
-                      setNav(false);
-                      goToTop();
-                    }}
-                  >
-                    Premium Features
-                  </div>
-                  <div
-                    className={`opacity-80 text-sm font-normal my-1`}
-                    onClick={() => {
-                      navigate("/product-subscription");
-                      setNav(false);
-                      goToTop();
-                    }}
-                  >
-                    Subscription Services
-                  </div>
-                </div>
-              )}
-              {item.text === "Learn" && learn && (
-                <div className="absolute">
-                  <div
-                    className={`opacity-80 text-sm font-normal my-1`}
-                    // onClick={() => {
-                    //   navigate("/service");
-                    //   setNav(false);
-                    //   goToTop();
-                    // }}
-                    onClick={() => {
-                      navigate("/risk-management");
-                      goToTop();
-                    }}
-                  >
-                    Risk Management Concept
-                  </div>
-                  <div
-                    className={`opacity-80 text-sm font-normal my-1`}
-                    onClick={() => {
-                      navigate("/integrated-service");
-                      goToTop();
-                    }}
-                  >
-                    Integrated AI Services
-                  </div>
-                </div>
-              )}
-              {item.text === "Support" && support && (
-                <div className="absolute">
-                  <div
-                    className={`opacity-80 text-sm font-normal my-1`}
-                    onClick={() => {
-                      navigate("/our-work");
-                      setNav(false);
-                      goToTop();
-                    }}
-                  >
-                    How it works
-                  </div>
-                  <div className={`opacity-80 text-sm font-normal my-1`}>
-                    Help Centre
-                  </div>
-                  <div className={`opacity-80 text-sm font-normal my-1`}>
-                    User Tips
-                  </div>
-                </div>
-              )}
-            </li>
-          </li>
-        ))}
-      </ul>
+      <LoggedMenu color={ colorChange ? "white" : "transparent" }/>
+      </div>
       <div onClick={handleNav} className="block md:hidden">
         <FontAwesomeIcon
           icon={faBars}

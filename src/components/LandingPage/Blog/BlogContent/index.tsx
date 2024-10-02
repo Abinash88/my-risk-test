@@ -17,7 +17,7 @@ const BlogContent = () => {
 			<div className=" bg-[#EFEFEF] py-14">
 				<Container>
 					<div>
-						<p className="py-7">Go back</p>
+						<p className="py-7 cursor-pointer" onClick={() => window.history.back()}>Go back</p>
 						<div>
 							<div className="flex flex-col md:flex-row items-center justify-between gap-3">
 								<h4 className="text-[28px] text-[#000080] font-[600] text-center md:text-left">

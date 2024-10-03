@@ -121,6 +121,7 @@ const EngagementLog = () => {
             columns={columns}
             // rowKey={(record, index) => index}
             // showHeader={false}
+           scroll={{ x: 'max-content' }}
           />          
         </div>
       </>

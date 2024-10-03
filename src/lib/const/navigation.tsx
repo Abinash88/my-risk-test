@@ -32,7 +32,7 @@ export const quickLinks = [
 	},
 	{
 		link: "AI Powered Profile",
-		path: "/",
+		path: "/risk-profile",
 	},
 	{
 		link: " T & O Standing",

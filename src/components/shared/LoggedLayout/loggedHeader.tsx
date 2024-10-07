@@ -4,6 +4,7 @@ import { navItems } from "../../../lib/const/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faBell, faXmark } from "@fortawesome/free-solid-svg-icons";
 import GridSidebar from "./GridSidebar";
+import LoggedMenu from "./Menu";
 
 const LoggedHeader = () => {
   const [nav, setNav] = useState(false);
@@ -34,7 +35,10 @@ const LoggedHeader = () => {
         </Link>
       </div>
       <div className="lg:w-[100%] -ml-8 fixed md:absolute">
-        <ul className="text-black hidden md:flex items-center justify-center gap-6 lg:gap-8 ">
+        <div className="hidden md:flex items-center justify-center">
+        <LoggedMenu/>
+        </div>
+        {/* <ul className="text-black hidden md:flex items-center justify-center gap-6 lg:gap-8 ">
           {navItems.map((item) => (
             <li key={item.id}>
             <li
@@ -127,7 +131,7 @@ const LoggedHeader = () => {
             </li>
           </li>
           ))}
-        </ul>
+        </ul> */}
       </div>
       <div className="lg:scale-75 flex">
         <div onClick={handleNav} className="hidden">

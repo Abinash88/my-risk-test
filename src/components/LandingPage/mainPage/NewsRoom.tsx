@@ -36,10 +36,10 @@ const NewsRoom = () => {
 									{news.paragraph}
 								</p>
 								<Link
-									to={news.path}
+									to={'blog/'+i}
 									className="bg-[#000080] p-3 flex justify-center items-center text-center rounded-lg text-white"
 								>
-									View All
+							    Read News
 								</Link>
 							</div>
 						</div>
@@ -47,7 +47,7 @@ const NewsRoom = () => {
 				</div>
 				<div className="mt-8">
 					<Link
-						to="/news"
+						to="/blog"
 						className="bg-[#000080] p-3 flex justify-center items-center text-center rounded-lg text-white w-[30%] mr-auto ml-auto"
 					>
 						View All

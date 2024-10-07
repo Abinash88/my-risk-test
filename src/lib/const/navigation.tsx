@@ -1,8 +1,28 @@
 export const navItems = [
-	{ id: 1, text: "Product", path: "/product" },
-	{ id: 2, text: "Learn", path: "/learn" },
-	{ id: 3, text: "Support", path: "/support" },
-	{ id: 4, text: "T & O Standing", path: "/tq-standing" },
+	{ id: 1, text: "Product", path: "/product",
+	child:[
+		{id: 2, text: "Our Services", path: "/service"},
+		{id: 3, text: "Premium Features", path: "/premium"},
+		{id: 4, text: "Subscription Services", path: "/product-subscription"}
+	] },
+	{ id: 5, text: "Learn", path: "/learn",
+      child:[
+			{id: 6, text: "Risk Management Concept", path: "/risk-management"},
+			{id: 7, text: "Integrated AI Services", path: "/integrated-service"},
+		] },
+	{ id: 8, text: "Support", path: "/support" ,
+		child:[
+			{id: 9, text: "How It Works", path: "/service"},
+			{id: 10, text: "Help Center", path: "/premium"},
+			{id: 11, text: "User Tips", path: "/product-subscription"}
+		] },
+	{ id: 12, text: "T & O Standing", path: "/tq-standing",
+		// child:[
+		// 	{id: 13, text: "Our Services", path: "/service"},
+		// 	{id: 14, text: "Premium Features", path: "/premium"},
+		// 	{id: 15, text: "Subscription Services", path: "/product-subscription"}
+		// ] 
+	},
 ];
 
 export const quickLinks = [
@@ -12,7 +32,7 @@ export const quickLinks = [
 	},
 	{
 		link: "AI Powered Profile",
-		path: "/",
+		path: "/risk-profile",
 	},
 	{
 		link: " T & O Standing",

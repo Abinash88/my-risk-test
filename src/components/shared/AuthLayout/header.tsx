@@ -13,17 +13,22 @@ const Authheader = ({ children }: HeaderSection) => {
     >
       <div className="relative inset-0 bg-black bg-opacity-60 flex flex-col  gap-3 text-white text-center md:p-6 min-h-screen">
         <div className="flex items-center justify-between ">
-          <img
+        <Link
+              to="/"
+            >
+            <img
             src="/images/auth-logo.png"
             alt="logo"
             className="w-[9rem] lg:w-[250px] scale-75"
           />
+            </Link>
+          
           <div className="flex items-center gap-3 scale-90">
             <p className="font-[600] text-[16px] hidden md:block">
               Have an Account?
             </p>
             <Link
-              to="/"
+              to="/auth/login"
               className="bg-[#000080] lg:mt-0 md:mt-0 mt-4 py-3 px-12 rounded-lg text-white"
             >
               Login

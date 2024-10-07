@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { RegContainer } from "../../shared/ReuseAble";
 import { Eye, EyeSlash } from "@phosphor-icons/react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
 	const [viewPassword, setViewPassword] = useState(false);
+	const navigate=useNavigate()
 	return (
 		<RegContainer>
 			<>
@@ -61,9 +62,10 @@ const Login = () => {
 					</div>
 					<button
 						type="submit"
+						onClick={() => navigate('/dashboard')}
 						className="bg-[#000080] text-center text-white rounded-lg py-5 mt-4"
 					>
-						Continue
+						Login
 					</button>
 				</form>
 				<span className="text-[#6666B3] font-[400] mt-5 block">

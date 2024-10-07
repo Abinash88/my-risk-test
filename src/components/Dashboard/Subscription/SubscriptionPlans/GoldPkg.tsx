@@ -6,6 +6,7 @@ import {
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import MakePaymentModal from "@/components/LandingPage/Payment/MakePaymentModal";
 
 interface FakeDataItem {
   id: number;
@@ -72,7 +73,18 @@ const GoldPkg: React.FC = () => {
   };
 
   const handleRemove = (id: number) => {
-    setData((prevData) => prevData.filter((item) => item.id !== id));
+    setData((prevData) =>
+      prevData.map((item) =>
+        item.id === id ? { ...item, type: "extra" } : item
+      )
+    );
+  };
+  const handleAddExtra = (id: number) => {
+    setData((prevData) =>
+      prevData.map((item) =>
+        item.id === id ? { ...item, type: "item" } : item
+      )
+    );
   };
 
   return (
@@ -169,9 +181,7 @@ const GoldPkg: React.FC = () => {
         </h3>
       </div>
       <div className="px-3 flex justify-center items-center">
-        <button className="bg-[#000080] text-white font-[600] text-[19px] p-3  w-[70%] mr-auto ml-auto rounded-lg">
-          Choose Plan
-        </button>
+      <MakePaymentModal/>
       </div>
       <div className="my-5 px-3">
         <h3 className="bg-[#F0F0FF] font-[400] p-3 text-[20px] rounded-lg w-full text-center text-[#000080] mb-5">
@@ -189,7 +199,7 @@ const GoldPkg: React.FC = () => {
                   <FontAwesomeIcon
                     icon={faPlus}
                     className="cursor-pointer text-[#06DC1B]"
-                    onClick={() => handleIncrease(item.id)}
+                    onClick={() => handleAddExtra(item.id)}
                   />
                   <p className="px-2 py-5 bg-[#6666b3] rounded-lg flex-1">
                     {item.name}

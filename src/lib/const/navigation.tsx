@@ -12,9 +12,9 @@ export const navItems = [
 		] },
 	{ id: 8, text: "Support", path: "/support" ,
 		child:[
-			{id: 9, text: "How It Works", path: "/service"},
-			{id: 10, text: "Help Center", path: "/premium"},
-			{id: 11, text: "User Tips", path: "/product-subscription"}
+			{id: 9, text: "How It Works", path: "/our-work"},
+			{id: 10, text: "Help Center", path: "/dashboard/help-center"},
+			{id: 11, text: "User Tips", path: "/dashboard/help-center"}
 		] },
 	{ id: 12, text: "T & O Standing", path: "/tq-standing",
 		// child:[

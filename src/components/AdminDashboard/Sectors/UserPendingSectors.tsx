@@ -13,7 +13,7 @@ import {
   TableColumnsType,
   Switch
 } from "antd";
-import { ArrowUp, FilterIcon } from "lucide-react";
+import { ArrowUp, FilterIcon, Verified } from "lucide-react";
 import React, { useState } from "react";
 import PreviewDocument from "./PreviewDocument";
 
@@ -181,7 +181,7 @@ export default function DeclinedRequest() {
       title: "Actions",
       render: (value, record) => (
         <>
-          <Button className="bg-indigo-800 text-white mr-4"  onClick={showModal}>
+          <Button className="bg-indigo-800 text-white mr-4"  onClick={showModalApprove}>
             Approve
           </Button>
           <Button type="primary" danger onClick={showModal}>
@@ -224,17 +224,20 @@ export default function DeclinedRequest() {
   };
 
   const [openApprove, setOpenApprove] = useState(false);
-  const showApproveModal = () => {
+  const showModalApprove = () => {
     setOpenApprove(true);
   };
 
-  const handleApproveOk = () => {
-    setOpenApprove(false);
+  const handleOkApprove = () => {
+    setOpen(false);
   };
 
-  const handleApproveCancel = () => {
-    setOpenApprove(false);
+  const handleCancelApprove = () => {
+    setOpen(false);
   };
+
+
+
 
 
   return (
@@ -320,6 +323,38 @@ export default function DeclinedRequest() {
       <p className="py-3">
         Are you sure you want to remove this Sector? Removing this sector will
         permanently remove it from the system, users can still add it forward.
+      </p>
+    </Modal>
+    <Modal
+      title={
+        <div className="flex items-center">
+          <Verified className="mr-3 text-[#000080] bg-indigo-50 w-7 h-7 p-1 rounded-full" />
+          <p>Approve Sector</p>
+        </div>
+      }
+      open={openApprove}
+      onOk={handleOkApprove}
+      // confirmLoading={confirmLoading}
+      onCancel={handleCancelApprove}
+      // okButtonProps={{ title: "Suspend" }}
+      // cancelButtonProps={{ disabled: true }}
+      footer={[
+        <>
+          <Button onClick={handleCancelApprove}>Cancel</Button>
+          <Button
+            type="primary"
+
+            className="text-white bg-indigo-700"
+            onClick={handleOkApprove}
+          >
+            Approve
+          </Button>
+        </>,
+      ]}
+    >
+      <p className="py-3">
+        Are you sure you want to approve this Sector? Approving this sector will
+        add it to the system, allowing concerned users to see it.
       </p>
     </Modal>
     {/* approve notifaction modal */}

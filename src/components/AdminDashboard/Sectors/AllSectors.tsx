@@ -155,14 +155,22 @@ const requests = [
 ];
 
 export default function NewRequest() {
-  const [details, setDetails] = useState({name:""});
+  const [details, setDetails] = useState({ name: "" });
   const columns: TableColumnsType<any> = [
     {
       title: "Sectors Name",
       dataIndex: "name",
-      render: (text: string) => (
+      render: (text: string, value) => (
         <div className="flex items-center">
-          <a className="font-semibold">{text}</a>
+          <a
+            className="font-semibold"
+            onClick={() => {
+              setDetails(value);
+              setEdit(true);
+            }}
+          >
+            {text}
+          </a>
         </div>
       ),
     },
@@ -203,22 +211,6 @@ export default function NewRequest() {
           <Switch defaultValue={false} />
         </>
       ),
-    },
-    {
-      title: "",
-      render: (value, record) => (
-        <div
-          className="flex hover:cursor-pointer items-center gap-2"
-          onClick={() => {
-            setDetails(value);
-            console.log(value)
-            setEdit(true);
-          }}
-        >
-          <Pen size={16} />
-        </div>
-      ),
-      // dataIndex: "action",
     },
   ];
   const [selectionType, setSelectionType] = useState<"checkbox" | "radio">(
@@ -423,7 +415,7 @@ export default function NewRequest() {
         // cancelButtonProps={{ disabled: true }}
         footer={[
           <>
-            <Button onClick={()=>setEdit(false)}>Cancel</Button>
+            <Button onClick={() => setEdit(false)}>Cancel</Button>
             <Button
               type="primary"
               className="text-white  bg-indigo-600 rounded-md hover:bg-indigo-700"
@@ -436,19 +428,13 @@ export default function NewRequest() {
       >
         <div className="flex flex-col mt-4">
           {/* <Divider type="horizontal" className="mt-0" /> */}
-          <Form
-            layout="vertical"
-          
-          >
+          <Form layout="vertical">
             <Form.Item
               label="Sector Name"
               className="font-semibold my-4"
               // name="name"
             >
-              <Input
-                className="p-2"
-                placeholder="Name"
-               value={"Sector 1"}/>
+              <Input className="p-2" placeholder="Name" value={"Sector 1"} />
             </Form.Item>
             <div className="flex justify-between items-center my-8">
               <p className="text-sm font-semibold">

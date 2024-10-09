@@ -8,7 +8,7 @@ import {
   faClosedCaptioning,
 } from "@fortawesome/free-solid-svg-icons";
 import PendingSector from "./UserPendingSectors";
-import { Verified } from "lucide-react";
+import { Trash2Icon, Users, Verified } from "lucide-react";
 import { CloseCircleFilled, CloseCircleOutlined } from "@ant-design/icons";
 import DeletedSector from "./deletedSectors";
 
@@ -30,7 +30,7 @@ export default function Sectors() {
       key: "2",
       label: (
         <div className="flex items-center">
-          <CloseCircleOutlined className="mr-3" />
+          <Users size={14} className="mr-3" />
           {/* <FontAwesomeIcon icon={faClosedCaptioning} className="mr-3" /> */}
           {current === "2" ? (
             <p className="flex">
@@ -48,7 +48,7 @@ export default function Sectors() {
       key: "3",
       label: (
         <div className="flex items-center">
-          <CloseCircleOutlined className="mr-3" />
+          <Trash2Icon size={14} className="mr-3" />
           {/* <FontAwesomeIcon icon={faClosedCaptioning} className="mr-3" /> */}
           <p>Deleted Sectors</p>
         </div>

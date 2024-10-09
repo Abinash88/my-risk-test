@@ -5,6 +5,7 @@ import Card from "../shared/Card";
 import { ApexOptions } from "apexcharts";
 import ReactApexChart from "react-apexcharts";
 import BarChart from "./BarChart";
+import { Tree } from "@phosphor-icons/react";
 
 export default function IndexAdminDashboard() {
   const [state, setState] = useState<{ series: number[] }>({
@@ -55,42 +56,71 @@ export default function IndexAdminDashboard() {
 
   return (
     <div>
-      <div className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-          <Card
-            icon={<FontAwesomeIcon icon={faPen} />}
-            title="Total Risks"
-            no={726}
-          />
-          <Card
-            icon={<FontAwesomeIcon icon={faPen} />}
-            title="Total Threats"
-            no={726}
-          />
-          <Card
-            icon={<FontAwesomeIcon icon={faPen} />}
-            title="Total Opportunities"
-            no={726}
-          />
-          <Card
-            icon={<FontAwesomeIcon icon={faPen} />}
-            title="Risk by Sectors"
-            no={726}
-          />
-          <Card
-            icon={<FontAwesomeIcon icon={faPen} />}
-            title="Risk by Country"
-            no={726}
-          />
-          <Card
-            icon={<FontAwesomeIcon icon={faPen} />}
-            title="Risk by Global"
-            no={726}
-          />
+      <div className="container pb-8 mt-[-1rem]  overflow-hidden">
+        <div
+          className="md:h-52 md:relative md:mb-14 bg-cover "
+          style={{ backgroundImage: `url('/images/radiance.png')` }}
+        >
+          <div className="grid m-auto left-8 mt-16 md:absolute grid-cols-1 sm:grid-cols-2 md:grid-cols-6 lg:grid-cols-6 gap-6">
+            <Card
+              icon={
+                <div className="bg-white rounded-full p-4">
+                  <Tree />
+                </div>
+              }
+              title="Total Risks"
+              no={726}
+            />
+            <Card
+              icon={
+                <div className="bg-white rounded-full p-4">
+                  <Tree />
+                </div>
+              }
+              title="Total Threats"
+              no={726}
+            />
+            <Card
+              icon={
+                <div className="bg-white rounded-full p-4">
+                  <Tree />
+                </div>
+              }
+              title="Total Opportunities"
+              no={726}
+            />
+            <Card
+              icon={
+                <div className="bg-white rounded-full p-4">
+                  <Tree />
+                </div>
+              }
+              title="Risk by Sectors"
+              no={726}
+            />
+            <Card
+              icon={
+                <div className="bg-white rounded-full p-4">
+                  <Tree />
+                </div>
+              }
+              title="Risk by Country"
+              no={726}
+            />
+            <Card
+              icon={
+                <div className="bg-white rounded-full p-4">
+                  <Tree />
+                </div>
+              }
+              title="Risk by Global"
+              no={726}
+            />
+          </div>
         </div>
       </div>
       {/* first pie chart grid */}
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="w-full h-full bg-white rounded-lg text-white p-3">
             <div className="flex justify-between text-black font-medium text-lg">
@@ -107,11 +137,11 @@ export default function IndexAdminDashboard() {
           <div className="bg-white rounded-lg text-black flex flex-col">
             <div className="grid grid-cols-2 gap-6">
               <div className="flex flex-col p-3">
-                <div className="flex justify-between text-lg font-medium text-black">
+                <div className="flex justify-between text-sm font-medium text-black">
                   <p>Lifetime Premium Purchase</p>
                   <p>45</p>
                 </div>
-                <div className="flex flex-col pt-2">
+                <div className="flex flex-col pt-2 text-sm">
                   <div className="flex justify-between text-[#646464] pb-1">
                     <div className="flex items-center">
                       <div className="bg-[#B51B12] h-4 w-4 rounded-full mr-2"></div>
@@ -143,11 +173,11 @@ export default function IndexAdminDashboard() {
                 </div>
               </div>
               <div className="flex flex-col p-3">
-                <div className="flex justify-between text-lg font-medium text-black">
+                <div className="flex justify-between text-sm font-medium text-black">
                   <p>Subscription Buying Rate</p>
                   {/* <p>45</p> */}
                 </div>
-                <div className="flex flex-col pt-2">
+                <div className="flex flex-col pt-2 text-sm">
                   <div className="flex justify-between text-[#646464] pb-1">
                     <div className="flex items-center">
                       <div className="bg-[#B51B12] h-4 w-4 rounded-full mr-2"></div>
@@ -179,11 +209,9 @@ export default function IndexAdminDashboard() {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col p-3">
-              <p className="text-black font-medium text-lg">
-                Most Used Premium Items
-              </p>
-              <div className="flex justify-between text-[#646464]">
+            <div className="flex flex-col p-3 text-sm gap-2">
+              <p className="text-black font-medium ">Most Used Premium Items</p>
+              <div className="flex justify-between text-[#646464] text-sm">
                 <div className="flex items-center">
                   <div className="bg-[#B51B12] h-4 w-4 rounded-full mr-2"></div>
                   <p>AI Generated risk profile</p>
@@ -209,9 +237,9 @@ export default function IndexAdminDashboard() {
         </div>
       </div>
       {/* bar chart and total usage grid */}
-      <div className="container mx-auto px-4 py-8 mb-10">
+      <div className="container mx-auto py-8 mb-10">
         <div className="grid grid-cols-4 gap-6 h-[410px]">
-          <div className="lg:col-span-3 col-span-4 bg-white p-6 rounded-lg text-black">
+          <div className="lg:col-span-3 col-span-4 bg-white p-2 md:p-4 rounded-lg text-black">
             <BarChart />
           </div>
 
@@ -242,36 +270,44 @@ export default function IndexAdminDashboard() {
               </div>
               <div className="mt-5 flex flex-col bg-white p-3 rounded-lg text-black h-[217px]">
                 <p className="text-lg font-medium">Threats VS Opportunity</p>
-                <div className="flex justify-between w-full mt-4 overflow-y-auto h-full">
+                <div className="flex justify-between w-full mt-4 overflow-y-auto scrollBar h-full">
                   <div className="flex flex-col items-center overflow-y-auto h-full w-full">
                     <div className="flex items-center w-full">
                       <div className="w-10 h-10 rounded-full border-4 border-[#D4D658]"></div>
-                        <div className="flex flex-col ml-2">
-                          <p className="text-lg font-medium">+ 14%</p>
-                          <p className="text-sm text-[#C0C3D3]">Weekly new customers</p>
-                        </div>
+                      <div className="flex flex-col ml-2">
+                        <p className="text-lg font-medium">+ 14%</p>
+                        <p className="text-sm text-[#C0C3D3]">
+                          Weekly new customers
+                        </p>
+                      </div>
                     </div>
                     <div className="flex items-center w-full">
                       <div className="w-10 h-10 rounded-full border-4 border-[#D4D658]"></div>
-                        <div className="flex flex-col ml-2">
-                          <p className="text-lg font-medium">+ 14%</p>
-                          <p className="text-sm text-[#C0C3D3]">Weekly new customers</p>
-                        </div>
+                      <div className="flex flex-col ml-2">
+                        <p className="text-lg font-medium">+ 14%</p>
+                        <p className="text-sm text-[#C0C3D3]">
+                          Weekly new customers
+                        </p>
+                      </div>
                     </div>
 
                     <div className="flex items-center w-full">
                       <div className="w-10 h-10 rounded-full border-4 border-[#D4D658]"></div>
-                        <div className="flex flex-col ml-2">
-                          <p className="text-lg font-medium">+ 14%</p>
-                          <p className="text-sm text-[#C0C3D3]">Weekly new customers</p>
-                        </div>
+                      <div className="flex flex-col ml-2">
+                        <p className="text-lg font-medium">+ 14%</p>
+                        <p className="text-sm text-[#C0C3D3]">
+                          Weekly new customers
+                        </p>
+                      </div>
                     </div>
                     <div className="flex items-center w-full">
                       <div className="w-10 h-10 rounded-full border-4 border-[#D4D658]"></div>
-                        <div className="flex flex-col ml-2">
-                          <p className="text-lg font-medium">+ 14%</p>
-                          <p className="text-sm text-[#C0C3D3]">Weekly new customers</p>
-                        </div>
+                      <div className="flex flex-col ml-2">
+                        <p className="text-lg font-medium">+ 14%</p>
+                        <p className="text-sm text-[#C0C3D3]">
+                          Weekly new customers
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -131,9 +131,12 @@ const Active: React.FC = () => {
   return (
     <div className="mx-2 flex flex-col">
       <div className="flex justify-end">
-      <button className="rounded-lg py-2 px-8 my-2 bg-[#3838F0] text-white">
-        Add
-      </button>
+      <a
+          className="rounded-lg py-2 px-8 my-2 bg-[#3838F0] text-white"
+          href="/admin/dashboard/content-setting/landing-page/add-image"
+        >
+          Add
+        </a>
       </div>
     <DndContext modifiers={[restrictToVerticalAxis]} onDragEnd={onDragEnd}>
       <SortableContext items={dataSource.map((i) => i.key)} strategy={verticalListSortingStrategy}>

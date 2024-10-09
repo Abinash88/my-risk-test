@@ -3,7 +3,7 @@ import { Cloud, Eye, UploadCloud } from "lucide-react";
 import React, { useState } from "react";
 import Remove from "../Remove";
 
-function EditSection() {
+function AddLinkSection() {
   const [buttonText, setButtonText] = useState("Get Started");
   const [openNewTab, setOpenNewTab] = useState(false);
   const [image, setImage] = useState(
@@ -30,11 +30,7 @@ function EditSection() {
           </label>
           <div className=" flex-col bg-[#F9F9F9] flex justify-center items-center rounded-md overflow-hidden">
             <div className="w-1/3 flex flex-col items-center mb-4">
-            <img
-              src="/images/Engage.png"
-              alt="Background"
-              className="object-cover w-1/3 h-full mt-3"
-            />
+        
               <input
                 type="file"
                 accept="image/*"
@@ -61,7 +57,6 @@ function EditSection() {
           <input
             type="text"
             id="buttonText"
-            value="https://hermandai.com/register"
             onChange={(e) => setButtonText(e.target.value)}
             className=" px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
@@ -95,4 +90,4 @@ function EditSection() {
   );
 }
 
-export default EditSection;
+export default AddLinkSection;

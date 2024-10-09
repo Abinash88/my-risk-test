@@ -84,6 +84,8 @@ import AIGeneratedRisks from "./components/AdminDashboard/AIGeneratedRisk";
 import EditNews from "./components/AdminDashboard/NewsRoom/EditNews";
 import EditSocialLink from './components/AdminDashboard/SiteSettings/SocialLinks/Edit'
 import Sectors from "./components/AdminDashboard/Sectors";
+import AddImageSection from './components/AdminDashboard/ContentSetting/LandingPage/ImageVideo/Add';
+import AddLinkSection from "./components/AdminDashboard/ContentSetting/LandingPage/Links/Add";
 const App = () => {
   return (
     <Router>
@@ -174,9 +176,17 @@ const App = () => {
             path="dashboard/content-setting/landing-page/edit-image"
             element={<EditImageSection />}
           />
+           <Route
+            path="dashboard/content-setting/landing-page/add-image"
+            element={<AddImageSection />}
+          />
          <Route
             path="dashboard/content-setting/landing-page/edit-link"
             element={<EditLinkSection />}
+          />
+           <Route
+            path="dashboard/content-setting/landing-page/add-link"
+            element={<AddLinkSection />}
           />
           <Route
             path="dashboard/content-setting/menu"

@@ -34,7 +34,7 @@ const AdminDashboardLayout = () => {
         <div
           className={`bg-[#000E56] shadow-md w-[18rem] py-3 px-8 lg:flex flex-col text-white hidden`}
         >
-          <AdminDashboardSidebar setOpenSidebar={setOpenSidebar}/>
+          <AdminDashboardSidebar setOpenSidebar={setOpenSidebar} />
         </div>
         {openSidebar && (
           <div
@@ -43,7 +43,7 @@ const AdminDashboardLayout = () => {
               openSidebar ? "translate-x-0" : "-translate-x-full"
             }`}
           >
-            <AdminDashboardSidebar setOpenSidebar={setOpenSidebar}/>
+            <AdminDashboardSidebar setOpenSidebar={setOpenSidebar} />
           </div>
         )}
 
@@ -55,7 +55,13 @@ const AdminDashboardLayout = () => {
             setOpenSidebar={setOpenSidebar}
           />
 
-          <div className="flex-1 p-2 lg:px-[1rem] min-h-0 overflow-y-auto bg-[#F3F3F3]">
+          <div
+            className={
+              location.pathname === "/admin/admin/dashboard/"
+                ? "flex-1  min-h-0 overflow-y-auto bg-[#F3F3F3]"
+                : "flex-1 p-2 lg:px-[1rem] min-h-0 overflow-y-auto bg-[#F3F3F3]"
+            }
+          >
             {<Outlet />}
           </div>
         </div>

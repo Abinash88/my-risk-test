@@ -3,8 +3,8 @@ import { Cloud, Eye, UploadCloud } from "lucide-react";
 import React, { useState } from "react";
 import Remove from "../Remove";
 
-function EditSection() {
-  const [buttonText, setButtonText] = useState("Get Started");
+function AddImageSection() {
+  const [buttonText, setButtonText] = useState("");
   const [openNewTab, setOpenNewTab] = useState(false);
   const [image, setImage] = useState(
     "https://via.placeholder.com/300x150.png?text=Opportunity"
@@ -26,15 +26,11 @@ function EditSection() {
             className="block text-gray-700 text-sm font-bold mb-2"
             htmlFor="background"
           >
-            Icon Preview
+            Background Image Or Video
           </label>
-          <div className=" flex-col bg-[#F9F9F9] flex justify-center items-center rounded-md overflow-hidden">
+          <div className="flex-col bg-[#F9F9F9] flex justify-center items-center rounded-md overflow-hidden">
+
             <div className="w-1/3 flex flex-col items-center mb-4">
-            <img
-              src="/images/Engage.png"
-              alt="Background"
-              className="object-cover w-1/3 h-full mt-3"
-            />
               <input
                 type="file"
                 accept="image/*"
@@ -49,24 +45,39 @@ function EditSection() {
         </div>
       </div>
 
-      <div className="flex justify-center items-center">
-        
+      <div className="flex justify-between flex-col md:flex-row items-center">
         <div className="mb-6">
           <label
             className="block text-gray-700 text-sm font-bold mb-2"
             htmlFor="buttonText"
           >
-            Available Link(Must)
+            Button Text
           </label>
           <input
             type="text"
             id="buttonText"
-            value="https://hermandai.com/register"
+            value={buttonText}
             onChange={(e) => setButtonText(e.target.value)}
-            className=" px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
-        
+        <div className="mb-6">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="buttonText"
+          >
+            Available Link
+          </label>
+          <input
+            type="text"
+            id="buttonText"
+            onChange={(e) => setButtonText(e.target.value)}
+            className=" px-4 py-2 border md:w-72 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+        <div className="mb-6">
+          <Eye className="w-10 h-10" />
+        </div>
       </div>
 
       <div className="flex items-center justify-center mt-3">
@@ -95,4 +106,4 @@ function EditSection() {
   );
 }
 
-export default EditSection;
+export default AddImageSection;

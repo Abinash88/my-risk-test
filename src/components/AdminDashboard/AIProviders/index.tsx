@@ -69,9 +69,9 @@ export default function index() {
       title: "Price",
       dataIndex: "price",
       render: (value, record) => (
-        <div className="flex text-lg">
-          <PoundSterling className="mr-1 text-lg" />
-          <p className="text-lg">{value}</p>
+        <div className="flex text-xs">
+          <PoundSterling className="mr-1 text-xs" size={16} />
+          <p className="text-sm">{value}</p>
         </div>
       ),
     },

@@ -91,9 +91,9 @@ export default function BarChart() {
   });
   return (
     <div>
-      <div className="flex justify-between">
+      <div className="flex justify-between flex-col md:flex-row gap-4 mb-2">
         <p className="text-black text-xl font-medium">AI Performance</p>
-        <RangePicker defaultValue={[dayjs(),dayjs()]}/>
+        <RangePicker defaultValue={[dayjs(), dayjs()]} />
       </div>
       <ReactApexChart
         options={options}

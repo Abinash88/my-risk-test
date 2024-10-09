@@ -18,7 +18,7 @@ const Auth = () => {
 	return (
 		<>
 			{registrationType === null && (
-				<div className="mt-[25vh] md:mt-[15%] w-[85%] md:w-[30%] mr-auto ml-auto text-black flex flex-col gap-4">
+				<div className="mt-[25vh] lg:scale-75 md:mt-[15%] w-[85%] md:w-[30%] mr-auto ml-auto text-black flex flex-col gap-4">
 					<div
 						className="bg-white rounded-lg p-4 w-full font-[600] text-[20px] cursor-pointer"
 						onClick={handleBusinessClick}

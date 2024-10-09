@@ -21,21 +21,34 @@ import EditMenu from "./EditMenu";
 import MenuList from "../../MenuList";
 import AddNewPage from "./AddNewPage";
 
-import { DragHandle,DragableRow } from '@/components/shared/ReuseAble/DragableTable';
-import { DndContext, DragEndEvent } from "@dnd-kit/core";
-import { arrayMove, SortableContext, verticalListSortingStrategy } from "@dnd-kit/sortable";
+import {
+  DragHandle,
+  DragableRow,
+} from "@/components/shared/ReuseAble/DragableTable";
+import {
+  DndContext,
+  DragEndEvent,
+  TouchSensor,
+  useSensor,
+  useSensors,
+} from "@dnd-kit/core";
+import {
+  arrayMove,
+  SortableContext,
+  verticalListSortingStrategy,
+} from "@dnd-kit/sortable";
 import { restrictToVerticalAxis } from "@dnd-kit/modifiers";
 
 interface DataType {
   key: string;
   title: string;
   owner: string;
-  visibility:boolean;
-  action:string
+  visibility: boolean;
+  action: string;
 }
 
 const columns: TableColumnsType<DataType> = [
-  { key: 'sort', align: 'center', width: 80, render: () => <DragHandle /> },
+  { key: "sort", align: "center", width: 80, render: () => <DragHandle /> },
   {
     title: "Title",
     dataIndex: "title",
@@ -68,28 +81,28 @@ const columns: TableColumnsType<DataType> = [
 
 const initialData: DataType[] = [
   {
-    key:"1",
+    key: "1",
     title: "Terms And Condition",
     owner: "System",
     visibility: true,
     action: "",
   },
   {
-    key:"2",
+    key: "2",
     title: "Terms And Condition",
     owner: "System",
     visibility: true,
     action: "",
   },
   {
-    key:"3",
+    key: "3",
     title: "Terms And Condition",
     owner: "System",
     visibility: true,
     action: "",
   },
   {
-    key:"4",
+    key: "4",
     title: "Terms And Condition",
     owner: "System",
     visibility: true,
@@ -97,13 +110,11 @@ const initialData: DataType[] = [
   },
 ];
 export default function index() {
-  
-
   const [open, setOpen] = useState(false);
   const showModal = () => {
     setOpen(true);
   };
-
+  const sensors = useSensors(useSensor(TouchSensor));
   const handleOk = () => {
     setOpen(false);
   };
@@ -117,8 +128,12 @@ export default function index() {
   const onDragEnd = ({ active, over }: DragEndEvent) => {
     if (active.id !== over?.id) {
       setDataSource((prevState) => {
-        const activeIndex = prevState.findIndex((record) => record.key === active?.id);
-        const overIndex = prevState.findIndex((record) => record.key === over?.id);
+        const activeIndex = prevState.findIndex(
+          (record) => record.key === active?.id
+        );
+        const overIndex = prevState.findIndex(
+          (record) => record.key === over?.id
+        );
         return arrayMove(prevState, activeIndex, overIndex);
       });
     }
@@ -135,24 +150,27 @@ export default function index() {
           Add Menu
         </button>
       </div>
-   <div className="mt-5 mx-5">
-    <MenuList />
-   </div>
-      
+      <div className="mt-5 mx-5">
+        <MenuList />
+      </div>
+
       <div className="flex flex-col mt-8">
         <AddNewPage />
         <DndContext modifiers={[restrictToVerticalAxis]} onDragEnd={onDragEnd}>
-      <SortableContext items={dataSource.map((i) => i.key)} strategy={verticalListSortingStrategy}>
-        <Table<DataType>
-          rowKey="key"
-          components={{ body: { row: DragableRow } }}
-          columns={columns}
-          dataSource={dataSource}
-         className="rounded-lg border border-gray w-[calc(100% - 6px)] mb-3" 
-         scroll={{ x: true }}
-        />
-      </SortableContext>
-      </DndContext>
+          <SortableContext
+            items={dataSource.map((i) => i.key)}
+            strategy={verticalListSortingStrategy}
+          >
+            <Table<DataType>
+              rowKey="key"
+              components={{ body: { row: DragableRow } }}
+              columns={columns}
+              dataSource={dataSource}
+              className="rounded-lg border border-gray w-[calc(100% - 6px)] mb-3"
+              scroll={{ x: true }}
+            />
+          </SortableContext>
+        </DndContext>
       </div>
 
       <Modal

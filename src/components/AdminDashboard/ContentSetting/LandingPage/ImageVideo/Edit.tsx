@@ -49,7 +49,7 @@ function EditSection() {
         </div>
       </div>
 
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between flex-col md:flex-row items-center">
         <div className="mb-6">
           <label
             className="block text-gray-700 text-sm font-bold mb-2"
@@ -77,7 +77,7 @@ function EditSection() {
             id="buttonText"
             value="https://hermandai.com/register"
             onChange={(e) => setButtonText(e.target.value)}
-            className=" px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className=" px-4 py-2 border md:w-72 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
         <div className="mb-6">

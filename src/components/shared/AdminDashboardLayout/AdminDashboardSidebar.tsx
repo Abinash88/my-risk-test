@@ -20,7 +20,7 @@ const AdminDashboardSidebar = ({
 }) => {
   return (
     <div className="h-screen">
-      <div className="flex justify-between">
+      <div className="flex justify-between mt-5">
         <Link to="/">
           <img
             src="/images/logo.png"
@@ -34,11 +34,11 @@ const AdminDashboardSidebar = ({
           onClick={(e) => setOpenSidebar(false)}
         />
       </div>
-      <div className="h-full py-8 flex flex-1 flex-col gap-3 overflow-y-auto overflow-hidden">
+      <div className=" h-full py-8 pt-0 flex flex-1 flex-col gap-3 nobar scale-90 overflow-y-auto overflow-hidden">
         {ADMIN_DASHBOARD_SIDEBAR_LINKS.map((item) => (
           <SidebarLink key={item.key} item={item} />
         ))}
-        <div className="mb-4 flex items-center gap-2 font-[400] px-4 py-3 hover:bg-[#000080c8] text-white hover:no-underline active:bg-[#000080] rounded-lg cursor-pointer text-[rgba(0,0,0,0.7)]">
+        <div className="mb-14 text-sm flex items-center gap-2 font-[400]  py-2 hover:bg-[#000080c8] text-white hover:no-underline active:bg-[#000080] rounded-lg cursor-pointer text-[rgba(0,0,0,0.7)]">
           <span className="text-xl">
             <FontAwesomeIcon icon={faArrowRightFromBracket} />
           </span>
@@ -65,7 +65,7 @@ function SidebarLink({ item }: any) {
   return (
     <>
       <div
-        className={`flex items-center justify-between gap-2 font-[300] px-4 py-1 hover:bg-[#000080c8] hover:text-white hover:no-underline active:bg-[#000080] rounded-lg cursor-pointer ${
+        className={`text-sm flex items-center justify-between gap-2 font-[300]  py-1 hover:bg-[#000080c8] hover:text-white hover:no-underline active:bg-[#000080] rounded-lg cursor-pointer ${
           isActive ? "bg-[#000080] text-white" : "text-white"
         }`}
         onClick={handleToggle} // Toggle child dropdown on click
@@ -79,7 +79,7 @@ function SidebarLink({ item }: any) {
           <Link
             key={item.key}
             to={item.path}
-            className={`flex items-center gap-2 font-[300]  py-1 hover:bg-[#000080c8] hover:text-white hover:no-underline active:bg-[#000080] rounded-lg ${
+            className={` flex items-center gap-2 font-[300]  py-1 hover:bg-[#000080c8] hover:text-white hover:no-underline active:bg-[#000080] rounded-lg ${
               pathname === item.path ? "bg-[#000080] text-white" : "text-white"
             }`}
           >
@@ -94,12 +94,12 @@ function SidebarLink({ item }: any) {
 
       {/* Render child links if isOpen */}
       {hasChildren && isOpen && (
-        <div className="pl-8">
+        <div className="pl-8 lg:mt-[-5px]">
           {item.child.map((childItem: any) => (
             <Link
               key={childItem.key}
               to={childItem.path}
-              className={`flex items-center gap-2 font-[300] px-4 py-1 hover:bg-[#000080c8] hover:text-white hover:no-underline active:bg-[#000080] rounded-lg ${
+              className={`text-sm flex items-center gap-2 font-[300]  py-1 hover:bg-[#000080c8] hover:text-white hover:no-underline active:bg-[#000080] rounded-lg ${
                 pathname === childItem.path
                   ? "bg-[#000080] text-white"
                   : "text-white"

@@ -95,3 +95,11 @@ input[type=number] {
   width: 300px;
   min-width: 300px;
 }
+.nobar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.nobar::-webkit-scrollbar {
+  display: none;
+}

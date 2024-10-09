@@ -12,6 +12,7 @@ import {
   faDollar,
   faFileExport,
   faGear,
+  faGlobeAmericas,
   faLocation,
   faMessage,
   faPaperPlane,
@@ -154,6 +155,12 @@ export const ADMIN_DASHBOARD_SIDEBAR_LINKS = [
     label: "T/O Groups",
     path: "/admin/dashboard/groups",
     icon: <FontAwesomeIcon icon={faUserGroup} />,
+  },
+  {
+    key: "Sectors",
+    label: "Sectors",
+    path: "/admin/dashboard/sectors",
+    icon: <FontAwesomeIcon icon={faGlobeAmericas} />,
   },
   {
     key: "Help Center",

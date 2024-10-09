@@ -83,6 +83,7 @@ import PagePreview from "./components/AdminDashboard/ContentSetting/PagePreview"
 import AIGeneratedRisks from "./components/AdminDashboard/AIGeneratedRisk";
 import EditNews from "./components/AdminDashboard/NewsRoom/EditNews";
 import EditSocialLink from './components/AdminDashboard/SiteSettings/SocialLinks/Edit'
+import Sectors from "./components/AdminDashboard/Sectors";
 const App = () => {
   return (
     <Router>
@@ -158,6 +159,7 @@ const App = () => {
             path="dashboard/verification-request"
             element={<VerificationRequest />}
           />
+          <Route path="dashboard/sectors" element={<Sectors />} />
           <Route
             path="dashboard/user"
             element={<AdminDashboardUserComponent />}

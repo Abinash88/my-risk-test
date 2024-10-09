@@ -32,14 +32,12 @@ export default function Sectors() {
         <div className="flex items-center">
           <Users size={14} className="mr-3" />
           {/* <FontAwesomeIcon icon={faClosedCaptioning} className="mr-3" /> */}
-          {current === "2" ? (
-            <p className="flex">
-              User Created Sectors&nbsp;
-              <div className="m-auto text-center pt-[3px] rounded-full bg-red-800 text-white text-[10px] w-5 h-5">32</div>
-            </p>
-          ) : (
-            <p>User Created Sectors</p>
-          )}
+          <p className="flex">
+            User Created Sectors&nbsp;
+            <div className="m-auto text-center pt-[3px] rounded-full bg-red-800 text-white text-[10px] w-5 h-5">
+              32
+            </div>
+          </p>
         </div>
       ),
       children: <PendingSector />,

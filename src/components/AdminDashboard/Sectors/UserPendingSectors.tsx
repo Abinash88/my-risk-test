@@ -229,11 +229,11 @@ export default function DeclinedRequest() {
   };
 
   const handleOkApprove = () => {
-    setOpen(false);
+    setOpenApprove(false);
   };
 
   const handleCancelApprove = () => {
-    setOpen(false);
+    setOpenApprove(false);
   };
 
 
@@ -272,7 +272,7 @@ export default function DeclinedRequest() {
             onClick={() => showApproveModal(true)}
             className="mr-2 rounded-md bg-[#3838F0] text-white py-1 px-3"
           >
-            Add Sectors
+            Bulk Approve
           </Button>
           <Button className="mr-2 rounded-md bg-[#3838F0] text-white py-1 px-5">
             <PlusOutlined className="text-white" /> Export{" "}

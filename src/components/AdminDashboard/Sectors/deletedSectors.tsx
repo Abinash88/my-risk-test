@@ -237,7 +237,7 @@ export default function DeletedSector() {
             120 Sectors
           </p>
         </div>
-        <div className="md:col-span-3  bg-red-400 justify-end">
+        <div className="md:col-span-3 md:ml-16 justify-end">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-4 gap-x-2">
             <Input
               className=" mr-2 "

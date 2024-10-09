@@ -19,7 +19,7 @@ import {
   Table,
   TableColumnsType,
 } from "antd";
-import { ArrowUp, FilterIcon } from "lucide-react";
+import { ArrowUp, FilterIcon, Pen } from "lucide-react";
 import React, { useState } from "react";
 import PreviewDocument from "./PreviewDocument";
 
@@ -155,6 +155,7 @@ const requests = [
 ];
 
 export default function NewRequest() {
+  const [details, setDetails] = useState({name:""});
   const columns: TableColumnsType<any> = [
     {
       title: "Sectors Name",
@@ -186,11 +187,11 @@ export default function NewRequest() {
     {
       title: "Action",
       render: (value, record) => (
-        <>
+        <div className="flex items-center gap-2">
           <Button type="primary" danger onClick={showModal}>
             Remove
           </Button>
-        </>
+        </div>
       ),
       // dataIndex: "action",
     },
@@ -202,6 +203,22 @@ export default function NewRequest() {
           <Switch defaultValue={false} />
         </>
       ),
+    },
+    {
+      title: "",
+      render: (value, record) => (
+        <div
+          className="flex hover:cursor-pointer items-center gap-2"
+          onClick={() => {
+            setDetails(value);
+            console.log(value)
+            setEdit(true);
+          }}
+        >
+          <Pen size={16} />
+        </div>
+      ),
+      // dataIndex: "action",
     },
   ];
   const [selectionType, setSelectionType] = useState<"checkbox" | "radio">(
@@ -223,6 +240,7 @@ export default function NewRequest() {
   };
 
   const [open, setOpen] = useState(false);
+  const [edit, setEdit] = useState(false);
   const showModal = () => {
     setOpen(true);
   };
@@ -371,8 +389,66 @@ export default function NewRequest() {
               region: "Select",
             }}
           >
-            <Form.Item label="Sector Name" className="font-semibold my-4" name="name">
+            <Form.Item
+              label="Sector Name"
+              className="font-semibold my-4"
+              name="name"
+            >
               <Input className="p-2" placeholder="Name" />
+            </Form.Item>
+            <div className="flex justify-between items-center my-8">
+              <p className="text-sm font-semibold">
+                Enable / Disable Visibility
+              </p>
+              <Switch defaultChecked />
+            </div>
+          </Form>
+        </div>
+      </Modal>
+      <Modal
+        closeIcon={
+          <CloseOutlined className="bg-indigo-600 text-white rounded-full p-1" />
+        }
+        title={
+          <div className="flex items-center">
+            {/* <Warning className="mr-3 text-[#FF4949] bg-[#FFE5E5] w-7 h-7 p-1 rounded-full" /> */}
+            <p>Edit Sector</p>
+          </div>
+        }
+        open={edit}
+        onOk={() => setEdit(true)}
+        // confirmLoading={confirmLoading}
+        onCancel={() => setEdit(false)}
+        // okButtonProps={{ title: "Suspend" }}
+        // cancelButtonProps={{ disabled: true }}
+        footer={[
+          <>
+            <Button onClick={()=>setEdit(false)}>Cancel</Button>
+            <Button
+              type="primary"
+              className="text-white  bg-indigo-600 rounded-md hover:bg-indigo-700"
+              onClick={() => setEdit(true)}
+            >
+              Save
+            </Button>
+          </>,
+        ]}
+      >
+        <div className="flex flex-col mt-4">
+          {/* <Divider type="horizontal" className="mt-0" /> */}
+          <Form
+            layout="vertical"
+          
+          >
+            <Form.Item
+              label="Sector Name"
+              className="font-semibold my-4"
+              // name="name"
+            >
+              <Input
+                className="p-2"
+                placeholder="Name"
+               value={"Sector 1"}/>
             </Form.Item>
             <div className="flex justify-between items-center my-8">
               <p className="text-sm font-semibold">

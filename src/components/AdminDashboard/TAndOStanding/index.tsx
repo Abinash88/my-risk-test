@@ -44,13 +44,13 @@ export default function index() {
        
       <div className="bg-white m-3">
         <div className="flex flex-col">
-          <div className=" flex justify-around items-center">
+          <div className=" flex flex-row space-x-4 justify-around items-center">
             <button
               className={`${
                 type == "public"
                   ? "bg-[#000080] text-white"
                   : "bg-white text-black"
-              } rounded-lg w-1/5 py-3 shadow-md text-sm md:text-lg`}
+              } rounded-lg md:w-full py-3 shadow-md text-sm `}
               onClick={() => setType("public")}
             >
               Public T & O Standing
@@ -60,14 +60,14 @@ export default function index() {
                 type == "private"
                   ? "bg-[#000080] text-white"
                   : "bg-white text-black"
-              } rounded-lg w-1/5 py-3 shadow-md text-sm md:text-lg`}
+              } rounded-lg md:w-full py-3 shadow-md text-sm `}
               onClick={() => setType("private")}
             >
               Private T & O Standing
             </button>
             <Select
               defaultValue="Filter By"
-              className="text-sm md:text-lg"
+              className="text-sm md:text-lg md:w-72 border-blue-900 border-2 rounded-xl "
               size="large"
               // onChange={}
               options={[
@@ -83,17 +83,17 @@ export default function index() {
         <div className="flex flex-col ">
           {type == "public" && <Public />}
           {type == "private" && <Private />}
-          <div className="flex justify-between my-5">
-            <div className="w-[22%]">
+          <div className="md:flex grid grid-cols-2 gap-4 md:flex-row md:justify-between my-5">
+            <div className="md:w-[22%]">
             <InviteParticipants/>
             </div>
-            <div className="w-[22%]">
+            <div className="md:w-[22%]">
             <AddNewRisk/>
             </div>
-            <div className="w-[22%]">
+            <div className="md:w-[22%]">
             <Groups/>
             </div>
-            <div className="w-[22%]">
+            <div className="md:w-[22%]">
             <AddNewGroup/>
             </div>
           </div>

@@ -20,10 +20,10 @@ export default function Referals() {
   ];
 
   return (
-    <div className="w-full p-4">
+    <div className="w-full p-1">
       <div className="border border-gray-300 rounded-lg p-4">
         <h2 className="text-lg font-semibold mb-2">User Referrals</h2>
-        <div className="m-2 rounded-lg overflow-hidden border border-gray-300">
+        <div className="m-2 rounded-lg overflow-scroll md:overflow-hidden border border-gray-300">
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">
               <tr>

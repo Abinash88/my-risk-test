@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   ADMIN_DASHBOARD_SIDEBAR_LINKS,
   DASHBOARD_SIDEBAR_LINKS,
@@ -51,14 +51,17 @@ const AdminDashboardSidebar = ({
 
 function SidebarLink({ item }: any) {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
   const isActive = pathname === item.path || pathname.startsWith(item.path);
   const [isOpen, setIsOpen] = useState(false); // State to track if child items are open
 
   const hasChildren = item.child && item.child.length > 0;
 
-  const handleToggle = () => {
+  const handleToggle = (path) => {
     if (hasChildren) {
       setIsOpen(!isOpen);
+    } else {
+      navigate(path);
     }
   };
 
@@ -68,7 +71,7 @@ function SidebarLink({ item }: any) {
         className={`text-sm flex items-center justify-between gap-2 font-[300]  py-1 hover:bg-[#000080c8] hover:text-white hover:no-underline active:bg-[#000080] rounded-lg cursor-pointer ${
           isActive ? "bg-[#000080] text-white" : "text-white"
         }`}
-        onClick={handleToggle} // Toggle child dropdown on click
+        onClick={() => handleToggle(item.path)} // Toggle child dropdown on click
       >
         {hasChildren ? (
           <div className="flex items-center gap-2">

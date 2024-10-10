@@ -3,7 +3,7 @@ import React from "react";
 export default function ReportAndViolations() {
   return (
     <div className="flex flex-col">
-      <div className="bg-white border border-grey rounded-md p-6">
+      <div className="bg-white border border-grey rounded-md p-2 md:p-6">
         <h2 className="text-lg font-semibold mb-4">Report & Violation</h2>
 
         {/* Report Table */}
@@ -89,7 +89,7 @@ export default function ReportAndViolations() {
       <div className="bg-white border border-grey p-4 mt-4 rounded-md">
         <h2 className="text-lg font-semibold mb-4">Report & Violation Score</h2>
 
-        <div className="grid grid-cols-3 gap-4 text-center border border-grey rounded-lg">
+        <div className="grid  grid-cols-1 md:grid-cols-3 gap-4 text-center border border-grey rounded-lg">
           <div className="flex flex-col justify-center border border-grey rounded-lg m-3 h-20">
             <h3 className="text-lg font-semibold">Total Reports</h3>
             <p className="text-xl">3</p>

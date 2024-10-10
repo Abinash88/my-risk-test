@@ -1,36 +1,37 @@
-import React, { useContext, useMemo } from 'react';
-import type { DragEndEvent } from '@dnd-kit/core';
-import { DndContext } from '@dnd-kit/core';
-import type { SyntheticListenerMap } from '@dnd-kit/core/dist/hooks/utilities';
-import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
+import React, { useContext, useMemo } from "react";
+import type { DragEndEvent } from "@dnd-kit/core";
+import { DndContext } from "@dnd-kit/core";
+import type { SyntheticListenerMap } from "@dnd-kit/core/dist/hooks/utilities";
+import { restrictToVerticalAxis } from "@dnd-kit/modifiers";
 import {
   arrayMove,
   SortableContext,
   useSortable,
   verticalListSortingStrategy,
-} from '@dnd-kit/sortable';
-import { CSS } from '@dnd-kit/utilities';
-import { Button, Switch, Table } from 'antd';
-import type { TableColumnsType } from 'antd';
-import { Expand } from 'lucide-react';
-import Preview from './Preview';
-import Setting from './Setting';
-import { DragHandle,DragableRow } from '@/components/shared/ReuseAble/DragableTable';
+} from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
+import { Button, Switch, Table } from "antd";
+import type { TableColumnsType } from "antd";
+import { Expand } from "lucide-react";
+import Preview from "./Preview";
+import Setting from "./Setting";
+import {
+  DragHandle,
+  DragableRow,
+} from "@/components/shared/ReuseAble/DragableTable";
 
 interface DataType {
   key: string;
   item: string;
   button_title: string;
-  link:string;
+  link: string;
   last_modified: string;
-  visibility:boolean;
-  action:string
+  visibility: boolean;
+  action: string;
 }
 
-
-
 const columns: TableColumnsType<DataType> = [
-  { key: 'sort', align: 'center', width: 80, render: () => <DragHandle /> },
+  { key: "sort", align: "center", width: 80, render: () => <DragHandle /> },
   {
     title: "Item",
     dataIndex: "item",
@@ -41,7 +42,7 @@ const columns: TableColumnsType<DataType> = [
   {
     title: "Preview",
     dataIndex: "preview",
-    render: (text: string,record:any) => <Preview record={record}/>,
+    render: (text: string, record: any) => <Preview record={record} />,
   },
   {
     title: "Last Modified",
@@ -59,61 +60,57 @@ const columns: TableColumnsType<DataType> = [
   {
     title: "Action",
     dataIndex: "action",
-    render: (value, record,index) => (
-      <Setting index={index}/>
-    ),
+    render: (value, record, index) => <Setting index={index} />,
   },
 ];
 
 const initialData: DataType[] = [
-    { 
-        key:"1",
-        item: "Mashood Adam 1",
-        button_title: "Get Started",
-        link:"",
-        last_modified: "July 22, 2024 - 10:45pm",
-        visibility: true,
-        action: "",
-      },
-      { 
-        key:"2",
-        item: "Mashood Adam 2",
-        button_title: "Get Started",
-        link:"",
-        last_modified: "July 22, 2024 - 10:45pm",
-        visibility: true,
-        action: "",
-      },
-      { 
-        key:"3",
-        item: "Mashood Adam 3",
-        button_title: "Get Started",
-        link:"",
-        last_modified: "July 22, 2024 - 10:45pm",
-        visibility: true,
-        action: "",
-      },
-      { 
-        key:"4",
-        item: "Mashood Adam 4",
-        button_title: "Get Started",
-        link:"",
-        last_modified: "July 22, 2024 - 10:45pm",
-        visibility: false,
-        action: "",
-      },
-      { 
-        key:"5",
-        item: "Mashood Adam 5",
-        button_title: "Get Started",
-        link:"",
-        last_modified: "July 22, 2024 - 10:45pm",
-        visibility: true,
-        action: "",
-      },
+  {
+    key: "1",
+    item: "Mashood Adam 1",
+    button_title: "Get Started",
+    link: "",
+    last_modified: "July 22, 2024 - 10:45pm",
+    visibility: true,
+    action: "",
+  },
+  {
+    key: "2",
+    item: "Mashood Adam 2",
+    button_title: "Get Started",
+    link: "",
+    last_modified: "July 22, 2024 - 10:45pm",
+    visibility: true,
+    action: "",
+  },
+  {
+    key: "3",
+    item: "Mashood Adam 3",
+    button_title: "Get Started",
+    link: "",
+    last_modified: "July 22, 2024 - 10:45pm",
+    visibility: true,
+    action: "",
+  },
+  {
+    key: "4",
+    item: "Mashood Adam 4",
+    button_title: "Get Started",
+    link: "",
+    last_modified: "July 22, 2024 - 10:45pm",
+    visibility: false,
+    action: "",
+  },
+  {
+    key: "5",
+    item: "Mashood Adam 5",
+    button_title: "Get Started",
+    link: "",
+    last_modified: "July 22, 2024 - 10:45pm",
+    visibility: true,
+    action: "",
+  },
 ];
-
-
 
 const Active: React.FC = () => {
   const [dataSource, setDataSource] = React.useState<DataType[]>(initialData);
@@ -121,8 +118,12 @@ const Active: React.FC = () => {
   const onDragEnd = ({ active, over }: DragEndEvent) => {
     if (active.id !== over?.id) {
       setDataSource((prevState) => {
-        const activeIndex = prevState.findIndex((record) => record.key === active?.id);
-        const overIndex = prevState.findIndex((record) => record.key === over?.id);
+        const activeIndex = prevState.findIndex(
+          (record) => record.key === active?.id
+        );
+        const overIndex = prevState.findIndex(
+          (record) => record.key === over?.id
+        );
         return arrayMove(prevState, activeIndex, overIndex);
       });
     }
@@ -130,27 +131,30 @@ const Active: React.FC = () => {
 
   return (
     <div className="mx-2 flex flex-col">
-      <div className="flex justify-end">
-      <a
+      <div className="flex justify-end mb-4">
+        <a
           className="rounded-lg py-2 px-8 my-2 bg-[#3838F0] text-white"
           href="/admin/dashboard/content-setting/landing-page/add-image"
         >
           Add
         </a>
       </div>
-    <DndContext modifiers={[restrictToVerticalAxis]} onDragEnd={onDragEnd}>
-      <SortableContext items={dataSource.map((i) => i.key)} strategy={verticalListSortingStrategy}>
-        <Table<DataType>
-          rowKey="key"
-          components={{ body: { row: DragableRow } }}
-          columns={columns}
-          dataSource={dataSource}
-         className="rounded-lg border border-gray w-[calc(100% - 6px)] mb-3" 
-         scroll={{ x: true }}
-        />
-      </SortableContext>
-    </DndContext>
-    </div>
+        <DndContext modifiers={[restrictToVerticalAxis]} onDragEnd={onDragEnd}>
+          <SortableContext
+            items={dataSource.map((i) => i.key)}
+            strategy={verticalListSortingStrategy}
+          >
+            <Table<DataType>
+              rowKey="key"
+              components={{ body: { row: DragableRow } }}
+              columns={columns}
+              dataSource={dataSource}
+              className="rounded-lg border border-gray w-[calc(100% - 6px)] mb-3"
+              scroll={{ x: true, }}
+            />
+          </SortableContext>
+        </DndContext>
+      </div>
   );
 };
 

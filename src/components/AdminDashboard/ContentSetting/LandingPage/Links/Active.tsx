@@ -106,8 +106,8 @@ export default function Active() {
   };
 
   return (
-    <div className="mt-3 mx-2 flex flex-col">
-      <div className="flex justify-end">
+    <div className="mx-2 flex flex-col">
+      <div className="flex justify-end mb-4">
         <a
           className="rounded-lg py-2 px-8 my-2 bg-[#3838F0] text-white"
           href="/admin/dashboard/content-setting/landing-page/add-link"

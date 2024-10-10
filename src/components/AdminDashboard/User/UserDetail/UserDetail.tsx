@@ -78,7 +78,7 @@ export default function UserDetail() {
 
   return (
     <div className="p-3 flex flex-col">
-      <div className="flex justify-between">
+      <div className="flex justify-between flex-col md:flex-row space-y-4">
         <p className="text-bold text-lg">Mashood Adam</p>
         {
           id&&parseInt(id?.toString())%2==0?<div className="flex justify-end ">

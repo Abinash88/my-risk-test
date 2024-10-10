@@ -8,32 +8,32 @@ const enum tabs {
 }
 
 const HelpCenter = () => {
-    const [type, setType] = useState(tabs.GROUP);
+  const [type, setType] = useState(tabs.GROUP);
 
   return (
     <div className="flex flex-col md:p-3 p-2 mt-5 rounded-lg bg-white">
-      <div className=" flex justify-between mt-4">
+      <div className=" flex justify-evenly md:justify-between mt-4">
         <button
-      className={`${
-        type == tabs.GROUP
-          ? "bg-[#000080] text-white"
-          : "bg-white text-black"
-      } rounded-lg md:w-2/5 py-3 shadow-md shadow-black px-1`}
-      onClick={() => setType(tabs.GROUP)}
-    >
-     Help Center Group
-    </button>
-    <button
-      className={`${
-        type == tabs.QA ? "bg-[#000080] text-white" : "bg-white text-black"
-      } rounded-lg md:w-2/5 py-3 px-1 shadow-md shadow-black shadow-opacity-10`}
-      onClick={() => setType(tabs.QA)}
-    >
-      Help Center QA
-    </button>
-  </div>
+          className={`${
+            type == tabs.GROUP
+              ? "bg-[#000080] text-white"
+              : "bg-white text-black"
+          } rounded-lg md:w-2/5 py-3 shadow-md shadow-gray-400 px-3 text-sm`}
+          onClick={() => setType(tabs.GROUP)}
+        >
+          Help Center Group
+        </button>
+        <button
+          className={`${
+            type == tabs.QA ? "bg-[#000080] text-white" : "bg-white text-black"
+          } rounded-lg md:w-2/5 py-3 px-3 text-sm shadow-md shadow-gray-400 shadow-opacity-10`}
+          onClick={() => setType(tabs.QA)}
+        >
+          Help Center QA
+        </button>
+      </div>
       {type == tabs.GROUP && <HelpCenterGroup />}
-      {type==tabs.QA && <HelpCenterQAndA/>}
+      {type == tabs.QA && <HelpCenterQAndA />}
     </div>
   );
 };

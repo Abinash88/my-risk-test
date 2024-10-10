@@ -18,6 +18,7 @@ const AdminDashboardSidebar = ({
 }: {
   setOpenSidebar: Function;
 }) => {
+  const navigate = useNavigate();
   return (
     <div className="h-screen">
       <div className="flex justify-between mt-5">
@@ -38,7 +39,10 @@ const AdminDashboardSidebar = ({
         {ADMIN_DASHBOARD_SIDEBAR_LINKS.map((item) => (
           <SidebarLink key={item.key} item={item} />
         ))}
-        <div className="mb-14 text-sm flex items-center gap-2 font-[400]  py-2 hover:bg-[#000080c8] text-white hover:no-underline active:bg-[#000080] rounded-lg cursor-pointer text-[rgba(0,0,0,0.7)]">
+        <div
+          onClick={() => navigate("/")}
+          className="mb-14 text-sm flex items-center gap-2 font-[400]  py-2 hover:bg-[#000080c8] text-white hover:no-underline active:bg-[#000080] rounded-lg cursor-pointer text-[rgba(0,0,0,0.7)]"
+        >
           <span className="text-xl">
             <FontAwesomeIcon icon={faArrowRightFromBracket} />
           </span>

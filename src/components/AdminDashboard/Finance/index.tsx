@@ -1,20 +1,28 @@
 import { PlusOutlined } from "@ant-design/icons";
 import { Button, Tabs, TabsProps } from "antd";
-import { ArrowUp, Info, KeyRound, RotateCcwSquare, Ticket, UserPlus, Verified } from "lucide-react";
+import {
+  ArrowUp,
+  Info,
+  KeyRound,
+  RotateCcwSquare,
+  Ticket,
+  UserPlus,
+  Verified,
+} from "lucide-react";
 import React, { useState } from "react";
 import Subscriptions from "./Subscriptions";
 import PremiumFeatures from "./PremiumFeatures";
 import Payments from "./Payments";
 import Durations from "./Durations";
 import { ContactlessPayment, HashStraight } from "@phosphor-icons/react";
-import AIGeneratedRisks from './AIGeneratedRisks'
+import AIGeneratedRisks from "./AIGeneratedRisks";
 
 const enum tabs {
   SUBSCRIPTIONS = "Subscriptions",
   PREMIUM_FEATURES = "Premium Features",
   PAYMENTS = "Payments",
   DURATIONS = "Durations",
-  AI_GENERATED_RISK="AI Generated Risk"
+  AI_GENERATED_RISK = "AI Generated Risk",
 }
 export default function index() {
   const [activeTab, setActiveTab] = useState<string>(tabs.SUBSCRIPTIONS);
@@ -23,8 +31,8 @@ export default function index() {
       key: "1",
       label: (
         <div className="flex items-center">
-            <Verified className="mr-2" />
-            <p className="text-lg font-medium text-[#838384]">Subscriptions</p>
+          <Verified className="mr-2" />
+          <p className="text-lg font-medium text-[#838384]">Subscriptions</p>
         </div>
       ),
       children: <Subscriptions />,
@@ -33,8 +41,8 @@ export default function index() {
       key: "2",
       label: (
         <div className="flex items-center">
-            <Ticket className="mr-2" />
-            <p className="text-lg font-medium text-[#838384]">Premium Features</p>
+          <Ticket className="mr-2" />
+          <p className="text-lg font-medium text-[#838384]">Premium Features</p>
         </div>
       ),
       children: <PremiumFeatures />,
@@ -44,8 +52,10 @@ export default function index() {
       key: "3",
       label: (
         <div className="flex items-center">
-            <Ticket className="mr-2" />
-            <p className="text-lg font-medium text-[#838384]">AI Generated Risks</p>
+          <Ticket className="mr-2" />
+          <p className="text-lg font-medium text-[#838384]">
+            AI Generated Risks
+          </p>
         </div>
       ),
       children: <AIGeneratedRisks />,
@@ -54,8 +64,8 @@ export default function index() {
       key: "4",
       label: (
         <div className="flex items-center">
-            <RotateCcwSquare className="mr-2" />
-            <p className="text-lg font-medium text-[#838384]">Payments</p>
+          <RotateCcwSquare className="mr-2" />
+          <p className="text-lg font-medium text-[#838384]">Payments</p>
         </div>
       ),
       children: <Payments />,
@@ -64,8 +74,8 @@ export default function index() {
       key: "5",
       label: (
         <div className="flex items-center">
-            <HashStraight className="mr-2" />
-            <p className="text-lg font-medium text-[#838384]">Durations </p>
+          <HashStraight className="mr-2" />
+          <p className="text-lg font-medium text-[#838384]">Durations </p>
         </div>
       ),
       children: <Durations />,

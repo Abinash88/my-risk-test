@@ -1,18 +1,22 @@
-import React, { useState } from 'react'
-import CloseWebsite from './CloseWebsite';
+import React, { useState } from "react";
+import CloseWebsite from "./CloseWebsite";
+import { Hammer } from "@phosphor-icons/react/dist/ssr";
+import { HammerIcon } from "lucide-react";
 
 export default function index() {
   const [isMaintenanceMode, setIsMaintenanceMode] = useState(true);
 
   return (
-    <div className='h-screen'>
-      <div className="flex flex-col items-center justify-center h-full bg-gray-100">
-        <div className={`text-9xl mb-8 ${isMaintenanceMode ? 'text-blue-500' : 'text-red-500'}`}>
-          🛠️
-        </div>
-        <CloseWebsite isMaintenanceMode={isMaintenanceMode} setIsMaintenanceMode={setIsMaintenanceMode} />
-      </div>
-      
+    <div className="flex flex-col items-center gap-4 justify-center h-[80vh] bg-gray-100">
+      <HammerIcon
+        size={200}
+        fill={!isMaintenanceMode ? "#ef4444" : "#000080"}
+        className={!isMaintenanceMode ? "text-[#ef4444]" : "text-[#000080]"}
+      />
+      <CloseWebsite
+        isMaintenanceMode={isMaintenanceMode}
+        setIsMaintenanceMode={setIsMaintenanceMode}
+      />
     </div>
-  )
+  );
 }

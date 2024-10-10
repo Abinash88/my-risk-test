@@ -139,22 +139,24 @@ const Active: React.FC = () => {
           Add
         </a>
       </div>
-        <DndContext modifiers={[restrictToVerticalAxis]} onDragEnd={onDragEnd}>
-          <SortableContext
-            items={dataSource.map((i) => i.key)}
-            strategy={verticalListSortingStrategy}
-          >
+      <DndContext modifiers={[restrictToVerticalAxis]} onDragEnd={onDragEnd}>
+        <SortableContext
+          items={dataSource.map((i) => i.key)}
+          strategy={verticalListSortingStrategy}
+        >
+          <div className="zzga">
             <Table<DataType>
               rowKey="key"
               components={{ body: { row: DragableRow } }}
               columns={columns}
               dataSource={dataSource}
               className="rounded-lg border border-gray w-[calc(100% - 6px)] mb-3"
-              scroll={{ x: true, }}
+              scroll={{ x: true }}
             />
-          </SortableContext>
-        </DndContext>
-      </div>
+          </div>
+        </SortableContext>
+      </DndContext>
+    </div>
   );
 };
 

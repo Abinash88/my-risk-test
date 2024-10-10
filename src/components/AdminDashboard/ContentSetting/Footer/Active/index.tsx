@@ -157,6 +157,7 @@ export default function index() {
             items={dataSource.map((i) => i.key)}
             strategy={verticalListSortingStrategy}
           >
+          <div className="zzga">
             <Table<DataType>
               rowKey="key"
               components={{ body: { row: DragableRow } }}
@@ -165,6 +166,7 @@ export default function index() {
               className="rounded-lg border border-gray w-[calc(100% - 6px)] mb-3"
               scroll={{ x: true }}
             />
+            </div>
           </SortableContext>
         </DndContext>
       </div>

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import {
   DeleteOutlined,
   EditOutlined,
@@ -15,11 +16,13 @@ import {
   Table,
   TableColumnsType,
 } from "antd";
+import Context from "../../../../../context";
 import { Expand } from "lucide-react";
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import EditMenu from "./EditMenu";
 import MenuList from "../../MenuList";
 import AddNewPage from "./AddNewPage";
+import { DataContext } from "../../DataContext";
 
 import {
   DragHandle,
@@ -28,6 +31,7 @@ import {
 import {
   DndContext,
   DragEndEvent,
+  PointerSensor,
   TouchSensor,
   useSensor,
   useSensors,
@@ -38,6 +42,7 @@ import {
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import { restrictToVerticalAxis } from "@dnd-kit/modifiers";
+import { useMediaQuery, useTheme } from "@mui/material";
 
 interface DataType {
   key: string;
@@ -82,39 +87,75 @@ const columns: TableColumnsType<DataType> = [
 const initialData: DataType[] = [
   {
     key: "1",
-    title: "Terms And Condition",
+    title: "Our Services",
     owner: "System",
     visibility: true,
     action: "",
   },
   {
     key: "2",
-    title: "Terms And Condition",
+    title: "Premium Features",
     owner: "System",
     visibility: true,
     action: "",
   },
   {
     key: "3",
-    title: "Terms And Condition",
+    title: "Subscription Services",
+    owner: "System",
+    visibility: true,
+    action: "",
+  },
+];
+const initialData2: DataType[] = [
+  {
+    key: "1",
+    title: "Risk Management Concept",
     owner: "System",
     visibility: true,
     action: "",
   },
   {
-    key: "4",
-    title: "Terms And Condition",
+    key: "2",
+    title: "Integrated AI Services",
+    owner: "System",
+    visibility: true,
+    action: "",
+  },
+];
+const initialData3: DataType[] = [
+  {
+    key: "1",
+    title: "How It Works",
+    owner: "System",
+    visibility: true,
+    action: "",
+  },
+  {
+    key: "2",
+    title: "Help Center",
+    owner: "System",
+    visibility: true,
+    action: "",
+  },
+  {
+    key: "3",
+    title: "User Tips",
     owner: "System",
     visibility: true,
     action: "",
   },
 ];
 export default function index() {
+  const { data, setData } = useContext(Context);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm")); // True if screen is small
+
   const [open, setOpen] = useState(false);
   const showModal = () => {
     setOpen(true);
   };
-  const sensors = useSensors(useSensor(TouchSensor));
+  const sensors = useSensors(useSensor(isMobile ? TouchSensor : PointerSensor));
   const handleOk = () => {
     setOpen(false);
   };
@@ -138,6 +179,15 @@ export default function index() {
       });
     }
   };
+  useEffect(() => {
+    if (data === "Product") {
+      setDataSource(initialData);
+    } else if (data === "Learn") {
+      setDataSource(initialData2);
+    } else {
+      setDataSource(initialData3);
+    }
+  }, [data]);
 
   return (
     <div className="flex flex-col mt-6">
@@ -156,20 +206,24 @@ export default function index() {
 
       <div className="flex flex-col mt-8">
         <AddNewPage />
-        <DndContext modifiers={[restrictToVerticalAxis]} onDragEnd={onDragEnd}>
+        <DndContext
+          modifiers={[restrictToVerticalAxis]}
+          onDragEnd={onDragEnd}
+          sensors={sensors}
+        >
           <SortableContext
             items={dataSource.map((i) => i.key)}
             strategy={verticalListSortingStrategy}
           >
-          <div className="zzga">
-            <Table<DataType>
-              rowKey="key"
-              components={{ body: { row: DragableRow } }}
-              columns={columns}
-              dataSource={dataSource}
-              className="rounded-lg border border-gray w-[calc(100% - 6px)] mb-3"
-              scroll={{ x: true }}
-            />
+            <div className="zzga">
+              <Table<DataType>
+                rowKey="key"
+                components={{ body: { row: DragableRow } }}
+                columns={columns}
+                dataSource={dataSource}
+                className="rounded-lg border border-gray w-[calc(100% - 6px)] mb-3"
+                scroll={{ x: true }}
+              />
             </div>
           </SortableContext>
         </DndContext>

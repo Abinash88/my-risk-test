@@ -1,6 +1,6 @@
 import React, { useContext, useMemo } from "react";
 import type { DragEndEvent } from "@dnd-kit/core";
-import { DndContext } from "@dnd-kit/core";
+import { DndContext, PointerSensor, TouchSensor, useSensor, useSensors } from "@dnd-kit/core";
 import type { SyntheticListenerMap } from "@dnd-kit/core/dist/hooks/utilities";
 import { restrictToVerticalAxis } from "@dnd-kit/modifiers";
 import {
@@ -128,6 +128,7 @@ const Active: React.FC = () => {
       });
     }
   };
+  const sensors = useSensors(useSensor(TouchSensor));
 
   return (
     <div className="mx-2 flex flex-col">
@@ -139,12 +140,11 @@ const Active: React.FC = () => {
           Add
         </a>
       </div>
-      <DndContext modifiers={[restrictToVerticalAxis]} onDragEnd={onDragEnd}>
+      <DndContext modifiers={[restrictToVerticalAxis]} onDragEnd={onDragEnd} sensors={sensors}>
         <SortableContext
           items={dataSource.map((i) => i.key)}
           strategy={verticalListSortingStrategy}
         >
-          <div className="zzga">
             <Table<DataType>
               rowKey="key"
               components={{ body: { row: DragableRow } }}
@@ -153,7 +153,6 @@ const Active: React.FC = () => {
               className="rounded-lg border border-gray w-[calc(100% - 6px)] mb-3"
               scroll={{ x: true }}
             />
-          </div>
         </SortableContext>
       </DndContext>
     </div>

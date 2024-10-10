@@ -74,7 +74,7 @@ import AdminHelpCenter from "./components/AdminDashboard/HelpCenter";
 import AdminNewsRoom from "./components/AdminDashboard/NewsRoom";
 import CreateNews from "./components/AdminDashboard/NewsRoom/CreateNews";
 import ViewCommnts from "./components/Dashboard/EngageWithTAndO/ViewCommnts";
-
+import Context from "./context";
 import AdminAuthLayout from "./components/AdminDashboard/User/Auth";
 import AdminLogin from "./components/AdminDashboard/User/Auth/Login";
 import AdminLoginOTP from "./components/AdminDashboard/User/Auth/Otp";
@@ -82,17 +82,24 @@ import Welcome from "./components/AdminDashboard/Welcome";
 import PagePreview from "./components/AdminDashboard/ContentSetting/PagePreview";
 import AIGeneratedRisks from "./components/AdminDashboard/AIGeneratedRisk";
 import EditNews from "./components/AdminDashboard/NewsRoom/EditNews";
-import EditSocialLink from './components/AdminDashboard/SiteSettings/SocialLinks/Edit'
+import EditSocialLink from "./components/AdminDashboard/SiteSettings/SocialLinks/Edit";
 import Sectors from "./components/AdminDashboard/Sectors";
-import AddImageSection from './components/AdminDashboard/ContentSetting/LandingPage/ImageVideo/Add';
+import AddImageSection from "./components/AdminDashboard/ContentSetting/LandingPage/ImageVideo/Add";
 import AddLinkSection from "./components/AdminDashboard/ContentSetting/LandingPage/Links/Add";
-const App = () => {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/risk-downloaded" element={<DownloadedRisk />} />
+// DataContext.js
+import {useState } from "react";
 
-        {/* <Route path="/" element={<HomeLayout />}>
+// Create the context
+
+const App = () => {
+  const [data, setData] = useState("Product");
+  return (
+    <Context.Provider value={{ data, setData }}>
+      <Router>
+        <Routes>
+          <Route path="/risk-downloaded" element={<DownloadedRisk />} />
+
+          {/* <Route path="/" element={<HomeLayout />}>
           <Route index={true} element={<LandingPage />} />
           <Route path="/service" element={<OurService />} />
           <Route path="/premium" element={<OurPremium />} />
@@ -117,150 +124,130 @@ const App = () => {
           <Route path="/risk-profile" element={<RiskProfile />} />
           <Route path="/map" element={<Map />} />
         </Route> */}
-        <Route path="/auth" element={<AuthLayout />}>
-          <Route index={true} element={<Auth />} />
-          <Route path="login" element={<Login />} />
-          <Route path="forgot-password" element={<PasswordResetPage />} />
-        </Route>
-        <Route path="/dashboard" element={<LoggedLayout />}>
-          <Route path="account-profile" element={<AccountProfile />} />
-          <Route path="manage-risk" element={<ManageRisk />} />
-          <Route path="subscription" element={<Subscription />} />
-          <Route path="subscription/change-plan" element={<ChangePlan />} />
-          <Route path="private-group" element={<PrivateGroup />} />
-          <Route path="ai-risk" element={<AiRisk />} />
-          <Route path="notification" element={<Notification />} />
-          <Route
-            path="notification/notification-setting"
-            element={<NotificationSetting />}
-          />
-          <Route path="help-center" element={<HelpCenter />} />
-          <Route
-            path="help-center/:centerdetails"
-            element={<CenterDetails />}
-          />
-          <Route path="referral" element={<Referral />} />
-          <Route path="general-setting" element={<GeneralSetting />} />
-          <Route path="general-setting/:edit-team" element={<EditTeam />} />
-          <Route path="verification" element={<Verification />} />
+          <Route path="/auth" element={<AuthLayout />}>
+            <Route index={true} element={<Auth />} />
+            <Route path="login" element={<Login />} />
+            <Route path="forgot-password" element={<PasswordResetPage />} />
+          </Route>
+          <Route path="/dashboard" element={<LoggedLayout />}>
+            <Route path="account-profile" element={<AccountProfile />} />
+            <Route path="manage-risk" element={<ManageRisk />} />
+            <Route path="subscription" element={<Subscription />} />
+            <Route path="subscription/change-plan" element={<ChangePlan />} />
+            <Route path="private-group" element={<PrivateGroup />} />
+            <Route path="ai-risk" element={<AiRisk />} />
+            <Route path="notification" element={<Notification />} />
+            <Route
+              path="notification/notification-setting"
+              element={<NotificationSetting />}
+            />
+            <Route path="help-center" element={<HelpCenter />} />
+            <Route
+              path="help-center/:centerdetails"
+              element={<CenterDetails />}
+            />
+            <Route path="referral" element={<Referral />} />
+            <Route path="general-setting" element={<GeneralSetting />} />
+            <Route path="general-setting/:edit-team" element={<EditTeam />} />
+            <Route path="verification" element={<Verification />} />
 
-          <Route path="risk" element={<EngageWithTAndO />} />
-          <Route path="risk/view-comments" element={<ViewCommnts />} />
-         {/* <Route path="news-room/:blogcontent" element={<UserNewsRoomContent />} />  */}
-        </Route>
-        <Route path="/" element={<AdminAuthLayout />}>
-          <Route index={true} element={<AdminLogin />} />
-          <Route path="login" element={<AdminLogin />} />
-          <Route path="otp" element={<AdminLoginOTP />} />
-        </Route>
-        <Route path="/admin" element={<AdminDashboardLayout />}>
-          {/* <Route path="/admin/dashboard/" element={<AdminDashboardLayout />}> */}
-          <Route path="" element={<Welcome />} />
-          <Route path="admin/dashboard" element={<IndexAdminDashboard />} />
-          <Route
-            path="dashboard/verification-request"
-            element={<VerificationRequest />}
-          />
-          <Route path="dashboard/sectors" element={<Sectors />} />
-          <Route
-            path="dashboard/user"
-            element={<AdminDashboardUserComponent />}
-          />
-          <Route path="dashboard/user/:id" element={<UserDetail />} />
+            <Route path="risk" element={<EngageWithTAndO />} />
+            <Route path="risk/view-comments" element={<ViewCommnts />} />
+            {/* <Route path="news-room/:blogcontent" element={<UserNewsRoomContent />} />  */}
+          </Route>
+          <Route path="/" element={<AdminAuthLayout />}>
+            <Route index={true} element={<AdminLogin />} />
+            <Route path="login" element={<AdminLogin />} />
+            <Route path="otp" element={<AdminLoginOTP />} />
+          </Route>
+          <Route path="/admin" element={<AdminDashboardLayout />}>
+            {/* <Route path="/admin/dashboard/" element={<AdminDashboardLayout />}> */}
+            <Route path="" element={<Welcome />} />
+            <Route path="admin/dashboard" element={<IndexAdminDashboard />} />
+            <Route
+              path="dashboard/verification-request"
+              element={<VerificationRequest />}
+            />
+            <Route path="dashboard/sectors" element={<Sectors />} />
+            <Route
+              path="dashboard/user"
+              element={<AdminDashboardUserComponent />}
+            />
+            <Route path="dashboard/user/:id" element={<UserDetail />} />
 
-          <Route
-            path="dashboard/content-setting/landing-page"
-            element={<LandingPageContentSettings />}
-          />
-          <Route
-            path="dashboard/content-setting/landing-page/edit-image"
-            element={<EditImageSection />}
-          />
-           <Route
-            path="dashboard/content-setting/landing-page/add-image"
-            element={<AddImageSection />}
-          />
-         <Route
-            path="dashboard/content-setting/landing-page/edit-link"
-            element={<EditLinkSection />}
-          />
-           <Route
-            path="dashboard/content-setting/landing-page/add-link"
-            element={<AddLinkSection />}
-          />
-          <Route
-            path="dashboard/content-setting/menu"
-            element={<MenuContentSettings />}
-          />
-          <Route
-            path="dashboard/content-setting/footer"
-            element={<FooterContentSettings />}
-          />
-          <Route
-            path="dashboard/content-setting/duplicate"
-            element={<DuplicatePage />}
-          />
-         <Route
-            path="dashboard/content-setting/preview"
-            element={<PagePreview />}
-          />
-          <Route
-            path="dashboard/ai-providers"
-            element={<AIProviders />}
-          />
-          <Route path="dashboard/standings" element={<Standings />} />
-          <Route path="dashboard/groups" element={<Groups />} />
-          <Route
-            path="dashboard/communications"
-            element={<Communications />}
-          />
-          <Route path="dashboard/locations" element={<Locations />} />
-          <Route path="dashboard/reports" element={<Reports />} />
-          <Route path="dashboard/admin-users" element={<AdminUsers />} />
-          <Route
-            path="dashboard/site-settings"
-            element={<SiteSettings />}
-          />
-          <Route
-            path="dashboard/site-settings/view"
-            element={<ViewPaymentProcessor />}
-          />
-        <Route
-            path="dashboard/site-settings/edit-social-link"
-            element={<EditSocialLink />}
-          />   
-          <Route
-            path="dashboard/finance"
-            element={<Finance />}
-          />
+            <Route
+              path="dashboard/content-setting/landing-page"
+              element={<LandingPageContentSettings />}
+            />
+            <Route
+              path="dashboard/content-setting/landing-page/edit-image"
+              element={<EditImageSection />}
+            />
+            <Route
+              path="dashboard/content-setting/landing-page/add-image"
+              element={<AddImageSection />}
+            />
+            <Route
+              path="dashboard/content-setting/landing-page/edit-link"
+              element={<EditLinkSection />}
+            />
+            <Route
+              path="dashboard/content-setting/landing-page/add-link"
+              element={<AddLinkSection />}
+            />
+            <Route
+              path="dashboard/content-setting/menu"
+              element={<MenuContentSettings />}
+            />
+            <Route
+              path="dashboard/content-setting/footer"
+              element={<FooterContentSettings />}
+            />
+            <Route
+              path="dashboard/content-setting/duplicate"
+              element={<DuplicatePage />}
+            />
+            <Route
+              path="dashboard/content-setting/preview"
+              element={<PagePreview />}
+            />
+            <Route path="dashboard/ai-providers" element={<AIProviders />} />
+            <Route path="dashboard/standings" element={<Standings />} />
+            <Route path="dashboard/groups" element={<Groups />} />
+            <Route
+              path="dashboard/communications"
+              element={<Communications />}
+            />
+            <Route path="dashboard/locations" element={<Locations />} />
+            <Route path="dashboard/reports" element={<Reports />} />
+            <Route path="dashboard/admin-users" element={<AdminUsers />} />
+            <Route path="dashboard/site-settings" element={<SiteSettings />} />
+            <Route
+              path="dashboard/site-settings/view"
+              element={<ViewPaymentProcessor />}
+            />
+            <Route
+              path="dashboard/site-settings/edit-social-link"
+              element={<EditSocialLink />}
+            />
+            <Route path="dashboard/finance" element={<Finance />} />
 
-        <Route
-            path="dashboard/help-center"
-            element={<AdminHelpCenter />}
-          />
-          <Route
-            path="dashboard/news-room"
-            element={<AdminNewsRoom />}
-          />
-          <Route
-            path="dashboard/news-room/create"
-            element={<CreateNews />}
-          />
+            <Route path="dashboard/help-center" element={<AdminHelpCenter />} />
+            <Route path="dashboard/news-room" element={<AdminNewsRoom />} />
+            <Route path="dashboard/news-room/create" element={<CreateNews />} />
 
-          <Route
-            path="dashboard/news-room/edit"
-            element={<EditNews />}
-          />
-          <Route
-            path="dashboard/ai-generated-risks"
-            element={<AIGeneratedRisks />}
-          />
-          {/* </Route> */}
-        </Route>
+            <Route path="dashboard/news-room/edit" element={<EditNews />} />
+            <Route
+              path="dashboard/ai-generated-risks"
+              element={<AIGeneratedRisks />}
+            />
+            {/* </Route> */}
+          </Route>
 
-        <Route path="*" element={<ErrorPage />} />
-      </Routes>
-    </Router>
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+      </Router>
+    </Context.Provider>
   );
 };
 

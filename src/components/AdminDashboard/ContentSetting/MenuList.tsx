@@ -18,7 +18,23 @@ import {
 import { CSS } from "@dnd-kit/utilities";
 import { menuData } from "@/lib/fakedata";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
-import { DataContext } from "./DataContext";
+import { useMediaQuery, useTheme } from "@mui/material";
+
+// Define activation constraints
+const pointerSensorOptions = {
+  activationConstraint: {
+    distance: 10, // Dragging will only start after moving 10 pixels
+  },
+};
+
+const touchSensorOptions = {
+  activationConstraint: {
+    delay: 100, // Dragging starts only after holding for 250ms
+    tolerance: 5, // Allow for 5 pixels of movement before drag starts
+  },
+};
+
+
 
 // Sortable Item component
 const SortableItem = ({ id, activeMenu, setActiveMenu }) => {
@@ -32,32 +48,46 @@ const SortableItem = ({ id, activeMenu, setActiveMenu }) => {
   };
 
   return (
-    <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
+    <div
+      ref={setNodeRef}
+      style={style}
+      {...attributes}
+      {...listeners} // Dragging is enabled for this wrapper div
+    >
+      {/* No drag listeners here to prevent dragging on button click */}
       <button
         className={`w-fit h-11 text-xs flex items-center justify-center ${
           activeMenu === id
             ? "mx-2 bg-[#3838F0] px-5 py-3 text-white"
             : "border border-[#C7C8C9] bg-[#ECECEE] mx-2 px-5 py-3 text-black"
         }`}
-        onClick={() => {
+        onClick={(e) => {
+          e.preventDefault(); // Prevent default behavior
+          e.stopPropagation(); // Prevent propagation to drag events
           setActiveMenu(id);
           setData(id);
         }}
       >
         <LeftOutlined className="mr-3 w-2" />
-        {id} <RightOutlined className="ml-3 w-2" />
+        {id}
+        <RightOutlined className="ml-3 w-2" />
       </button>
     </div>
   );
 };
 
+
 export default function MenuItems() {
   const [items, setItems] = useState(menuData);
   const [activeMenu, setActiveMenu] = useState(items[0].name);
-  // const { data, setData } = useContext(Context);
 
-  // Sensor setup for dragging
-  const sensors = useSensors(useSensor(TouchSensor));
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm")); // True if screen is small
+
+  // Sensors with activation constraints
+  const sensors = useSensors(
+    useSensor(isMobile ? TouchSensor : PointerSensor, isMobile ? touchSensorOptions : pointerSensorOptions)
+  );
 
   const handleDragEnd = (event) => {
     const { active, over } = event;
@@ -72,11 +102,7 @@ export default function MenuItems() {
   };
 
   return (
-    <DndContext
-      sensors={sensors}
-      collisionDetection={closestCenter}
-      onDragEnd={handleDragEnd}
-    >
+    <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
       <SortableContext
         items={items.map((item) => item.name)}
         strategy={horizontalListSortingStrategy}

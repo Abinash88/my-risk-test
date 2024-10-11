@@ -4,7 +4,7 @@ import Switch from "antd/es/switch";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import { Card } from "antd";
 
-const GroupSlider = ({ items }:{items:any}) => {
+const GroupSlider = ({ items }: { items: any }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerView, setItemsPerView] = useState(1); // Number of items visible at a time
 
@@ -40,7 +40,7 @@ const GroupSlider = ({ items }:{items:any}) => {
   };
   const [selectedGroupId, setSelectedGroupId] = useState(null);
 
-  const handleCardClick = (id:any) => {
+  const handleCardClick = (id: any) => {
     setSelectedGroupId(id);
   };
 
@@ -49,20 +49,23 @@ const GroupSlider = ({ items }:{items:any}) => {
       <div
         className="flex transition-transform duration-300 ease-in-out"
         style={{
-         transform: `translateX(-${(currentIndex / itemsPerView) * 100}%)`,
+          transform: `translateX(-${(currentIndex / itemsPerView) * 100}%)`,
         }}
       >
-                <LeftOutlined onClick={prevSlide} className="text-blue-600 text-lg md:text-2xl lg:text-3xl" />
+        <LeftOutlined
+          onClick={prevSlide}
+          className="text-blue-600 text-lg md:text-2xl lg:text-3xl"
+        />
 
-        {items.map((item:any, index:any) => (
+        {items.map((item: any, index: any) => (
           <div
             key={index}
             className={`w-full sm:w-1/2 lg:w-1/4`}
             style={{ flex: `0 0 ${100 / itemsPerView}%` }}
           >
             <div className="p-4">
-                <Card title="hello"/>
-            {/* <div
+              <Card title="hello" />
+              {/* <div
             key={item.id}
             className={`p-4 rounded-xl border shadow-md space-y-4 cursor-pointer ${
               selectedGroupId === item.id
@@ -86,8 +89,10 @@ const GroupSlider = ({ items }:{items:any}) => {
             </div>
           </div>
         ))}
-                <RightOutlined onClick={nextSlide} className="text-blue-600 text-lg md:text-2xl lg:text-3xl " />
-
+        <RightOutlined
+          onClick={nextSlide}
+          className="text-blue-600 text-lg md:text-2xl lg:text-3xl "
+        />
       </div>
 
       {/* Navigation buttons */}
@@ -104,9 +109,7 @@ const GroupSlider = ({ items }:{items:any}) => {
         Next
       </button> */}
     </div>
-  )
-}
-
-
+  );
+};
 
 export default GroupSlider;

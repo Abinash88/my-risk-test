@@ -103,10 +103,7 @@ input[type=number] {
 .nobar::-webkit-scrollbar {
   display: none;
 }
-.zzga table  {
-  touch-action: none !important;
-  /* overflow-x: scroll; */
-}
+
 .zaga input::placeholder {
   color:white !important;
   font-weight: 400;

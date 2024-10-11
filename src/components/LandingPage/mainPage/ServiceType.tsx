@@ -1,4 +1,5 @@
 import Container from "../../shared/HomeLayout/container";
+import LinkCarousel from "./LinksCarousel";
 const services = [
   {
     image: "images/Engage.png",
@@ -18,21 +19,7 @@ const ServiceType = () => {
           Easily navigate the platform from any of this options
         </p>
         <div className="flex  justify-between lg:justify-center  gap-3 lg:gap-8 mt-7 ">
-          {services.map((service, i) => (
-            <div
-              className="bg-white py-11 px-5 flex flex-col items-center justify-center lg:px-11 rounded-[30px] w-[45%] lg:w-[27%] lg:h-[50vh]"
-              key={i}
-            >
-              <img
-                src={service.image}
-                alt={service.image + 12}
-                className="w-24 lg:w-32 mr-auto ml-auto"
-              />
-              <p className="text-[rgba(0,0,0,0.7)] text-center mt-5 font-[600]">
-                {service.text}
-              </p>
-            </div>
-          ))}
+          <LinkCarousel />
         </div>
       </Container>
     </div>

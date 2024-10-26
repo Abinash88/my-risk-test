@@ -1,5 +1,5 @@
 import InputErrorMessage from "@/components/shared/ReuseAble/input-error-message";
-import { TbusinessAuthRegister } from "@/lib/schemas/auth-user-schema";
+import { TbusinessAuthRegister } from "@/lib/schemas/auth-schema";
 import { cn } from "@/lib/utils";
 import { useFormContext } from "react-hook-form";
 
@@ -11,7 +11,7 @@ const PageOne = ({ onNext }: { onNext: () => void }) => {
   } = useFormContext<TbusinessAuthRegister>();
   console.log(dirtyFields);
 
-  const isDisabled =
+  const isDirty =
     dirtyFields?.name &&
     dirtyFields.email &&
     dirtyFields?.surname &&
@@ -72,10 +72,10 @@ const PageOne = ({ onNext }: { onNext: () => void }) => {
             onNext();
           }}
           type="button"
-          disabled={!isDisabled}
+          disabled={!isDirty}
           className={cn(
             `bg-[#000080] text-center text-white rounded-lg py-5 mt-4`,
-            !isDisabled && "opacity-50"
+            !isDirty && "opacity-50"
           )}
         >
           Continue

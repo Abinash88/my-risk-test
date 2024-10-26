@@ -9,7 +9,7 @@ export const userApi = createApi({
     baseUrl: "http://localhost:5000/api",
   }),
   endpoints: (builder) => ({
-    login: builder.mutation<any, any>({
+    login: builder.mutation<object, { data?: object }>({
       query: (user) => ({
         url: "/user/login",
         method: "POST",

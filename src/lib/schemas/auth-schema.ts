@@ -24,6 +24,7 @@ export const professionalAuthRegister = z.object({
   jobTitle: z.string().min(1, "Job title is required!"),
   currentCompany: z.string().min(1, "Current Company is required!"),
   referralCode: z.string().min(1, "Town is required!").optional(),
+  acceptedTerms: z.boolean().default(false),
 });
 
 export type TprofessionalAuthRegister = z.infer<

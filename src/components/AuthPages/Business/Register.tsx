@@ -14,7 +14,7 @@ import { useMediaQuery } from "@mui/material";
 import {
   TbusinessAuthRegister,
   businessAuthRegister,
-} from "@/lib/schemas/auth-user-schema";
+} from "@/lib/schemas/auth-schema";
 import { useRegisterMutation } from "@/store/auth/auth-api";
 import { ToastContainer, toast } from "react-toastify";
 
@@ -59,8 +59,8 @@ const BusinessRegister = () => {
         return <PageTwo onNext={handleNextStep} />;
       case 3:
         return <PageThree />;
-      // case 4:
-      //   return <PageFour />;
+      case 4:
+        return;
       // case 4:
       // 	return <PasswordPage />;
       default:

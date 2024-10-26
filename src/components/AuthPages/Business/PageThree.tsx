@@ -1,5 +1,5 @@
 import InputErrorMessage from "@/components/shared/ReuseAble/input-error-message";
-import { TbusinessAuthRegister } from "@/lib/schemas/auth-user-schema";
+import { TbusinessAuthRegister } from "@/lib/schemas/auth-schema";
 import { cn } from "@/lib/utils";
 import { useFormContext } from "react-hook-form";
 
@@ -10,7 +10,7 @@ const PageThree = () => {
     watch,
   } = useFormContext<TbusinessAuthRegister>();
 
-  const isDisabled =
+  const isDirty =
     dirtyFields?.businessName &&
     dirtyFields.ceoName &&
     dirtyFields?.country &&
@@ -111,10 +111,10 @@ const PageThree = () => {
         </div>
         <button
           type="submit"
-          disabled={!isDisabled}
+          disabled={!isDirty}
           className={cn(
             `bg-[#000080] text-center text-white rounded-lg py-5 mt-4`,
-            !isDisabled && "opacity-50"
+            !isDirty && "opacity-50"
           )}
         >
           Continue

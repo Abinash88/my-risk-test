@@ -2,7 +2,7 @@ import InputErrorMessage from "@/components/shared/ReuseAble/input-error-message
 import {
   finishRegisterationSchema,
   TfinishRegisterationSchema,
-} from "@/lib/schemas/auth-user-schema";
+} from "@/lib/schemas/auth-schema";
 import { useFinishRegisterMutation } from "@/store/auth/auth-api";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Eye, EyeSlash } from "@phosphor-icons/react";

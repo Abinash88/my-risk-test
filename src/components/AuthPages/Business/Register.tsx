@@ -1,4 +1,4 @@
-import {  useState } from "react";
+import { useState } from "react";
 import { RegContainer } from "@/components/shared/ReuseAble";
 import PageOne from "./PageOne";
 import PageTwo from "./PageTwo";
@@ -6,9 +6,11 @@ import ProgressBar from "./ProgressBar";
 import PageFour from "./PageFour";
 import PageThree from "./PageThree";
 
-const BusinessRegister = () => {
+import { FormProvider, useForm } from "react-hook-form";
 
+const BusinessRegister = () => {
   const [currentStep, setCurrentStep] = useState(1);
+  const methods = useForm();
 
   const handleNextStep = () => {
     setCurrentStep((prev) => prev + 1);
@@ -35,6 +37,10 @@ const BusinessRegister = () => {
     }
   };
 
+  const onSubmit = () => {
+    
+  }
+
   return (
     <>
       <RegContainer
@@ -53,7 +59,9 @@ const BusinessRegister = () => {
             Business Registration
           </h4>
         </div>
-        {renderPage()}
+        <FormProvider {...methods}>
+          <form onSubmit={methods.handleSubmit(onSubmit)}>{renderPage()}</form>
+        </FormProvider>
       </RegContainer>
     </>
   );

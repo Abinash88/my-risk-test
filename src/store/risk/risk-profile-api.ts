@@ -1,12 +1,11 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 const BASE_URL = "https://risk-management-2wxc.onrender.com/api"
 
-export const userApi = createApi({
-    reducerPath: "user",
-    tagTypes: ["User"],
+export const riskApi = createApi({
+    reducerPath: "risk",
+    tagTypes: ["Risk"],
     baseQuery: fetchBaseQuery({
         baseUrl: BASE_URL,
-
 
     }),
     endpoints: (builder) => ({
@@ -16,7 +15,7 @@ export const userApi = createApi({
                 method: "POST",
                 body: user,
             }),
-            invalidatesTags: ["User"],
+            invalidatesTags: ["Risk"],
         }),
 
         downloadRiak: builder.mutation<any, any>({
@@ -25,7 +24,7 @@ export const userApi = createApi({
                 method: "GET",
                 body: user,
             }),
-            invalidatesTags: ["User"],
+            invalidatesTags: ["Risk"],
         }),
 
     }),
@@ -35,4 +34,4 @@ export const {
     useGenerateRsikMutation,
     useDownloadRiakMutation
 
-} = userApi;
+} = riskApi;

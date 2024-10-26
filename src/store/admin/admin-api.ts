@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 const BASE_URL = "https://risk-management-2wxc.onrender.com/api"
 
-export const userApi = createApi({
+export const adminApi = createApi({
     reducerPath: "user",
     tagTypes: ["User"],
     baseQuery: fetchBaseQuery({
@@ -97,4 +97,4 @@ export const {
     
 
 
-} = userApi;
+} = adminApi;

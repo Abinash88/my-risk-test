@@ -50,9 +50,9 @@ const Section1 = () => {
           />
         </div>
         <div className="flex items-center space-y-2 flex-col justify-center">
-          <p className="text-[#000080] text-lg pb-2 border-b-2 w-full text-center">
+          <button className="text-[#000080] text-lg pb-2 border-b-2 w-full text-center">
             Filter By
-          </p>
+          </button>
           {stuff === 0 && (
             <div>
               <p className="text-lg  mt-2" onClick={() => setStuff(1)}>

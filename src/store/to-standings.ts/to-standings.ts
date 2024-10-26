@@ -1,70 +1,64 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-const BASE_URL = "https://risk-management-2wxc.onrender.com/api"
+const BASE_URL = "https://risk-management-2wxc.onrender.com/api";
 
-export const userApi = createApi({
-    reducerPath: "user",
-    tagTypes: ["User"],
-    baseQuery: fetchBaseQuery({
-        baseUrl: BASE_URL,
-
-
+export const toStandingApi = createApi({
+  reducerPath: "standing",
+  tagTypes: ["Standing"],
+  baseQuery: fetchBaseQuery({
+    baseUrl: BASE_URL,
+  }),
+  endpoints: (builder) => ({
+    createGroup: builder.mutation<any, any>({
+      query: (user) => ({
+        url: "/group/createGroup",
+        method: "POST",
+        body: user,
+      }),
+      invalidatesTags: ["Standing"],
     }),
-    endpoints: (builder) => ({
-        createGroup: builder.mutation<any, any>({
-            query: (user) => ({
-                url: "/group/createGroup",
-                method: "POST",
-                body: user,
-            }),
-            invalidatesTags: ["User"],
-        }),
 
-        uploadRisk: builder.mutation<any, any>({
-            query: (user) => ({
-                url: "/user/upload",
-                method: "POST",
-                body: user,
-            }),
-            invalidatesTags: ["User"],
-        }),
-
-        joinGroup: builder.mutation<any, any>({
-            query: ({user, id}) => ({
-                url: `/group/join/${id}`,
-                method: "POST",
-                body: user,
-            }),
-            invalidatesTags: ["User"],
-        }),
-
-        comment: builder.mutation<any, any>({
-            query: ({ user, id }) => ({
-                url: `/group/comment/${id}`,
-                method: "POST",
-                body: user,
-            }),
-            invalidatesTags: ["User"],
-        }),
-
-        likeComment: builder.mutation<any, any>({
-            query: ({ user, id }) => ({
-                url: `/group/comment/like/${id}`,
-                method: "POST",
-                body: user,
-            }),
-            invalidatesTags: ["User"],
-        }),
-
-
-
+    uploadRisk: builder.mutation<any, any>({
+      query: (user) => ({
+        url: "/user/upload",
+        method: "POST",
+        body: user,
+      }),
+      invalidatesTags: ["Standing"],
     }),
+
+    joinGroup: builder.mutation<any, any>({
+      query: ({ user, id }) => ({
+        url: `/group/join/${id}`,
+        method: "POST",
+        body: user,
+      }),
+      invalidatesTags: ["Standing"],
+    }),
+
+    comment: builder.mutation<any, any>({
+      query: ({ user, id }) => ({
+        url: `/group/comment/${id}`,
+        method: "POST",
+        body: user,
+      }),
+      invalidatesTags: ["Standing"],
+    }),
+
+    likeComment: builder.mutation<any, any>({
+      query: ({ user, id }) => ({
+        url: `/group/comment/like/${id}`,
+        method: "POST",
+        body: user,
+      }),
+      invalidatesTags: ["Standing"],
+    }),
+  }),
 });
 
 export const {
-    useCommentMutation,
-    useCreateGroupMutation,
-    useJoinGroupMutation,
-    useLikeCommentMutation,
-    useUploadRiskMutation
-
-} = userApi;
+  useCommentMutation,
+  useCreateGroupMutation,
+  useJoinGroupMutation,
+  useLikeCommentMutation,
+  useUploadRiskMutation,
+} = toStandingApi;

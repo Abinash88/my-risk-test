@@ -1,15 +1,11 @@
+import { useFormContext } from "react-hook-form";
+
 const PageOne = ({ onNext }: { onNext: () => void }) => {
+  // const { register } = useFormContext(); 
+
   return (
     <>
-      <form
-        action=""
-        className="w-full flex flex-col gap-4"
-        onSubmit={(e) => {
-          e.preventDefault();
-          // Add form validation here if needed
-          onNext();
-        }}
-      >
+      <div className="w-full flex flex-col gap-4">
         <div className="text-black text-left">
           <label
             htmlFor="name"
@@ -19,6 +15,7 @@ const PageOne = ({ onNext }: { onNext: () => void }) => {
           </label>
           <input
             type="text"
+            // {...register("")}
             id="name"
             className="border rounded-lg p-3 w-full border-[#777] outline-none"
           />
@@ -50,12 +47,13 @@ const PageOne = ({ onNext }: { onNext: () => void }) => {
           />
         </div>
         <button
-          type="submit"
+          onClick={() => onNext()}
+          type="button"
           className="bg-[#000080] text-center text-white rounded-lg py-5 mt-4"
         >
           Continue
         </button>
-      </form>
+      </div>
     </>
   );
 };

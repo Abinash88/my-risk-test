@@ -1,32 +1,50 @@
+import InputErrorMessage from "@/components/shared/ReuseAble/input-error-message";
+import { TbusinessAuthRegister } from "@/lib/schemas/auth-user-schema";
+import { cn } from "@/lib/utils";
+import { useFormContext } from "react-hook-form";
+
 const PageTwo = ({ onNext }: { onNext: () => void }) => {
+  const {
+    register,
+    formState: { errors, dirtyFields },
+  } = useFormContext<TbusinessAuthRegister>();
+
+  const isDisabled =
+    dirtyFields?.businessName && dirtyFields.ceoName && dirtyFields?.country;
   return (
     <>
       <div className="w-full flex flex-col gap-4">
         <div className="text-black text-left">
           <label
-            htmlFor="business"
+            htmlFor="businessName"
             className="mb-2 block font-[600] text-black text-[18px]"
           >
             Business Name
           </label>
           <input
             type="text"
-            id="business"
+            id="businessName"
+            {...register("businessName")}
+            name="businessName"
             className="border rounded-lg p-3 w-full border-[#777] outline-none"
           />
+          <InputErrorMessage errors={errors} name="businessName" />
         </div>
         <div className="text-black text-left">
           <label
-            htmlFor="ceo"
+            htmlFor="ceoName"
             className="mb-2 block font-[600] text-black text-[18px]"
           >
             CEO Name
           </label>
           <input
             type="text"
-            id="ceo"
+            {...register("ceoName")}
+            id="ceoName"
+            name="ceoName"
             className="border rounded-lg p-3 w-full border-[#777] outline-none"
           />
+          <InputErrorMessage errors={errors} name="ceoName" />
         </div>
         <div className="text-black text-left">
           <label
@@ -37,14 +55,21 @@ const PageTwo = ({ onNext }: { onNext: () => void }) => {
           </label>
           <input
             type="text"
+            {...register("country")}
             id="country"
+            name="country"
             className="border rounded-lg p-3 w-full border-[#777] outline-none"
           />
+          <InputErrorMessage errors={errors} name="country" />
         </div>
         <button
           onClick={() => onNext()}
           type="button"
-          className="bg-[#000080] text-center text-white rounded-lg py-5 mt-4"
+          disabled={!isDisabled}
+          className={cn(
+            `bg-[#000080] text-center text-white rounded-lg py-5 mt-4`,
+            !isDisabled && "opacity-50"
+          )}
         >
           Continue
         </button>

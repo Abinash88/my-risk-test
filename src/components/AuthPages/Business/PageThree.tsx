@@ -1,32 +1,54 @@
+import InputErrorMessage from "@/components/shared/ReuseAble/input-error-message";
+import { TbusinessAuthRegister } from "@/lib/schemas/auth-user-schema";
+import { cn } from "@/lib/utils";
+import { useFormContext } from "react-hook-form";
+
 const PageThree = () => {
+  const {
+    register,
+    formState: { errors, dirtyFields },
+    watch,
+  } = useFormContext<TbusinessAuthRegister>();
+
+  const isDisabled =
+    dirtyFields?.businessName &&
+    dirtyFields.ceoName &&
+    dirtyFields?.country &&
+    watch("acceptedTerms");
   return (
     <>
-      <form className="w-full flex flex-col gap-4">
+      <div className="w-full flex flex-col gap-4">
         <div className="text-black text-left">
           <label
-            htmlFor="house"
+            htmlFor="houseNo"
             className="mb-2 block font-[600] text-black text-[18px]"
           >
             House No / House Name
           </label>
           <input
             type="text"
-            id="house"
+            id="houseNo"
+            {...register("houseNo")}
+            name="houseNo"
             className="border rounded-lg p-3 w-full border-[#777] outline-none"
           />
+          <InputErrorMessage errors={errors} name="houseNo" />
         </div>
         <div className="text-black text-left">
           <label
-            htmlFor="street"
+            htmlFor="streetName"
             className="mb-2 block font-[600] text-black text-[18px]"
           >
             Street Name
           </label>
           <input
             type="text"
-            id="street"
+            {...register("streetName")}
+            id="streetName"
+            name="streetName"
             className="border rounded-lg p-3 w-full border-[#777] outline-none"
           />
+          <InputErrorMessage errors={errors} name="streetName" />
         </div>
         <div className="text-black text-left">
           <label
@@ -37,9 +59,12 @@ const PageThree = () => {
           </label>
           <input
             type="text"
+            {...register("town")}
             id="town"
+            name="town"
             className="border rounded-lg p-3 w-full border-[#777] outline-none"
           />
+          <InputErrorMessage errors={errors} name="town" />
         </div>
         <div className="text-black text-left">
           <label
@@ -50,30 +75,51 @@ const PageThree = () => {
           </label>
           <input
             type="text"
+            {...register("city")}
             id="city"
+            name="city"
             className="border rounded-lg p-3 w-full border-[#777] outline-none"
           />
+          <InputErrorMessage errors={errors} name="city" />
         </div>
         <div className="text-black text-left">
           <label
-            htmlFor="zip"
+            htmlFor="zipCode"
             className="mb-2 block font-[600] text-black text-[18px]"
           >
             Zip Code
           </label>
           <input
             type="number"
-            id="zip"
+            {...register("zipCode")}
+            id="zipCode"
+            name="zipCode"
             className="border rounded-lg p-3 w-full border-[#777] outline-none"
           />
+          <InputErrorMessage errors={errors} name="zipCode" />
+        </div>
+        <div className="flex items-center gap-2">
+          <input
+            type="checkbox"
+            className="size-5"
+            {...register("acceptedTerms")}
+          />
+          <p className="text-black text-left  text-[12px]">
+            By creating an account you agree with our Terms of Service, Privacy
+            Policy.
+          </p>
         </div>
         <button
           type="submit"
-          className="bg-[#000080] text-center text-white rounded-lg py-5 mt-4"
+          disabled={!isDisabled}
+          className={cn(
+            `bg-[#000080] text-center text-white rounded-lg py-5 mt-4`,
+            !isDisabled && "opacity-50"
+          )}
         >
           Continue
         </button>
-      </form>
+      </div>
     </>
   );
 };

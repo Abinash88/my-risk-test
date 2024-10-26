@@ -7,17 +7,40 @@ import PageFour from "./PageFour";
 import PageThree from "./PageThree";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { FormProvider, useForm } from "react-hook-form";
+import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import Process from "./Process";
 import Success from "./Success";
 import { useMediaQuery } from "@mui/material";
+import {
+  TbusinessAuthRegister,
+  businessAuthRegister,
+} from "@/lib/schemas/auth-user-schema";
+import { useRegisterMutation } from "@/store/auth/auth-api";
+import { ToastContainer, toast } from "react-toastify";
 
 const BusinessRegister = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [showLoader, setShowLoader] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
 
-  // const methods = useForm({ resolver: zodResolver() });
+  const form = useForm<TbusinessAuthRegister>({
+    resolver: zodResolver(businessAuthRegister),
+    mode: "all",
+    defaultValues: {
+      name: "",
+      email: "",
+      ceoName: "",
+      businessName: "",
+      country: "",
+      acceptedTerms: false,
+      houseNo: "",
+      city: "",
+      streetName: "",
+      surname: "",
+      town: "",
+      zipCode: "",
+    },
+  });
 
   const handleNextStep = () => {
     setCurrentStep((prev) => prev + 1);
@@ -26,7 +49,8 @@ const BusinessRegister = () => {
   const handleStepClick = (step: number) => {
     setCurrentStep(step);
   };
-  console.log(currentStep);
+  const [registerBusiness] = useRegisterMutation({});
+
   const renderPage = () => {
     switch (currentStep) {
       case 1:
@@ -35,8 +59,8 @@ const BusinessRegister = () => {
         return <PageTwo onNext={handleNextStep} />;
       case 3:
         return <PageThree />;
-      case 4:
-        return <PageFour />;
+      // case 4:
+      //   return <PageFour />;
       // case 4:
       // 	return <PasswordPage />;
       default:
@@ -57,18 +81,38 @@ const BusinessRegister = () => {
     if (matches === true) goToTop();
   }, []);
 
-  const onSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const onSubmit: SubmitHandler<TbusinessAuthRegister> = async (data) => {
     setShowLoader(true);
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
+    const res = await registerBusiness({
+      data: {
+        name: data?.name,
+        surname: data?.surname,
+        businessAddress: `${data?.country} ${data?.city} ${data?.town} ${data?.houseNo} ${data?.zipCode} ${data?.streetName} `,
+        email: data?.email,
+        ceoName: data?.ceoName,
+        businessName: data?.businessName,
+        acceptedTerms: data?.acceptedTerms,
+        userType: "Business",
+      },
     });
-
-    setTimeout(() => {
-      setShowLoader(false);
+    // window.scrollTo({
+    //   top: 0,
+    //   behavior: "smooth",
+    // });
+    console.log(res);
+    if (res.data) {
       setShowSuccess(true);
-    }, 2000);
+      console.log();
+      toast.success((res?.data as { message: string })?.message);
+    }
+    if (res.error) {
+      toast.error(
+        "data" in res.error
+          ? (res.error.data as { error: string }).error
+          : "Email already Exist!"
+      );
+    }
+    setShowLoader(false);
   };
 
   return (
@@ -89,21 +133,19 @@ const BusinessRegister = () => {
             Business Registration
           </h4>
         </div>
-        {/* <FormProvider {...methods}> */}
-        {/* <form
-          // onSubmit={methods.handleSubmit(onSubmit)}
-          > */}
         {!showLoader && !showSuccess && (
-          <div className="" onSubmit={onSubmit}>
-            {renderPage()}
-          </div>
+          <FormProvider {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)}>{renderPage()}</form>
+          </FormProvider>
         )}
-        {/* </form> */}
-        {/* </FormProvider> */}
+        {currentStep === 4 && <PageFour />}
         {showLoader && <Process />}
 
-        {showSuccess && <Success onNext={handleNextStep} />}
+        {showSuccess && (
+          <Success setShowSuccess={setShowSuccess} onNext={handleNextStep} />
+        )}
       </RegContainer>
+      <ToastContainer />
     </>
   );
 };

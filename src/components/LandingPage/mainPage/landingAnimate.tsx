@@ -2,7 +2,7 @@ import { ReactNode, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Background from "../../../assets/images/background.png";
 import Background2 from "../../../assets/images/auth-image.png";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeftToLine, ArrowRightToLine } from "lucide-react";
 
 interface BlogProps {
   title: string;
@@ -47,12 +47,12 @@ export const BlogHeader = ({
             setc((x) => !x);
           }}
           style={{ opacity: buttonx }}
-          className="rounded-full hidden md:flex  bg-white md:mt-[50vh] md:ml-24  p-2 h-fit"
+          className="rounded-full hidden md:flex  bg-white md:mt-[50vh] md:ml-24  p-4 cursor-pointer h-fit"
         >
-          <ArrowLeft className="text-[#000080] scale-75" />
+          <ArrowLeftToLine className="text-[#000080] scale-105" />
         </div>
         {showLink && (
-          <div className="fixed flex justify-center w-full bottom-0 mb-[15vh] md:mb-24">
+          <div className="fixed flex justify-center w-full bottom-0 mb-[20vh] md:mb-24">
             <Link
               style={{ opacity: buttonx }}
               to={path}
@@ -68,9 +68,9 @@ export const BlogHeader = ({
             console.log(c);
           }}
           style={{ opacity: buttonx }}
-          className="rounded-full hidden md:flex bg-white md:mt-[50vh] md:mr-24  p-2 h-fit"
+          className="rounded-full hidden md:flex bg-white md:mt-[50vh] md:mr-24 p-4 cursor-pointer h-fit"
         >
-          <ArrowRight className="text-[#000080] scale-75" />
+          <ArrowRightToLine className="text-[#000080] scale-105" />
         </div>
       </div>
       <div
@@ -80,8 +80,8 @@ export const BlogHeader = ({
         <div className="absolute -z-10 lg:pt-20 inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center gap-3 text-white text-center p-6">
           <div className="flex w-full justify-center flex-row">
             <h1
-              style={{ opacity: dynamic }}
-              className="text-white text-4xl mb-6 tracking-wide  lg:text-7xl lg:scale-110 md:text-[80px] font-bold w-full lg:w-[60%]"
+              style={{ opacity: dynamic, lineHeight: "130%" }}
+              className="text-white text-4xl mb-6 tracking-wide  lg:text-7xl lg:scale-110 md:text-5xl  font-bold w-full lg:w-[60%]"
             >
               {title}
             </h1>

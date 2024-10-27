@@ -68,13 +68,21 @@ const Footer = () => {
         <div>
           <h2 className="mb-4 font-[600] text-[1.2rem]">Social Media</h2>
           <div className="flex items-center gap-4 mb-2">
-            <FontAwesomeIcon
-              icon={faSquareFacebook}
-              className="text-[1.6rem]"
-            />
-            <FontAwesomeIcon icon={faXTwitter} className="text-[1.6rem]" />
-            <FontAwesomeIcon icon={faInstagram} className="text-[1.6rem]" />
-            <FontAwesomeIcon icon={faLinkedin} className="text-[1.6rem]" />
+            <Link to={"/https://facebook.com"}>
+              <FontAwesomeIcon
+                icon={faSquareFacebook}
+                className="text-[1.6rem]"
+              />
+            </Link>
+            <Link to={"/https://twitter.com"}>
+              <FontAwesomeIcon icon={faXTwitter} className="text-[1.6rem]" />
+            </Link>
+            <Link to={"/https://isntagram.com"}>
+              <FontAwesomeIcon icon={faInstagram} className="text-[1.6rem]" />
+            </Link>
+            <Link to={"/https://linkedin.com"}>
+              <FontAwesomeIcon icon={faLinkedin} className="text-[1.6rem]" />
+            </Link>
           </div>
           <h3 className="mb-2 font-[600] text-[1.5rem]">Newsletter</h3>
           <form>

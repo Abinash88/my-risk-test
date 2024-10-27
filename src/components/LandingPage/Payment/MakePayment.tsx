@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 const MakePayment = () => {
   const [isChecked, setIsChecked] = useState(true);
+  
   return (
     <>
       <BgSection image="images/background.png">
@@ -76,7 +77,10 @@ const MakePayment = () => {
             >
               Back
             </Link>
-            <Link to={'/risk-profile'} className="py-3 px-4 text-white rounded-lg bg-[#000080] w-[40%]">
+            <Link
+              to={"/general-risk"}
+              className="py-3 px-4 text-white rounded-lg bg-[#000080] w-[40%]"
+            >
               Next
             </Link>
           </div>

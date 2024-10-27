@@ -24,7 +24,9 @@ const Footer = () => {
   return (
     <div className="bg-[#000080] text-white px-[2rem] md:px-[4rem] py-[4rem]">
       <div className="flex flex-col md:flex-row items-start justify-between gap-5 md:gap-3 md:flex-wrap">
-        <img src="/images/footer-logo.png" alt="Logo" />
+        <Link to={"/"}>
+          <img src="/images/footer-logo.png" alt="Logo" />
+        </Link>
         <div>
           <h2 className="mb-4 font-[600] text-[1.2rem]">Quick Links</h2>
           <ul>

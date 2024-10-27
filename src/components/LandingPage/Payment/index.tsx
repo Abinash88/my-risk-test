@@ -1,36 +1,49 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { BgSection } from "../../shared/ReuseAble";
+import { useState } from "react";
+import { cn } from "@/lib/utils";
 
 const PayLogo = [
   {
+    id: 1,
     image: "/images/apple-pay.png",
   },
   {
+    id: 2,
     image: "/images/amazon.png",
   },
   {
+    id: 3,
     image: "/images/samsung-pay.png",
   },
   {
+    id: 4,
     image: "/images/google-pay.png",
   },
   {
+    id: 5,
     image: "/images/master.png",
   },
   {
+    id: 6,
     image: "/images/paypal.png",
   },
   {
+    id: 7,
     image: "/images/visa.png",
   },
   {
+    id: 8,
     image: "/images/maestro.png",
   },
   {
+    id: 9,
     image: "/images/circus.png",
   },
 ];
 const PaymentMode = () => {
+  const [selectPayment, setSelectPayment] = useState<number | undefined>();
+  const navigate = useNavigate();
   return (
     <>
       <BgSection image="images/background.png">
@@ -40,28 +53,44 @@ const PaymentMode = () => {
           </h4>
           <div className="my-3 px-[1rem] md:px-[5rem] flex justify-center gap-5 flex-wrap  ml-auto mr-auto">
             {PayLogo.map((logo, i) => (
-              <button className="bg-white shadow p-3 rounded-lg" key={i + 3}>
+              <button
+                onClick={() => {
+                  setSelectPayment(
+                    selectPayment === logo.id ? undefined : logo.id
+                  );
+                }}
+                className={cn(
+                  `bg-white shadow p-3 border rounded-lg`,
+                  selectPayment === logo.id && "shadow-lg border-gray-400"
+                )}
+                key={i + 3}
+              >
                 <img
                   src={logo.image}
                   alt={logo.image + i}
-                  className="w-[50px]"
+                  className="w-[80px]"
                 />
               </button>
             ))}
           </div>
           <div className="flex gap-5 justify-center mt-6">
-            <Link
-              to={"/ai-model"}
+            <button
+              onClick={() => navigate("/ai-model")}
+              aria-disabled={true}
               className="bg-[#000080] text-white px-4 py-2 rounded w-[35%]"
             >
               Back
-            </Link>
-            <Link
-              to={"/make-payment"}
-              className="bg-[#000080] w-[35%] text-white px-4 py-2 rounded"
+            </button>
+            <button
+              disabled={!selectPayment}
+              onClick={() => navigate("/make-payment")}
+              className={cn(
+                `bg-[#000080] w-[35%] text-white px-4 py-2 rounded`,
+                !selectPayment && "opacity-50"
+              )}
             >
               Next
-            </Link>
+            </button>
           </div>
         </div>
       </BgSection>

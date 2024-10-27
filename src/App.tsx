@@ -23,9 +23,7 @@ import MakePayment from "./components/LandingPage/Payment/MakePayment";
 import PaymentMode from "./components/LandingPage/Payment";
 import GeneralRisk from "./components/LandingPage/GeneralRisk";
 import RiskProfile from "./components/LandingPage/RiskProfile";
-import HomePage, {
-  GenerateDownload,
-} from "./components/LandingPage/mainPage/home-page-component/HomePage";
+import HomePage from "./components/LandingPage/mainPage/home-page-component/HomePage";
 import OurService from "./components/LandingPage/mainPage/OurService";
 import OurPremium from "./components/LandingPage/mainPage/OurPremium";
 import RiskManagement from "./components/LandingPage/mainPage/RiskManagement";
@@ -49,6 +47,7 @@ import { AIModel } from "./components/LandingPage/mainPage/home-page-component/s
 import PrivacyPolicy from "./components/LandingPage/mainPage/privacy-policy";
 import CookiePolicy from "./components/LandingPage/mainPage/cookie-policy";
 import TermsAndConditions from "./components/LandingPage/mainPage/terms-and-conditions";
+import { GenerateDownload } from "./components/LandingPage/mainPage/home-page-component/generate-download";
 
 const App = () => {
   return (
@@ -64,7 +63,10 @@ const App = () => {
           <Route path="/home-page" element={<HomePage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/cookie-policy" element={<CookiePolicy />} />
-          <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+          <Route
+            path="/terms-and-conditions"
+            element={<TermsAndConditions />}
+          />
         </Route>
 
         <Route path="/" element={<HomeLayout2 />}>
@@ -79,8 +81,7 @@ const App = () => {
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:blogcontent" element={<BlogContent />} />
           <Route path="/make-payment" element={<MakePayment />} /> {/* done */}
-          <Route path="/payment-mode" element={<PaymentMode />} />
-          {/* done */}
+          <Route path="/payment-mode" element={<PaymentMode />} />{/* done */}
           <Route path="/upload" element={<Upload />} />
           <Route path="/general-risk" element={<GeneralRisk />} />
           <Route path="/risk-profile" element={<RiskProfile />} />

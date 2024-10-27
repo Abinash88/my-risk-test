@@ -34,7 +34,7 @@ const Header = () => {
       <Link to="/">
         <div className="ease-in-out duration-1000 ">
           <img
-            src="images/logo-removebg.png"
+            src="/images/logo-removebg.png"
             alt="logo"
             className="w-[10rem] md:w-[12rem]"
           />

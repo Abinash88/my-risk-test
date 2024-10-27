@@ -1,7 +1,7 @@
 import { BgSection } from "@/components/shared/ReuseAble";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 type AiModalType = {
   id: number;
@@ -44,6 +44,7 @@ const aiModalData: AiModalType[] = [
 
 export const AIModel = () => {
   const [selectAiModal, setSelectAiModal] = useState("");
+  const navigate = useNavigate();
   return (
     <BgSection image="/images/background.png">
       <div className="bg-white rounded-lg w-full md:w-[50%]">
@@ -58,7 +59,9 @@ export const AIModel = () => {
               <div key={item.id} className={`w-[40%]`}>
                 <button
                   onClick={() => {
-                    setSelectAiModal(item?.name);
+                    setSelectAiModal(
+                      selectAiModal === item?.name ? "" : item?.name
+                    );
                   }}
                   className={cn(
                     `rounded-lg shadow-md p-3 border-2 border-transparent  bg-white w-full`,
@@ -80,18 +83,22 @@ export const AIModel = () => {
           })}
         </div>
         <div className="w-full flex gap-4 justify-between p-6">
-          <Link
-            to={"/home-page"}
+          <button
+            onClick={() => navigate(-1)}
             className="text-white bg-[#000080] p-3 rounded-lg w-[50%]"
           >
             Back
-          </Link>
-          <Link
-            to={"/payment-mode"}
-            className="text-white bg-[#000080] p-3 rounded-lg w-[50%]"
+          </button>
+          <button
+            onClick={() => navigate("/payment-mode")}
+            disabled={!selectAiModal}
+            className={cn(
+              `text-white bg-[#000080] p-3 rounded-lg w-[50%] border `,
+              !selectAiModal && "opacity-50"
+            )}
           >
             Next
-          </Link>
+          </button>
         </div>
       </div>
     </BgSection>

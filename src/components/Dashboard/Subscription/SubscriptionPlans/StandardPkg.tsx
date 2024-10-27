@@ -6,7 +6,7 @@ import {
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
+import MakePaymentModal from "@/components/LandingPage/Payment/MakePaymentModal";
 
 interface FakeDataItem {
   id: number;
@@ -178,12 +178,7 @@ const StandardPkg: React.FC = () => {
         </h3>
       </div>
       <div className="px-3 flex justify-center items-center">
-        <Link
-          to={"/payment-mode"}
-          className="bg-[#000080] text-white font-[600] text-[19px] px-12 py-5   mr-auto ml-auto rounded-lg"
-        >
-          Choose Plan
-        </Link>
+        <MakePaymentModal />
       </div>
       <div className="my-5 px-3">
         <h3 className="bg-[#F0F0FF] font-[400] p-3 text-[20px] rounded-lg w-full text-center text-[#000080] mb-5">

@@ -1,7 +1,7 @@
 import z from "zod";
 
 export const PaymentFormSchema = z.object({
-  cardNumber: z.number().min(1, "Card number is required!"),
+  cardNumber: z.string().min(1, "Card number is required!"),
   firstName: z.string().min(1, "First Name is required!"),
   lastName: z.string().min(1, "Last Name is required!"),
   month: z.string().min(1, "Month is required!"),

@@ -15,7 +15,7 @@ import {
       <ErrorMessage
         errors={errors}
         name={name}
-        render={({ message }) => <p className="text-red-500 my-1 font-medium">{message}</p>}
+        render={({ message }) => <p className="text-red-500 my-1 md:text-xs text-xs font-medium">{message}</p>}
       />
     );
   };

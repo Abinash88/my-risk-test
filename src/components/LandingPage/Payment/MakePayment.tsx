@@ -16,20 +16,27 @@ const MakePayment = () => {
 
   const form = useForm<TPaymentFormSchema>({
     resolver: zodResolver(PaymentFormSchema),
+    mode: "all",
+    defaultValues: {
+      cardNumber: undefined,
+      cvc: "",
+      firstName: "",
+      lastName: "",
+      month: "",
+      year: "",
+    },
   });
 
   const {
     register,
+    handleSubmit,
     formState: { isValid, errors },
-    watch,
   } = form;
 
   const onSubmit: SubmitHandler<TPaymentFormSchema> = (data) => {
     console.log(data);
   };
-  console.log(watch());
 
-  console.log(isValid);
   return (
     <>
       <BgSection image="images/background.png">
@@ -37,7 +44,7 @@ const MakePayment = () => {
           <h4 className="text-[#000080] border-b border-[#777] text-left pb-3 pl-5 font-[600]">
             Make Payment
           </h4>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="px-3 my-6">
+          <div className="px-3 my-6">
             <div className="flex items-center gap-2 ml-2 ">
               <input
                 type="radio"
@@ -60,53 +67,69 @@ const MakePayment = () => {
               <img src="/images/maestro.png" alt="" className="w-[50px]" />
               <img src="/images/circus.png" alt="" className="w-[50px]" />
             </div>
-            <div className="flex flex-col gap-3 mt-5">
-              <input
-                type="number"
-                className="border-2 w-full rounded-lg text-[rgba(0,0,0,0.4)] outline-none p-2.5"
-                placeholder="Card Number*"
-                {...register("cardNumber")}
-              />
-              <InputErrorMsg errors={errors} name="cardNumber" />
-              <div className="flex gap-3">
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="flex flex-col gap-3 mt-5"
+              id="payment-form"
+            >
+              <div className="flex flex-col text-left">
                 <input
-                  type="text"
+                  type="number"
                   className="border-2 w-full rounded-lg text-[rgba(0,0,0,0.4)] outline-none p-2.5"
-                  placeholder="MM*"
-                  {...register("month")}
-                />
-                <InputErrorMsg errors={errors} name="cardNumber" />
-                <input
-                  type="text"
-                  className="border-2 w-full rounded-lg text-[rgba(0,0,0,0.4)] outline-none p-2.5"
-                  placeholder="YY*"
-                  {...register("year")}
-                />
-                <InputErrorMsg errors={errors} name="cardNumber" />
-                <input
-                  type="text"
-                  className="border-2 w-full rounded-lg text-[rgba(0,0,0,0.4)] outline-none p-2.5"
-                  placeholder="CVV/CVC*"
-                  {...register("cvc")}
+                  placeholder="Card Number*"
+                  {...register("cardNumber")}
                 />
                 <InputErrorMsg errors={errors} name="cardNumber" />
               </div>
-              <input
-                type="text"
-                className="border-2 w-full rounded-lg text-[rgba(0,0,0,0.4)] outline-none p-2.5"
-                placeholder="First Name"
-                {...register("firstName")}
-              />
-              <InputErrorMsg errors={errors} name="cardNumber" />
-              <input
-                type="text"
-                className="border-2 w-full rounded-lg text-[rgba(0,0,0,0.4)] outline-none p-2.5"
-                placeholder="Last Name"
-                {...register("lastName")}
-              />
-              <InputErrorMsg errors={errors} name="cardNumber" />
-            </div>
-          </form>
+              <div className="flex gap-3 text-left">
+                <div className="flex flex-col">
+                  <input
+                    type="text"
+                    className="border-2 w-full rounded-lg text-[rgba(0,0,0,0.4)] outline-none p-2.5"
+                    placeholder="MM*"
+                    {...register("month")}
+                  />
+                  <InputErrorMsg errors={errors} name="month" />
+                </div>
+                <div className="flex flex-col">
+                  <input
+                    type="text"
+                    className="border-2 w-full rounded-lg text-[rgba(0,0,0,0.4)] outline-none p-2.5"
+                    placeholder="YY*"
+                    {...register("year")}
+                  />
+                  <InputErrorMsg errors={errors} name="year" />
+                </div>
+                <div className="flex flex-col">
+                  <input
+                    type="text"
+                    className="border-2 w-full rounded-lg text-[rgba(0,0,0,0.4)] outline-none p-2.5"
+                    placeholder="CVV/CVC*"
+                    {...register("cvc")}
+                  />
+                  <InputErrorMsg errors={errors} name="cvc" />
+                </div>
+              </div>
+              <div className="flex flex-col text-left">
+                <input
+                  type="text"
+                  className="border-2 w-full rounded-lg text-[rgba(0,0,0,0.4)] outline-none p-2.5"
+                  placeholder="First Name"
+                  {...register("firstName")}
+                />
+                <InputErrorMsg errors={errors} name="firstName" />
+              </div>
+              <div className="flex flex-col text-left">
+                <input
+                  type="text"
+                  className="border-2 w-full rounded-lg text-[rgba(0,0,0,0.4)] outline-none p-2.5"
+                  placeholder="Last Name"
+                  {...register("lastName")}
+                />
+                <InputErrorMsg errors={errors} name="lastName" />
+              </div>
+            </form>
+          </div>
           <div className="flex gap-4 justify-center">
             <Link
               to={"/payment-mode"}
@@ -115,12 +138,13 @@ const MakePayment = () => {
               Back
             </Link>
             <button
+              form="payment-form"
               type="submit"
-              // disabled={!isValid}
-              // onClick={() => navigate("/general-risk")}
+              disabled={!isValid}
+              onClick={() => navigate("/general-risk")}
               className={cn(
-                `py-3 px-4 text-white rounded-lg bg-[#000080] w-[40%]`
-                // !isValid && "opacity-50"
+                `py-3 px-4 text-white rounded-lg bg-[#000080] w-[40%]`,
+                !isValid && "opacity-50"
               )}
             >
               Next

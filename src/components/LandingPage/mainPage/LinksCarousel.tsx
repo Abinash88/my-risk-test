@@ -60,18 +60,18 @@ export default function LinkCarousel() {
       {groups.map((service) => (
         <div
           style={contentStyle}
-          className="h-[25vh] w-full flex justify-center items-center lg:h-[45vh]"
+          className="h-[30vh] w-full flex justify-center items-center lg:h-[45vh]"
         >
           <div
-            className="bg-white h-[25vh] lg:h-[45vh] w-[80%] m-auto flex z-50 transition-all  flex-col items-center justify-center lg:px-11 rounded-[30px]  "
+            className="bg-white h-[30vh] lg:h-[45vh] w-[80%] m-auto flex z-50 transition-all  flex-col items-center justify-center lg:px-11 rounded-[30px]  "
             key={service.id}
           >
             <img
               src={service.image}
               alt={service.image + 12}
-              className="w-16 lg:w-32 mx-auto"
+              className="w-16 md:w-22 lg:w-32 mx-auto"
             />
-            <p className="text-[rgba(0,0,0,0.7)] text-lg md:text-2xl  p-4 text-center mt-5 font-semibold">
+            <p className="text-[rgba(0,0,0,0.7)] md:text-lg lg:text-2xl text-base p-4 text-center mt-5 font-semibold">
               {service.name}
             </p>
           </div>

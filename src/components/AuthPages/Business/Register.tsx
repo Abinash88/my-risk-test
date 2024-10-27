@@ -1,4 +1,4 @@
-import {  useState } from "react";
+import { useState } from "react";
 import { RegContainer } from "@/components/shared/ReuseAble";
 import PageOne from "./PageOne";
 import PageTwo from "./PageTwo";
@@ -7,7 +7,6 @@ import PageFour from "./PageFour";
 import PageThree from "./PageThree";
 
 const BusinessRegister = () => {
-
   const [currentStep, setCurrentStep] = useState(1);
 
   const handleNextStep = () => {
@@ -53,7 +52,7 @@ const BusinessRegister = () => {
             Business Registration
           </h4>
         </div>
-        {renderPage()}
+        <div className="auth_input">{renderPage()}</div>
       </RegContainer>
     </>
   );

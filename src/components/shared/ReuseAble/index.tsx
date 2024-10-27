@@ -94,7 +94,7 @@ interface RegContainerProps {
 
 export const RegContainer = ({ children, bar }: RegContainerProps) => {
   return (
-    <div className="sm-[100%] md:[60%] lg:w-[40%] scale-75 mr-auto ml-auto mt-[-50px]">
+    <div className="w-[90%] md:[60%] lg:w-[35%] scale-90 mx-auto mt-[-50px]">
       <div>{bar}</div>
       <div className="bg-white rounded-lg h-auto p-12">{children}</div>
     </div>

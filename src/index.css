@@ -244,3 +244,12 @@ input[type="number"] {
     transform: translateY(-50%) translateX(-20px) !important;
   }
 }
+
+
+.auth_input input {
+  border-color: #900C3F;
+}
+
+.auth_input label{
+  @apply md:text-base text-sm text-[#900C3F]
+}

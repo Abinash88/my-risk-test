@@ -46,6 +46,7 @@ import ProfessionalRegister from "./components/AuthPages/Professional/Register";
 import EngagementLog from "./components/Dashboard/EngagementLog";
 import GroupSettings from "./components/Dashboard/PrivateGroup/GroupSettings";
 import { AIModel } from "./components/LandingPage/mainPage/home-page-component/select-api-modal";
+import PrivacyPolicy from "./components/LandingPage/mainPage/privacy-policy";
 
 const App = () => {
   return (
@@ -59,6 +60,7 @@ const App = () => {
           <Route path="/integrated-service" element={<IntegratedService />} />
           <Route path="/risk-management" element={<RiskManagement />} />
           <Route path="/home-page" element={<HomePage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Route>
 
         <Route path="/" element={<HomeLayout2 />}>

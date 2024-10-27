@@ -1,6 +1,4 @@
 import Container from "@/components/shared/HomeLayout/container";
-import { integratedService } from "@/lib/const/navigation";
-import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import {
   EffectCoverflow,
@@ -15,7 +13,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const IntegratedService = () => {
   const [swiper, setSwiper] = useState(0);

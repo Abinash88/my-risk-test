@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { navItems } from "../../../lib/const/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -19,6 +19,8 @@ const Header = () => {
     });
   };
 
+  const location = useLocation();
+
   const [prod, setProd] = useState(false);
   const [learn, setlearn] = useState(false);
   const [support, setSupport] = useState(false);
@@ -28,29 +30,39 @@ const Header = () => {
   const navigate = useNavigate();
   const [colorChange, setColorchange] = useState(false);
   const changeNavbarColor = () => {
-    if (window.scrollY >= 600) {
+    if (window.scrollY >= 200) {
       setColorchange(true);
     } else {
       setColorchange(false);
     }
   };
   window.addEventListener("scroll", changeNavbarColor);
+  const isPolicyPage = location?.pathname.endsWith("privacy-policy");
+
   return (
     <div
       className="fixed z-20 ease-in-out duration-300  bg-transparent px-[2rem] lg:px-[4rem] py-[1rem] flex justify-between items-center gap-4 w-full "
-      style={{ backgroundColor: colorChange ? "white" : "transparent" }}
+      style={{
+        backgroundColor: isPolicyPage || colorChange ? "white" : "transparent",
+      }}
     >
-      <div className="flex gap-7 items-center" >
+      <div className="flex gap-7 items-center">
         <div onClick={handleNav} className="block md:hidden">
           <FontAwesomeIcon
             icon={faBars}
             className="text-xl text-white cursor-pointer shadow-lg"
-            style={{ color: colorChange ? "black" : "white" }}
+            style={{ color: isPolicyPage || colorChange ? "black" : "white" }}
           />
         </div>
         <Link to="/">
           <div className="ease-in-out duration-1000 ">
-            {colorChange ? (
+            {isPolicyPage ? (
+              <img
+                src="images/logo-removebg.png"
+                alt="logo"
+                className="w-[9rem] md:w-[11rem]"
+              />
+            ) : colorChange ? (
               <img
                 src="images/logo-removebg.png"
                 alt="logo"
@@ -71,7 +83,9 @@ const Header = () => {
         // style={{ color: colorChange ? "black" : "white" }}
         className=" font-medium hidden md:flex items-start justify-center gap-6 lg:gap-14 flex-[2] "
       >
-        <LoggedMenu color={colorChange ? "white" : "transparent"} />
+        <LoggedMenu
+          color={isPolicyPage || colorChange ? "white" : "transparent"}
+        />
       </div>
 
       <ul

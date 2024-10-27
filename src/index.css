@@ -20,6 +20,10 @@
   animation: slide-right 0.3s forwards;
 }
 
+input {
+  @apply focus:outline-none;
+}
+
 .varela {
   font-family: "Varela Round", sans-serif;
   font-style: normal;
@@ -245,11 +249,10 @@ input[type="number"] {
   }
 }
 
-
 .auth_input input {
-  border-color: #900C3F;
+  border-color: #900c3f;
 }
 
-.auth_input label{
-  @apply md:text-base text-sm text-[#900C3F]
+.auth_input label {
+  @apply md:text-base text-sm text-[#900C3F];
 }

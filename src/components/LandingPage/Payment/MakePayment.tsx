@@ -1,10 +1,34 @@
 import { useState } from "react";
 import { BgSection } from "../../shared/ReuseAble";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import {
+  PaymentFormSchema,
+  TPaymentFormSchema,
+} from "@/lib/schemas/payment-schema";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { cn } from "@/lib/utils";
 
 const MakePayment = () => {
   const [isChecked, setIsChecked] = useState(true);
-  
+  const navigate = useNavigate();
+
+  const form = useForm<TPaymentFormSchema>({
+    resolver: zodResolver(PaymentFormSchema),
+  });
+
+  const {
+    register,
+    formState: { isValid },
+    watch,
+  } = form;
+
+  const onSubmit: SubmitHandler<TPaymentFormSchema> = (data) => {
+    console.log(data);
+  };
+  console.log(watch());
+
+  console.log(isValid);
   return (
     <>
       <BgSection image="images/background.png">
@@ -12,7 +36,7 @@ const MakePayment = () => {
           <h4 className="text-[#000080] border-b border-[#777] text-left pb-3 pl-5 font-[600]">
             Make Payment
           </h4>
-          <div className="px-3 my-6">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="px-3 my-6">
             <div className="flex items-center gap-2 ml-2 ">
               <input
                 type="radio"
@@ -40,36 +64,42 @@ const MakePayment = () => {
                 type="number"
                 className="border-2 w-full rounded-lg text-[rgba(0,0,0,0.4)] outline-none p-2.5"
                 placeholder="Card Number*"
+                {...register("cardNumber")}
               />
               <div className="flex gap-3">
                 <input
                   type="text"
                   className="border-2 w-full rounded-lg text-[rgba(0,0,0,0.4)] outline-none p-2.5"
                   placeholder="MM*"
+                  {...register("month")}
                 />
                 <input
                   type="text"
                   className="border-2 w-full rounded-lg text-[rgba(0,0,0,0.4)] outline-none p-2.5"
                   placeholder="YY*"
+                  {...register("year")}
                 />
                 <input
                   type="text"
                   className="border-2 w-full rounded-lg text-[rgba(0,0,0,0.4)] outline-none p-2.5"
                   placeholder="CVV/CVC*"
+                  {...register("cvc")}
                 />
               </div>
               <input
                 type="text"
                 className="border-2 w-full rounded-lg text-[rgba(0,0,0,0.4)] outline-none p-2.5"
                 placeholder="First Name"
+                {...register("firstName")}
               />
               <input
                 type="text"
                 className="border-2 w-full rounded-lg text-[rgba(0,0,0,0.4)] outline-none p-2.5"
                 placeholder="Last Name"
+                {...register("lastName")}
               />
             </div>
-          </div>
+          </form>
           <div className="flex gap-4 justify-center">
             <Link
               to={"/payment-mode"}
@@ -77,12 +107,17 @@ const MakePayment = () => {
             >
               Back
             </Link>
-            <Link
-              to={"/general-risk"}
-              className="py-3 px-4 text-white rounded-lg bg-[#000080] w-[40%]"
+            <button
+              type="submit"
+              // disabled={!isValid}
+              // onClick={() => navigate("/general-risk")}
+              className={cn(
+                `py-3 px-4 text-white rounded-lg bg-[#000080] w-[40%]`,
+                !isValid && "opacity-50"
+              )}
             >
               Next
-            </Link>
+            </button>
           </div>
         </div>
       </BgSection>

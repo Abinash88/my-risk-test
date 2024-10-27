@@ -8,6 +8,7 @@ import {
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { cn } from "@/lib/utils";
+import InputErrorMsg from "@/components/shared/ReuseAble/input-error-msg";
 
 const MakePayment = () => {
   const [isChecked, setIsChecked] = useState(true);
@@ -19,7 +20,7 @@ const MakePayment = () => {
 
   const {
     register,
-    formState: { isValid },
+    formState: { isValid, errors },
     watch,
   } = form;
 
@@ -66,6 +67,7 @@ const MakePayment = () => {
                 placeholder="Card Number*"
                 {...register("cardNumber")}
               />
+              <InputErrorMsg errors={errors} name="cardNumber" />
               <div className="flex gap-3">
                 <input
                   type="text"
@@ -73,18 +75,21 @@ const MakePayment = () => {
                   placeholder="MM*"
                   {...register("month")}
                 />
+                <InputErrorMsg errors={errors} name="cardNumber" />
                 <input
                   type="text"
                   className="border-2 w-full rounded-lg text-[rgba(0,0,0,0.4)] outline-none p-2.5"
                   placeholder="YY*"
                   {...register("year")}
                 />
+                <InputErrorMsg errors={errors} name="cardNumber" />
                 <input
                   type="text"
                   className="border-2 w-full rounded-lg text-[rgba(0,0,0,0.4)] outline-none p-2.5"
                   placeholder="CVV/CVC*"
                   {...register("cvc")}
                 />
+                <InputErrorMsg errors={errors} name="cardNumber" />
               </div>
               <input
                 type="text"
@@ -92,12 +97,14 @@ const MakePayment = () => {
                 placeholder="First Name"
                 {...register("firstName")}
               />
+              <InputErrorMsg errors={errors} name="cardNumber" />
               <input
                 type="text"
                 className="border-2 w-full rounded-lg text-[rgba(0,0,0,0.4)] outline-none p-2.5"
                 placeholder="Last Name"
                 {...register("lastName")}
               />
+              <InputErrorMsg errors={errors} name="cardNumber" />
             </div>
           </form>
           <div className="flex gap-4 justify-center">
@@ -112,8 +119,8 @@ const MakePayment = () => {
               // disabled={!isValid}
               // onClick={() => navigate("/general-risk")}
               className={cn(
-                `py-3 px-4 text-white rounded-lg bg-[#000080] w-[40%]`,
-                !isValid && "opacity-50"
+                `py-3 px-4 text-white rounded-lg bg-[#000080] w-[40%]`
+                // !isValid && "opacity-50"
               )}
             >
               Next

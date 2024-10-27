@@ -87,7 +87,7 @@ const StandardPkg: React.FC = () => {
     );
   };
   return (
-    <div className="bg-white md:scale-75 md:mt-5 border border-gray-500 shadow-md rounded-lg w-full pb-5">
+    <div className="bg-white scale-90 md:mt-5 border border-gray-500 shadow-md rounded-lg w-full pb-5">
       <div className="w-full bg-[#000080] text-white rounded-t-lg rounded-tr-lg p-3 mb-5">
         <h3 className="font-[600] text-[22px] mb-3">Standard Package</h3>
         <p className="text-[16px]">Built for the basic requirements</p>

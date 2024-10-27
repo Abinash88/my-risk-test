@@ -195,7 +195,7 @@ input[type="number"] {
 }
 
 /* landing page slider css */
-.lucide-arrow-right-to-line {
+#quick_link_carousel .lucide-arrow-right-to-line {
   position: absolute;
   top: 50%;
   width: 40px !important;
@@ -213,7 +213,7 @@ input[type="number"] {
   transition: opacity 0.3s;
 }
 
-.lucide-arrow-left-to-line {
+#quick_link_carousel .lucide-arrow-left-to-line {
   position: absolute;
   top: 50%;
   width: 40px !important;
@@ -229,5 +229,18 @@ input[type="number"] {
   cursor: pointer;
   z-index: 1;
   transition: opacity 0.3s;
+}
 
+@media screen and (max-width: 1000px) {
+  #quick_link_carousel .lucide-arrow-right-to-line {
+    width: 30px !important;
+    height: 30px !important;
+    transform: translateY(-40%) translateX(20px) !important;
+  }
+
+  #quick_link_carousel .lucide-arrow-left-to-line {
+    width: 30px !important;
+    height: 30px !important;
+    transform: translateY(-50%) translateX(-20px) !important;
+  }
 }

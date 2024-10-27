@@ -34,6 +34,8 @@ export default function LinkCarousel() {
       nextArrow={<ArrowRightToLine />}
       style={{ fontSize: "40px" }}
       infinite
+      draggable
+      id="quick_link_carousel"
       responsive={[
         {
           breakpoint: 1024, // Medium screens (tablet and up)

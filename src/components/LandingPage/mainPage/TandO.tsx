@@ -8,6 +8,7 @@ import { Box, Modal } from "@mui/material";
 import { X } from "lucide-react";
 import Continents from "../../shared/continents.json";
 import Countries from "../../shared/countries.json";
+import { cn } from "@/lib/utils";
 
 const TandO = () => {
   const [page, setPage] = useState<"threat" | "opport">("threat");
@@ -30,14 +31,20 @@ const TandO = () => {
     setStuff(0);
   };
   return (
-    <div style={{ backgroundImage: `url('/images/tno.png')`, marginTop: -50, zIndex: 1 }}>
+    <div
+      style={{
+        backgroundImage: `url('/images/tno.png')`,
+        marginTop: -50,
+        zIndex: 1,
+      }}
+    >
       <div
-        className="my-[3rem] scale-90 md:scale-[85%] bg-white pb-20"
+        className="my-[3rem] scale-90 rounded-lg md:scale-[85%] bg-white pb-20"
         // style={{ backgroundImage: `url('/images/tno.png')` }}
       >
         <Container>
           <div className="flex items-center justify-between pt-20 pb-20 mb-5 flex-wrap">
-            <h2 className=" text-3xl font-[700]">Top 15 T & O</h2>
+            <h2 className=" text-2xl md:text-3xl font-[700]">Top 15 T & O</h2>
             <div className="flex flex-row gap-2 mt-4 md:mt-1">
               <button className="bg-[#6666B3] text-white px-9 py-2 rounded-lg text-md">
                 Global
@@ -56,13 +63,19 @@ const TandO = () => {
           <div className="flex items-center justify-between gap-3 mb-6">
             <button
               onClick={() => setPage("threat")}
-              className="w-[48%] bg-[#000080] text-white p-3  rounded-[16px] text-md md:text-[23px]"
+              className={cn(
+                `w-[48%] bg-[#000080] text-white p-3  rounded-[16px] text-md md:text-[23px]`,
+                page === "threat" && "shadow-xl"
+              )}
             >
               Threat
             </button>
             <button
               onClick={() => setPage("opport")}
-              className=" w-[48%] bg-[#1D98F0] text-white p-3 rounded-[16px] text-md md:text-[23px]"
+              className={cn(
+                ` w-[48%] bg-[#1D98F0] text-white p-3 rounded-[16px] text-md md:text-[23px]`,
+                page === "opport" && "shadow-xl"
+              )}
             >
               Opportunity
             </button>

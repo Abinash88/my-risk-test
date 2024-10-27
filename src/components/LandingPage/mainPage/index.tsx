@@ -12,7 +12,7 @@ const LandingPage = () => {
         text="Generate AI Risk Profile. Engage with T & O Standing"
         path="/auth"
       />
-      <div className="bg-white">
+      <div className="bg-white relative z50">
         <ServiceType />
         <TandO />
         <NewsRoom />

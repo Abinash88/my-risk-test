@@ -47,12 +47,12 @@ export const BlogHeader = ({
             setc((x) => !x);
           }}
           style={{ opacity: buttonx }}
-          className="rounded-full hidden md:flex  bg-white md:mt-[50vh] md:ml-24  p-4 cursor-pointer h-fit"
+          className="rounded-full hidden md:flex  bg-white md:mt-[50vh] border md:ml-24  p-4 cursor-pointer h-fit"
         >
           <ArrowLeftToLine className="text-[#000080] scale-105" />
         </div>
         {showLink && (
-          <div className="fixed flex justify-center w-full bottom-0 mb-60 md:mb-40">
+          <div className="fixed flex justify-center w-full bottom-0 -z-10 mb-60 md:mb-40">
             <Link
               style={{ opacity: buttonx }}
               to={path}

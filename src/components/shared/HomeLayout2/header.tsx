@@ -25,15 +25,7 @@ const Header = () => {
     setNav(!nav);
   };
   const navigate = useNavigate();
-  const [colorChange, setColorchange] = useState(false);
-  const changeNavbarColor = () => {
-    if (window.scrollY >= 600) {
-      setColorchange(true);
-    } else {
-      setColorchange(false);
-    }
-  };
-  window.addEventListener("scroll", changeNavbarColor);
+
   return (
     <div
       className="fixed z-20 ease-in-out duration-300  bg-transparent px-[2rem] lg:px-[4rem] py-[1rem] flex justify-between items-center gap-4 w-full "
@@ -253,7 +245,7 @@ const Header = () => {
       </ul>
       <div className="hidden md:block">
         <Link
-          to="/login"
+          to="/auth/login"
           className="bg-[#000080] text-white py-3 px-10 rounded-lg"
         >
           Login

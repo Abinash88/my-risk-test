@@ -62,7 +62,7 @@ const Login = () => {
           </div>
           <button
             type="submit"
-            onClick={() => navigate("/dashboard")}
+            onClick={() => navigate("/home-page ")}
             className="bg-[#000080] text-center text-white rounded-lg py-5 mt-4"
           >
             Login

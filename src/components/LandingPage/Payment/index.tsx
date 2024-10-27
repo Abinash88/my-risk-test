@@ -51,7 +51,7 @@ const PaymentMode = () => {
           </div>
           <div className="flex gap-5 justify-center mt-6">
             <Link
-              to={"/product-subscription"}
+              to={"/ai-model"}
               className="bg-[#000080] text-white px-4 py-2 rounded w-[35%]"
             >
               Back

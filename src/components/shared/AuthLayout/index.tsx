@@ -7,14 +7,13 @@ import AuthImage from "../../../assets/images/auth-image.png";
 const AuthLayout = () => {
   const location = useLocation();
 
-  console.log(location);
   return (
     <>
       <div
         className="relative w-full min-h-screen bg-cover  bg-center"
         style={{ backgroundImage: `url(${AuthImage})` }}
       >
-        <div className="relative z-50 py-10 inset-0 bg-black bg-opacity-70 flex flex-col justify-center   gap- text-white  text-center md:p-6 min-h-screen">
+        <div className="relative z-50 py-10 inset-0 bg-black bg-opacity-70 flex flex-col justify-center   gap-4 text-white  text-center md:p-6 min-h-screen">
           <Authheader />
           {<Outlet />}
           <div className="flex w-full justify-center mt-10 items-center gap-3 scale-90">

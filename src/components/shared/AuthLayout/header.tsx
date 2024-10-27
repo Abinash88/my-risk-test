@@ -29,7 +29,7 @@ const Authheader = ({ children }: HeaderSection) => {
             </p>
             <Link
               to="/auth/login"
-              className="bg-[#000080] lg:mt-0 md:mt-0 mt-4 py-3 px-12 rounded-lg text-white"
+              className="bg-[#000080] hover:bg-[#000080]/80 lg:mt-0 md:mt-0 mt-4 py-3 px-12 rounded-lg text-white"
             >
               Login
             </Link>

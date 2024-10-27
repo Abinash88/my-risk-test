@@ -15,6 +15,7 @@ import {
   faCaretLeft,
   faCaretRight,
 } from "@fortawesome/free-solid-svg-icons";
+import { Carousel } from "antd";
 
 const groups = [
   { id: 1, name: "Engage with T&O", image: "images/Analysis.png" },
@@ -67,6 +68,15 @@ export default function LinkCarousel() {
     setSelectedGroupId(id);
   };
 
+  const contentStyle: React.CSSProperties = {
+    margin: 0,
+    height: "160px",
+    color: "#fff",
+    lineHeight: "160px",
+    textAlign: "center",
+    background: "#364d79",
+  };
+
   return (
     <div className="flex items-center justify-center space-x-4 md:mx-5 w-full md:gap-8">
       {/* Left Arrow */}
@@ -76,25 +86,30 @@ export default function LinkCarousel() {
         className="text-white text-xl md:text-2xl lg:text-3xl hover:cursor-pointer"
       />
       {/* Cards Container */}
-      <div className="flex justify-between gap-4 w-full">
+      <Carousel
+        arrows
+        infinite
+        className="grid grid-cols-2 lg:grid-cols-3  gap-16 w-full"
+      >
         {groups
-          .slice(currentIndex, currentIndex + itemsPerView)
+          // .slice(currentIndex, currentIndex + itemsPerView)
           .map((service) => (
             <div
-              className="bg-white py-11 flex flex-col items-center justify-center lg:px-11 rounded-[30px] w-full lg:w-[37%] lg:h-[50vh]"
+              style={contentStyle}
+              // className="bg-white py-11 flex transition-all flex-col items-center justify-center lg:px-11 rounded-[30px] w-full lg:h-[50vh]"
               key={service.id}
             >
               <img
                 src={service.image}
                 // alt={service.image + 12}
-                className="w-16 lg:w-32 mr-auto ml-auto"
+                className="w-16 lg:w-32 mx-auto"
               />
               <p className="text-[rgba(0,0,0,0.7)] text-sm p-4 text-center mt-5 font-[600]">
                 {service.name}
               </p>
             </div>
           ))}
-      </div>
+      </Carousel>
 
       {/* Right Arrow */}
 

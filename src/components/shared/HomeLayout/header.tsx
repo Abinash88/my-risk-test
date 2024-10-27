@@ -288,7 +288,7 @@ const Header = () => {
       <div className="">
         <Link
           to="/auth/login"
-          className="bg-[#000080] text-white py-3 px-8 md:text-sm text-xs md:px-12 rounded-xl"
+          className="bg-[#000080] hover:bg-[#000080]/80  text-white py-3 px-8 md:text-sm text-xs md:px-12 rounded-xl"
         >
           Login
         </Link>

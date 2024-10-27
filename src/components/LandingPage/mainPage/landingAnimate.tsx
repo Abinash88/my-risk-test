@@ -52,11 +52,11 @@ export const BlogHeader = ({
           <ArrowLeftToLine className="text-[#000080] scale-105" />
         </div>
         {showLink && (
-          <div className="fixed flex justify-center w-full bottom-0 mb-[20vh] md:mb-24">
+          <div className="fixed flex justify-center w-full bottom-0 mb-60 md:mb-40">
             <Link
               style={{ opacity: buttonx }}
               to={path}
-              className="bg-[#000080] relative text-white bottom-0 items-center  py-4 px-10 rounded-lg "
+              className="bg-[#000080] relative text-white bottom-0 items-center  py-4 px-14 rounded-lg "
             >
               Get Started
             </Link>
@@ -77,7 +77,7 @@ export const BlogHeader = ({
         className="fixed -z-10 top-0 w-full ease-in-out duration-500 h-screen bg-cover bg-center"
         style={{ backgroundImage: `url(${c ? Background2 : Background})` }}
       >
-        <div className="absolute -z-10 lg:pt-20 inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center gap-3 text-white text-center p-6">
+        <div className="absolute -z-10 lg:pt-10 inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center  text-white text-center p-6">
           <div className="flex w-full justify-center flex-row">
             <h1
               style={{ opacity: dynamic, lineHeight: "130%" }}
@@ -85,7 +85,7 @@ export const BlogHeader = ({
             >
               {title}
             </h1>
-          </div>
+          </div>  
           <p
             style={{ opacity: dynamic }}
             className="text-[17px] md:text-[18px] font-[400]"

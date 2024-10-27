@@ -42,7 +42,7 @@ const Header = () => {
       <Link to="/">
         <div className="ease-in-out duration-1000 ">
           <img
-              src="images/logo-removebg.png"
+            src="images/logo-removebg.png"
             alt="logo"
             className="w-[10rem] md:w-[12rem]"
           />
@@ -53,13 +53,13 @@ const Header = () => {
         // style={{ color: colorChange ? "black" : "white" }}
         className=" font-medium hidden md:flex items-start justify-center gap-6 lg:gap-14 flex-[2] "
       >
-      <LoggedMenu />
+        <LoggedMenu />
       </div>
       <div onClick={handleNav} className="block md:hidden">
         <FontAwesomeIcon
           icon={faBars}
           className="text-xl text-white shadow-lg"
-          style={{ color: "black"}}
+          style={{ color: "black" }}
         />
       </div>
       <ul
@@ -123,7 +123,7 @@ const Header = () => {
                   }}
                   className="py-2 mr-4 w-[85vw] border hover:bg-[#000080] hover:bg-opacity-80 rounded-2xl shadow-sm px-6 flex flex-row justify-between"
                 >
-                    <div
+                  <div
                     className="tracking-wide text-sm"
                     onClick={() => {
                       // handleNav();

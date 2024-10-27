@@ -1,4 +1,4 @@
-const CookiePolicy = () => {
+const TermsAndConditions = () => {
     return (
       <div className="w-full bg-[#F3F3F3] px-5 md:px-12 pb-20 pt-28 md:pt-32  min-h-[100vh]">
         {/* fixed side button */}
@@ -98,5 +98,5 @@ const CookiePolicy = () => {
     );
   };
   
-  export default CookiePolicy;
+  export default TermsAndConditions;
   

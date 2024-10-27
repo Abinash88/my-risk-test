@@ -39,7 +39,8 @@ const Header = () => {
   window.addEventListener("scroll", changeNavbarColor);
   const isPolicyPage =
     location?.pathname.endsWith("privacy-policy") ||
-    location?.pathname.endsWith("cookie-policy");
+    location?.pathname.endsWith("cookie-policy") ||
+    location?.pathname.endsWith("terms-and-conditions");
 
   return (
     <div

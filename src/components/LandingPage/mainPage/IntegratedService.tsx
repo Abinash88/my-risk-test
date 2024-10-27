@@ -113,41 +113,41 @@ const IntegratedService = () => {
 
       <Container>
         <div className=" flex flex-col gap-16 my-10">
-          <div className="bg-blue-100 rounded-lg md:px-24 md:py-10 md:w-fit md:m-auto md:block">
+          <div className="bg-blue-100 rounded-3xl px-3 sm:px-10 md:px-24 md:py-10 max-w-[700px] w-full md:m-auto md:block">
             <img
               alt="logo"
               src="images/logo.png"
-              className="w-32 py-10 m-auto p-2"
+              className="w-52 py-10 m-auto p-2"
             />
-            <ul className="ml-5 border-b-2 border-2 py-2 space-y-2">
-              <p className="text-green-900 font-bold text-md">
+            <ul className="ml-5 list-disc border-b-2 font-medium border-2 py-2 space-y-2">
+              <p className="text-green-900 font-bold text-lg md:text-xl">
                 Pros for {swiper === 2 && "Claude"}
                 {swiper === 1 && "GPT 4-o"}
                 {swiper === 0 && "Gemini"}
               </p>
-              <li className="font-light text-sm">
-                • Recorded a usage analysis test score of 98% rating
+              <li className=" text-sm">
+                Recorded a usage analysis test score of 98% rating
               </li>
-              <li className="font-light text-sm">
-                • Recorded a usage analysis test score of 98% rating
+              <li className=" text-sm">
+                Recorded a usage analysis test score of 98% rating
               </li>
-              <li className="font-light text-sm">
-                • Recorded a usage analysis test score of 98% rating
+              <li className=" text-sm">
+                Recorded a usage analysis test score of 98% rating
               </li>
             </ul>
-            <div className="border-t my-4 border-gray-600  h-2 w-full" />
-            <ul className="ml-5 py-2 space-y-4 pb-8">
-              <p className="text-yellow-500 font-bold text-md">
+            <div className="border-t my-4  border-gray-600  h-2 w-full" />
+            <ul className="ml-5 py-2  list-disc font-medium space-y-4 pb-8">
+              <p className="text-yellow-500 font-bold text-lg md:text-xl">
                 Cons for {swiper === 0 ? "Claude" : "GPT 4-o"}
               </p>
-              <li className="font-light text-sm">
-                • Much more expensive than other services
+              <li className=" text-sm">
+                Much more expensive than other services
               </li>
-              <li className="font-light text-sm">
-                • Much more expensive than other services
+              <li className=" text-sm">
+                Much more expensive than other services
               </li>
-              <li className="font-light text-sm">
-                • Much more expensive than other services
+              <li className=" text-sm">
+                Much more expensive than other services
               </li>
             </ul>
           </div>

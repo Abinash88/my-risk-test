@@ -7,7 +7,7 @@ const Authheader = () => {
         <img
           src="/images/logo-png-icon.png"
           alt="logo"
-          className="w-[9rem] lg:w-[80px]"
+          className="w-[4rem] lg:w-[80px]"
         />
       </Link>
       <Link to="/">

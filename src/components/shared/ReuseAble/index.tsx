@@ -1,6 +1,7 @@
 import { ReactNode, useState } from "react";
 import { Link } from "react-router-dom";
 import Background from "../../../assets/images/background.png";
+import { cn } from "@/lib/utils";
 
 interface BlogProps {
   title: string;
@@ -90,11 +91,21 @@ export const BgSection = ({ image, children }: BgSectionProps) => {
 interface RegContainerProps {
   children: ReactNode;
   bar?: ReactNode;
+  className?: string;
 }
 
-export const RegContainer = ({ children, bar }: RegContainerProps) => {
+export const RegContainer = ({
+  children,
+  bar,
+  className,
+}: RegContainerProps) => {
   return (
-    <div className="w-[90%] md:[60%] lg:w-[35%] scale-90 mx-auto mt-[-50px]">
+    <div
+      className={cn(
+        `w-[90%] md:[60%] lg:w-[35%] scale-90 mx-auto mt-[-50px]`,
+        className
+      )}
+    >
       <div>{bar}</div>
       <div className="bg-white rounded-lg h-auto p-12">{children}</div>
     </div>

@@ -24,9 +24,8 @@ import PaymentMode from "./components/LandingPage/Payment";
 import GeneralRisk from "./components/LandingPage/GeneralRisk";
 import RiskProfile from "./components/LandingPage/RiskProfile";
 import HomePage, {
-  AIModel,
   GenerateDownload,
-} from "./components/LandingPage/mainPage/HomePage";
+} from "./components/LandingPage/mainPage/home-page-component/HomePage";
 import OurService from "./components/LandingPage/mainPage/OurService";
 import OurPremium from "./components/LandingPage/mainPage/OurPremium";
 import RiskManagement from "./components/LandingPage/mainPage/RiskManagement";
@@ -46,6 +45,7 @@ import BusinessRegister from "./components/AuthPages/Business/Register";
 import ProfessionalRegister from "./components/AuthPages/Professional/Register";
 import EngagementLog from "./components/Dashboard/EngagementLog";
 import GroupSettings from "./components/Dashboard/PrivateGroup/GroupSettings";
+import { AIModel } from "./components/LandingPage/mainPage/home-page-component/select-api-modal";
 
 const App = () => {
   return (
@@ -60,6 +60,7 @@ const App = () => {
           <Route path="/risk-management" element={<RiskManagement />} />
           <Route path="/home-page" element={<HomePage />} />
         </Route>
+
         <Route path="/" element={<HomeLayout2 />}>
           <Route path="/testing" element={<CommentsSection />} />
           <Route path="/testing2" element={<StepsSection />} />
@@ -71,13 +72,15 @@ const App = () => {
           <Route path="/generate-download" element={<GenerateDownload />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:blogcontent" element={<BlogContent />} />
-          <Route path="/make-payment" element={<PaymentMode />} />
+          <Route path="/make-payment" element={<MakePayment />} /> {/* done */}
+          <Route path="/payment-mode" element={<PaymentMode />} />
+          {/* done */}
           <Route path="/upload" element={<Upload />} />
-          <Route path="/payment-mode" element={<MakePayment />} />
           <Route path="/general-risk" element={<GeneralRisk />} />
           <Route path="/risk-profile" element={<RiskProfile />} />
           <Route path="/map" element={<Map />} />
         </Route>
+
         <Route path="/auth" element={<AuthLayout />}>
           <Route index={true} element={<Auth />} />
           <Route path="business" element={<BusinessRegister />} />
@@ -85,6 +88,7 @@ const App = () => {
           <Route path="login" element={<Login />} />
           <Route path="forgot-password" element={<PasswordResetPage />} />
         </Route>
+
         <Route path="/dashboard" element={<LoggedLayout />}>
           <Route path="account-profile" element={<AccountProfile />} />
           <Route path="manage-risk" element={<ManageRisk />} />
@@ -109,6 +113,7 @@ const App = () => {
           <Route path="general-setting/:edit-team" element={<EditTeam />} />
           <Route path="verification" element={<Verification />} />
         </Route>
+
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </Router>

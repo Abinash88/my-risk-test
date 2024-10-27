@@ -47,6 +47,7 @@ import EngagementLog from "./components/Dashboard/EngagementLog";
 import GroupSettings from "./components/Dashboard/PrivateGroup/GroupSettings";
 import { AIModel } from "./components/LandingPage/mainPage/home-page-component/select-api-modal";
 import PrivacyPolicy from "./components/LandingPage/mainPage/privacy-policy";
+import CookiePolicy from "./components/LandingPage/mainPage/cookie-policy";
 
 const App = () => {
   return (
@@ -61,6 +62,8 @@ const App = () => {
           <Route path="/risk-management" element={<RiskManagement />} />
           <Route path="/home-page" element={<HomePage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/cookie-policy" element={<CookiePolicy />} />
+          <Route path="/terms-and" element={<CookiePolicy />} />
         </Route>
 
         <Route path="/" element={<HomeLayout2 />}>

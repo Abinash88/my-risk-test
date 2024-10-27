@@ -71,7 +71,6 @@
   accent-color: #000080;
 }
 
-
 .transition-transform {
   transition: transform 0.3s ease, z-index 0s 0.3s;
 }
@@ -116,9 +115,7 @@ input[type="number"] {
   .swiper-slide {
     /* width: 50vw !important */
   }
-
 }
-
 
 .swiper-slide-shadow-left,
 .swiper-slide-shadow-right {
@@ -180,7 +177,7 @@ input[type="number"] {
 }
 
 .slider-controler .slider-arrow::after {
-  content: '';
+  content: "";
 }
 
 .swiper-pagination {
@@ -190,9 +187,47 @@ input[type="number"] {
 }
 
 .swiper-pagination .swiper-pagination-bullet {
-  filter: drop-shadow(0px 8px 24px rgba(255,255,255,1));
+  filter: drop-shadow(0px 8px 24px rgba(255, 255, 255, 1));
 }
 
 .swiper-pagination .swiper-pagination-bullet-active {
   background: #000080;
+}
+
+/* landing page slider css */
+.lucide-arrow-right-to-line {
+  position: absolute;
+  top: 50%;
+  width: 40px !important;
+  height: 40px !important;
+  transform: translateY(-40%) translateX(50px) !important;
+  color: #fff;
+  opacity: 0.4;
+  background: transparent;
+  padding: 0;
+  line-height: 0;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  z-index: 1;
+  transition: opacity 0.3s;
+}
+
+.lucide-arrow-left-to-line {
+  position: absolute;
+  top: 50%;
+  width: 40px !important;
+  height: 40px !important;
+  transform: translateY(-50%) translateX(-50px) !important;
+  color: #fff;
+  opacity: 0.4;
+  background: transparent;
+  padding: 0;
+  line-height: 0;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  z-index: 1;
+  transition: opacity 0.3s;
+
 }

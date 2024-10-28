@@ -5,13 +5,23 @@ import * as React from "react";
 
 export type OptionsType = { label: string; value: string };
 
-export type SelectType = {
-  options: OptionsType[];
-  value?: string;
-  className?: string;
-  label?: string;
-  containerClass?: string;
-};
+export type SelectType =
+  | {
+      options: OptionsType[];
+      value?: string;
+      className?: string;
+      label?: string;
+      containerClass?: string;
+      Component?: React.ReactElement;
+    }
+  | {
+      options?: OptionsType[];
+      value?: string;
+      className?: string;
+      label?: string;
+      containerClass?: string;
+      Component: React.ReactElement;
+    };
 
 export default function SelectComp({
   options,
@@ -19,6 +29,7 @@ export default function SelectComp({
   className,
   label,
   containerClass,
+  Component,
 }: SelectType) {
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(
     null
@@ -41,7 +52,7 @@ export default function SelectComp({
   const id = open ? "simple-popover" : undefined;
 
   return (
-    <div className={cn(`relative `, containerClass)}>
+    <div className={cn(`relative`, containerClass)}>
       <button
         onClick={handleClick}
         className={cn(
@@ -62,25 +73,31 @@ export default function SelectComp({
           horizontal: "left",
         }}
         className=" "
+        style={{ borderRadius: "20%" }}
       >
-        <h3 className="px-3 py-2 text-[#000080] text-center">Filter By</h3>
-        <hr />
-        <div className="w-full flex flex-col   py-3  min-w-xl min-h-[100px]">
-          {options?.map((item) => (
-            <button
-              className={cn(
-                select === item?.value && "bg-gray-100 ",
-                "md:px-10 px-7  py-1 hover:bg-gray-100 text-left"
-              )}
-              key={item.label}
-              onClick={() => {
-                setSelect(select ? undefined : item?.value);
-              }}
-            >
-              {item?.label}
-            </button>
-          ))}
-        </div>
+        {!Component && (
+          <h3 className="px-3 py-2 text-[#000080] text-center">Filter By</h3>
+        )}
+        {!Component && <hr />}
+        {!Component && (
+          <div className="w-full flex flex-col   py-3  min-w-xl min-h-[100px]">
+            {options?.map((item) => (
+              <button
+                className={cn(
+                  select === item?.value && "bg-gray-100 ",
+                  "md:px-10 px-7  py-1.5 hover:bg-gray-100 text-left"
+                )}
+                key={item.label}
+                onClick={() => {
+                  setSelect(select ? undefined : item?.value);
+                }}
+              >
+                {item?.label}
+              </button>
+            ))}
+          </div>
+        )}
+        {Component && Component}
       </Popover>
     </div>
   );

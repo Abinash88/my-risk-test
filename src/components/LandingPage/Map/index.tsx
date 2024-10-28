@@ -3,6 +3,7 @@ import SelectComp from "@/components/shared/ReuseAble/select";
 import SectorSlider from "./sector-slider";
 import MainMap from "./main-map";
 import TableData from "./table-data";
+import { useState } from "react";
 
 const FilterByLastMonth = [
   {
@@ -43,12 +44,21 @@ const RisksStatus = [
 ];
 
 const Map = () => {
+  const [status, setStatus] = useState(false);
   return (
-    <div className="pt-20  md:pt-32 mb-20">
+    <div className="pt-20  z-50 md:pt-32 mb-20">
       <SectorSlider />
       <div className="h-2" />
-      <div className=" h-[70vh]  border w-full relative">
-        <div className=" z-10  md:flex hidden absolute top-5 flex-row m-auto gap-3 w-full md:justify-center ">
+      <div className=" h-[70vh]   border w-full relative">
+        <button
+          onClick={() => {
+            setStatus(!status);
+          }}
+          className="rounded-full -left-[43px] bg-blue-600 absolute z-10 rotate-[-90deg] text-white top-1/2 text-xs block md:hidden w-28 p-2"
+        >
+          {status ? "Show Status" : "Hide Status"}
+        </button>
+        <div className=" z-10  md:flex hidden absolute top-5 flex-row m-auto gap-3 right-1/3 ">
           <SelectComp
             label="Last Month"
             className="border border-white/50 shadow-lg "

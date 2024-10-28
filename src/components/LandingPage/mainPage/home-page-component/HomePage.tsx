@@ -25,7 +25,6 @@ const HomePage = () => {
         return <MakePayment />;
       case "upload":
         return <Upload />;
-
       default:
         return <ChooseServices />;
     }

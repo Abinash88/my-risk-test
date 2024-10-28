@@ -1,5 +1,6 @@
 import { BgSection } from "@/components/shared/ReuseAble";
 import HandleParams from "@/lib/hooks/handle-params";
+import { Link } from "react-router-dom";
 
 const ChooseServices = () => {
   const { handlePageChange } = HandleParams();
@@ -22,10 +23,7 @@ const ChooseServices = () => {
             AI Powered Risk Profile
           </h3>
         </button>
-        <button
-          onClick={() => {
-            // handlePageChange({ next: "" });
-          }}
+        <Link to={'/map'}
           className="bg-white  px-6 py-8 rounded-2xl text-black w-full "
         >
           <img
@@ -36,7 +34,7 @@ const ChooseServices = () => {
           <h3 className="font-[600] text-xl md:text-3xl">
             Engage with T & O Standing
           </h3>
-        </button>
+        </Link>
 
         <button
           onClick={() => {

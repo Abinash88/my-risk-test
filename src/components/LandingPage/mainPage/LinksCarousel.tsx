@@ -59,6 +59,7 @@ export default function LinkCarousel() {
     >
       {groups.map((service) => (
         <div
+          key={service.id}
           style={contentStyle}
           className="h-[30vh] w-full flex justify-center items-center lg:h-[45vh]"
         >

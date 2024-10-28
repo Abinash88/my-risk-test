@@ -28,7 +28,7 @@ const Header = () => {
 
   return (
     <div
-      className="fixed z-20 ease-in-out duration-300  bg-transparent px-[2rem] lg:px-[4rem] py-[1rem] flex justify-between items-center gap-4 w-full "
+      className="fixed z-20 ease-in-out duration-300  bg-transparent z-50 px-[2rem] lg:px-[4rem] py-[1rem] flex justify-between items-center gap-4 w-full "
       style={{ backgroundColor: "white" }}
     >
       <Link to="/">
@@ -85,7 +85,7 @@ const Header = () => {
 
         <div className="flex gap-3 flex-col mt-6">
           {navItems.map((item) => (
-            <div>
+            <div key={item?.id}>
               <li
                 key={item.id}
                 className=" w-[100vw]  flex items-center justify-center  py-2 px-4 ease-in-out duration-300 hover:text-white"

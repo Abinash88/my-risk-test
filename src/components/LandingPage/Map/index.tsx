@@ -1,19 +1,20 @@
-import Container from "@/components/shared/HomeLayout/container";
-import { useState } from "react";
-import PublicStanding from "./PublicStanding";
-import PrivateStanding from "./PrivateStanding";
-import RiskTable from "../mainPage/RiskTable";
 import { Box, Modal } from "@mui/material";
-import { GroupImages } from "../../../lib/fakedata";
 import { X } from "lucide-react";
+import { useState } from "react";
+import { GroupImages } from "../../../lib/fakedata";
+import PrivateStanding from "./PrivateStanding";
+import PublicStanding from "./PublicStanding";
 
+import SelectComp from "@/components/shared/ReuseAble/select";
 import Continents from "../../shared/continents.json";
 import Countries from "../../shared/countries.json";
+import SectorSlider from "./sector-slider";
+import MainMap from "./main-map";
 
 const Map = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [sel, setSel] = useState("");
-  const [countryx, setCountry] = useState("");
+  const [country, setCountry] = useState("");
   const [stuff, setStuff] = useState(0);
   const style = {
     position: "absolute",
@@ -30,111 +31,92 @@ const Map = () => {
     setStuff(0);
   };
   const [page, setPage] = useState<"private" | "public">("public");
-  const [section, setSection] = useState("1");
 
-  const sections = ["1", "2", "3", "4", "5", "6"];
+  const FilterByLastMonth = [
+    {
+      label: "Past 24hrs",
+      value: "Past 24hrs",
+    },
+    {
+      label: "Past 48hrs",
+      value: "Past 48hrs",
+    },
+    {
+      label: "Past week",
+      value: "Past week",
+    },
+    {
+      label: "Past 24hrs",
+      value: "Past 24hrs",
+    },
+  ];
+
+  const RisksStatus = [
+    {
+      label: "All Risks",
+      value: "All Risks",
+    },
+    {
+      label: "Open Risks",
+      value: "Open Risks",
+    },
+    {
+      label: "Closed Risks",
+      value: "Closed Risks",
+    },
+    {
+      label: "Deleted Risks",
+      value: "Deleted Risks",
+    },
+  ];
 
   return (
-    <div className="pt-20 md:pt-32 mb-20">
-      <div className="overflow-x-auto ml-8">
-        <div className="flex gap-3 mb-6 flex-wrap md:flex-nowrap md:min-w-max">
-          {sections.map((sec) => (
-            <button
-              key={sec}
-              onClick={() => setSection(sec)}
-              className={`py-2 rounded-md shadow-md md:w-[23%] w-fit flex flex-wrap gap-4 items-center justify-center p-4 font-[600] ${
-                section === sec
-                  ? "bg-[#000080] text-white"
-                  : "bg-white text-[rgba(0,0,0,0.7)]"
-              }`}
-            >
-              {sec === "1" ? "Main Sector" : "Sector " + sec}
-              {sec !== "1" && section !== sec && (
-                <X className="bg-blue-700 rounded-full scale-75 text-white" />
-              )}
-            </button>
-          ))}
-        </div>
-        <div className="flex flex-row m-auto w-full md:justify-center ">
-          <select
-            name="filter"
-            id="filter"
-            disabled
-            onClick={() => setIsOpen(true)}
-            className={`
-              flex border text-white py-3 my-4 px-6 rounded-lg  outline-none bg-blue-600  
-          `}
-          >
-            <option value="Filter by">Last Month</option>
-            {/* <option value="Region">Region</option>
-          <option value="Country">Country</option> */}
-          </select>
-          <select
-            name="filter"
-            id="filter"
-            disabled
-            onClick={() => setIsOpen(true)}
-            className={`
-              flex border text-white py-3 my-4 px-6 rounded-lg  outline-none bg-blue-600  
-          `}
-          >
-            <option value="Filter by">Open Risk</option>
-            {/* <option value="Region">Region</option>
-          <option value="Country">Country</option> */}
-          </select>
-        </div>
-      </div>
-      <Container>
-        {/* <div className="h-[70vh]"/> */}
-        <div className=" h-[70vh]">
-          <div className="absolute z-10">
-            <div className="flex flex-row gap-2">
-              <div>
-                <div className="bg-white text-center mt-1 border-2 rounded-lg border-purple-500 p-4 text-xs font-bold text-purple-900 z-10">
-                  Total Risk <br />
-                  999
-                </div>
-                <div className="text-white  border-2 text-center rounded-lg border-purple-500 p-2 text-xs font-bold bg-purple-900">
-                  All
-                </div>
-              </div>
-              <div className="flex md:flex-col md:w-[70vw] md:items-end flex-row gap-2">
-                <div>
-                  <div className="md:flex flex-nowrap text-white mt-1 w-28 border-2 text-center rounded-lg p-1 border-purple-500 text-xs  bg-purple-900">
-                    Total User Risk <br />
-                    999
-                  </div>
-                  <div className=" md:flex text-white mt-1 w-28 border-2 text-center rounded-lg border-purple-500 p-1 text-xs  bg-green-900">
-                    Total User Comment <br />
-                    999
-                  </div>
-                </div>
-                <div>
-                  <div className="md:flex flex-nowrap text-white mt-1 w-28 border-2 text-center rounded-lg p-1 border-purple-500 text-xs  bg-blue-900">
-                    Total User Likes <br />
-                    999
-                  </div>
-                  <div className=" md:flex text-white mt-1 w-28 border-2 text-center rounded-lg border-purple-500 p-1 text-xs  bg-red-900">
-                    Total User Dislikes <br />
-                    999
-                  </div>
-                </div>
-              </div>
+    <div className="pt-20 w-full md:pt-32 mb-20">
+      <SectorSlider />
+      <div className="h-2" />
+      <div className="w-full ">
+        <div className=" h-[70vh] border w-full relative">
+          <div className="flex z-10  absolute top-5 flex-row m-auto gap-3 w-full md:justify-center ">
+            <SelectComp
+              label="Last Month"
+              className="border border-white/50 shadow-lg "
+              options={FilterByLastMonth}
+            />
+            <SelectComp
+              label="Open Risks"
+              className="border border-white/50 shadow-lg "
+              options={RisksStatus}
+            />
+          </div>
+          <div className="absolute z-10 top-5 space-y-2 left-12">
+            <div className="bg-white text-center mt-1 border-2 rounded-lg border-purple-500 px-6 py-4 text-lg font-bold text-purple-900 z-10">
+              Total Risk <br />
+              999
+            </div>
+            <div className="text-white  border-2 text-center rounded-lg border-purple-500 p-2 text-xs md:text-sm font-bold bg-purple-900">
+              All
             </div>
           </div>
-          <iframe
-            src="https://www.google.com/maps/embed/v1/place?q=uk&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
-            style={{
-              border: "0",
-              width: "86vw",
-              height: "70vh",
-              position: "absolute",
-              zIndex: 1,
-            }}
-            loading="lazy"
-            title="location"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
+          <div className="flex absolute z-10 right-10 top-5 flex-col gap-2">
+            <div className="w-[150px] flex flex-col gap-1 bg-[#6666B3] text-white py-3 px-2 rounded-xl text-center md:text-sm text-xs border border-white/70 ">
+              <span>Total User Risk</span>
+              <span className="md:text-lg font-semibold">999</span>
+            </div>
+            <div className="w-[150px] flex flex-col gap-1 bg-[#6666B3] text-white py-3 px-2 rounded-xl text-center md:text-sm text-xs border border-white/70 ">
+              <span>Total User Comment</span>
+              <span className="md:text-lg font-semibold">999</span>
+            </div>
+            <div className="w-[150px] flex flex-col gap-1 bg-[#6666B3] text-white py-3 px-2 rounded-xl text-center md:text-sm text-xs border border-white/70 ">
+              <span>Total User Likes</span>
+              <span className="md:text-lg font-semibold">999</span>
+            </div>
+            <div className="w-[150px] flex flex-col gap-1 bg-[#6666B3] text-white py-3 px-2 rounded-xl text-center md:text-sm text-xs border border-white/70 ">
+              <span>Total User Dislikes</span>
+              <span className="md:text-lg font-semibold">999</span>
+            </div>
+          </div>
+
+          <MainMap />
         </div>
         <div className="flex md:gap-3 justify-evenly items-center md:flex-wrap py-4">
           <button
@@ -228,6 +210,7 @@ const Map = () => {
                 >
                   {Continents.map((x) => (
                     <p
+                      key={x.continent_code}
                       className={`text-md font-bold mt-2 opacity-80 ml-3 ${
                         !sel ? "md:ml-3" : "md:ml-6"
                       } text-nowrap ${
@@ -266,7 +249,7 @@ const Map = () => {
         </Modal>
         {page === "public" && <PublicStanding />}
         {page === "private" && <PrivateStanding />}
-      </Container>
+      </div>
     </div>
   );
 };

@@ -31,7 +31,13 @@ const Rating = [
   },
 ];
 
-const View = ({ onNext }: { onNext: () => void }) => {
+const View = ({
+  onNext,
+  handleStepClick,
+}: {
+  onNext: () => void;
+  handleStepClick: (id: number) => void;
+}) => {
   const [select, setSelect] = useState<{
     rating: string | undefined;
     mitagation: string | undefined;
@@ -90,11 +96,10 @@ const View = ({ onNext }: { onNext: () => void }) => {
       </p>
       <div className="flex gap-3 w-full justify-center mt-3">
         <button
-          disabled={!isDisable}
-          className={cn(
-            `text-white p-3 rounded-lg bg-[#000080] w-[40%]`,
-            !isDisable && "opacity-50"
-          )}
+          onClick={() => {
+            handleStepClick(2);
+          }}
+          className={cn(`text-white p-3 rounded-lg bg-[#000080] w-[40%]`)}
         >
           Previous
         </button>

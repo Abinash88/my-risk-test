@@ -1,7 +1,7 @@
 import { BgSection } from "@/components/shared/ReuseAble";
+import HandleParams from "@/lib/hooks/handle-params";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 type AiModalType = {
   id: number;
@@ -44,7 +44,7 @@ const aiModalData: AiModalType[] = [
 
 export const AIModel = () => {
   const [selectAiModal, setSelectAiModal] = useState("");
-  const navigate = useNavigate();
+  const { handlePageChange, getP } = HandleParams();
   return (
     <BgSection image="/images/background.png">
       <div className="bg-white rounded-lg w-full md:w-[50%]">
@@ -84,13 +84,22 @@ export const AIModel = () => {
         </div>
         <div className="w-full flex gap-4 justify-between p-6">
           <button
-            onClick={() => navigate(-1)}
+            onClick={() => {
+              const prev = getP("previous");
+              if (prev)
+                handlePageChange({
+                  next: prev,
+                  previous: "generate-download",
+                });
+            }}
             className="text-white bg-[#000080] p-3 rounded-lg w-[50%]"
           >
             Back
           </button>
           <button
-            onClick={() => navigate("/payment-mode")}
+            onClick={() => {
+              handlePageChange({ next: "payment-mode", previous: "ai-modal" });
+            }}
             disabled={!selectAiModal}
             className={cn(
               `text-white bg-[#000080] p-3 rounded-lg w-[50%] border `,

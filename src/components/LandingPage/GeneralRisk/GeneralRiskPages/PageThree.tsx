@@ -1,7 +1,13 @@
 import { useState } from "react";
 import View from "../View";
 
-const PageThree = ({ onNext }: { onNext: () => void }) => {
+const PageThree = ({
+  onNext,
+  handleStepClick,
+}: {
+  onNext: () => void;
+  handleStepClick: (id: number) => void;
+}) => {
   const [page, setPage] = useState<"generate" | "view">("generate");
   return (
     <>
@@ -29,7 +35,9 @@ const PageThree = ({ onNext }: { onNext: () => void }) => {
       </div>
       <div className="mt-4">
         <div className="bg-white text-black rounded-lg py-4  px-5 flex flex-col gap-3 items-start">
-          {page === "generate" && <View onNext={onNext} />}
+          {page === "generate" && (
+            <View handleStepClick={handleStepClick} onNext={onNext} />
+          )}
           {page === "view" && <div>What to view????</div>}
         </div>
       </div>

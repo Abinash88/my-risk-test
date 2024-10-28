@@ -1,6 +1,12 @@
 import { DatePicker } from "antd";
 
-const GenerateRisk2 = ({ onNext }: { onNext: () => void }) => {
+const GenerateRisk2 = ({
+  onNext,
+  handleStepClick,
+}: {
+  onNext: () => void;
+  handleStepClick: (id: number) => void;
+}) => {
   const startDate = () => {};
 
   return (
@@ -34,7 +40,7 @@ const GenerateRisk2 = ({ onNext }: { onNext: () => void }) => {
         <div className="flex items-center justify-between gap-2 mt-9">
           <button
             className="py-3 px-6 text-white rounded-lg bg-[#000080]"
-            onClick={() => onNext()}
+            onClick={() => handleStepClick(1)}
           >
             Previous
           </button>

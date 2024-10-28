@@ -1,7 +1,7 @@
-import { useNavigate } from "react-router-dom";
-import { BgSection } from "../../shared/ReuseAble";
-import { useState } from "react";
+import HandleParams from "@/lib/hooks/handle-params";
 import { cn } from "@/lib/utils";
+import { useState } from "react";
+import { BgSection } from "../../shared/ReuseAble";
 
 const PayLogo = [
   {
@@ -43,7 +43,8 @@ const PayLogo = [
 ];
 const PaymentMode = () => {
   const [selectPayment, setSelectPayment] = useState<number | undefined>();
-  const navigate = useNavigate();
+  const { handlePageChange, getP } = HandleParams();
+
   return (
     <>
       <BgSection image="images/background.png">
@@ -75,7 +76,15 @@ const PaymentMode = () => {
           </div>
           <div className="flex gap-5 justify-center mt-6">
             <button
-              onClick={() => navigate("/ai-model")}
+              onClick={() => {
+                const prev = getP("previous");
+                if (prev) {
+                  handlePageChange({
+                    next: prev,
+                    previous: "generate-download",
+                  });
+                }
+              }}
               aria-disabled={true}
               className="bg-[#000080] text-white px-4 py-2 rounded w-[35%]"
             >
@@ -83,7 +92,12 @@ const PaymentMode = () => {
             </button>
             <button
               disabled={!selectPayment}
-              onClick={() => navigate("/make-payment")}
+              onClick={() => {
+                handlePageChange({
+                  next: "make-payment",
+                  previous: "payment-mode",
+                });
+              }}
               className={cn(
                 `bg-[#000080] w-[35%] text-white px-4 py-2 rounded`,
                 !selectPayment && "opacity-50"

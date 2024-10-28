@@ -1,7 +1,13 @@
 import { useState } from "react";
 import GenerateRisk2 from "../GenerateRisk2";
 
-const PageTwo = ({ onNext }: { onNext: () => void }) => {
+const PageTwo = ({
+  onNext,
+  handleStepClick,
+}: {
+  onNext: () => void;
+  handleStepClick: (id: number) => void;
+}) => {
   const [page, setPage] = useState<"generate" | "view">("generate");
   return (
     <>
@@ -29,7 +35,7 @@ const PageTwo = ({ onNext }: { onNext: () => void }) => {
       </div>
       <div className="mt-4">
         <div className="bg-white text-black rounded-lg py-4  px-5 flex flex-col gap-3 items-start">
-          {page === "generate" && <GenerateRisk2 onNext={onNext} />}
+          {page === "generate" && <GenerateRisk2 handleStepClick={handleStepClick} onNext={onNext} />}
           {page === "view" && <div>What to view????</div>}
         </div>
       </div>

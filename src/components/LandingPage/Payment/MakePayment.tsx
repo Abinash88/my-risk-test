@@ -1,18 +1,17 @@
-import { useState } from "react";
-import { BgSection } from "../../shared/ReuseAble";
-import { Link, useNavigate } from "react-router-dom";
+import InputErrorMsg from "@/components/shared/ReuseAble/input-error-msg";
+import HandleParams from "@/lib/hooks/handle-params";
 import {
   PaymentFormSchema,
   TPaymentFormSchema,
 } from "@/lib/schemas/payment-schema";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { cn } from "@/lib/utils";
-import InputErrorMsg from "@/components/shared/ReuseAble/input-error-msg";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { BgSection } from "../../shared/ReuseAble";
 
 const MakePayment = () => {
   const [isChecked, setIsChecked] = useState(true);
-  const navigate = useNavigate();
 
   const form = useForm<TPaymentFormSchema>({
     resolver: zodResolver(PaymentFormSchema),
@@ -33,6 +32,7 @@ const MakePayment = () => {
     formState: { isValid, errors },
   } = form;
 
+  const { handlePageChange, getP } = HandleParams();
   const onSubmit: SubmitHandler<TPaymentFormSchema> = (data) => {
     console.log(data);
   };
@@ -40,7 +40,7 @@ const MakePayment = () => {
   return (
     <>
       <BgSection image="images/background.png">
-        <div className="bg-white rounded-lg w-full md:w-[35%] mr-auto ml-auto py-6">
+        <div className="bg-white rounded-lg w-full md:w-[60%] lg:w-[40%] mr-auto ml-auto py-6">
           <h4 className="text-[#000080] border-b border-[#777] text-left pb-3 pl-5 font-[600]">
             Make Payment
           </h4>
@@ -131,17 +131,29 @@ const MakePayment = () => {
             </form>
           </div>
           <div className="flex gap-4 justify-center">
-            <Link
-              to={"/payment-mode"}
+            <button
+              onClick={() => {
+                const prev = getP("previous");
+                if (prev)
+                  handlePageChange({
+                    next: prev,
+                    previous: "ai-modal",
+                  });
+              }}
               className="py-3 px-4 text-white rounded-lg bg-[#000080] w-[40%]"
             >
               Back
-            </Link>
+            </button>
             <button
               form="payment-form"
               type="submit"
               disabled={!isValid}
-              onClick={() => navigate("/general-risk")}
+              onClick={() => {
+                handlePageChange({
+                  next: "general-risk",
+                  previous: "make-payment",
+                });
+              }}
               className={cn(
                 `py-3 px-4 text-white rounded-lg bg-[#000080] w-[40%]`,
                 !isValid && "opacity-50"

@@ -1,56 +1,37 @@
-import { BgSection } from "@/components/shared/ReuseAble";
+import HandleParams from "@/lib/hooks/handle-params";
 
-import { Link } from "react-router-dom";
+import GeneralRisk from "../../GeneralRisk";
+import PaymentMode from "../../Payment";
+import MakePayment from "../../Payment/MakePayment";
+import { Upload } from "../Upload";
+import ChooseServices from "./choose-service";
+import { GenerateDownload } from "./generate-download";
+import { AIModel } from "./select-api-modal";
 
 const HomePage = () => {
-  return (
-    <BgSection image="/images/background.png">
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-12  md:py-0 py-20">
-        <Link
-          to={"/generate-download"}
-          className="bg-white  px-6 py-8 rounded-2xl text-black w-full "
-        >
-          <img
-            src="/images/Engage.png"
-            alt="Ai-Powered-Risk"
-            className="md:w-[30%] w-[40%] mr-auto ml-auto"
-          />
-          <h3 className="font-[600] text-xl md:text-3xl">
-            AI Powered Risk Profile
-          </h3>
-        </Link>
-        <Link
-          to={"/ai-model"}
-          className="bg-white  px-6 py-8 rounded-2xl text-black w-full "
-        >
-          <img
-            src="/images/mechanical.png"
-            alt="Mechanical"
-            className="w-[30%] mr-auto ml-auto"
-          />
-          <h3 className="font-[600] text-xl md:text-3xl">
-            Engage with T & O Standing
-          </h3>
-        </Link>
+  const { getP } = HandleParams();
 
-        <Link
-          to={"/ai-model"}
-          className="bg-white  px-6 py-8 rounded-2xl text-black w-full "
-        >
-          <img
-            src="/images/magic-pencil.png"
-            alt="Mechanical"
-            className="w-[30%] mr-auto ml-auto"
-          />
-          <h3 className="font-[600] text-xl md:text-3xl">
-            View Generated Risks
-          </h3>
-        </Link>
-      </div>
-    </BgSection>
-  );
+  const chooseServices = () => {
+    switch (getP("page")) {
+      case "generate-download":
+        return <GenerateDownload />;
+      case "ai-modal":
+        return <AIModel />;
+      case "payment-mode":
+        return <PaymentMode />;
+      case "general-risk":
+        return <GeneralRisk />;
+      case "make-payment":
+        return <MakePayment />;
+      case "upload":
+        return <Upload />;
+
+      default:
+        return <ChooseServices />;
+    }
+  };
+
+  return <div className="">{chooseServices()}</div>;
 };
 
 export default HomePage;
-
-

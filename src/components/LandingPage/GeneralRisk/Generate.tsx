@@ -5,7 +5,7 @@ import { useState } from "react";
 const Generate = ({ onNext }: { onNext: () => void }) => {
   const [toggleCountryDropdown, setToggleCountryDropdown] = useState(false);
   const [toggleIndustryDropdown, setToggleIndustryDropdown] = useState(false);
-  const [country, setCountry] = useState("");
+  const [country, setCountry] = useState<string | undefined>(undefined);
 
   return (
     <>
@@ -15,7 +15,7 @@ const Generate = ({ onNext }: { onNext: () => void }) => {
         </div>
         <button
           onClick={() => {
-            setCountry("Global");
+            setCountry(country === "Global" ? undefined : "Global");
           }}
           className={cn(
             `shadow-sm p-3 text-black text-[20px] w-full mb-6 rounded-lg text-left border border-[#77777743]`,
@@ -79,6 +79,7 @@ const Generate = ({ onNext }: { onNext: () => void }) => {
         </button>
         <button
           disabled={!country}
+          onClick={() => onNext()}
           className={cn(
             `text-white p-3 rounded-lg bg-[#6666B3] w-[40%]`,
             !country && "opacity-50"

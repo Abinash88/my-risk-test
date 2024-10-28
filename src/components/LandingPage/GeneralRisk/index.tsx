@@ -1,10 +1,11 @@
-import { BgSection } from "@/components/shared/ReuseAble";
-import PageOne from "./GeneralRiskPages/PageOne";
 import ProgressBar from "@/components/AuthPages/Business/ProgressBar";
-import { useState } from "react";
-import PageTwo from "./GeneralRiskPages/PageTwo";
-import PageThree from "./GeneralRiskPages/PageThree";
+import { BgSection } from "@/components/shared/ReuseAble";
+import HandleParams, { type GenerateTypes } from "@/lib/hooks/handle-params";
+import { useEffect, useState } from "react";
 import GneratedRiskPRofile from "./GeneralRiskPages/GeneratedRiskProfile";
+import PageOne from "./GeneralRiskPages/PageOne";
+import PageThree from "./GeneralRiskPages/PageThree";
+import PageTwo from "./GeneralRiskPages/PageTwo";
 
 const GeneralRisk = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -16,14 +17,29 @@ const GeneralRisk = () => {
   const handleStepClick = (step: number) => {
     setCurrentStep(step);
   };
+
+  const { searchParams, handleClear } = HandleParams();
+  const checkType = searchParams.get("type") as GenerateTypes | null;
+
+  useEffect(() => {
+    if (!checkType || typeof checkType === "undefined") handleClear();
+  }, [handleClear, checkType]);
+
   const renderPage = () => {
     switch (currentStep) {
       case 1:
         return <PageOne onNext={handleNextStep} />;
       case 2:
-        return <PageTwo onNext={handleNextStep} />;
+        return (
+          <PageTwo handleStepClick={handleStepClick} onNext={handleNextStep} />
+        );
       case 3:
-        return <PageThree onNext={handleNextStep} />;
+        return (
+          <PageThree
+            handleStepClick={handleStepClick}
+            onNext={handleNextStep}
+          />
+        );
       case 4:
         return <GneratedRiskPRofile />;
       default:

@@ -1,13 +1,10 @@
 import { Box, Modal } from "@mui/material";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
-import { GroupImages, type GroupImagesType } from "../../../lib/fakedata";
+import { X } from "lucide-react";
 import PrivateStanding from "./PrivateStanding";
 import PublicStanding from "./PublicStanding";
 
 import Container from "@/components/shared/HomeLayout2/container";
 import SelectComp from "@/components/shared/ReuseAble/select";
-import { cn } from "@/lib/utils";
-import { Carousel } from "antd";
 import { useState } from "react";
 import Continents from "../../shared/continents.json";
 import Countries from "../../shared/countries.json";
@@ -32,7 +29,6 @@ const TableData = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [sel, setSel] = useState("");
   const [country, setCountry] = useState("");
-  const [groups, setGroups] = useState<GroupImagesType>(GroupImages[0]);
   const [stuff, setStuff] = useState(0);
   const [page, setPage] = useState<"private" | "public">("public");
 
@@ -77,74 +73,12 @@ const TableData = () => {
         {page === "public" && (
           <SelectComp
             label="Filter by"
-            className="border border-blue-600 bg-transparent text-blue-800  shadow-lg "
+            className="border  border-blue-600 ml-auto bg-transparent text-blue-800  shadow-lg "
             options={TableStatus}
+            containerClass="inline-block md:w-auto ml-auto  w-full"
           />
         )}
       </div>
-      {page === "private" && (
-        <Carousel
-          arrows
-          slidesToShow={9}
-          slidesToScroll={1}
-          dots={false}
-          prevArrow={<ChevronLeft />}
-          nextArrow={<ChevronRight />}
-          draggable
-          id="group_carousel"
-          className="w-[90%] my-4 mx-auto"
-          responsive={[
-            {
-              breakpoint: 1024, // Medium screens (tablet and up)
-              settings: {
-                slidesToShow: 7,
-              },
-            },
-            {
-              breakpoint: 768, // Small screens (portrait tablet and up)
-              settings: {
-                slidesToShow: 5,
-              },
-            },
-            {
-              breakpoint: 480, // Extra-small screens (mobile)
-              settings: {
-                slidesToShow: 3,
-              },
-            },
-          ]}
-        >
-          {GroupImages.map((item) => (
-            <div
-              key={item.name}
-              className={`relative  flex justify-center items-center h-[17vh]  transition-transform cursor-pointer`}
-              title={item.name}
-            >
-              <div className="flex flex-col m-auto h-full w-[12vh] py-4 md:w-[13vh] justify-center items-center">
-                <button
-                  onClick={() => {
-                    setGroups(item);
-                  }}
-                  className={cn(
-                    groups?.name === item?.name
-                      ? "border-purple-400 border-8 m-auto rounded-full"
-                      : "m-auto border-8 rounded-full  border-transparent"
-                  )}
-                >
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className=" rounded-full size-full object-cover"
-                  />
-                </button>
-                <p className="md:text-sm text-xs text-center text-[#000080] font-medium ">
-                  #Group 333
-                </p>
-              </div>
-            </div>
-          ))}
-        </Carousel>
-      )}
 
       <Modal
         open={isOpen}

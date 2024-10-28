@@ -100,85 +100,76 @@ export const paymentActivities = [
 export type GroupImagesType = {
   image: string;
   name: string;
-  members: { id: number; image: string; name: string }[];
+  members: { image: string; name: string }[];
 };
 
 export const GroupImages: GroupImagesType[] = [
   {
     image: "https://randomuser.me/api/portraits/women/2.jpg",
-    name: "Bobby",
+    name: "Group432",
     members: [
       {
-        id: 1,
         image: "https://randomuser.me/api/portraits/women/2.jpg",
         name: "Bobby",
       },
       {
-        id: 1,
         image: "https://randomuser.me/api/portraits/women/2.jpg",
         name: "Bobby",
       },
+      
     ],
   },
   {
     image: "https://randomuser.me/api/portraits/men/2.jpg",
-    name: "Shakur",
+    name: "Group443",
     members: [
       {
-        id: 1,
-        image: "https://randomuser.me/api/portraits/women/2.jpg",
+        image: "https://randomuser.me/api/portraits/men/2.jpg",
         name: "Bobby",
       },
       {
-        id: 1,
-        image: "https://randomuser.me/api/portraits/women/2.jpg",
+        image: "https://randomuser.me/api/portraits/men/2.jpg",
         name: "Bobby",
       },
     ],
   },
   {
     image: "https://randomuser.me/api/portraits/men/7.jpg",
-    name: "Alabi",
+    name: "Group4324",
     members: [
       {
-        id: 1,
-        image: "https://randomuser.me/api/portraits/women/2.jpg",
+        image: "https://randomuser.me/api/portraits/men/7.jpg",
         name: "Bobby",
       },
       {
-        id: 1,
-        image: "https://randomuser.me/api/portraits/women/2.jpg",
+        image: "https://randomuser.me/api/portraits/men/7.jpg",
         name: "Bobby",
       },
     ],
   },
   {
     image: "https://randomuser.me/api/portraits/men/5.jpg",
-    name: "Wizzy",
+    name: "Group82",
     members: [
       {
-        id: 1,
-        image: "https://randomuser.me/api/portraits/women/2.jpg",
+        image: "https://randomuser.me/api/portraits/men/5.jpg",
         name: "Bobby",
       },
       {
-        id: 1,
-        image: "https://randomuser.me/api/portraits/women/2.jpg",
+        image: "https://randomuser.me/api/portraits/men/5.jpg",
         name: "Bobby",
       },
     ],
   },
   {
     image: "https://randomuser.me/api/portraits/women/15.jpg",
-    name: "Toyin",
+    name: "Group2423",
     members: [
       {
-        id: 1,
         image: "https://randomuser.me/api/portraits/women/2.jpg",
         name: "Bobby",
       },
       {
-        id: 1,
         image: "https://randomuser.me/api/portraits/women/2.jpg",
         name: "Bobby",
       },
@@ -186,15 +177,13 @@ export const GroupImages: GroupImagesType[] = [
   },
   {
     image: "https://randomuser.me/api/portraits/women/11.jpg",
-    name: "Seguny",
+    name: "Group642",
     members: [
       {
-        id: 1,
         image: "https://randomuser.me/api/portraits/women/2.jpg",
         name: "Bobby",
       },
       {
-        id: 1,
         image: "https://randomuser.me/api/portraits/women/2.jpg",
         name: "Bobby",
       },
@@ -202,15 +191,13 @@ export const GroupImages: GroupImagesType[] = [
   },
   {
     image: "https://randomuser.me/api/portraits/men/9.jpg",
-    name: "Taye",
+    name: "Group4923",
     members: [
       {
-        id: 1,
         image: "https://randomuser.me/api/portraits/women/2.jpg",
         name: "Bobby",
       },
       {
-        id: 1,
         image: "https://randomuser.me/api/portraits/women/2.jpg",
         name: "Bobby",
       },
@@ -218,15 +205,13 @@ export const GroupImages: GroupImagesType[] = [
   },
   {
     image: "https://randomuser.me/api/portraits/men/18.jpg",
-    name: "Shakr",
+    name: "Group523",
     members: [
       {
-        id: 1,
         image: "https://randomuser.me/api/portraits/women/2.jpg",
         name: "Bobby",
       },
       {
-        id: 1,
         image: "https://randomuser.me/api/portraits/women/2.jpg",
         name: "Bobby",
       },
@@ -234,15 +219,13 @@ export const GroupImages: GroupImagesType[] = [
   },
   {
     image: "https://randomuser.me/api/portraits/women/14.jpg",
-    name: "Salman",
+    name: "Group423",
     members: [
       {
-        id: 1,
         image: "https://randomuser.me/api/portraits/women/2.jpg",
         name: "Bobby",
       },
       {
-        id: 1,
         image: "https://randomuser.me/api/portraits/women/2.jpg",
         name: "Bobby",
       },
@@ -250,15 +233,13 @@ export const GroupImages: GroupImagesType[] = [
   },
   {
     image: "https://randomuser.me/api/portraits/men/6.jpg",
-    name: "Samad",
+    name: "Group323",
     members: [
       {
-        id: 1,
         image: "https://randomuser.me/api/portraits/women/2.jpg",
         name: "Bobby",
       },
       {
-        id: 1,
         image: "https://randomuser.me/api/portraits/women/2.jpg",
         name: "Bobby",
       },
@@ -266,15 +247,13 @@ export const GroupImages: GroupImagesType[] = [
   },
   {
     image: "https://randomuser.me/api/portraits/men/5.jpg",
-    name: "Segun",
+    name: "Group2323",
     members: [
       {
-        id: 1,
         image: "https://randomuser.me/api/portraits/women/2.jpg",
         name: "Bobby",
       },
       {
-        id: 1,
         image: "https://randomuser.me/api/portraits/women/2.jpg",
         name: "Bobby",
       },

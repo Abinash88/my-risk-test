@@ -10,6 +10,7 @@ export type SelectType = {
   value?: string;
   className?: string;
   label?: string;
+  containerClass?: string;
 };
 
 export default function SelectComp({
@@ -17,6 +18,7 @@ export default function SelectComp({
   value,
   className,
   label,
+  containerClass,
 }: SelectType) {
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(
     null
@@ -39,7 +41,7 @@ export default function SelectComp({
   const id = open ? "simple-popover" : undefined;
 
   return (
-    <div className="relative ">
+    <div className={cn(`relative `, containerClass)}>
       <button
         onClick={handleClick}
         className={cn(

@@ -43,7 +43,7 @@ const TableFooterBtn = () => {
           </p>
         </button>
       </div>
-      <button className="bg-[#1D98F0] ml-auto block rounded-lg px-6 py-2.5 text-sm font-medium text-white">
+      <button className="bg-[#1D98F0] ml-auto block md:hidden rounded-lg px-6 py-2.5 text-sm font-medium text-white">
         Add Risk
       </button>
     </div>

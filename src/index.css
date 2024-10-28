@@ -10,6 +10,24 @@
   }
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #626262;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #5a5a5a;
+}
+
+/* Scrollbar Track */
+::-webkit-scrollbar-track {
+  background: #d8d8d8;
+  border-radius: 6px;
+}
+
 /* Add these styles to your CSS file */
 
 .slide-left {
@@ -200,39 +218,19 @@ input[type="number"] {
 
 /* landing page slider css */
 #quick_link_carousel .lucide-arrow-right-to-line {
-  position: absolute;
-  top: 50%;
   width: 40px !important;
   height: 40px !important;
   transform: translateY(-40%) translateX(50px) !important;
   color: #fff;
-  opacity: 0.4;
-  background: transparent;
-  padding: 0;
-  line-height: 0;
-  border: 0;
-  outline: none;
-  cursor: pointer;
-  z-index: 1;
-  transition: opacity 0.3s;
+  opacity: 1;
 }
 
 #quick_link_carousel .lucide-arrow-left-to-line {
-  position: absolute;
-  top: 50%;
   width: 40px !important;
   height: 40px !important;
   transform: translateY(-50%) translateX(-50px) !important;
   color: #fff;
-  opacity: 0.4;
-  background: transparent;
-  padding: 0;
-  line-height: 0;
-  border: 0;
-  outline: none;
-  cursor: pointer;
-  z-index: 1;
-  transition: opacity 0.3s;
+  opacity: 1;
 }
 
 #sector_carousel .lucide-arrow-right-to-line {
@@ -250,13 +248,24 @@ input[type="number"] {
   transform: translateY(-50%) translateX(-50px) !important;
   opacity: 1 !important;
   background: #000080;
-  padding: 0;
-  line-height: 0;
-  border: 0;
-  outline: none;
-  cursor: pointer;
-  z-index: 1;
-  transition: opacity 0.3s;
+}
+
+#group_carousel .lucide-chevron-right {
+  width: 50px !important;
+  height: 50px !important;
+  transform: translateY(-40%) translateX(50px) !important;
+  opacity: 1 !important;
+  color: #000080;
+  padding: 7px;
+  border-radius: 5px;
+}
+
+#group_carousel .lucide-chevron-left {
+  width: 40px !important;
+  height: 40px !important;
+  transform: translateY(-50%) translateX(-50px) !important;
+  opacity: 1 !important;
+  color: #000080;
 }
 
 @media screen and (max-width: 1000px) {

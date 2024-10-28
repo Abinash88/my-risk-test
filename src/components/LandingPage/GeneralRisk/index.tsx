@@ -41,7 +41,7 @@ const GeneralRisk = () => {
           />
         );
       case 4:
-        return <GneratedRiskPRofile />;
+        return <GneratedRiskPRofile handleStepClick={handleStepClick} />;
       default:
         return <PageOne onNext={handleNextStep} />;
     }

@@ -1,53 +1,46 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import HomeLayout from "./components/shared/HomeLayout";
-import HomeLayout2 from "./components/shared/HomeLayout2";
-import Blog from "./components/LandingPage/Blog";
-import LandingPage from "./components/LandingPage/mainPage";
-import LoggedLayout from "./components/shared/LoggedLayout/loggedLayout";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import Auth from "./components/AuthPages";
+import BusinessRegister from "./components/AuthPages/Business/Register";
+import PasswordResetPage from "./components/AuthPages/Login";
+import Login from "./components/AuthPages/Login/Login";
+import ProfessionalRegister from "./components/AuthPages/Professional/Register";
 import AccountProfile from "./components/Dashboard/AccountProfile";
-import ManageRisk from "./components/Dashboard/ManageRIsk";
-import Subscription from "./components/Dashboard/Subscription";
-import ChangePlan from "./components/Dashboard/Subscription/ChangePlan";
-import PrivateGroup from "./components/Dashboard/PrivateGroup";
 import AiRisk from "./components/Dashboard/AiRisk";
-import Notification from "./components/Dashboard/Notification";
-import NotificationSetting from "./components/Dashboard/Notification/NotificationSetting";
+import EngagementLog from "./components/Dashboard/EngagementLog";
+import GeneralSetting from "./components/Dashboard/GeneralSetting";
+import EditTeam from "./components/Dashboard/GeneralSetting/EditTeam";
 import HelpCenter from "./components/Dashboard/HelpCenter";
 import CenterDetails from "./components/Dashboard/HelpCenter/CenterDetails";
-import Referral from "./components/Dashboard/Referral";
-import GeneralSetting from "./components/Dashboard/GeneralSetting";
-import Verification from "./components/Dashboard/Verification";
-import ErrorPage from "./components/shared/ErrorPage";
-import EditTeam from "./components/Dashboard/GeneralSetting/EditTeam";
-import MakePayment from "./components/LandingPage/Payment/MakePayment";
-import PaymentMode from "./components/LandingPage/Payment";
-import GeneralRisk from "./components/LandingPage/GeneralRisk";
-import RiskProfile from "./components/LandingPage/RiskProfile";
-import HomePage from "./components/LandingPage/mainPage/home-page-component/HomePage";
-import OurService from "./components/LandingPage/mainPage/OurService";
-import OurPremium from "./components/LandingPage/mainPage/OurPremium";
-import RiskManagement from "./components/LandingPage/mainPage/RiskManagement";
-import AuthLayout from "./components/shared/AuthLayout";
-import Auth from "./components/AuthPages";
-import Login from "./components/AuthPages/Login/Login";
-import PasswordResetPage from "./components/AuthPages/Login";
-import BlogContent from "./components/LandingPage/Blog/BlogContent";
-import ProductSubscription from "./components/LandingPage/mainPage/ProductSubscription";
-import IntegratedService from "./components/LandingPage/mainPage/IntegratedService";
-import CommentsSection from "./components/Dashboard/ManageRIsk/CommentModal/comments";
-import StepsSection from "./components/Dashboard/ManageRIsk/CommentModal/steps";
-import OurWorks from "./components/LandingPage/mainPage/OurWorks";
-import { Upload } from "./components/LandingPage/mainPage/Upload";
-import Map from "./components/LandingPage/Map";
-import BusinessRegister from "./components/AuthPages/Business/Register";
-import ProfessionalRegister from "./components/AuthPages/Professional/Register";
-import EngagementLog from "./components/Dashboard/EngagementLog";
+import ManageRisk from "./components/Dashboard/ManageRIsk";
+import Notification from "./components/Dashboard/Notification";
+import NotificationSetting from "./components/Dashboard/Notification/NotificationSetting";
+import PrivateGroup from "./components/Dashboard/PrivateGroup";
 import GroupSettings from "./components/Dashboard/PrivateGroup/GroupSettings";
-import { AIModel } from "./components/LandingPage/mainPage/home-page-component/select-api-modal";
-import PrivacyPolicy from "./components/LandingPage/mainPage/privacy-policy";
+import Referral from "./components/Dashboard/Referral";
+import Subscription from "./components/Dashboard/Subscription";
+import ChangePlan from "./components/Dashboard/Subscription/ChangePlan";
+import Verification from "./components/Dashboard/Verification";
+import Blog from "./components/LandingPage/Blog";
+import BlogContent from "./components/LandingPage/Blog/BlogContent";
+import GeneralRisk from "./components/LandingPage/GeneralRisk";
+import DownloadReport from "./components/LandingPage/GeneralRisk/GeneralRiskPages/GeneratedRiskProfile/download-report";
+import LandingPage from "./components/LandingPage/mainPage";
 import CookiePolicy from "./components/LandingPage/mainPage/cookie-policy";
+import HomePage from "./components/LandingPage/mainPage/home-page-component/HomePage";
+import IntegratedService from "./components/LandingPage/mainPage/IntegratedService";
+import OurPremium from "./components/LandingPage/mainPage/OurPremium";
+import OurService from "./components/LandingPage/mainPage/OurService";
+import OurWorks from "./components/LandingPage/mainPage/OurWorks";
+import PrivacyPolicy from "./components/LandingPage/mainPage/privacy-policy";
+import ProductSubscription from "./components/LandingPage/mainPage/ProductSubscription";
+import RiskManagement from "./components/LandingPage/mainPage/RiskManagement";
 import TermsAndConditions from "./components/LandingPage/mainPage/terms-and-conditions";
-import { GenerateDownload } from "./components/LandingPage/mainPage/home-page-component/generate-download";
+import Map from "./components/LandingPage/Map";
+import AuthLayout from "./components/shared/AuthLayout";
+import ErrorPage from "./components/shared/ErrorPage";
+import HomeLayout from "./components/shared/HomeLayout";
+import HomeLayout2 from "./components/shared/HomeLayout2";
+import LoggedLayout from "./components/shared/LoggedLayout/loggedLayout";
 
 const App = () => {
   return (
@@ -70,21 +63,22 @@ const App = () => {
         </Route>
 
         <Route path="/" element={<HomeLayout2 />}>
-          <Route path="/testing" element={<CommentsSection />} />
-          <Route path="/testing2" element={<StepsSection />} />
+          <Route path="/testing" element={<DownloadReport />} />
+          {/* <Route path="/testing2" element={<StepsSection />} /> */}
+
           <Route
             path="/product-subscription"
             element={<ProductSubscription />}
           />
-          <Route path="/ai-model" element={<AIModel />} />
-          <Route path="/generate-download" element={<GenerateDownload />} />
+          {/* <Route path="/ai-model" element={<AIModel />} /> */}
+          {/* <Route path="/generate-download" element={<GenerateDownload />} /> */}
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:blogcontent" element={<BlogContent />} />
-          <Route path="/make-payment" element={<MakePayment />} /> {/* done */}
-          <Route path="/payment-mode" element={<PaymentMode />} />{/* done */}
-          <Route path="/upload" element={<Upload />} />
+          {/* <Route path="/make-payment" element={<MakePayment />} />  */}
+          {/* <Route path="/payment-mode" element={<PaymentMode />} /> */}
+          {/* <Route path="/upload" element={<Upload />} /> */}
           <Route path="/general-risk" element={<GeneralRisk />} />
-          <Route path="/risk-profile" element={<RiskProfile />} />
+          {/* <Route path="/risk-profile" element={<RiskProfile />} /> */}
           <Route path="/map" element={<Map />} />
         </Route>
 

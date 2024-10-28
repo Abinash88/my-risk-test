@@ -57,8 +57,6 @@ const HandleParams = () => {
     return isNextType(value) ? value : null;
   };
 
-  console.log(searchParams.get("page"), getP("page"));
-
   return { handlePageChange, searchParams, handleClear, getP };
 };
 

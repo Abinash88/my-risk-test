@@ -1,9 +1,8 @@
-import { Divider, Form, Input, Modal, Select, Switch } from "antd";
-import { CloudUpload, Plus } from "lucide-react";
-import React, { useState } from "react";
+import { Divider, Form, Input, Modal, Switch } from "antd";
+import { useState } from "react";
 
 const AddFeature = () => {
-    const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
   const showModal = () => {
     setOpen(true);
   };
@@ -17,7 +16,6 @@ const AddFeature = () => {
   };
 
   return (
-    
     <div>
       <button
         className="rounded-md px-6 py-2 text-white bg-[#3838F0] flex items-center"
@@ -45,7 +43,7 @@ const AddFeature = () => {
               className="rounded-md text-white bg-[#3838F0] py-2 px-3"
               onClick={handleOk}
             >
-              Add Feature
+              {/* Add Feature */}
             </button>
           </div>,
         ]}
@@ -61,13 +59,13 @@ const AddFeature = () => {
             </Form.Item>
           </Form>
           <div className="flex justify-between mt-5">
-              <p>Enable / Disable Visibility</p>
-              <Switch />
-            </div>
+            <p>Enable / Disable Visibility</p>
+            <Switch />
+          </div>
         </div>
       </Modal>
     </div>
-  )
-}
+  );
+};
 
-export default AddFeature
+export default AddFeature;

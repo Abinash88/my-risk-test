@@ -12,11 +12,8 @@ const ViewGeneratedRisk = () => {
             backgroundImage: `url(${Background})`,
           }}
         ></div>
-        <div className="w-[70%] max-w-[1500px] mx-auto bg-white">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem,
-          nisi quibusdam vero tempore tenetur voluptas perspiciatis esse quae ex
-          quia distinctio id sapiente minus fugit delectus consequuntur incidunt
-          ratione doloribus.
+        <div className="w-[70%] max-w-[1500px] mx-auto p-8 bg-white">
+         
         </div>
       </div>
     </div>

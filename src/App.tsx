@@ -53,31 +53,31 @@ const App = () => {
           <Route path="/our-work" element={<OurWorks />} />
           <Route path="/integrated-service" element={<IntegratedService />} />
           <Route path="/risk-management" element={<RiskManagement />} />
-          <Route path="/home-page" element={<HomePage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/cookie-policy" element={<CookiePolicy />} />
           <Route
             path="/terms-and-conditions"
             element={<TermsAndConditions />}
           />
-        </Route>
-
-        <Route path="/" element={<HomeLayout2 />}>
-          <Route path="/testing" element={<DownloadReport />} />
-          {/* <Route path="/testing2" element={<StepsSection />} /> */}
-
           <Route
             path="/product-subscription"
             element={<ProductSubscription />}
           />
-          {/* <Route path="/ai-model" element={<AIModel />} /> */}
-          {/* <Route path="/generate-download" element={<GenerateDownload />} /> */}
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:blogcontent" element={<BlogContent />} />
+        </Route>
+
+        <Route path="/" element={<HomeLayout2 />}>
+          <Route path="/home-page" element={<HomePage />} />
+          <Route path="/testing" element={<DownloadReport />} />
+          {/* <Route path="/testing2" element={<StepsSection />} /> */}
+
+          {/* <Route path="/ai-model" element={<AIModel />} /> */}
+          {/* <Route path="/generate-download" element={<GenerateDownload />} /> */}
           {/* <Route path="/make-payment" element={<MakePayment />} />  */}
           {/* <Route path="/payment-mode" element={<PaymentMode />} /> */}
           {/* <Route path="/upload" element={<Upload />} /> */}
-          <Route path="/general-risk" element={<GeneralRisk />} />
+          {/* <Route path="/general-risk" element={<GeneralRisk />} /> */}
           {/* <Route path="/risk-profile" element={<RiskProfile />} /> */}
           <Route path="/map" element={<Map />} />
         </Route>

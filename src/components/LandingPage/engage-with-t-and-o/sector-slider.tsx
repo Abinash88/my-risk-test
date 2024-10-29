@@ -102,107 +102,111 @@ const SectorSlider = () => {
 
   const [select, setSelect] = useState<string[]>([]);
   return (
-    <div className=" mx-auto  w-[85%]">
-      <div className="grid w-full grid-cols-[60%_35%_10%] md:grid-cols-[80%_20%_5%] xl:grid-cols-[82%_15%] 2xl:grid-cols-[85%_15%] items-center">
-        <Carousel
-          ref={ref}
-          arrows
-          slidesToShow={7}
-          slidesToScroll={1}
-          dots={false}
-          prevArrow={<ChevronLeft />}
-          // nextArrow={}
-          infinite={false}
-          draggable
-          id="sector_carousel"
-          responsive={[
-            {
-              breakpoint: 1424, // Medium screens (tablet and up)
-              settings: {
-                slidesToShow: 3,
+    <div className="w-full bg-white">
+      <div className=" mx-auto w-[85%]">
+        <div className="grid w-full grid-cols-[60%_35%_10%] md:grid-cols-[80%_20%_5%] xl:grid-cols-[82%_15%] 2xl:grid-cols-[85%_15%] items-center">
+          <Carousel
+            ref={ref}
+            arrows
+            slidesToShow={7}
+            slidesToScroll={1}
+            dots={false}
+            prevArrow={<ChevronLeft />}
+            // nextArrow={}
+            infinite={false}
+            draggable
+            id="sector_carousel"
+            responsive={[
+              {
+                breakpoint: 1424, // Medium screens (tablet and up)
+                settings: {
+                  slidesToShow: 3,
+                },
               },
-            },
-            {
-              breakpoint: 1024, // Medium screens (tablet and up)
-              settings: {
-                slidesToShow: 3,
+              {
+                breakpoint: 1024, // Medium screens (tablet and up)
+                settings: {
+                  slidesToShow: 3,
+                },
               },
-            },
-            {
-              breakpoint: 768, // Small screens (portrait tablet and up)
-              settings: {
-                slidesToShow: 2,
+              {
+                breakpoint: 768, // Small screens (portrait tablet and up)
+                settings: {
+                  slidesToShow: 2,
+                },
               },
-            },
-            {
-              breakpoint: 650, // Extra-small screens (mobile)
-              settings: {
-                slidesToShow: 1,
+              {
+                breakpoint: 650, // Extra-small screens (mobile)
+                settings: {
+                  slidesToShow: 1,
+                },
               },
-            },
-          ]}
-        >
-          <button
-            style={{ boxShadow: " rgba(149, 157, 165, 0.2) 0px 8px 10px" }}
-            className={`py-2.5 rounded-2xl mt-2 w-[90%] bg-[#000080] text-white border border-gray-100 md:text-sm text-xs my-auto mx-auto
-               flex flex-wrap gap-4 items-center  justify-center p-4 font-medium`}
+            ]}
           >
-            Main Sector
-          </button>
-          {SectorData?.map((item, index) => (
-            <div
-              key={index}
-              className=" h-16 flex justify-center items-center "
+            <button
+              style={{ boxShadow: " rgba(149, 157, 165, 0.2) 0px 8px 10px" }}
+              className={`py-2.5 rounded-2xl mt-2 w-[90%] bg-[#000080] text-white border border-gray-100 md:text-sm text-xs my-auto mx-auto
+               flex flex-wrap gap-4 items-center  justify-center p-4 font-medium`}
             >
-              <button
-                style={{ boxShadow: " rgba(149, 157, 165, 0.2) 0px 8px 10px" }}
-                onClick={() =>
-                  setSelect((prev) => {
-                    const newData = [...prev];
-                    const filtered = newData.filter((d) => d !== item?.value);
-                    return newData.includes(item.value)
-                      ? filtered
-                      : [...newData, item.value];
-                  })
-                }
-                className={`py-2 rounded-2xl mt-2 w-[90%] border border-gray-100 md:text-sm text-xs my-auto mx-auto flex flex-wrap gap-4 items-center  justify-center p-4 font-medium ${
-                  select.includes(item.value)
-                    ? "bg-[#000080] text-white"
-                    : "bg-white text-[rgba(0,0,0,0.7)]"
-                }`}
+              Main Sector
+            </button>
+            {SectorData?.map((item, index) => (
+              <div
+                key={index}
+                className=" h-16 flex justify-center items-center "
               >
-                {item.value}
-                <X
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setSection((prev) =>
-                      prev.filter((item) => item.value !== item.value)
-                    );
+                <button
+                  style={{
+                    boxShadow: " rgba(149, 157, 165, 0.2) 0px 8px 10px",
                   }}
-                  className={cn(
-                    `bg-blue-700 rounded-full md:text-sm text-xs p-1 text-white`,
-                    select.includes(item.value) && "bg-white text-blue-700"
-                  )}
-                />
-              </button>
-            </div>
-          ))}
-        </Carousel>
-        <div className="flex w-full justify-center items-center gap-3">
-          <SelectComp
-            label="All Sector"
-            className="bg-transparent w-[100%] z-10 border border-gray-100 md:text-sm text-xs
+                  onClick={() =>
+                    setSelect((prev) => {
+                      const newData = [...prev];
+                      const filtered = newData.filter((d) => d !== item?.value);
+                      return newData.includes(item.value)
+                        ? filtered
+                        : [...newData, item.value];
+                    })
+                  }
+                  className={`py-2 rounded-2xl mt-2 w-[90%] border border-gray-100 md:text-sm text-xs my-auto mx-auto flex flex-wrap gap-4 items-center  justify-center p-4 font-medium ${
+                    select.includes(item.value)
+                      ? "bg-[#000080] text-white"
+                      : "bg-white text-[rgba(0,0,0,0.7)]"
+                  }`}
+                >
+                  {item.value}
+                  <X
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSection((prev) =>
+                        prev.filter((item) => item.value !== item.value)
+                      );
+                    }}
+                    className={cn(
+                      `bg-blue-700 rounded-full md:text-sm text-xs p-1 text-white`,
+                      select.includes(item.value) && "bg-white text-blue-700"
+                    )}
+                  />
+                </button>
+              </div>
+            ))}
+          </Carousel>
+          <div className="flex w-full justify-center items-center gap-3">
+            <SelectComp
+              label="All Sector"
+              className="bg-transparent w-[100%] z-10 border border-gray-100 md:text-sm text-xs
              py-2  text-gray-500 border-none shadow-lg rounded-2xl"
-            containerClass=""
-            Component={
-              <AddRemoveSector section={section} setSection={setSection} />
-            }
-          />
-          <div className=" flex justify-end">
-            <ChevronRight
-              className="bg-[#000080]  p-[7px] rounded-[5px]  size-[35px] text-white"
-              onClick={ref.current?.next}
+              containerClass=""
+              Component={
+                <AddRemoveSector section={section} setSection={setSection} />
+              }
             />
+            <div className=" flex justify-end">
+              <ChevronRight
+                className="bg-[#000080]  p-[7px] rounded-[5px]  size-[35px] text-white"
+                onClick={ref.current?.next}
+              />
+            </div>
           </div>
         </div>
       </div>

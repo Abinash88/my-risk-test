@@ -22,6 +22,7 @@ import ChangePlan from "./components/Dashboard/Subscription/ChangePlan";
 import Verification from "./components/Dashboard/Verification";
 import Blog from "./components/LandingPage/Blog";
 import BlogContent from "./components/LandingPage/Blog/BlogContent";
+import Map from "./components/LandingPage/engage-with-t-and-o";
 import DownloadReport from "./components/LandingPage/GeneralRisk/GeneralRiskPages/GeneratedRiskProfile/download-report";
 import LandingPage from "./components/LandingPage/mainPage";
 import CookiePolicy from "./components/LandingPage/mainPage/cookie-policy";
@@ -34,7 +35,7 @@ import PrivacyPolicy from "./components/LandingPage/mainPage/privacy-policy";
 import ProductSubscription from "./components/LandingPage/mainPage/ProductSubscription";
 import RiskManagement from "./components/LandingPage/mainPage/RiskManagement";
 import TermsAndConditions from "./components/LandingPage/mainPage/terms-and-conditions";
-import Map from "./components/LandingPage/engage-with-t-and-o";
+import ViewGeneratedRisk from "./components/LandingPage/mainPage/view-generated-risks";
 import AuthLayout from "./components/shared/AuthLayout";
 import ErrorPage from "./components/shared/ErrorPage";
 import HomeLayout from "./components/shared/HomeLayout";
@@ -79,6 +80,7 @@ const App = () => {
           {/* <Route path="/general-risk" element={<GeneralRisk />} /> */}
           {/* <Route path="/risk-profile" element={<RiskProfile />} /> */}
           <Route path="/engage-t-o-standing" element={<Map />} />
+          <Route path="/view-generated-risks" element={<ViewGeneratedRisk />} />
         </Route>
 
         <Route path="/auth" element={<AuthLayout />}>

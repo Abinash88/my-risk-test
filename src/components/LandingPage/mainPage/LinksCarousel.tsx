@@ -14,13 +14,13 @@ const groups = [
     id: 2,
     name: "AI Powered Risk Profile",
     image: "images/Engage.png",
-    link: "/home-page/?page=generate-download",
+    link: "/home-page?page=generate-download",
   },
   {
     id: 3,
     name: "View Generated Risks",
     image: "images/Analysis.png",
-    link: "/home-page/view-generated-links",
+    link: "/view-generated-risks",
   },
 ];
 

@@ -6,6 +6,9 @@ import HeadSearchFilter from "./head-search-filter";
 
 const LoggedHeader = () => {
   const location = useLocation();
+  const isShow =
+    location?.pathname.endsWith("engage-t-o-standing") ||
+    location?.pathname.endsWith("view-generated-risks");
   return (
     <div className=" lg:overflow-hidden bg-white shadow-sm px-[2rem] lg:h-20 lg:px-[2rem] py-[1rem] flex items-center justify-between gap-2 w-full relative">
       <div className="flex gap-6 items-center">
@@ -14,16 +17,16 @@ const LoggedHeader = () => {
           <img
             src="/images/logo.png"
             alt="logo"
-            className=" w-[9rem] md:w-[11rem]  "
+            className=" w-[9rem] md:w-[11rem]"
           />
         </Link>
       </div>
-      {!location?.pathname.endsWith("map") && (
+      {!isShow && (
         <div className="  fixed md:relative  hidden  md:flex items-center justify-center">
           <LoggedMenu />
         </div>
       )}
-      {location?.pathname.endsWith("map") && <HeadSearchFilter />}
+      {isShow && <HeadSearchFilter />}
       <LoggedHeadSide />
     </div>
   );

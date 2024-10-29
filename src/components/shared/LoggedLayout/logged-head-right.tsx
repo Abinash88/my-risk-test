@@ -14,8 +14,8 @@ const LoggedHeadSide = () => {
 
   const [openGrid, setOpenGrid] = useState(false);
   return (
-    <div className="relative ">
-      <div className="lg:scale-75 flex">
+    <div className="relative">
+      <div className="lg:scale-90 flex">
         <div onClick={handleNav} className="hidden">
           {nav ? (
             <FontAwesomeIcon
@@ -29,13 +29,6 @@ const LoggedHeadSide = () => {
             />
           )}
         </div>
-        <ul
-          className={
-            nav
-              ? "fixed md:hidden left-0 top-0 w-[60%] h-full bg-[#fff] ease-in-out duration-500 z-50"
-              : "ease-in-out w-[60%] duration-500 fixed top-0 bottom-0 left-[-100%] z-50"
-          }
-        ></ul>
         <div className="flex items-center space-x-5 ml-auto ">
           <div className="relative">
             <FontAwesomeIcon
@@ -63,8 +56,8 @@ const LoggedHeadSide = () => {
             </div>
           </CustomPopover>
 
-          <CustomPopover className=" w-full !max-w-[260px]" popIcon={<User />}>
-            <div className=" w-full max-w-xl h-[130px] bg-white z-30 relative overflow-hidden  border rounded-xl  ">
+          <CustomPopover className=" w-full  !max-w-[260px]" popIcon={<User />}>
+            <div className=" w-full max-w-xl h-[130px] bg-white z-30 relative overflow-hidden rounded-xl  ">
               <UserPopop />
             </div>
           </CustomPopover>

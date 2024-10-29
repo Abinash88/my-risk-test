@@ -1,5 +1,6 @@
-import { Icon, Popup } from "leaflet";
-import { MapContainer, Marker, TileLayer } from "react-leaflet";
+import { Icon } from "leaflet";
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import MapPopup from "./map-popup";
 
 type LocationType = {
   id: number;
@@ -63,9 +64,9 @@ const MainMap = () => {
               icon={customIcon}
               position={item?.coordinates}
             >
-              {/* <Popup>
-                A pretty CSS3 popup. <br /> Easily customizable.
-              </Popup> */}
+              <Popup>
+                <MapPopup />
+              </Popup>
             </Marker>
           );
         })}

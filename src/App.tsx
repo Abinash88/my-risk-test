@@ -34,7 +34,7 @@ import PrivacyPolicy from "./components/LandingPage/mainPage/privacy-policy";
 import ProductSubscription from "./components/LandingPage/mainPage/ProductSubscription";
 import RiskManagement from "./components/LandingPage/mainPage/RiskManagement";
 import TermsAndConditions from "./components/LandingPage/mainPage/terms-and-conditions";
-import Map from "./components/LandingPage/Map";
+import Map from "./components/LandingPage/engage-with-t-and-o";
 import AuthLayout from "./components/shared/AuthLayout";
 import ErrorPage from "./components/shared/ErrorPage";
 import HomeLayout from "./components/shared/HomeLayout";
@@ -78,7 +78,7 @@ const App = () => {
           {/* <Route path="/upload" element={<Upload />} /> */}
           {/* <Route path="/general-risk" element={<GeneralRisk />} /> */}
           {/* <Route path="/risk-profile" element={<RiskProfile />} /> */}
-          <Route path="/map" element={<Map />} />
+          <Route path="/engage-t-o-standing" element={<Map />} />
         </Route>
 
         <Route path="/auth" element={<AuthLayout />}>

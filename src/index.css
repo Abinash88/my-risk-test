@@ -233,7 +233,6 @@ input[type="number"] {
   opacity: 1;
 }
 
-
 #sector_carousel .lucide-chevron-left {
   width: 35px !important;
   height: 35px !important;
@@ -294,7 +293,6 @@ input[type="number"] {
   }
 }
 
-
 @media screen and (max-width: 1700px) {
   #sector_carousel .lucide-chevron-right {
     /* transform: translateY(-50%) translateX(190px) !important; */
@@ -306,4 +304,12 @@ input[type="number"] {
 
 .auth_input label {
   @apply md:text-base text-sm text-[#900C3F];
+}
+
+.date_picker input::placeholder {
+  color: white !important;
+}
+
+.date_picker .ant-picker-suffix{
+  color: white !important;
 }

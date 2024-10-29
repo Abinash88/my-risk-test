@@ -1,5 +1,6 @@
 import HandleParams from "@/lib/hooks/handle-params";
 
+import ScrollTop from "@/lib/hooks/scroll-top";
 import GeneralRisk from "../../GeneralRisk";
 import PaymentMode from "../../Payment";
 import MakePayment from "../../Payment/MakePayment";
@@ -10,6 +11,8 @@ import { AIModel } from "./select-api-modal";
 
 const HomePage = () => {
   const { getP } = HandleParams();
+
+  ScrollTop();
 
   const chooseServices = () => {
     switch (getP("page")) {

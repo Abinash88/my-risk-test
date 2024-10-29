@@ -1,17 +1,27 @@
-import React from "react";
-import { ArrowLeftToLine, ArrowRightToLine } from "lucide-react";
 import { Carousel } from "antd";
+import { ArrowLeftToLine, ArrowRightToLine } from "lucide-react";
+import React from "react";
+import { Link } from "react-router-dom";
 
 const groups = [
-  { id: 1, name: "Engage with T&O", image: "images/Analysis.png" },
-  { id: 2, name: "AI Powered Risk Profile", image: "images/Engage.png" },
-  { id: 3, name: "Engage with T&O", image: "images/Analysis.png" },
-  { id: 4, name: "AI Powered Risk Profile", image: "images/Engage.png" },
-  { id: 5, name: "Engage with T&O", image: "images/Analysis.png" },
-  { id: 6, name: "AI Powered Risk Profile", image: "images/Engage.png" },
-  { id: 7, name: "Engage with T&O", image: "images/Analysis.png" },
-  { id: 8, name: "AI Powered Risk Profile", image: "images/Engage.png" },
-  { id: 9, name: "Engage with T&O", image: "images/Analysis.png" },
+  {
+    id: 1,
+    name: "Engage with T&O",
+    image: "images/Analysis.png",
+    link: "/engage-t-o-standing",
+  },
+  {
+    id: 2,
+    name: "AI Powered Risk Profile",
+    image: "images/Engage.png",
+    link: "/home-page/?page=generate-download",
+  },
+  {
+    id: 3,
+    name: "View Generated Risks",
+    image: "images/Analysis.png",
+    link: "/home-page/view-generated-links",
+  },
 ];
 
 export default function LinkCarousel() {
@@ -63,9 +73,10 @@ export default function LinkCarousel() {
           style={contentStyle}
           className="h-[30vh] w-full flex justify-center items-center lg:h-[45vh]"
         >
-          <div
+          <Link
             className="bg-white h-[30vh] lg:h-[45vh] w-[80%] m-auto flex z-50 transition-all  flex-col items-center justify-center lg:px-11 rounded-[30px]  "
             key={service.id}
+            to={`${service?.link}`}
           >
             <img
               src={service.image}
@@ -75,7 +86,7 @@ export default function LinkCarousel() {
             <p className="text-[rgba(0,0,0,0.7)] md:text-lg lg:text-2xl text-base p-4 text-center mt-5 font-semibold">
               {service.name}
             </p>
-          </div>
+          </Link>
         </div>
       ))}
     </Carousel>

@@ -25,7 +25,7 @@ const CustomPopover = ({
         transition
         anchor="bottom"
         className={cn(
-          `divide-y divide-white/5 rounded-xl  border  relative z-40 bg-white text-sm/6 transition duration-200 ease-in-out [--anchor-gap:var(--spacing-5)] data-[closed]:-translate-y-1 data-[closed]:opacity-0`,
+          `divide-y divide-white/5 rounded-xl shadow-lg  relative z-40 bg-white text-sm/6 transition duration-200 ease-in-out [--anchor-gap:var(--spacing-5)] data-[closed]:-translate-y-1 data-[closed]:opacity-0`,
           className
         )}
       >

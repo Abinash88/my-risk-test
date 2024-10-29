@@ -1,9 +1,10 @@
 import SelectComp from "@/components/shared/ReuseAble/select";
 
-import SectorSlider from "./sector-slider";
-import MainMap from "./main-map";
-import TableData from "./table-data";
+import ScrollTop from "@/lib/hooks/scroll-top";
 import { useState } from "react";
+import MainMap from "./main-map";
+import SectorSlider from "./sector-slider";
+import TableData from "./table-data";
 
 const FilterByLastMonth = [
   {
@@ -44,6 +45,8 @@ const RisksStatus = [
 ];
 
 const Map = () => {
+  ScrollTop();
+
   const [status, setStatus] = useState(false);
   return (
     <div className="  z-50 pt-4 mb-20">
@@ -97,7 +100,6 @@ const Map = () => {
             <span className="md:text-lg font-semibold">999</span>
           </div>
         </div>
-
         <MainMap />
       </div>
       <TableData />

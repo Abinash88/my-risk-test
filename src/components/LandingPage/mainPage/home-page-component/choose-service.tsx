@@ -23,7 +23,7 @@ const ChooseServices = () => {
             AI Powered Risk Profile
           </h3>
         </button>
-        <Link to={'/map'}
+        <Link to={'/engage-t-o-standing'}
           className="bg-white  px-6 py-8 rounded-2xl text-black w-full "
         >
           <img

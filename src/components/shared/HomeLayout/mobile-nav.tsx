@@ -1,11 +1,8 @@
 import { navItems } from "@/lib/const/navigation";
 import { cn } from "@/lib/utils";
-import {
-  faAngleDown,
-  faBars,
-  faXmark,
-} from "@fortawesome/free-solid-svg-icons";
+import { faAngleDown, faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { X } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
@@ -45,8 +42,8 @@ const MobileNav = ({ colorChange }: { colorChange: boolean }) => {
       <ul
         className={
           nav
-            ? "fixed md:hidden left-0 top-0 w-[100%] h-full bg-[#fff] ease-in-out duration-500 z-50"
-            : "ease-in-out w-[100%] opacity-0 duration-500 fixed top-0 bottom-0 left-[-100%] z-50"
+            ? "fixed md:hidden left-0 top-0 w-[100%] h-full bg-[#fff] ease-in-out duration-300 z-50"
+            : "ease-in-out w-[100%] opacity-0 duration-300 fixed top-0 bottom-0 left-[-100%] z-50"
         }
       >
         {/* Mobile Logo */}
@@ -54,7 +51,7 @@ const MobileNav = ({ colorChange }: { colorChange: boolean }) => {
           <img
             src="images/logo.png"
             alt="logo"
-            className="w-[10rem] mt-8 ml-4 mb-6"
+            className="w-[8rem] md:w-[10rem] mt-8 ml-4 mb-6"
             onClick={() => {
               navigate("/");
               setNav(false);
@@ -62,16 +59,13 @@ const MobileNav = ({ colorChange }: { colorChange: boolean }) => {
             }}
           />
           <div onClick={handleNav} className="block md:hidden">
-            <FontAwesomeIcon
-              icon={faXmark}
-              className="text-[2rem] cursor-pointer text-black z-10 mr-6 mt-8"
-            />
+            <X className="size-7 cursor-pointer text-black z-10 mr-6 mt-8" />
           </div>
         </div>
 
         {/* Mobile Navigation Items */}
 
-        <div className="flex gap-3 flex-col mt-6">
+        <div className="flex gap- flex-col mt-6">
           {navItems.map((item) => (
             <div key={item?.id}>
               <li
@@ -116,7 +110,7 @@ const MobileNav = ({ colorChange }: { colorChange: boolean }) => {
                   {item.text === "Product" && (
                     <FontAwesomeIcon
                       icon={faAngleDown}
-                      className={`text-[1rem] duration-300 ${
+                      className={`text-[1rem] duration-100 ${
                         prod ? " rotate-180" : " rotate-0"
                       }`}
                     />
@@ -124,7 +118,7 @@ const MobileNav = ({ colorChange }: { colorChange: boolean }) => {
                   {item.text === "Learn" && (
                     <FontAwesomeIcon
                       icon={faAngleDown}
-                      className={`text-[1rem] duration-300 ${
+                      className={`text-[1rem] duration-100 ${
                         learn ? " rotate-180" : " rotate-0"
                       }`}
                     />
@@ -132,7 +126,7 @@ const MobileNav = ({ colorChange }: { colorChange: boolean }) => {
                   {item.text === "Support" && (
                     <FontAwesomeIcon
                       icon={faAngleDown}
-                      className={`text-[1rem] duration-300 ${
+                      className={`text-[1rem] duration-100 ${
                         support ? " rotate-180" : " rotate-0"
                       }`}
                     />

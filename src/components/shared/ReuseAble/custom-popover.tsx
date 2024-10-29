@@ -17,7 +17,7 @@ const CustomPopover = ({
 }: CustomPopoverType) => {
   return (
     <Popover>
-      <PopoverButton className="block cursor-pointer text-sm/6 font-semibold  focus:outline-none data-[active]:text-white data-[hover]:text-white data-[focus]:outline-1 data-[focus]:outline-white">
+      <PopoverButton className="block cursor-pointer relative z-40 text-sm/6 font-semibold  focus:outline-none data-[active]:text-white data-[hover]:text-white data-[focus]:outline-1 data-[focus]:outline-white">
         {label && label}
         <div className="">{popIcon}</div>
       </PopoverButton>
@@ -25,7 +25,7 @@ const CustomPopover = ({
         transition
         anchor="bottom"
         className={cn(
-          `divide-y divide-white/5 rounded-xl  bg-white text-sm/6 transition duration-200 ease-in-out [--anchor-gap:var(--spacing-5)] data-[closed]:-translate-y-1 data-[closed]:opacity-0`,
+          `divide-y divide-white/5 rounded-xl  border  relative z-40 bg-white text-sm/6 transition duration-200 ease-in-out [--anchor-gap:var(--spacing-5)] data-[closed]:-translate-y-1 data-[closed]:opacity-0`,
           className
         )}
       >

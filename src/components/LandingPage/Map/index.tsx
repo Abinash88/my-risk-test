@@ -46,7 +46,7 @@ const RisksStatus = [
 const Map = () => {
   const [status, setStatus] = useState(false);
   return (
-    <div className="pt-20  z-50 md:pt-32 mb-20">
+    <div className="  z-50 pt-4 mb-20">
       <SectorSlider />
       <div className="h-2" />
       <div className=" h-[70vh]   border w-full relative">

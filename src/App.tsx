@@ -22,7 +22,6 @@ import ChangePlan from "./components/Dashboard/Subscription/ChangePlan";
 import Verification from "./components/Dashboard/Verification";
 import Blog from "./components/LandingPage/Blog";
 import BlogContent from "./components/LandingPage/Blog/BlogContent";
-import GeneralRisk from "./components/LandingPage/GeneralRisk";
 import DownloadReport from "./components/LandingPage/GeneralRisk/GeneralRiskPages/GeneratedRiskProfile/download-report";
 import LandingPage from "./components/LandingPage/mainPage";
 import CookiePolicy from "./components/LandingPage/mainPage/cookie-policy";

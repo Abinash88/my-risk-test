@@ -56,7 +56,7 @@ export default function SelectComp({
       <button
         onClick={handleClick}
         className={cn(
-          `bg-[#1D98F0] flex items-center gap-4 md:text-sm text-xs text-white  px-5 py-2 rounded-lg`,
+          `bg-[#1D98F0] flex whitespace-nowrap items-center gap-4 md:text-sm text-xs text-white  px-5 py-2 rounded-lg`,
           className
         )}
       >

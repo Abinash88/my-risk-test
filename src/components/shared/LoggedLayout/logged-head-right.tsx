@@ -1,14 +1,12 @@
 import { faBars, faBell, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import CustomPopover from "../ReuseAble/custom-popover";
 import GridSidebar from "./GridSidebar";
-import UserPopop from "./user-popup";
 import User from "./user";
+import UserPopop from "./user-popup";
 
 const LoggedHeadSide = () => {
-  const navigate = useNavigate();
   const [nav, setNav] = useState(false);
   const handleNav = () => {
     setNav(!nav);
@@ -60,13 +58,13 @@ const LoggedHeadSide = () => {
               />
             }
           >
-            <div className="max-w-lg">
+            <div className="max-w-lg relative z-40">
               <GridSidebar />
             </div>
           </CustomPopover>
 
-          <CustomPopover popIcon={<User />}>
-            <div className=" w-full max-w-xl h-[130px] overflow-hidden  border rounded-xl  ">
+          <CustomPopover className=" w-full !max-w-[260px]" popIcon={<User />}>
+            <div className=" w-full max-w-xl h-[130px] bg-white z-30 relative overflow-hidden  border rounded-xl  ">
               <UserPopop />
             </div>
           </CustomPopover>

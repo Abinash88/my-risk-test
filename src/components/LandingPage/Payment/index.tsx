@@ -2,6 +2,7 @@ import HandleParams from "@/lib/hooks/handle-params";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 import { BgSection } from "../../shared/ReuseAble";
+import { PaymentTitle } from "./MakePayment";
 
 const PayLogo = [
   {
@@ -49,9 +50,8 @@ const PaymentMode = () => {
     <>
       <BgSection image="images/background.png">
         <div className="bg-white rounded-lg w-full lg:w-[35%] mr-auto ml-auto py-6">
-          <h4 className="text-[#000080] border-b border-[#777] text-left pb-3 pl-5 font-[600]">
-            Select your Payment Method
-          </h4>
+          <PaymentTitle title="Select your Payment Method" />
+
           <div className="my-3 px-[1rem] md:px-[5rem] flex justify-center gap-5 flex-wrap  ml-auto mr-auto">
             {PayLogo.map((logo, i) => (
               <button

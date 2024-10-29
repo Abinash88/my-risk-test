@@ -1,5 +1,4 @@
-import { faBars, faBell, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Bell, Menu, X } from "lucide-react";
 import { useState } from "react";
 import CustomPopover from "../ReuseAble/custom-popover";
 import GridSidebar from "./GridSidebar";
@@ -15,26 +14,17 @@ const LoggedHeadSide = () => {
   const [openGrid, setOpenGrid] = useState(false);
   return (
     <div className="relative">
-      <div className="lg:scale-90 flex">
+      <div className=" scale-90 flex">
         <div onClick={handleNav} className="hidden">
           {nav ? (
-            <FontAwesomeIcon
-              icon={faXmark}
-              className="text-[2rem] text-[#000080]"
-            />
+            <Menu className="md:size-7 text-[#000080]" />
           ) : (
-            <FontAwesomeIcon
-              icon={faBars}
-              className="text-[2rem] text-[#000080]"
-            />
+            <X className="md:size-7 text-[#000080]" />
           )}
         </div>
         <div className="flex items-center space-x-5 ml-auto ">
-          <div className="relative">
-            <FontAwesomeIcon
-              icon={faBell}
-              className="text-[18px] md:text-[25px] animate-wiggle"
-            />
+          <div className="relative flex items-center">
+            <Bell className=" size-6 md:size-8 animate-wiggle" />
             <div className="px-1 bg-[#AB2626] rounded-full text-center text-white text-[10px] absolute -top-2 -end-1">
               3
               <div className="absolute top-0 start-0 rounded-full -z-10 animate-ping bg-[#AB2626] w-full h-full"></div>

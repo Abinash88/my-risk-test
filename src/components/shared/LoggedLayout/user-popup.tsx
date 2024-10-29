@@ -3,7 +3,7 @@ import User from "./user";
 
 const UserPopop = () => {
   return (
-    <div className="w-full flex flex-col gap-3 justify-start items-start pl-5 min-h-[200px] py-4 ">
+    <div className="w-full flex flex-col border rounded-xl gap-3 justify-start items-start pl-5 min-h-[200px] py-4 ">
       <div className="scale-90">
         <User email={"uthermartin@gmail.com"} />
       </div>

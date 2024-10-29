@@ -11,18 +11,18 @@ const LoggedHeader = () => {
     location?.pathname.endsWith("view-generated-risks");
   return (
     <div className=" lg:overflow-hidden bg-white shadow-sm px-[2rem] lg:h-20 lg:px-[2rem] py-[1rem] flex items-center justify-between gap-2 w-full relative">
-      <div className="flex gap-6 items-center">
+      <div className="flex gap-4 md:gap-6 items-center">
         <MobileNav colorChange />
         <Link to="/">
           <img
             src="/images/logo.png"
             alt="logo"
-            className=" w-[9rem] md:w-[11rem]"
+            className=" w-[8rem] md:w-[11rem]"
           />
         </Link>
       </div>
       {!isShow && (
-        <div className="  fixed md:relative  hidden  md:flex items-center justify-center">
+        <div className="fixed md:relative hidden md:flex items-center justify-center">
           <LoggedMenu />
         </div>
       )}

@@ -76,7 +76,7 @@ const App = () => {
             path="/report"
             element={
               <DownloadableReport
-              reportVariant="UPLOAD_TEXT"
+                reportVariant="UPLOAD_TEXT"
                 riskMitigation={[
                   { treatCause: "", treatEffect: "" },
                   { treatCause: "", treatEffect: "" },

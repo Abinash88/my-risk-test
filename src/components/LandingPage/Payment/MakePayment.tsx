@@ -10,6 +10,14 @@ import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { BgSection } from "../../shared/ReuseAble";
 
+export const PaymentTitle = ({ title }: { title: string }) => {
+  return (
+    <h4 className="text-[#000080] border-b border-[#777] text-left pb-3 text-lg md:text-xl px-12 font-semibold">
+      {title}
+    </h4>
+  );
+};
+
 const MakePayment = () => {
   const [isChecked, setIsChecked] = useState(true);
 
@@ -40,15 +48,13 @@ const MakePayment = () => {
   return (
     <>
       <BgSection image="images/background.png">
-        <div className="bg-white rounded-lg w-full md:w-[60%] lg:w-[40%] mr-auto ml-auto py-6">
-          <h4 className="text-[#000080] border-b border-[#777] text-left pb-3 pl-5 font-[600]">
-            Make Payment
-          </h4>
-          <div className="px-3 my-6">
-            <div className="flex items-center gap-2 ml-2 ">
+        <div className="bg-white rounded-lg w-full md:w-[60%] lg:w-[40%] min-h-[300px]  mr-auto ml-auto py-6">
+          <PaymentTitle title="Make Payment" />
+          <div className="px-12 my-6">
+            <div className="flex items-center gap-3 ml-2 ">
               <input
                 type="radio"
-                className="p-8 w-5 h-5  specifyColor"
+                className="p-8 w-8 h-8  specifyColor"
                 id="pay"
                 checked={isChecked}
                 onClick={() => setIsChecked(!isChecked)}
@@ -56,7 +62,7 @@ const MakePayment = () => {
               />
               <label
                 htmlFor="pay"
-                className="block text-black font-[600] text-[14px] md:text-[19px]"
+                className="block text-black font-medium  text-[14px] md:text-[19px]"
               >
                 Pay with Credit or Debit Card
               </label>
@@ -75,17 +81,17 @@ const MakePayment = () => {
               <div className="flex flex-col text-left">
                 <input
                   type="number"
-                  className="border-2 w-full rounded-lg text-[rgba(0,0,0,0.4)] outline-none p-2.5"
+                  className="border-2 w-full rounded-xl text-[rgba(0,0,0,0.4)] outline-none p-3"
                   placeholder="Card Number*"
                   {...register("cardNumber")}
                 />
                 <InputErrorMsg errors={errors} name="cardNumber" />
               </div>
-              <div className="flex gap-3 text-left">
+              <div className="flex justify-between text-left">
                 <div className="flex flex-col">
                   <input
                     type="text"
-                    className="border-2 w-full rounded-lg text-[rgba(0,0,0,0.4)] outline-none p-2.5"
+                    className="border-2 w-full rounded-xl text-[rgba(0,0,0,0.4)] outline-none p-3"
                     placeholder="MM*"
                     {...register("month")}
                   />
@@ -94,7 +100,7 @@ const MakePayment = () => {
                 <div className="flex flex-col">
                   <input
                     type="text"
-                    className="border-2 w-full rounded-lg text-[rgba(0,0,0,0.4)] outline-none p-2.5"
+                    className="border-2 w-full rounded-xl text-[rgba(0,0,0,0.4)] outline-none p-3"
                     placeholder="YY*"
                     {...register("year")}
                   />
@@ -103,7 +109,7 @@ const MakePayment = () => {
                 <div className="flex flex-col">
                   <input
                     type="text"
-                    className="border-2 w-full rounded-lg text-[rgba(0,0,0,0.4)] outline-none p-2.5"
+                    className="border-2 w-full rounded-xl text-[rgba(0,0,0,0.4)] outline-none p-3"
                     placeholder="CVV/CVC*"
                     {...register("cvc")}
                   />
@@ -113,7 +119,7 @@ const MakePayment = () => {
               <div className="flex flex-col text-left">
                 <input
                   type="text"
-                  className="border-2 w-full rounded-lg text-[rgba(0,0,0,0.4)] outline-none p-2.5"
+                  className="border-2 w-full rounded-xl text-[rgba(0,0,0,0.4)] outline-none p-3"
                   placeholder="First Name"
                   {...register("firstName")}
                 />
@@ -122,7 +128,7 @@ const MakePayment = () => {
               <div className="flex flex-col text-left">
                 <input
                   type="text"
-                  className="border-2 w-full rounded-lg text-[rgba(0,0,0,0.4)] outline-none p-2.5"
+                  className="border-2 w-full rounded-xl text-[rgba(0,0,0,0.4)] outline-none p-3"
                   placeholder="Last Name"
                   {...register("lastName")}
                 />

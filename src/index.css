@@ -310,6 +310,10 @@ input[type="number"] {
   color: white !important;
 }
 
-.date_picker .ant-picker-suffix{
+.date_picker .ant-picker-suffix {
   color: white !important;
+}
+
+#payment-form input {
+  @apply bg-[#D9D9D914] text-xs md:text-sm ;
 }

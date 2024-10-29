@@ -117,8 +117,9 @@ const TandO = () => {
                       : "flex-col space-x-3"
                   } overflow-x-scroll md:overflow-hidden text-sm md:space-y-3 md:justify-center md:items-start scrollBar py-2 w-[80vw] md:w-fit md:px-12`}
                 >
-                  {Continents.map((x) => (
+                  {Continents.map((x, index) => (
                     <p
+                      key={index}
                       className={`text-md font-bold mt-2 opacity-80 ml-3 ${
                         !sel ? "md:ml-3" : "md:ml-6"
                       } text-nowrap ${

@@ -41,6 +41,7 @@ import ErrorPage from "./components/shared/ErrorPage";
 import HomeLayout from "./components/shared/HomeLayout";
 import HomeLayout2 from "./components/shared/HomeLayout2";
 import LoggedLayout from "./components/shared/LoggedLayout/loggedLayout";
+import DownloadableReport from "./components/LandingPage/GeneralRisk/GeneralRiskPages/GeneratedRiskProfile/downloadable-report";
 
 const App = () => {
   return (
@@ -69,9 +70,24 @@ const App = () => {
 
         <Route path="/" element={<HomeLayout2 />}>
           <Route path="/home-page" element={<HomePage />} />
-          <Route path="/testing" element={<DownloadReport />} />
+          <Route path="/download-report" element={<DownloadReport />} />
+          DownloadableReport
+          <Route
+            path="/report"
+            element={
+              <DownloadableReport
+              reportVariant="UPLOAD_TEXT"
+                riskMitigation={[
+                  { treatCause: "", treatEffect: "" },
+                  { treatCause: "", treatEffect: "" },
+                ]}
+                causes={["asldkfj", "asldifjalsdjflka", "aoisdfjlasd"]}
+                effect={["aksjdfhnakl", "aouhusdff", "alsidfjalks"]}
+              />
+            }
+          />
+          DownloadableReport
           {/* <Route path="/testing2" element={<StepsSection />} /> */}
-
           {/* <Route path="/ai-model" element={<AIModel />} /> */}
           {/* <Route path="/generate-download" element={<GenerateDownload />} /> */}
           {/* <Route path="/make-payment" element={<MakePayment />} />  */}

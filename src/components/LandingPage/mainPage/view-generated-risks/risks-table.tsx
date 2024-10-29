@@ -1,5 +1,4 @@
 import { Button } from "@/components/shared/ReuseAble/button";
-import ToggleHook from "@/lib/hooks/toggle-hook";
 import { cn } from "@/lib/utils";
 import { Pagination, Table, type TableProps } from "antd";
 import { ArrowLeft, ArrowRight } from "lucide-react";
@@ -191,14 +190,14 @@ const RisksTable = () => {
   });
 
   const rowSelection = {
-    onChange: (selectedRowKeys: React.Key[], selectedRows: any[]) => {
+    onChange: (selectedRowKeys: React.Key[], selectedRows: React.Key[]) => {
       console.log(
         `selectedRowKeys: ${selectedRowKeys}`,
         "selectedRows: ",
         selectedRows
       );
     },
-    getCheckboxProps: (record: any) => ({
+    getCheckboxProps: (record: { name: string }) => ({
       disabled: record.name === "Disabled User", // Column configuration not to be checked
       name: record.name,
     }),

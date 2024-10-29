@@ -27,13 +27,43 @@ const GneratedRiskPRofile = ({
           <h4 className="font-[600] text-[20px]">Risk Profile</h4>
         </div>
         <div className="bg-white text-black rounded-lg py-4  px-5 flex flex-col gap-3 items-start">
-          <div className="">
+          <div className=" w-full">
             {!showLoader && checkType === "generate-download" && (
-              <DownloadableReport handleStepClick={handleStepClick} />
+              <DownloadableReport
+                reportVariant="DOWNLOAD"
+                riskDescription="Yorem ipsum dolor sit amet Yorem ipsum dolor sit amet Yorem ipsum dolor sit ametYorem ipsum dolor sit amet Yorem ipsum dolor sit amet"
+                causes={[
+                  "Yorem ipsum dolor sit amet",
+                  "Yorem ipsum dolor sit amet",
+                  "Yorem ipsum dolor sit amet",
+                ]}
+                effect={[
+                  "Yorem ipsum dolor sit amet",
+                  "Yorem ipsum dolor sit amet",
+                  "Yorem ipsum dolor sit amet",
+                ]}
+                probability={5}
+                impact={29}
+                currentRating={29 + 5}
+                handleStepClick={handleStepClick}
+              />
             )}
-            {/* {!showLoader && checkType === "enter-text" && (
-              // <DownloadableReport />
-            )} */}
+            {!showLoader && checkType === "enter-text" && (
+              <DownloadableReport
+                reportVariant="UPLOAD_TEXT"
+                causes={["", "", ""]}
+                effect={["", "", ""]}
+                handleStepClick={handleStepClick}
+              />
+            )}
+            {!showLoader && checkType === "use-ai" && (
+              <DownloadableReport
+                reportVariant="UPLOAD_AI"
+                causes={["", "", ""]}
+                effect={["", "", ""]}
+                handleStepClick={handleStepClick}
+              />
+            )}
           </div>
           {showLoader && (
             <div className="flex items-center justify-center  h-[50vh] mr-auto ml-auto">

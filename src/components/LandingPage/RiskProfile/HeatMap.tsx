@@ -31,14 +31,15 @@ export const data: HeatmapValueType[] = [
 
 const HeatMapPage = () => {
   return (
-    <div className="bg-[#FAFAFA]">
-      <div className="w-full md:w-[50%] mx-auto">
+    <div className="bg-[#FAFAFA] w-full mx-auto rounded-xl py-5 border">
+      <div className="  flex justify-center items-center mx-auto">
         <Heatmap
           xAxis={[{ data: [1, 2, 3, 4] }]}
           yAxis={[{ data: ["A", "B", "C", "D", "E"] }]}
           series={[{ data }]}
           margin={{ top: 5, right: 5, left: 20 }}
           height={300}
+          width={300}
         />
       </div>
     </div>

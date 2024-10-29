@@ -29,7 +29,7 @@ const PageOne = ({ onNext }: { onNext: () => void }) => {
       </div>
       <div className="mt-4">
         <div className="bg-white text-black rounded-lg py-4  px-1 md:px-5 flex flex-col gap-2 md:gap-3 items-start">
-          {page === "generate" && <Generate  onNext={onNext} />}
+          {page === "generate" && <Generate onNext={onNext} />}
           {page === "view" && <div>What to view????</div>}
         </div>
       </div>

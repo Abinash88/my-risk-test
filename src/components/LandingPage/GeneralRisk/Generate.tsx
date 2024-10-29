@@ -1,3 +1,4 @@
+import { Button } from "@/components/shared/ReuseAble/button";
 import { cn } from "@/lib/utils";
 import { Search } from "lucide-react";
 import { useState } from "react";
@@ -13,17 +14,18 @@ const Generate = ({ onNext }: { onNext: () => void }) => {
         <div className="bg-[#1D98F0] text-white  p-3 text-left rounded-lg shadow-lg mb-3">
           <h4>Select Global/Region</h4>
         </div>
-        <button
+        <Button
+          variant={"ghost"}
           onClick={() => {
             setCountry(country === "Global" ? undefined : "Global");
           }}
           className={cn(
-            `shadow-sm p-3 text-black text-[20px] w-full mb-6 rounded-lg text-left border border-[#77777743]`,
-            country === "Global" && "border-gray-500 shadow-lg"
+            ` p-3 text-black text-sm md:text-base w-full border border-gray-100 h-12 mb-6 rounded-lg text-left justify-start`,
+            country === "Global" && "shadow-none bg-blue-100 "
           )}
         >
           Global
-        </button>
+        </Button>
         <div className="flex relative ">
           <input
             onFocus={() => {

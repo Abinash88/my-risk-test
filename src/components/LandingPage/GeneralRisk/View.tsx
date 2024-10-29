@@ -1,3 +1,4 @@
+import { Button } from "@/components/shared/ReuseAble/button";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 
@@ -46,7 +47,6 @@ const View = ({
     mitagation: undefined,
   });
 
-  console.log(!!select?.rating && !!select?.mitagation);
   const isDisable = !!select?.rating && !!select?.mitagation;
   return (
     <>
@@ -56,38 +56,39 @@ const View = ({
         </div>
         <div className="flex flex-col gap-3 ">
           {Rating?.map((item) => (
-            <button
+            <Button
+              variant={"ghost"}
               onClick={() => {
                 setSelect((prev) => ({ ...prev, rating: item?.name }));
               }}
               className={cn(
-                `shadow-sm p-3 text-black text-[20px] w-full rounded-lg text-left border border-[#77777743]`,
-                select.rating === item?.name && "border-gray-400 shadow-lg"
+                `border border-gray-100 h-12 text-black text-sm md:text-base justify-start w-full rounded-lg text-left  `,
+                select.rating === item?.name && " bg-blue-100 shadow-none"
               )}
             >
               {item?.name}
-            </button>
+            </Button>
           ))}
         </div>
       </div>
       <div className="w-full flex flex-col gap-3 md:px-4 py-2 ">
         <div className="bg-[#1D98F0] text-white  p-3 text-left rounded-lg shadow-lg mb-3">
-          <h4>Risk Mitgation</h4>
+          <h4>Risk Mitigation</h4>
         </div>
         {mitigation?.map((item) => {
           return (
-            <button
-              key={item.id}
+            <Button
+              variant={"ghost"}
               onClick={() => {
                 setSelect((prev) => ({ ...prev, mitagation: item?.name }));
               }}
               className={cn(
-                `shadow-sm p-3 text-black text-[20px] w-full rounded-lg text-left border border-[#77777743]`,
-                select.mitagation === item?.name && "border-gray-400 shadow-lg"
+                `border border-gray-100 h-12 text-black text-sm md:text-base justify-start w-full rounded-lg text-left  `,
+                select.mitagation === item?.name && " bg-blue-100 shadow-none"
               )}
             >
               {item?.name}
-            </button>
+            </Button>
           );
         })}
       </div>

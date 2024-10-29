@@ -17,8 +17,7 @@ const buttonVariants = cva(
           "border  border-[#00000033] bg-white hover:bg-[#D9D9D99C] hover:text-[#000080] hover:border-[#000080] active:scale-95 transition-all",
         secondary:
           "bg-[#3838F0] text-white hover:bg-[#3838F0]/80 active:scale-95 transition-all",
-        ghost:
-          "hover:bg-white  active:scale-95  transition-all",
+        ghost: " shadow-md active:scale-95  transition-all",
         link: "text-primary underline-offset-4 hover:underline active:scale-95 transition-all",
         light:
           "bg-[#D9D9D99C] text-[#000000] hover:opacity-90 active:scale-95 transition-all",

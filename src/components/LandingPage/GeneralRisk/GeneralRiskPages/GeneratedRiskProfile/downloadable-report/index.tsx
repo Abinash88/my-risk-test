@@ -1,58 +1,83 @@
+import HeatMap from "@/components/LandingPage/RiskProfile/HeatMap";
 import { Rating } from "@mui/material";
 import { useState } from "react";
-import HeatMap from "../HeatMap";
 import Score from "../Score";
+import { cn } from "@/lib/utils";
+
+export type DownloadableReportType = {
+  handleStepClick?: (id: number) => void;
+  riskDescription?: string;
+  causes?: string[];
+  effect?: string[];
+  probability?: number;
+  impact?: number;
+  currentRating?: number;
+  riskMitigation?: { treatCause: ""; treatEffect: "" }[];
+  reportVariant: "DOWNLOAD" | "UPLOAD_AI" | "UPLOAD_TEXT";
+};
 
 const DownloadableReport = ({
   handleStepClick,
-}: {
-  handleStepClick: (id: number) => void;
-}) => {
+  causes,
+  effect,
+  riskDescription,
+  currentRating,
+  impact,
+  probability,
+  riskMitigation,
+  reportVariant,
+}: DownloadableReportType) => {
   const [result, setResult] = useState<"score" | "rating" | "heat">("score");
   return (
-    <div>
-      <div className="text-left ">
-        <h4 className="p-3 bg-[#1D98F0] text-white rounded-lg w-full font-[600] text-[18px] mb-3">
-          Risk Details
-        </h4>
-        <p>
-          Yorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-          vulputate libero et velit interdum, ac aliquet odio mattis. Class
-          aptent taciti sociosqu ad litora torquent per conubia nostra, per
-          inceptos himenaeos.
-        </p>
-      </div>
-      <div className="w-full mt-3">
-        <div className=" gap-3 grid grid-cols-2  my-5 w-full justify-center mt-4">
-          <div className="flex flex-col w-full gap-3">
-            <button className="p-3 rounded-xl text-white bg-[#1D98F0]">
-              Causes
-            </button>
-            <input
-              type="text"
-              className=" outline-none border border-[rgba(0,0,0,0.2)] p-3 rounded-xl"
-            />
-            <input
-              type="text"
-              className=" outline-none border border-[rgba(0,0,0,0.2)] p-3 rounded-xl"
-            />{" "}
-          </div>
+    <div className=" w-full min-h-[100vh]">
+      <div className="text-left w-full  ">
+        <div className="flex flex-col ">
+          <h4 className="p-3 bg-[#1D98F0] text-white rounded-lg w-full font-[600] text-[18px] mb-3">
+            Risk Details
+          </h4>
 
-          <div className="flex flex-col w-full gap-3">
-            <button className="p-3 rounded-xl text-white bg-[#1D98F0]">
-              Effect
-            </button>
-            <input
-              type="text"
-              className=" outline-none border border-[rgba(0,0,0,0.2)] p-3 rounded-xl"
-            />{" "}
-            <input
-              type="text"
-              className=" outline-none border border-[rgba(0,0,0,0.2)] p-3 rounded-xl"
-            />
-          </div>
+          <textarea
+            value={riskDescription}
+            rows={5}
+            className={cn(
+              `w-full  focus:ring-0 focus:outline-none`,
+              riskDescription && "border rounded-lg"
+            )}
+          />
         </div>
       </div>
+
+      <div className=" gap-3  grid md:grid-cols-2  my-5 w-full mt-4">
+        <div className="flex flex-col w-full gap-3">
+          <button className="p-3 rounded-xl text-white bg-[#1D98F0]">
+            Causes
+          </button>
+          {causes?.map((item) => (
+            <input
+              key={item}
+              value={item}
+              type="text"
+              className=" outline-none border border-[rgba(0,0,0,0.2)] p-3 rounded-xl"
+            />
+          ))}
+        </div>
+
+        <div className="flex flex-col w-full gap-3">
+          <button className="p-3 rounded-xl text-white bg-[#1D98F0]">
+            Effect
+          </button>
+          {effect?.map((item) => (
+            <input
+              key={item}
+              value={item}
+              type="text"
+              className=" outline-none border border-[rgba(0,0,0,0.2)] p-3 rounded-xl"
+            />
+          ))}
+        </div>
+      </div>
+
+      <div className="w-full mt-3"></div>
       <div className="w-full">
         <div className="w-full overflow-x-auto mb-4">
           {" "}
@@ -91,9 +116,22 @@ const DownloadableReport = ({
         </div>
 
         <div className="w-full px-2 md:px-0">
-          {result === "score" && <Score handleStepClick={handleStepClick} />}
+          {result === "score" && (
+            <Score
+              {...{
+                probability,
+                impact,
+                currentRating,
+                handleStepClick,
+                causes,
+                effect,
+                riskMitigation,
+                reportVariant,
+              }}
+            />
+          )}
           {result === "rating" && <Rating />}
-          {result === "heat" && <HeatMap />}
+          {reportVariant === "UPLOAD_TEXT" && result === "heat" && <HeatMap />}
         </div>
       </div>
     </div>

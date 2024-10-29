@@ -236,7 +236,19 @@ input[type="number"] {
 #sector_carousel .lucide-chevron-left {
   width: 35px !important;
   height: 35px !important;
-  transform: translateY(-50%) translateX(-45px) !important;
+  transform: translateY(-50%) translateX(-50px) !important;
+  opacity: 1 !important;
+  border-radius: 5px;
+  padding: 7px;
+  background: #000080;
+}
+
+
+#sector_carousel .lucide-chevron-right {
+  width: 35px !important;
+  height: 35px !important;
+  transform: translateY(-50%) translateX(50px) !important;
+  right: -175px;
   opacity: 1 !important;
   border-radius: 5px;
   padding: 7px;

@@ -49,7 +49,7 @@ const AddRemoveSector = ({
   );
 
   return (
-    <div className=" w-full min-w-[200px] rounded-lg p-4">
+    <div className=" w-full min-w-[200px] border rounded-lg p-4">
       <div className="relative flex w-[90%] mx-auto md:w-full">
         <input
           onChange={(e) => {
@@ -103,8 +103,8 @@ const SectorSlider = () => {
   const [select, setSelect] = useState<string[]>([]);
   return (
     <div className="w-full bg-white">
-      <div className=" mx-auto w-[85%]">
-        <div className="grid w-full grid-cols-[60%_35%_10%] md:grid-cols-[80%_20%_5%] xl:grid-cols-[82%_15%] 2xl:grid-cols-[85%_15%] items-center">
+      <div className=" mx-auto  px-12 md:px-16 ">
+        <div className="grid w-full grid-cols-[calc(100%-180px)_170px] justify-between items-center">
           <Carousel
             ref={ref}
             arrows
@@ -112,7 +112,7 @@ const SectorSlider = () => {
             slidesToScroll={1}
             dots={false}
             prevArrow={<ChevronLeft />}
-            // nextArrow={}
+            nextArrow={<ChevronRight />}
             infinite={false}
             draggable
             id="sector_carousel"
@@ -136,7 +136,7 @@ const SectorSlider = () => {
                 },
               },
               {
-                breakpoint: 650, // Extra-small screens (mobile)
+                breakpoint: 550, // Extra-small screens (mobile)
                 settings: {
                   slidesToShow: 1,
                 },
@@ -145,8 +145,8 @@ const SectorSlider = () => {
           >
             <button
               style={{ boxShadow: " rgba(149, 157, 165, 0.2) 0px 8px 10px" }}
-              className={`py-2.5 rounded-2xl mt-2 w-[90%] bg-[#000080] text-white border border-gray-100 md:text-sm text-xs my-auto mx-auto
-               flex flex-wrap gap-4 items-center  justify-center p-4 font-medium`}
+              className={` md:py-2.5 py-3 rounded-2xl mt-3  bg-[#000080] text-white border border-gray-100 md:text-sm text-xs 
+               flex  items-center  justify-center  font-medium`}
             >
               Main Sector
             </button>
@@ -168,11 +168,12 @@ const SectorSlider = () => {
                         : [...newData, item.value];
                     })
                   }
-                  className={`py-2 rounded-2xl mt-2 w-[90%] border border-gray-100 md:text-sm text-xs my-auto mx-auto flex flex-wrap gap-4 items-center  justify-center p-4 font-medium ${
-                    select.includes(item.value)
-                      ? "bg-[#000080] text-white"
-                      : "bg-white text-[rgba(0,0,0,0.7)]"
-                  }`}
+                  className={`py-2 rounded-2xl mt-3 w-[90%] border border-gray-100 md:text-sm text-xs my-auto mx-auto flex
+                     flex-wrap gap-2 md:gap-4 items-center  justify-center p-4 font-medium ${
+                       select.includes(item.value)
+                         ? "bg-[#000080] text-white"
+                         : "bg-white text-[rgba(0,0,0,0.7)]"
+                     }`}
                 >
                   {item.value}
                   <X
@@ -183,7 +184,7 @@ const SectorSlider = () => {
                       );
                     }}
                     className={cn(
-                      `bg-blue-700 rounded-full md:text-sm text-xs p-1 text-white`,
+                      `bg-blue-700  rounded-full md:text-sm text-xs p-1 text-white`,
                       select.includes(item.value) && "bg-white text-blue-700"
                     )}
                   />
@@ -191,22 +192,16 @@ const SectorSlider = () => {
               </div>
             ))}
           </Carousel>
-          <div className="flex w-full justify-center items-center gap-3">
+          <div className="flex w-full justify-center  items-center gap-3">
             <SelectComp
               label="All Sector"
-              className="bg-transparent w-[100%] z-10 border border-gray-100 md:text-sm text-xs
-             py-2  text-gray-500 border-none shadow-lg rounded-2xl"
+              className="bg-transparent w-[100%] gap-5  px-7  z-20 md:text-sm text-xs
+               text-gray-500 border border-gray-100 shadow-lg rounded-2xl"
               containerClass=""
               Component={
                 <AddRemoveSector section={section} setSection={setSection} />
               }
             />
-            <div className=" flex justify-end">
-              <ChevronRight
-                className="bg-[#000080]  p-[7px] rounded-[5px]  size-[35px] text-white"
-                onClick={ref.current?.next}
-              />
-            </div>
           </div>
         </div>
       </div>

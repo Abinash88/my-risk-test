@@ -1,6 +1,11 @@
 import HeatMapPage from "@/components/LandingPage/RiskProfile/HeatMap";
 import { cn } from "@/lib/utils";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import DownloadReport, { HeaderFooter } from "./download-report";
+import { useReactToPrint } from "react-to-print";
+import { DownloadPdf } from "@/utils/download-pdf";
+import { toast } from "react-toastify";
+import { Loader, LoaderCircle } from "lucide-react";
 
 type ScoreType = {
   probability?: number;
@@ -70,13 +75,29 @@ const Score = ({
 }: ScoreType) => {
   const [result, setResult] = useState<"migation" | "type">("migation");
   const [total, setTotal] = useState<number>();
+  const [loading, setLoading] = useState(false);
+
+  const contentRef = useRef<HTMLDivElement | null>(null);
+  const overlay = useRef<HTMLDivElement | null>(null);
+  const reactToPrintFn = useReactToPrint({
+    content: () => contentRef.current,
+    print: async (content) => {
+      await DownloadPdf({
+        pdfs: [content],
+        overlay: overlay.current,
+        setLoading,
+      });
+    },
+    onPrintError: () => {
+      toast.error("Failed to export the document");
+    },
+  });
 
   useEffect(() => {
     const result = currentRating && impact && currentRating + impact;
     setTotal(result);
   }, [currentRating, impact]);
 
-  console.log(total);
   return (
     <>
       <div className="w-full overflow-x-auto pb-2 text-center ">
@@ -156,7 +177,7 @@ const Score = ({
           <button className="w-full px-3 py-4 bg-[#1D98F0] text-white rounded-lg mt-6">
             View Bow - Tie
           </button>
-          <div className="mt-6 flex flex-col lg:flex-row items-center border gap-4 gap-y-4 justify-between font-[600]">
+          <div className="mt-6 flex flex-col lg:flex-row items-center gap-4 gap-y-4 justify-between font-[600]">
             <div className="w-full md:w-1/2 lg:w-[26%]">
               <p className="text-center">Causes</p>
               <div className="bg-[#6095C9] min-h-[300px] h-full p-5 flex flex-col items-center gap-2 rounded-3xl mt-1">
@@ -183,8 +204,10 @@ const Score = ({
               <div className="bg-[#6095C9] min-h-[300px] rounded-3xl mt-1">
                 <div className="bg-[#6095C9]  h-full p-5 flex flex-col items-center gap-2 rounded-3xl mt-1">
                   {effect?.map((item) => (
-                    <div className="flex flex-col gap-3 text-white font-normal">
-                      {" "}
+                    <div
+                      key={item}
+                      className="flex flex-col gap-3 text-white font-normal"
+                    >
                       {item}
                     </div>
                   ))}
@@ -195,32 +218,47 @@ const Score = ({
         </div>
       )}
 
-      {reportVariant === "UPLOAD_AI" ||
-        (reportVariant === "UPLOAD_TEXT" && (
-          <div className=" w-full space-y-5 my-10">
-            <button className="p-3 w-full rounded-xl text-white bg-[#1D98F0]">
-              View HeatMap
-            </button>
-            <HeatMapPage />
-          </div>
-        ))}
+      {(reportVariant === "UPLOAD_AI" || reportVariant === "UPLOAD_TEXT") && (
+        <div className=" w-full space-y-5 my-10">
+          <button className="p-3 w-full rounded-xl text-white bg-[#1D98F0]">
+            View HeatMap
+          </button>
+          <HeatMapPage />
+        </div>
+      )}
 
-      <div className="flex items-center justify-center gap-3 lg:gap-6 w-[80%] mx-auto pb-7 md:flex-nowrap flex-wrap">
-        <button
-          onClick={() => {
-            if (handleStepClick) handleStepClick(3);
-          }}
-          className="p-4 text-white bg-[#000080] w-full rounded-lg"
-        >
+      <div className="flex mt-[40px] items-center justify-center gap-3 lg:gap-6 w-[80%] mx-auto pb-7 md:flex-nowrap flex-wrap">
+        <button className="p-4 text-white bg-[#000080] w-full rounded-lg">
           previous
         </button>
-        <button className="p-4 text-white bg-[#000080] w-full rounded-lg">
-          Download Report
+        <button
+          disabled={loading}
+          onClick={() => {
+            // if (reportVariant === "DOWNLOAD")
+            reactToPrintFn();
+          }}
+          className="p-4 text-white flex justify-center items-center bg-[#000080] w-full rounded-lg"
+        >
+          {loading ? (
+            <LoaderCircle className="animate-spin size-7" />
+          ) : reportVariant === "UPLOAD_AI" ? (
+            "Upload to T & O standing"
+          ) : (
+            "Download Report"
+          )}
         </button>
       </div>
       <div className="flex pb-7 items-center gap-2 justify-center">
         <input type="checkbox" className="border border-l-red-500" />
         <p>Send Copy to Email</p>
+      </div>
+      <div className="h-0 overflow-hidden">
+        <div ref={contentRef} className="">
+          <DownloadReport />
+        </div>
+        <div ref={overlay} className="w-full">
+          <HeaderFooter />
+        </div>
       </div>
     </>
   );

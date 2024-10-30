@@ -6,7 +6,8 @@ export type NextType =
   | "payment-mode"
   | "general-risk"
   | "make-payment"
-  | "upload";
+  | "upload"
+  | "duration";
 
 function isNextType(value: string | null): value is NextType {
   return (
@@ -15,7 +16,8 @@ function isNextType(value: string | null): value is NextType {
     value === "payment-mode" ||
     value === "general-risk" ||
     value === "make-payment" ||
-    value === "upload"
+    value === "upload" ||
+    value === "duration"
   );
 }
 

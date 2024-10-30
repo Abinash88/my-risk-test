@@ -8,6 +8,7 @@ import { Upload } from "../Upload";
 import ChooseServices from "./choose-service";
 import { GenerateDownload } from "./generate-download";
 import { AIModel } from "./select-api-modal";
+import EnterDuration from "../enter-duration";
 
 const HomePage = () => {
   const { getP } = HandleParams();
@@ -28,6 +29,8 @@ const HomePage = () => {
         return <MakePayment />;
       case "upload":
         return <Upload />;
+      case "duration":
+        return <EnterDuration />;
       default:
         return <ChooseServices />;
     }

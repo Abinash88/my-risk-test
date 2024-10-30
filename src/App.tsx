@@ -71,7 +71,6 @@ const App = () => {
         <Route path="/" element={<HomeLayout2 />}>
           <Route path="/home-page" element={<HomePage />} />
           <Route path="/download-report" element={<DownloadReport />} />
-          DownloadableReport
           <Route
             path="/report"
             element={

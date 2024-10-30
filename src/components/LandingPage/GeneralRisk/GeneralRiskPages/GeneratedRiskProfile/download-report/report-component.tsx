@@ -186,21 +186,21 @@ export const ReportTitle = ({ title }: { title: string }) => (
 );
 
 export const Disclamer = () => (
-  <div className="space-y-1">
+  <div className=" flex flex-col justify-start items-start">
     <h3
       className={cn(
-        `w-full md:text-xl text-lg text-[#000080] font-medium rounded-lg  `
+        `w-full md:text-base text-sm text-left text-[#000080] font-medium rounded-lg  `
       )}
     >
       Disclaimer:{" "}
     </h3>
-    <p className="md:text-sm text-xs font-light">
+    <p className=" text-xs text-left font-light">
       The information and services provided by Hermandai are intended for
       informational and educational purposes only. While we strive to ensure
       that our AI solutions are accurate and reliable, we cannot guarantee that
       they will always perform as expected or be free from errors.
     </p>
-    <ul className="md:text-sm text-xs font-light">
+    <ul className=" text-xs text-left font-light">
       <li>
         1. No Warranty: [Your Company Name] makes no warranties or
         representations, express or implied, regarding the accuracy,
@@ -216,7 +216,7 @@ export const Disclamer = () => (
         liable for any changes or interruptions to the services provided.
       </li>
     </ul>
-    <p className="md:text-sm text-xs font-light">
+    <p className=" text-xs text-left font-light">
       By using our AI solutions, you acknowledge and agree to these terms. If
       you have any questions or concerns, please contact us at
       Hermandai@gmail.com. Feel free to adjust this disclaimer based on the

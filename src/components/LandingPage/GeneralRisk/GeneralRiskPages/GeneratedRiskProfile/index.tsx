@@ -61,6 +61,16 @@ const GneratedRiskPRofile = ({
                 reportVariant="UPLOAD_AI"
                 causes={["", "", ""]}
                 effect={["", "", ""]}
+                probability={5}
+                impact={9}
+                currentRating={9 + 5}
+                riskMitigation={[
+                  { treatCause: "", treatEffect: "" },
+                  { treatCause: "", treatEffect: "" },
+                  { treatCause: "", treatEffect: "" },
+                  { treatCause: "", treatEffect: "" },
+                ]}
+                riskDescription="Yorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
                 handleStepClick={handleStepClick}
               />
             )}

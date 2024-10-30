@@ -41,7 +41,7 @@ const DownloadableReport = ({
             rows={5}
             className={cn(
               `w-full  focus:ring-0 focus:outline-none`,
-              riskDescription && "border rounded-lg"
+              !riskDescription && "border rounded-lg"
             )}
           />
         </div>

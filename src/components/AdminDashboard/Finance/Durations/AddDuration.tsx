@@ -1,9 +1,8 @@
-import { Divider, Form, Input, Modal, Select, Switch } from "antd";
-import { CloudUpload, Plus } from "lucide-react";
-import React, { useState } from "react";
+import { Divider, Form, Input, Modal, Switch } from "antd";
+import { useState } from "react";
 
 const AddDuration = () => {
-    const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
   const showModal = () => {
     setOpen(true);
   };
@@ -17,7 +16,6 @@ const AddDuration = () => {
   };
 
   return (
-    
     <div>
       <button
         className="rounded-md px-6 py-2 text-white bg-[#3838F0] flex items-center"
@@ -42,7 +40,7 @@ const AddDuration = () => {
               Cancel
             </button>
             <button
-              className="rounded-md text-white bg-[#3838F0] py-2 px-3"
+              className="rounded-md text-white bg-[#3838F0] py-2 px-5"
               onClick={handleOk}
             >
               Add
@@ -59,18 +57,19 @@ const AddDuration = () => {
             <Form.Item label="Total Times" name="duration">
               <Input className="p-2" placeholder="Enter Total Hours" />
             </Form.Item>
-            <Form.Item label="Price" name="price">
-              <Input className="p-2" placeholder="Price" />
+            <Form.Item label="Price" className="relative" name="price">
+              <span className="absolute z-20 top-2  left-2 ">$</span>
+              <Input className="p-2 pl-5" type="number" placeholder="Price" />
             </Form.Item>
           </Form>
           <div className="flex justify-between mt-5">
-              <p>Enable / Disable Visibility</p>
-              <Switch />
-            </div>
+            <p>Enable / Disable Visibility</p>
+            <Switch />
+          </div>
         </div>
       </Modal>
     </div>
-  )
-}
+  );
+};
 
-export default AddDuration
+export default AddDuration;

@@ -1,11 +1,9 @@
-import { faBars, faPen } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
-import Card from "../shared/Card";
-import { ApexOptions } from "apexcharts";
-import ReactApexChart from "react-apexcharts";
-import BarChart from "./BarChart";
 import { Tree } from "@phosphor-icons/react";
+import { ApexOptions } from "apexcharts";
+import { useState } from "react";
+import ReactApexChart from "react-apexcharts";
+import Card from "../shared/Card";
+import BarChart from "./BarChart";
 
 export default function IndexAdminDashboard() {
   const [state, setState] = useState<{ series: number[] }>({

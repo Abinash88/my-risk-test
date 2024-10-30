@@ -21,7 +21,7 @@ const AddFeature = () => {
         className="rounded-md px-6 py-2 text-white bg-[#3838F0] flex items-center"
         onClick={() => showModal()}
       >
-        Add Feature
+        Edit Feature
       </button>
       <Modal
         title="Add Premium Feature"
@@ -43,7 +43,7 @@ const AddFeature = () => {
               className="rounded-md text-white bg-[#3838F0] py-2 px-3"
               onClick={handleOk}
             >
-              Add Feature
+              Edit Feature
             </button>
           </div>,
         ]}

@@ -1,93 +1,68 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import HomeLayout from "./components/shared/HomeLayout";
-import Blog from "./components/LandingPage/Blog";
-import LandingPage from "./components/LandingPage/mainPage";
-import LoggedLayout from "./components/shared/LoggedLayout/loggedLayout";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import AccountProfile from "./components/Dashboard/AccountProfile";
-import ManageRisk from "./components/Dashboard/ManageRIsk";
-import Subscription from "./components/Dashboard/Subscription";
-import ChangePlan from "./components/Dashboard/Subscription/ChangePlan";
-import PrivateGroup from "./components/Dashboard/PrivateGroup";
 import AiRisk from "./components/Dashboard/AiRisk";
-import Notification from "./components/Dashboard/Notification";
-import NotificationSetting from "./components/Dashboard/Notification/NotificationSetting";
+import EngageWithTAndO from "./components/Dashboard/EngageWithTAndO";
+import GeneralSetting from "./components/Dashboard/GeneralSetting";
+import EditTeam from "./components/Dashboard/GeneralSetting/EditTeam";
 import HelpCenter from "./components/Dashboard/HelpCenter";
 import CenterDetails from "./components/Dashboard/HelpCenter/CenterDetails";
+import ManageRisk from "./components/Dashboard/ManageRIsk";
+import Notification from "./components/Dashboard/Notification";
+import NotificationSetting from "./components/Dashboard/Notification/NotificationSetting";
+import PrivateGroup from "./components/Dashboard/PrivateGroup";
 import Referral from "./components/Dashboard/Referral";
-import GeneralSetting from "./components/Dashboard/GeneralSetting";
+import Subscription from "./components/Dashboard/Subscription";
+import ChangePlan from "./components/Dashboard/Subscription/ChangePlan";
 import Verification from "./components/Dashboard/Verification";
 import ErrorPage from "./components/shared/ErrorPage";
-import EditTeam from "./components/Dashboard/GeneralSetting/EditTeam";
-import EngageWithTAndO from "./components/Dashboard/EngageWithTAndO";
+import LoggedLayout from "./components/shared/LoggedLayout/loggedLayout";
 
-import UserNewsRoom from "./components/Dashboard/NewsRoom";
-import UserNewsRoomContent from "./components/Dashboard/NewsRoom/BlogContent";
-
-import MakePayment from "./components/LandingPage/Payment/MakePayment";
-import PaymentMode from "./components/LandingPage/Payment";
-import GeneralRisk from "./components/LandingPage/GeneralRisk";
-import RiskProfile from "./components/LandingPage/RiskProfile";
-import HomePage, {
-  AIModel,
-  GenerateDownload,
-} from "./components/LandingPage/mainPage/HomePage";
-import OurService from "./components/LandingPage/mainPage/OurService";
-import OurPremium from "./components/LandingPage/mainPage/OurPremium";
-import RiskManagement from "./components/LandingPage/mainPage/RiskManagement";
-import AuthLayout from "./components/shared/AuthLayout";
 import Auth from "./components/AuthPages";
-import Login from "./components/AuthPages/Login/Login";
 import PasswordResetPage from "./components/AuthPages/Login";
-import BlogContent from "./components/LandingPage/Blog/BlogContent";
-import ProductSubscription from "./components/LandingPage/mainPage/ProductSubscription";
-import IntegratedService from "./components/LandingPage/mainPage/IntegratedService";
-import CommentsSection from "./components/Dashboard/ManageRIsk/CommentModal/comments";
-import StepsSection from "./components/Dashboard/ManageRIsk/CommentModal/steps";
-import OurWorks from "./components/LandingPage/mainPage/OurWorks";
-import { Upload } from "./components/LandingPage/mainPage/Upload";
-import Map from "./components/LandingPage/Map";
+import Login from "./components/AuthPages/Login/Login";
+import AuthLayout from "./components/shared/AuthLayout";
 
-import DownloadedRisk from "./components/LandingPage/GeneralRisk/GeneralRiskPages/DownloadedRisk";
-import AdminDashboardLayout from "./components/shared/AdminDashboardLayout/AdminDashboardLayout";
 import IndexAdminDashboard from "./components/AdminDashboard";
-import VerificationRequest from "./components/AdminDashboard/Verification/index";
-import AdminDashboardUserComponent from "./components/AdminDashboard/User/index";
-import UserDetail from "./components/AdminDashboard/User/UserDetail/UserDetail";
 import LandingPageContentSettings from "./components/AdminDashboard/ContentSetting/LandingPage";
 import EditImageSection from "./components/AdminDashboard/ContentSetting/LandingPage/ImageVideo/Edit";
 import EditLinkSection from "./components/AdminDashboard/ContentSetting/LandingPage/Links/Edit";
+import AdminDashboardUserComponent from "./components/AdminDashboard/User/index";
+import UserDetail from "./components/AdminDashboard/User/UserDetail/UserDetail";
+import VerificationRequest from "./components/AdminDashboard/Verification/index";
+import DownloadedRisk from "./components/LandingPage/GeneralRisk/GeneralRiskPages/DownloadedRisk";
+import AdminDashboardLayout from "./components/shared/AdminDashboardLayout/AdminDashboardLayout";
 
-import MenuContentSettings from "./components/AdminDashboard/ContentSetting/Menus";
+import AdminUsers from "./components/AdminDashboard/AdminUsers";
+import AIGeneratedRisks from "./components/AdminDashboard/AIGeneratedRisk";
+import AIProviders from "./components/AdminDashboard/AIProviders";
+import Communications from "./components/AdminDashboard/Communications";
 import FooterContentSettings from "./components/AdminDashboard/ContentSetting/Footer";
 import DuplicatePage from "./components/AdminDashboard/ContentSetting/Footer/Active/DuplicatePage";
-import AIProviders from "./components/AdminDashboard/AIProviders";
-import Standings from "./components/AdminDashboard/TAndOStanding";
-import Groups from "./components/AdminDashboard/Groups";
-import Communications from "./components/AdminDashboard/Communications";
-import Locations from "./components/AdminDashboard/Locations";
-import Reports from "./components/AdminDashboard/Reports";
-import AdminUsers from "./components/AdminDashboard/AdminUsers";
-import SiteSettings from "./components/AdminDashboard/SiteSettings";
-import ViewPaymentProcessor from "./components/AdminDashboard/SiteSettings/PaymentProcessors/ViewPaymentProcessor";
+import AddImageSection from "./components/AdminDashboard/ContentSetting/LandingPage/ImageVideo/Add";
+import AddLinkSection from "./components/AdminDashboard/ContentSetting/LandingPage/Links/Add";
+import MenuContentSettings from "./components/AdminDashboard/ContentSetting/Menus";
+import PagePreview from "./components/AdminDashboard/ContentSetting/PagePreview";
 import Finance from "./components/AdminDashboard/Finance";
+import Groups from "./components/AdminDashboard/Groups";
 import AdminHelpCenter from "./components/AdminDashboard/HelpCenter";
+import Locations from "./components/AdminDashboard/Locations";
 import AdminNewsRoom from "./components/AdminDashboard/NewsRoom";
 import CreateNews from "./components/AdminDashboard/NewsRoom/CreateNews";
-import ViewCommnts from "./components/Dashboard/EngageWithTAndO/ViewCommnts";
-import Context from "./context";
+import EditNews from "./components/AdminDashboard/NewsRoom/EditNews";
+import Reports from "./components/AdminDashboard/Reports";
+import Sectors from "./components/AdminDashboard/Sectors";
+import SiteSettings from "./components/AdminDashboard/SiteSettings";
+import ViewPaymentProcessor from "./components/AdminDashboard/SiteSettings/PaymentProcessors/ViewPaymentProcessor";
+import EditSocialLink from "./components/AdminDashboard/SiteSettings/SocialLinks/Edit";
+import Standings from "./components/AdminDashboard/TAndOStanding";
 import AdminAuthLayout from "./components/AdminDashboard/User/Auth";
 import AdminLogin from "./components/AdminDashboard/User/Auth/Login";
 import AdminLoginOTP from "./components/AdminDashboard/User/Auth/Otp";
 import Welcome from "./components/AdminDashboard/Welcome";
-import PagePreview from "./components/AdminDashboard/ContentSetting/PagePreview";
-import AIGeneratedRisks from "./components/AdminDashboard/AIGeneratedRisk";
-import EditNews from "./components/AdminDashboard/NewsRoom/EditNews";
-import EditSocialLink from "./components/AdminDashboard/SiteSettings/SocialLinks/Edit";
-import Sectors from "./components/AdminDashboard/Sectors";
-import AddImageSection from "./components/AdminDashboard/ContentSetting/LandingPage/ImageVideo/Add";
-import AddLinkSection from "./components/AdminDashboard/ContentSetting/LandingPage/Links/Add";
+import ViewCommnts from "./components/Dashboard/EngageWithTAndO/ViewCommnts";
+import Context from "./context";
 // DataContext.js
-import {useState } from "react";
+import { useState } from "react";
 
 // Create the context
 
@@ -112,9 +87,9 @@ const App = () => {
           />
           <Route path="/risk-management" element={<RiskManagement />} />
           <Route path="/integrated-service" element={<IntegratedService />} />
-          <Route path="/home-page" element={<HomePage />} />
           <Route path="/ai-model" element={<AIModel />} />
           <Route path="/generate-download" element={<GenerateDownload />} />
+          <Route path="/home-page" element={<HomePage />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:blogcontent" element={<BlogContent />} />
           <Route path="/make-payment" element={<PaymentMode />} />

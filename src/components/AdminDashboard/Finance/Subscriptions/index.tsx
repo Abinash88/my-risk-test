@@ -1,4 +1,3 @@
-import React from "react";
 import AddNew from "./AddNew";
 import SubscriptionPlan from "./SubscriptionPlans";
 

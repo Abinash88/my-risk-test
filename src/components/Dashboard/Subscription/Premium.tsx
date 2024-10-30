@@ -1,11 +1,11 @@
-import { ArrowLeft, ArrowRight, Minus, Plus } from "lucide-react";
-import { paymentActivities } from "../../../lib/fakedata";
+import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Button, ButtonGroup } from "@mui/material";
+import { Minus, Plus } from "lucide-react";
 import { useState } from "react";
 import Premium1 from "../../../assets/images/premium1.jpg";
 import Premium2 from "../../../assets/images/premium2.jpg";
-import { Button, ButtonGroup } from "@mui/material";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import { paymentActivities } from "../../../lib/fakedata";
 
 const Premium = () => {
   const ITEMS_PER_PAGE = 1;
@@ -101,7 +101,9 @@ const Premium = () => {
                           <Button className="border !border-[#000080]">
                             <Minus className="scale-90 text-[#000080]" />
                           </Button>
-                          <Button className="font-bold !border-[#000080] !text-[#000080]">0</Button>
+                          <Button className="font-bold !border-[#000080] !text-[#000080]">
+                            0
+                          </Button>
                           <Button variant="contained" className="!bg-[#000080]">
                             <Plus className="scale-75" />
                           </Button>

@@ -95,6 +95,56 @@ export const paymentActivities = [
     activity: "Payment method updated to credit card ending in XXXX ",
     digit: "***2354",
   },
+  {
+    date: "2024-04-25",
+    activity: "Payment method updated to credit card ending in XXXX ",
+    digit: "***2354",
+  },
+  {
+    date: "2024-04-25",
+    activity: "Payment method updated to credit card ending in XXXX",
+    digit: "***2354",
+  },
+  {
+    date: "2024-04-25",
+    activity: "Payment method updated to credit card ending in XXXX ",
+    digit: "***2354",
+  },
+  {
+    date: "2024-04-25",
+    activity: "Payment method updated to credit card ending in XXXX ",
+    digit: "***2354",
+  },
+  {
+    date: "2024-04-25",
+    activity: "Payment method updated to credit card ending in XXXX ",
+    digit: "***2354",
+  },
+  {
+    date: "2024-04-25",
+    activity: "Payment method updated to credit card ending in XXXX ",
+    digit: "***2354",
+  },
+  {
+    date: "2024-04-25",
+    activity: "Payment method updated to credit card ending in XXXX ",
+    digit: "***2354",
+  },
+  {
+    date: "2024-04-25",
+    activity: "Payment method updated to credit card ending in XXXX",
+    digit: "***2354",
+  },
+  {
+    date: "2024-04-25",
+    activity: "Payment method updated to credit card ending in XXXX ",
+    digit: "***2354",
+  },
+  {
+    date: "2024-04-25",
+    activity: "Payment method updated to credit card ending in XXXX ",
+    digit: "***2354",
+  },
 ];
 
 export type GroupImagesType = {

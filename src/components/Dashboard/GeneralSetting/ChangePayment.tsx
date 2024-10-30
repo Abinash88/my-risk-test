@@ -1,6 +1,40 @@
+import { paymentActivities } from "@/lib/fakedata";
 import { Hammer } from "@phosphor-icons/react";
+import { Table, type TableProps } from "antd";
 import { useNavigate } from "react-router-dom";
-import { paymentActivities } from "../../../lib/fakedata";
+
+type PaymentTypes = {
+  date: string;
+  activity: string;
+  digit: string;
+};
+
+const columns: TableProps<PaymentTypes>["columns"] = [
+  {
+    title: "Date",
+    render: (record) => (
+      <div className="flex gap-2  h-full items-center ">
+        <p className="font-[500] w-4/6 text-black text-sm ml-4">
+          {record.date}
+        </p>
+      </div>
+    ),
+    width: "15%",
+  },
+  {
+    title: () => <div className="text-center">Activity</div>,
+    render: (record) => <p className="text-sm">{record.activity}</p>,
+    width: "70%",
+  },
+
+  {
+    title: "Last 4 Digits",
+    render: (__, _, index: number) => (
+      <p className="text-sm">{index} mins ago</p>
+    ),
+    width: "15%",
+  },
+];
 
 const ChangePayment = () => {
   const navigate = useNavigate();
@@ -56,42 +90,22 @@ const ChangePayment = () => {
           Manage Team Members <Hammer className="mx-4" />
         </button>
       </div>
-      <div className="w-full items-center flex justify-center mt-10">
-        <table className="w-[full] overflow-hidden  bg-white border border-gray-200 rounded-lg overflow-x-auto">
-          <thead className="bg-purple-50 text-gray-700">
-            <tr>
-              <th className="p-3 text-left text-sm font-[600] text-black capitalize md:min-w-[200px] border-r border-[rgba(0,0,0,0.3)]">
-                Date
-              </th>
-              <th className="p-3 text-center text-sm capitalize md:min-w-[26rem] max-w-[600px] border-r border-[rgba(0,0,0,0.3)]  font-[600] text-black">
-                Activity
-              </th>
-              <th className="p-3 text-left text-sm capitalize md:min-w-[200px] max-w-[600px] border-r border-[rgba(0,0,0,0.3)]  font-[600] text-black">
-                Last 4 Digit
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {paymentActivities.map((activity, index) => (
-              <tr
-                key={index}
-                className={`border-t border-gray-200 hover:bg-gray-100 ${
-                  index % 2 !== 0 && "bg-purple-50"
-                }`}
-              >
-                <td className="p-3 text-sm border-r border-[rgba(0,0,0,0.3)]">
-                  29/10/2024
-                </td>
-                <td className="p-3 text-sm border-r border-[rgba(0,0,0,0.3)]">
-                  Payment method updated to credit card ending in XXXX
-                </td>
-                <td className="p-3 text-sm border-r border-[rgba(0,0,0,0.3)]">
-                  ***7389
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <div className="w-full flex-col items-start flex  justify-start mt-10">
+        <h3 className="text-left py-2 md:text-lg text-base font-medium w-full">
+          Payment Activities
+        </h3>
+        <div className="max-h-[500px] overflow-y-auto scrollBar w-full">
+          <Table
+            dataSource={paymentActivities}
+            pagination={false}
+            bordered={true}
+            columns={columns}
+            // rowKey={(record, index) => index}
+            // showHeader={false}
+            scroll={{ x: "max-content" }}
+            className=" rounded-lg w-full"
+          />
+        </div>
       </div>
     </div>
   );

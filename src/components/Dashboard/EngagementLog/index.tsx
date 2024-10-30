@@ -5,6 +5,7 @@ import {
   faThumbsUp,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import type { TableProps } from "@mui/material";
 import { Table } from "antd";
 import { useState } from "react";
 

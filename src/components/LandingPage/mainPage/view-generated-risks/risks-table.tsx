@@ -9,7 +9,6 @@ export const ColumnType = {};
 interface DataType {
   riskTitle: string;
   riskDescription: string;
-  action: React.ReactElement;
 }
 
 const requests = [
@@ -17,98 +16,41 @@ const requests = [
     riskTitle: "loremillum magni dolorum sapiente tenetur!",
     riskDescription:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste consectetur, incidunt, doloremque excepturi corporis enim sit facere fugit cum ipsum voluptates quis explicabo commodi voluptatibus, illum magni dolorum sapiente tenetur!",
-    action: (
-      <>
-        <Button className="border bg-red-500" variant={"default"}>
-          Decline
-        </Button>
-        <Button
-          onClick={() => {
-            alert("approved");
-          }}
-          className="bg-[#] p-3"
-        >
-          Approve
-        </Button>
-      </>
-    ),
   },
   {
     riskTitle: "illum magni dolorum sapiente tenetur!",
     riskDescription:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste consectetur, incidunt, doloremque excepturi corporis enim sit facere fugit cum ipsum voluptates quis explicabo commodi voluptatibus, illum magni dolorum sapiente tenetur!",
-    action: (
-      <>
-        <Button>Decline</Button>
-        <Button className="bg-[#3838F0]">Approve</Button>
-      </>
-    ),
   },
   {
     riskTitle: "illum magni dolorum sapiente tenetur!",
     riskDescription:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste consectetur, incidunt, doloremque excepturi corporis enim sit facere fugit cum ipsum voluptates quis explicabo commodi voluptatibus, illum magni dolorum sapiente tenetur!",
-    action: (
-      <>
-        <Button>Decline</Button>
-        <Button className="bg-[#3838F0]">Approve</Button>
-      </>
-    ),
   },
   {
     riskTitle: "illum magni dolorum sapiente tenetur!",
     riskDescription:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste consectetur, incidunt, doloremque excepturi corporis enim sit facere fugit cum ipsum voluptates quis explicabo commodi voluptatibus, illum magni dolorum sapiente tenetur!",
-    action: (
-      <>
-        <Button>Decline</Button>
-        <Button className="bg-[#3838F0]">Approve</Button>
-      </>
-    ),
   },
   {
     riskTitle: "illum magni dolorum sapiente tenetur!",
     riskDescription:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste consectetur, incidunt, doloremque excepturi corporis enim sit facere fugit cum ipsum voluptates quis explicabo commodi voluptatibus, illum magni dolorum sapiente tenetur!",
-    action: (
-      <>
-        <Button>Decline</Button>
-        <Button className="bg-[#3838F0]">Approve</Button>
-      </>
-    ),
   },
   {
     riskTitle: "illum magni dolorum sapiente tenetur!",
     riskDescription:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste consectetur, incidunt, doloremque excepturi corporis enim sit facere fugit cum ipsum voluptates quis explicabo commodi voluptatibus, illum magni dolorum sapiente tenetur!",
-    action: (
-      <>
-        <Button>Decline</Button>
-        <Button className="bg-[#3838F0]">Approve</Button>
-      </>
-    ),
   },
   {
     riskTitle: "illum magni dolorum sapiente tenetur!",
     riskDescription:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste consectetur, incidunt, doloremque excepturi corporis enim sit facere fugit cum ipsum voluptates quis explicabo commodi voluptatibus, illum magni dolorum sapiente tenetur!",
-    action: (
-      <>
-        <Button>Decline</Button>
-        <Button className="bg-[#3838F0]">Approve</Button>
-      </>
-    ),
   },
   {
     riskTitle: "illum magni dolorum sapiente tenetur!",
     riskDescription:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste consectetur, incidunt, doloremque excepturi corporis enim sit facere fugit cum ipsum voluptates quis explicabo commodi voluptatibus, illum magni dolorum sapiente tenetur!",
-    action: (
-      <>
-        <Button>Decline</Button>
-        <Button className="bg-[#3838F0]">Approve</Button>
-      </>
-    ),
   },
 ];
 

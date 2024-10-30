@@ -243,7 +243,6 @@ input[type="number"] {
   background: #000080;
 }
 
-
 #sector_carousel .lucide-chevron-right {
   width: 35px !important;
   height: 35px !important;
@@ -327,5 +326,21 @@ input[type="number"] {
 }
 
 #payment-form input {
-  @apply bg-[#D9D9D914] text-xs md:text-sm ;
+  @apply bg-[#D9D9D914] text-xs md:text-sm;
+}
+
+.leaflet-popup-content-wrapper {
+  @apply !bg-transparent shadow-none;
+}
+
+.leaflet-popup-tip-container .leaflet-popup-tip {
+  box-shadow: none;
+  background-color: transparent;
+}
+
+.leaflet-popup-close-button {
+  top: 60px !important;
+  right: 42px !important;
+  z-index: 999 !important;
+  color: white !important;
 }

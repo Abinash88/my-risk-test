@@ -23,7 +23,8 @@ const ChooseServices = () => {
             AI Powered Risk Profile
           </h3>
         </button>
-        <Link to={'/engage-t-o-standing'}
+        <Link
+          to={"/engage-t-o-standing"}
           className="bg-white  px-6 py-8 rounded-2xl text-black w-full "
         >
           <img
@@ -36,10 +37,8 @@ const ChooseServices = () => {
           </h3>
         </Link>
 
-        <button
-          onClick={() => {
-            // handlePageChange({ next: "", previous: "" });
-          }}
+        <Link
+          to={"/view-generated-risks"}
           className="bg-white  px-6 py-8 rounded-2xl text-black w-full "
         >
           <img
@@ -50,7 +49,7 @@ const ChooseServices = () => {
           <h3 className="font-[600] text-xl md:text-3xl">
             View Generated Risks
           </h3>
-        </button>
+        </Link>
       </div>
     </BgSection>
   );

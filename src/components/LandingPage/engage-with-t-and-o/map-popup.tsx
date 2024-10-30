@@ -1,4 +1,3 @@
-import { X } from "lucide-react";
 import { BsCaretUpFill } from "react-icons/bs";
 
 type MapPopType = {
@@ -7,6 +6,7 @@ type MapPopType = {
   risk?: { totalRisk: number; totalRiskSector: number };
   opportunities?: number;
   threats?: number;
+  style?: Record<string, string>;
 };
 
 const MapPopup = ({
@@ -14,10 +14,11 @@ const MapPopup = ({
   continent,
   country,
   risk,
+  style,
   threats,
 }: MapPopType) => {
   return (
-    <div className="rounded-2xl scale-[.9] relative ml-52 flex flex-col justify-between w-full border max-w-[300px] min-h-[250px] bg-white">
+    <div className="rounded-2xl  relative  flex flex-col justify-between w-full border h-full bg-white">
       <div className="flex items-center px-2 py-[0.5px] justify-between">
         <span className="font-medium text-xs flex-1 md:text-sm text-gray-800 ">
           Continent
@@ -29,23 +30,24 @@ const MapPopup = ({
           {continent || " South America"}
         </span>
       </div>
-      <div className="bg-red-700 rounded-b-2xl block flex-1  w-full p-4">
+      <div
+        style={style}
+        className="bg-red-700 rounded-b-2xl block flex-1  w-full p-4"
+      >
         <div className="flex justify-between items-center">
           <div className="flex gap-3 items-center">
             <img src="/images/flag.png" />
-            <h3 className="text-white text-sm md:text-base">
+            <h3 style={{color:style?.color}} className="text-white text-sm md:text-base">
               {country || "Argentina"}
             </h3>
           </div>
-          <button className="text-white cursor-pointer flex size-6 rounded-full  bg-blue-900 items-center justify-center">
-            <X size={17} />
-          </button>
+          <button className="text-white cursor-pointer flex size-6 rounded-full  bg-blue-900 items-center justify-center"></button>
         </div>
         <div className="flex justify-between gap-4  mt-5 ">
           <div className=" space-y-2">
-            <div className="space-y-1">
-              <h3 className="text-white text-xs md:text-sm">Risk:</h3>
-              <ul className="space-y-1 text-white text-[10px] md:text-xs">
+            <div style={{color:style?.color}} className="space-y-1">
+              <h3 style={{color:style?.color}} className="text-white text-xs md:text-sm">Risk:</h3>
+              <ul style={{color:style?.color}} className="space-y-1 text-white text-[10px] md:text-xs">
                 <li>Total Number of Risks: {risk?.totalRisk || 99}</li>
                 <li>
                   Total Number of Risks Sectors: {risk?.totalRiskSector || 99}
@@ -53,10 +55,10 @@ const MapPopup = ({
               </ul>
             </div>
             <div className="space-y-1">
-              <h3 className="text-white text-xs md:text-sm">
-                Threats / Opportunities::
+              <h3 style={{color:style?.color}} className=" text-xs md:text-sm">
+                Threats / Opportunities:
               </h3>
-              <ul className="space-y-1 text-white text-[10px] md:text-xs">
+              <ul style={{color:style?.color}} className="space-y-1 text-white text-[10px] md:text-xs">
                 <li>Threats: {threats || 99}</li>
                 <li>Opportunities: {opportunities || 99}</li>
               </ul>

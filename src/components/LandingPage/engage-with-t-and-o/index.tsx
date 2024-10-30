@@ -2,10 +2,10 @@ import SelectComp from "@/components/shared/ReuseAble/select";
 
 import ScrollTop from "@/lib/hooks/scroll-top";
 import { useState } from "react";
-import MainMap from "./main-map";
+import TAndOMap from "./main-map";
 import SectorSlider from "./sector-slider";
 import TableData from "./table-data";
-
+import { LocationsData } from "./t-and-o-data";
 const FilterByLastMonth = [
   {
     label: "Past 24hrs",
@@ -44,6 +44,17 @@ const RisksStatus = [
   },
 ];
 
+export type LocationType = {
+  id: number;
+  country: string;
+  flag: string;
+  risk: { totalRisk: number; totalRiskSector: number };
+  threatOpportunities: { threats: number; Opportunities: number };
+  coordinates: [number, number];
+  continent: string;
+  style?: Record<string, string>;
+};
+
 const Map = () => {
   ScrollTop();
 
@@ -52,7 +63,7 @@ const Map = () => {
     <div className="  z-50 pt-4 mb-20">
       <SectorSlider />
       <div className="h-2" />
-      <div className=" h-[70vh]   border w-full relative">
+      <div className=" min-h-[70vh]   border w-full relative">
         <button
           onClick={() => {
             setStatus(!status);
@@ -100,7 +111,14 @@ const Map = () => {
             <span className="md:text-lg font-semibold">999</span>
           </div>
         </div>
-        <MainMap />
+        {/* <MainMap /> */}
+        <TAndOMap
+          locations={LocationsData}
+          zoom={2}
+          height="80vh"
+          onChange={() => {}}
+          width="100%"
+        />
       </div>
       <TableData />
     </div>

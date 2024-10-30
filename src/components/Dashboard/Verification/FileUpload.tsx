@@ -113,11 +113,11 @@ const FileUpload: React.FC<FileUploadProps> = ({
           <div className="border-2  border-gray-300 p-4 rounded-lg text-center cursor-pointer">
             <div className="flex justify-between  px-3 items-center">
               <div className="flex items-center gap-3">
-                {type === "image" && isFileWithPreview(value[0]) && (
+                {type === "image" && value && isFileWithPreview(value?.[0]) && (
                   <img
-                    src={value[0]?.preview}
+                    src={value?.[0]?.preview}
                     className="size-10"
-                    alt={value[0]?.name}
+                    alt={value?.[0]?.name}
                   />
                 )}
                 {type === "file" && (

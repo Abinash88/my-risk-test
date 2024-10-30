@@ -4,17 +4,11 @@ import Opportunity from "./Global/Opportunity";
 import Threat from "./Global/Threat";
 
 import CustomDropdown from "@/components/shared/custom-dropdown";
-import { cn } from "@/lib/utils";
-import Country from "@/components/shared/countries.json";
+import { cn, dropDownData } from "@/lib/utils";
 
 const TandO = () => {
   const [page, setPage] = useState<"threat" | "opport">("threat");
   const [data, setData] = useState<string>("");
-
-  const dropDownData = Country?.map((item) => ({
-    label: item?.country,
-    value: item?.country,
-  }));
 
   return (
     <div

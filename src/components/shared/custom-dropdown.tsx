@@ -10,7 +10,11 @@ type CustomDropdownType = {
   value?: string;
 };
 
-const DropDownBox = ({ options, onChange, value }: CustomDropdownType) => {
+export const DropDownBox = ({
+  options,
+  onChange,
+  value,
+}: CustomDropdownType) => {
   const [search, setSearch] = useState("");
   const searchSector = options.filter((item) =>
     item.value.toLowerCase().includes(search.toLowerCase())
@@ -57,7 +61,7 @@ export const CustomDropdown = ({
   onChange,
   value,
   className,
-}: CustomDropdownType & { containerClass: string; className?: string }) => {
+}: CustomDropdownType & { containerClass?: string; className?: string }) => {
   return (
     <SelectComp
       label="Select Country"

@@ -43,7 +43,7 @@ const AddFeature = () => {
               className="rounded-md text-white bg-[#3838F0] py-2 px-3"
               onClick={handleOk}
             >
-              {/* Add Feature */}
+              Add Feature
             </button>
           </div>,
         ]}
@@ -54,8 +54,9 @@ const AddFeature = () => {
             <Form.Item label="Feature name" name="name">
               <Input className="p-2" placeholder="Name" />
             </Form.Item>
-            <Form.Item label="Price" name="price">
-              <Input className="p-2" placeholder="Price" />
+            <Form.Item label="Price" className="relative" name="price">
+              <span className="absolute z-20 top-2  left-2 ">$</span>
+              <Input className="p-2 pl-5" type="number" placeholder="Price" />
             </Form.Item>
           </Form>
           <div className="flex justify-between mt-5">

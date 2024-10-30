@@ -1,6 +1,3 @@
-import { Divider } from "antd";
-import React from "react";
-
 const AccessAndPermission = () => {
   const permissions = [
     { name: "Manage Risk", enabled: true },

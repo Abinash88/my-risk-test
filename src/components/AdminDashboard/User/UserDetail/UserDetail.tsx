@@ -1,17 +1,16 @@
 import { CloseCircleFilled } from "@ant-design/icons";
-import { Button, Modal, Tabs, TabsProps } from "antd";
-import { BanIcon } from "lucide-react";
-import React, { useState } from "react";
-import UserInformation from "./UserInformation";
-import AccessAndPermission from "./AccessAndPermission";
 import { Warning } from "@phosphor-icons/react";
+import { Button, Modal, Tabs, TabsProps } from "antd";
+import { Ban, BanIcon, CircleX } from "lucide-react";
+import { useState } from "react";
+import { useParams } from "react-router-dom";
+import AccessAndPermission from "./AccessAndPermission";
 import Activities from "./Activities";
 import Referals from "./Referals";
 import ReportAndViolations from "./ReportAndViolations";
-import RejectRegistration from "./RejectRegistration";
-import SendVerificationLink from "./SendVerificationLink";
-import { useParams } from "react-router-dom";
 import TourGuide from "./TourGuide";
+import UserInformation from "./UserInformation";
+import PopupButton from "./button-popup";
 
 export default function UserDetail() {
   const { id } = useParams();
@@ -40,7 +39,7 @@ export default function UserDetail() {
     {
       key: "5",
       label: "Tour Guides",
-      children: <TourGuide/>,
+      children: <TourGuide />,
     },
 
     {
@@ -80,24 +79,36 @@ export default function UserDetail() {
     <div className="p-3 flex flex-col">
       <div className="flex justify-between flex-col md:flex-row space-y-4">
         <p className="text-bold text-lg">Mashood Adam</p>
-        {
-          id&&parseInt(id?.toString())%2==0?<div className="flex justify-end ">
-          <Button danger className="p-5 mr-2" onClick={showModal}>
-            <CloseCircleFilled /> Suspended User
-          </Button>
-          <Button
-            className="text-white p-5 mr-2"
-            type="primary"
-            danger
-            onClick={showBanModal}
-          >
-            <BanIcon /> Ban User
-          </Button>
-        </div>:<div className="flex justify-end ">
-          <RejectRegistration/>
-          <SendVerificationLink/>
-        </div>
-        }
+        {id && parseInt(id?.toString()) % 2 == 0 ? (
+          <div className="flex justify-end ">
+            <Button danger className="p-5 mr-2" onClick={showModal}>
+              <CloseCircleFilled /> Suspended User
+            </Button>
+            <Button className="" type="primary" danger onClick={showBanModal}>
+              <BanIcon /> Ban User
+            </Button>
+          </div>
+        ) : (
+          <div className="flex justify-end gap-4 ">
+            <PopupButton
+              name="Suspend User"
+              variant={"outline"}
+              icon={CircleX}
+              title={"Reject registration"}
+              description={`Are you certain you wish to reject this registration? Rejecting this
+              registration will decline registrant access to the platform. This action cannot be undone.`}
+            />
+            <PopupButton
+              variant={"destructive"}
+              icon={Ban}
+              type="warn"
+              title="Ban Account"
+              action="Ok"
+              description={`Are you certain you wish to ban this user? Deleting this item will permanently remove it from the system. This action cannot be undone.`}
+              name="Ban User"
+            />
+          </div>
+        )}
       </div>
 
       <div className="bg-white rounded-md mt-5">

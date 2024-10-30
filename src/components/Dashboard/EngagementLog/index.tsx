@@ -1,13 +1,12 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faComment,
   faEye,
   faThumbsDown,
   faThumbsUp,
-  faTrashCan,
 } from "@fortawesome/free-solid-svg-icons";
-import {Table} from 'antd'
-import { useState } from 'react';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Table } from "antd";
+import { useState } from "react";
 
 const EngagementLog = () => {
   const [filterType, setFilterType] = useState("all");
@@ -47,53 +46,56 @@ const EngagementLog = () => {
     },
   ];
 
-  const filteredLogs = filterType === "all" ? testLogs : testLogs.filter(log => log.type === filterType);
+  const filteredLogs =
+    filterType === "all"
+      ? testLogs
+      : testLogs.filter((log) => log.type === filterType);
 
-  const columns:any=[
-{
-  title:"Description",
-  render:(value:any,record:any)=>(
-    <div className="flex gap-2 items-center w-[70%]">
-                  {record.type === "like" && (
-                    <FontAwesomeIcon
-                      icon={faThumbsUp}
-                      className="text-2xl text-blue-600"
-                    />
-                  )}
-                  {record.type === "dislike" && (
-                    <FontAwesomeIcon
-                      icon={faThumbsDown}
-                      className="text-2xl text-red-600"
-                    />
-                  )}
-                  {record.type === "comment" && (
-                    <FontAwesomeIcon
-                      icon={faComment}
-                      className="text-2xl text-green-600"
-                    />
-                  )}
-                  <p className="font-[500] w-4/6 text-black text-sm ml-4">
-                    {record.name}
-                  </p>
-    </div>
-  )
-},
-{
-  title:"Action",
-  render:(value:any,record:any)=>(
-    <p className="text-sm">
-    <FontAwesomeIcon icon={faEye} />
-  </p>
-  )
-},
+  const columns: any = [
+    {
+      title: "Description",
+      render: (value: any, record: any) => (
+        <div className="flex gap-2 items-center w-[70%]">
+          {record.type === "like" && (
+            <FontAwesomeIcon
+              icon={faThumbsUp}
+              className="text-2xl text-blue-600"
+            />
+          )}
+          {record.type === "dislike" && (
+            <FontAwesomeIcon
+              icon={faThumbsDown}
+              className="text-2xl text-red-600"
+            />
+          )}
+          {record.type === "comment" && (
+            <FontAwesomeIcon
+              icon={faComment}
+              className="text-2xl text-green-600"
+            />
+          )}
+          <p className="font-[500] w-4/6 text-black text-sm ml-4">
+            {record.name}
+          </p>
+        </div>
+      ),
+    },
+    {
+      title: "Action",
+      render: (value: any, record: any) => (
+        <p className="text-sm">
+          <FontAwesomeIcon icon={faEye} />
+        </p>
+      ),
+    },
 
-{
-  title:"Time",
-  render:(value:any,record:any,index:number)=>(
-    <p className="text-sm">{index} mins ago</p>
-  )
-}
-  ]
+    {
+      title: "Time",
+      render: (value: any, record: any, index: number) => (
+        <p className="text-sm">{index} mins ago</p>
+      ),
+    },
+  ];
   return (
     <div>
       <div className="flex items-center justify-between flex-wrap pb-10">
@@ -121,8 +123,8 @@ const EngagementLog = () => {
             columns={columns}
             // rowKey={(record, index) => index}
             // showHeader={false}
-           scroll={{ x: 'max-content' }}
-          />          
+            scroll={{ x: "max-content" }}
+          />
         </div>
       </>
     </div>

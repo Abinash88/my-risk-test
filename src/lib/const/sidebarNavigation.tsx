@@ -24,10 +24,18 @@ import {
   Verified,
 } from "lucide-react";
 
-export const DASHBOARD_SIDEBAR_LINKS = [
+export type DashboardTypes = {
+  key: string;
+  label: React.ReactNode;
+  path: string;
+  icon: React.ReactNode;
+  description: JSX.Element;
+};
+
+export const DASHBOARD_SIDEBAR_LINKS: DashboardTypes[] = [
   {
     key: "Account Profile",
-    label: "Account Profile",
+    label: <div className="">Account Profile</div>,
     path: "/dashboard/account-profile",
     icon: <FontAwesomeIcon icon={faUser} />,
     description: (
@@ -42,7 +50,7 @@ export const DASHBOARD_SIDEBAR_LINKS = [
   },
   {
     key: "Notification",
-    label: "Notification",
+    label: <div className="">Notification</div>,
     path: "/dashboard/notification",
     icon: <FontAwesomeIcon icon={faBell} />,
     description: (
@@ -57,7 +65,7 @@ export const DASHBOARD_SIDEBAR_LINKS = [
   },
   {
     key: "Manage Risk",
-    label: "Manage Risk",
+    label: <div className="">Manage Risk</div>,
     path: "/dashboard/manage-risk",
     icon: <FontAwesomeIcon icon={faPenToSquare} />,
     description: (
@@ -72,7 +80,7 @@ export const DASHBOARD_SIDEBAR_LINKS = [
   },
   {
     key: "AI Risk",
-    label: "AI Risk",
+    label: <div className="">AI Risk</div>,
     path: "/dashboard/ai-risk",
     icon: <FontAwesomeIcon icon={faWandMagicSparkles} />,
     description: (
@@ -92,7 +100,7 @@ export const DASHBOARD_SIDEBAR_LINKS = [
   },
   {
     key: "Private T & O Groups",
-    label: "Private T & O Groups",
+    label: <div className="">Private T & O Groups</div>,
     path: "/dashboard/private-group",
     icon: <FontAwesomeIcon icon={faUserGroup} />,
     description: (
@@ -106,7 +114,7 @@ export const DASHBOARD_SIDEBAR_LINKS = [
   },
   {
     key: "Finance",
-    label: "Finance",
+    label: <div className="">Finance</div>,
     path: "/dashboard/subscription",
     icon: <FontAwesomeIcon icon={faSackDollar} />,
     description: (
@@ -122,7 +130,7 @@ export const DASHBOARD_SIDEBAR_LINKS = [
   },
   {
     key: "Referal Page",
-    label: "Referal Page",
+    label: <div className="">Referal Page</div>,
     path: "/dashboard/referral",
     icon: <FontAwesomeIcon icon={faArrowsRotate} />,
     description: (
@@ -137,7 +145,7 @@ export const DASHBOARD_SIDEBAR_LINKS = [
   },
   {
     key: "General Settings",
-    label: "General Settings",
+    label: <div className="">General Settings</div>,
     path: "/dashboard/general-setting",
     icon: <FontAwesomeIcon icon={faGear} />,
     description: (
@@ -152,7 +160,7 @@ export const DASHBOARD_SIDEBAR_LINKS = [
   },
   {
     key: "Engagement Log",
-    label: "Engagement Log",
+    label: <div className="">Engagement Log</div>,
     path: "/dashboard/engagement-log",
     icon: <FontAwesomeIcon icon={faHistory} />,
     description: (
@@ -167,7 +175,7 @@ export const DASHBOARD_SIDEBAR_LINKS = [
   },
   {
     key: "Help Center",
-    label: "Help Center",
+    label: <div className="">Help Center</div>,
     path: "/dashboard/help-center",
     icon: <FontAwesomeIcon icon={faCircleQuestion} />,
     description: (
@@ -182,7 +190,7 @@ export const DASHBOARD_SIDEBAR_LINKS = [
   },
   {
     key: "Verification",
-    label: "Verification",
+    label: <div className="">Verification</div>,
     path: "/dashboard/verification",
     icon: <FontAwesomeIcon icon={faCheckDouble} />,
     description: (

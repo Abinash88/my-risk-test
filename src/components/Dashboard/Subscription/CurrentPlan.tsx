@@ -1,11 +1,6 @@
-import { Link } from "react-router-dom";
-import { paymentActivities } from "../../../lib/fakedata";
-import { Popover, PopoverButton, PopoverPanel } from "@headlessui/react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCog } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
-import Subscription from "./Subscription";
 import Premium from "./Premium";
+import Subscription from "./Subscription";
 
 const CurrentPlan = () => {
   const [premium, setPremium] = useState(false);

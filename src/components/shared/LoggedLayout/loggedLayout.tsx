@@ -1,4 +1,5 @@
 import { Outlet } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import Footer from "../HomeLayout/footer";
 import "./forced.css";
 import LoggedHeader from "./loggedHeader";
@@ -17,6 +18,7 @@ const LoggedLayout = () => {
         </div>
       </div>
       <Footer />
+      <ToastContainer />
     </div>
   );
 };

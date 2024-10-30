@@ -36,12 +36,12 @@ const LoggedHeadSide = () => {
               <img
                 src="/images/grid.png"
                 alt="grid"
-                className=" w-[19px] md:w-[25px] cursor-pointer"
+                className=" w-[19px]  md:w-[25px] cursor-pointer"
                 onClick={() => setOpenGrid(!openGrid)}
               />
             }
           >
-            <div className="max-w-lg relative z-40">
+            <div className="max-w-lg  relative z-40">
               <GridSidebar />
             </div>
           </CustomPopover>

@@ -1,8 +1,8 @@
 import Modal from "@/components/shared/ReuseAble/modal";
 import { X } from "@phosphor-icons/react";
-import UnderVerification from "./VerificationForm";
 import { useRef, useState } from "react";
-import FileUpload from "./FileUpload";
+import FileUpload, { type FileTypes } from "./FileUpload";
+import UnderVerification from "./VerificationForm";
 
 interface VerifyModalProps {
   isModalOpen: boolean;
@@ -14,13 +14,13 @@ const VerificationFormModal: React.FC<VerifyModalProps> = ({
 }) => {
   const nameInputRef = useRef<HTMLInputElement>(null);
   const [openSuccess, setOpenSuccess] = useState(false);
-  const [uploadedFile, setUploadedFile] = useState<File | null>(null);
+  const [uploadedFile, setUploadedFile] = useState<FileTypes[] | null>(null);
   const handleClose = () => {
     closeModal();
     setOpenSuccess(false);
   };
 
-  const handleFileUpload = (file: File) => {
+  const handleFileUpload = (file: FileTypes[] | null) => {
     setUploadedFile(file);
   };
   return (
@@ -95,12 +95,18 @@ const VerificationFormModal: React.FC<VerifyModalProps> = ({
               className="outline-none rounded-lg border border-[#999999] focus:border-[#999999] p-2"
             />
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col gap-1">
             <label className="text-[15px]">Proof of Employment</label>
-            <FileUpload onFileUpload={handleFileUpload} />
+            <FileUpload
+              value={uploadedFile}
+              type="file"
+              maxSize={2 * 1204 * 1204}
+              onFileUpload={handleFileUpload}
+              accept={{ "application/vnd.ms-excel": [".xls"] }}
+            />
             {uploadedFile && (
               <p className="text-green-600 mt-2">
-                Uploaded file: {uploadedFile.name}
+                {/* Uploaded file: {uploadedFile[0].name} */}
               </p>
             )}
           </div>
@@ -111,7 +117,6 @@ const VerificationFormModal: React.FC<VerifyModalProps> = ({
         >
           Submit
         </button>
-        <p className="text-black text-[16px] mb-8">T&C Applies</p>
       </Modal>
       <UnderVerification open={openSuccess} close={handleClose} />
     </div>

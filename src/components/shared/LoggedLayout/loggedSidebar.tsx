@@ -1,18 +1,30 @@
+import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Tour, type TourStepProps } from "antd";
+import React, { useEffect, useRef, useState, type ReactNode } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { DASHBOARD_SIDEBAR_LINKS } from "../../../lib/const/sidebarNavigation";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
-import { useRef, useState } from "react";
-import { Tour, TourProps } from "antd";
-import React from "react";
 
 const LoggedSidebar = () => {
   const refs = useRef(DASHBOARD_SIDEBAR_LINKS.map(() => React.createRef()));
-  const [open, setOpen] = useState<boolean>(true);
+  const [open, setOpen] = useState<boolean>(false);
 
-  const steps: any = DASHBOARD_SIDEBAR_LINKS.map((item, index) => ({
+  useEffect(() => {
+    const hasSeenTour = localStorage.getItem("hasSeenTour");
+    if (!hasSeenTour) {
+      setOpen(true);
+    }
+  }, [open]);
+
+  const handleTourClose = () => {
+    // When the tour is closed, set the flag in local storage
+    localStorage.setItem("hasSeenTour", "true");
+    setOpen(false);
+  };
+
+  const steps: TourStepProps[] = DASHBOARD_SIDEBAR_LINKS.map((item, index) => ({
     title: item.label,
-    placement: index % 2 === 0 ? 'bottom' : 'right',
+    placement: index % 2 === 0 ? "bottom" : "right",
     description: item.description,
     target: () => refs.current[index].current,
   }));
@@ -29,7 +41,12 @@ const LoggedSidebar = () => {
       </div>
       <div className="mt-[-20px] flex scale-90 flex-1 flex-col gap-2">
         {DASHBOARD_SIDEBAR_LINKS.map((item, index) => (
-          <SidebarLink key={item.key} item={item} index={index} ref={refs.current[index]} />
+          <SidebarLink
+            key={item.key}
+            item={item}
+            index={index}
+            ref={refs.current[index]}
+          />
         ))}
         <div className="flex scale-90 items-center gap-2 font-[400]  px-4 py-3 hover:bg-[#000080c8] hover:text-white hover:no-underline active:bg-[#000080] rounded-lg cursor-pointer text-[rgba(0,0,0,0.7)]">
           <span className="text-xl">
@@ -38,46 +55,56 @@ const LoggedSidebar = () => {
           Logout
         </div>
         <div className="h-16" />
-
       </div>
 
-     <Tour
+      <Tour
         open={open}
-        onClose={() => setOpen(false)}
+        onClose={() => handleTourClose()}
         steps={steps}
         type="primary"
         mask={{
           style: {
-            boxShadow: 'inset 0 0 15px #333',
+            boxShadow: "inset 0 0 15px #333",
           },
           // color: 'rgba(102, 102, 179, 1)',
         }}
         arrow={{
           pointAtCenter: true,
         }}
-        
       />
     </div>
   );
 };
 
-const SidebarLink = React.forwardRef(({ item, index }: any, ref: any) => {
-  const { pathname } = useLocation();
-  const isActive = pathname === item.path || pathname.startsWith(item.path);
+const SidebarLink = React.forwardRef(
+  (
+    {
+      item,
+      index,
+    }: {
+      item: { path: string; label: string; icon: ReactNode };
+      index: number;
+    },
+    ref: any
+  ) => {
+    const { pathname } = useLocation();
+    const isActive = pathname === item.path || pathname.startsWith(item.path);
 
-  return (
-    <Link
-      key={index}
-      to={item.path}
-      ref={ref}
-      className={`scale-90 flex items-center gap-2 font-[400] px-4 py-3 hover:bg-[#000080c8] hover:text-white hover:no-underline active:bg-[#000080] rounded-lg  ${
-        isActive ? "bg-[#000080] text-white" : "text-[rgba(0,0,0,0.7)]"
-      }`}
-    >
-      <span className="text-xl">{item.icon}</span>
-      {item.label}
-    </Link>
-  );
-});
+    return (
+      <Link
+        key={index}
+        to={item.path}
+        ref={ref}
+        className={`scale-90 flex items-center gap-2 font-[400] px-4 py-3 hover:bg-[#000080c8]
+          hover:text-white hover:no-underline active:bg-[#000080] rounded-lg  ${
+            isActive ? "bg-[#000080] text-white" : "text-[rgba(0,0,0,0.7)]"
+          }`}
+      >
+        <span className="text-xl">{item.icon}</span>
+        {item.label}
+      </Link>
+    );
+  }
+);
 
 export default LoggedSidebar;

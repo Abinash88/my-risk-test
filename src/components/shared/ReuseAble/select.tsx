@@ -13,6 +13,7 @@ export type SelectType =
       label?: string;
       containerClass?: string;
       Component?: React.ReactElement;
+      title?: string;
     }
   | {
       options?: OptionsType[];
@@ -21,6 +22,7 @@ export type SelectType =
       label?: string;
       containerClass?: string;
       Component: React.ReactElement;
+      title?: string;
     };
 
 export default function SelectComp({
@@ -30,6 +32,7 @@ export default function SelectComp({
   label,
   containerClass,
   Component,
+  title,
 }: SelectType) {
   const [select, setSelect] = React.useState<string | undefined>(undefined);
 
@@ -52,10 +55,10 @@ export default function SelectComp({
           </button>
         }
       >
-        <div className="max-w-lg relative z-40">
+        <div className=" w-full relative z-40">
           {!Component && (
             <h3 className="px-3 py-2 text-[#000080] font-medium text-center">
-              Filter By
+              {title || "Filter By"}
             </h3>
           )}
           {!Component && <hr />}

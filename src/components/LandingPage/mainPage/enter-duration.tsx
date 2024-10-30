@@ -1,86 +1,81 @@
+import SelectComp from "@/components/shared/ReuseAble/select";
+import HandleParams from "@/lib/hooks/handle-params";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import type { MenuProps } from "@headlessui/react";
-import { Dropdown, Space } from "antd";
-import { ChevronDown, X } from "lucide-react";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { BgSection } from "./landingAnimate";
+import ScrollTop from "@/lib/hooks/scroll-top";
 
-const items: MenuProps["items"] = [
+const ITEMS = [
   {
     label: "Select Duration",
-    title: "Select Duration",
-    key: "",
-    disabled: true,
-    style: {
-      color: "blue",
-      cursor: "default",
-      fontWeight: "500",
-      display: "flex",
-      fontSize: "17px",
-      flexDirection: "row-reverse",
-    },
-    icon: <X className="size-5" />,
-  },
-  {
-    type: "divider",
+    value: "Select Duration",
   },
   {
     label: "72hrs",
-    key: "72hrs",
+    value: "72hrs",
   },
   {
     label: "7days",
-    key: "7days",
+    value: "7days",
   },
 
   {
     label: "4weeks",
-    key: "4weeks",
+    value: "4weeks",
   },
   {
     label: "8weeks",
-    key: "8weeks",
+    value: "8weeks",
   },
 ];
 
 const EnterDuration = () => {
-  const [option, setOption] = useState(false);
+  const { handlePageChange, getP } = HandleParams();
 
-  const handleClick = () => {
-    setOption(true);
-  };
+  ScrollTop();
 
-  const navigate = useNavigate();
   return (
-    <div className="flex flex-col gap-4 justify-center items-center max-w-sm w-full">
-      <div className="w-full">
-        {" "}
-        <h3 className="mb-5 text-[22px]">Enter Duration</h3>
-        <div className="scale-110">
-          <Dropdown menu={{ items }} className="w-full" trigger={["click"]}>
-            <a onClick={(e) => e.preventDefault()}>
-              <Space className="bg-white text-gray-400 max-w-xl flex justify-between w-full  p-3 rounded-md">
-                Select Duration
-                <ChevronDown className="" />
-              </Space>
-            </a>
-          </Dropdown>
-        </div>
-        <div className="flex justify-between gap-3 mt-6 items-center">
-          <button onClick={() => navigate(-1)} className="">
-            <FontAwesomeIcon icon={faArrowLeft} className="mr-2" />
-            Go back{" "}
-          </button>
-          <button
-            className="bg-[#000080] text-white px-4 py-2 rounded w-[35%]"
-            onClick={handleClick}
-          >
-            Proceed
-          </button>
+    <BgSection image="/images/background.png">
+      <div className="flex flex-col gap-4 justify-center items-center max-w-sm w-full">
+        <div className="w-full">
+          {" "}
+          <h3 className="mb-5 text-[22px]">Enter Duration</h3>
+          <div className="scale-110 ">
+            <SelectComp
+              title="Select Duration"
+              label="Last Month"
+              className="border max-w-[600px] justify-between bg-white text-gray-700 w-[300px]  border-white/50 shadow-lg "
+              containerClass="w-full"
+              options={ITEMS}
+            />
+          </div>
+          <div className="flex justify-between gap-3 mt-6 items-center">
+            <button
+              onClick={() => {
+                const prev = getP("previous");
+                if (prev)
+                  handlePageChange({
+                    next: prev,
+                    previous: "general-risk",
+                  });
+              }}
+              className=""
+            >
+              <FontAwesomeIcon icon={faArrowLeft} className="mr-2" />
+              Go back{" "}
+            </button>
+            <button
+              className="bg-[#000080] text-white px-4 py-2 rounded w-[35%]"
+              onClick={() => {
+                
+              }}
+            >
+              Proceed
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    </BgSection>
   );
 };
 

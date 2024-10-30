@@ -1,11 +1,12 @@
 import HeatMapPage from "@/components/LandingPage/RiskProfile/HeatMap";
 import { cn } from "@/lib/utils";
-import { useEffect, useRef, useState } from "react";
-import DownloadReport, { HeaderFooter } from "./download-report";
-import { useReactToPrint } from "react-to-print";
 import { DownloadPdf } from "@/utils/download-pdf";
+import { LoaderCircle } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { useReactToPrint } from "react-to-print";
 import { toast } from "react-toastify";
-import { Loader, LoaderCircle } from "lucide-react";
+import DownloadReport, { HeaderFooter } from "./download-report";
+import HandleParams from "@/lib/hooks/handle-params";
 
 type ScoreType = {
   probability?: number;
@@ -76,6 +77,8 @@ const Score = ({
   const [result, setResult] = useState<"migation" | "type">("migation");
   const [total, setTotal] = useState<number>();
   const [loading, setLoading] = useState(false);
+
+  const { handlePageChange } = HandleParams();
 
   const contentRef = useRef<HTMLDivElement | null>(null);
   const overlay = useRef<HTMLDivElement | null>(null);
@@ -228,20 +231,34 @@ const Score = ({
       )}
 
       <div className="flex mt-[40px] items-center justify-center gap-3 lg:gap-6 w-[80%] mx-auto pb-7 md:flex-nowrap flex-wrap">
-        <button className="p-4 text-white bg-[#000080] w-full rounded-lg">
+        <button
+          onClick={() => {
+            if (handleStepClick) handleStepClick(4);
+          }}
+          className="p-4 text-white bg-[#000080] w-full rounded-lg"
+        >
           previous
         </button>
         <button
           disabled={loading}
           onClick={() => {
-            // if (reportVariant === "DOWNLOAD")
-            reactToPrintFn();
+            if (reportVariant === "DOWNLOAD") return reactToPrintFn();
+            if (
+              reportVariant === "UPLOAD_AI" ||
+              reportVariant === "UPLOAD_TEXT"
+            ) {
+              handlePageChange({
+                next: "duration",
+                previous: "general-risk",
+              });
+            }
           }}
           className="p-4 text-white flex justify-center items-center bg-[#000080] w-full rounded-lg"
         >
           {loading ? (
             <LoaderCircle className="animate-spin size-7" />
-          ) : reportVariant === "UPLOAD_AI" ? (
+          ) : reportVariant === "UPLOAD_AI" ||
+            reportVariant === "UPLOAD_TEXT" ? (
             "Upload to T & O standing"
           ) : (
             "Download Report"

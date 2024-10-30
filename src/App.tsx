@@ -1,3 +1,4 @@
+import { Upload } from "antd";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Auth from "./components/AuthPages";
 import BusinessRegister from "./components/AuthPages/Business/Register";
@@ -41,7 +42,7 @@ import ErrorPage from "./components/shared/ErrorPage";
 import HomeLayout from "./components/shared/HomeLayout";
 import HomeLayout2 from "./components/shared/HomeLayout2";
 import LoggedLayout from "./components/shared/LoggedLayout/loggedLayout";
-import DownloadableReport from "./components/LandingPage/GeneralRisk/GeneralRiskPages/GeneratedRiskProfile/downloadable-report";
+import EnterDuration from "./components/LandingPage/mainPage/enter-duration";
 
 const App = () => {
   return (
@@ -71,27 +72,12 @@ const App = () => {
         <Route path="/" element={<HomeLayout2 />}>
           <Route path="/home-page" element={<HomePage />} />
           <Route path="/download-report" element={<DownloadReport />} />
-          <Route
-            path="/report"
-            element={
-              <DownloadableReport
-                reportVariant="UPLOAD_TEXT"
-                riskMitigation={[
-                  { treatCause: "", treatEffect: "" },
-                  { treatCause: "", treatEffect: "" },
-                ]}
-                causes={["asldkfj", "asldifjalsdjflka", "aoisdfjlasd"]}
-                effect={["aksjdfhnakl", "aouhusdff", "alsidfjalks"]}
-              />
-            }
-          />
-          DownloadableReport
           {/* <Route path="/testing2" element={<StepsSection />} /> */}
           {/* <Route path="/ai-model" element={<AIModel />} /> */}
           {/* <Route path="/generate-download" element={<GenerateDownload />} /> */}
           {/* <Route path="/make-payment" element={<MakePayment />} />  */}
           {/* <Route path="/payment-mode" element={<PaymentMode />} /> */}
-          {/* <Route path="/upload" element={<Upload />} /> */}
+          <Route path="/upload" element={<EnterDuration />} />
           {/* <Route path="/general-risk" element={<GeneralRisk />} /> */}
           {/* <Route path="/risk-profile" element={<RiskProfile />} /> */}
           <Route path="/engage-t-o-standing" element={<Map />} />

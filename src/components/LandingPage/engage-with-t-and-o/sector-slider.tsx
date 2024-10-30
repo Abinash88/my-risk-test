@@ -5,7 +5,7 @@ import type { CarouselRef } from "antd/es/carousel";
 import { ChevronLeft, ChevronRight, Search, X } from "lucide-react";
 import React, { useRef, useState } from "react";
 
-type DropdownTypes = { label: string; value: string };
+export type DropdownTypes = { label: string; value: string };
 
 const SectorData: DropdownTypes[] = [
   {

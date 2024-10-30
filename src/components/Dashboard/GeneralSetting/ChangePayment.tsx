@@ -14,7 +14,7 @@ const columns: TableProps<PaymentTypes>["columns"] = [
     title: "Date",
     render: (record) => (
       <div className="flex gap-2  h-full items-center ">
-        <p className="font-[500] w-4/6 text-black text-sm ml-4">
+        <p className="font-[500] text-black text-sm ml-4">
           {record.date}
         </p>
       </div>

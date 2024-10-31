@@ -31,7 +31,7 @@ const MobileNav = ({ colorChange }: { colorChange: boolean }) => {
     location?.pathname.endsWith("terms-and-conditions");
 
   return (
-    <div className="">
+    <div className="block md:hidden">
       <div onClick={handleNav} className="block md:hidden">
         <FontAwesomeIcon
           icon={faBars}

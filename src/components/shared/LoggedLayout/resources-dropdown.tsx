@@ -7,14 +7,15 @@ const ResourcesDropdown = () => {
       {navItems?.map((item) => {
         return (
           <div className="" key={item?.path}>
-            <h3 className="md:text-base font-medium text-sm py-2 ">
+            <h3 className="md:text-lg font-medium  py-2 ">
               {item?.text}
             </h3>
             <div className="flex flex-col gap">
               {item?.child?.map((link) => (
                 <Link
+                style={{letterSpacing:"0.5px"}}
                   to={link?.path}
-                  className="py-1 font-medium md:text-sm text-xs"
+                  className="py-1 font-normal md:text-sm text-xs"
                   key={link?.path}
                 >
                   {link?.text}

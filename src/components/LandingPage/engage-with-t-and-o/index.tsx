@@ -6,6 +6,7 @@ import TAndOMap from "./main-map";
 import SectorSlider from "./sector-slider";
 import TableData from "./table-data";
 import { LocationsData } from "./t-and-o-data";
+import { cn } from "@/lib/utils";
 const FilterByLastMonth = [
   {
     label: "Past 24hrs",
@@ -84,7 +85,12 @@ const Map = () => {
             options={RisksStatus}
           />
         </div>
-        <div className="absolute z-10 top-5 md:block hidden space-y-2 left-12">
+        <div
+          className={cn(
+            ` md:scale-100 scale-75 absolute z-10 top-20 md:top-5 md:block  space-y-2 md:left-12`,
+            status ? "block" : "hidden"
+          )}
+        >
           <div className="bg-white text-center mt-1 border-2 rounded-lg border-purple-500 px-6 py-4 text-lg font-bold text-purple-900 z-10">
             Total Risk <br />
             999
@@ -93,7 +99,12 @@ const Map = () => {
             All
           </div>
         </div>
-        <div className="  md:flex hidden absolute z-10 right-10 top-5 flex-col gap-2">
+        <div
+          className={cn(
+            `  md:flex scale-75 md:scale-100  absolute z-10 right-0 md:right-10 top-5 flex-col gap-2`,
+            status ? "block" : "hidden"
+          )}
+        >
           <div className="w-[150px] flex flex-col gap-1 bg-[#6666B3] text-white py-3 px-2 rounded-xl text-center md:text-sm text-xs border border-white/70 ">
             <span>Total User Risk</span>
             <span className="md:text-lg font-semibold">999</span>

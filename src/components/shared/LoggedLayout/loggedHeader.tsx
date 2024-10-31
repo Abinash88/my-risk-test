@@ -10,24 +10,35 @@ const LoggedHeader = () => {
     location?.pathname.endsWith("engage-t-o-standing") ||
     location?.pathname.endsWith("view-generated-risks");
   return (
-    <div className=" lg:overflow-hidden bg-white shadow-sm px-[2rem] lg:h-20 lg:px-[2rem] py-[1rem] flex items-center justify-between gap-2 w-full relative">
+    <div className=" lg:overflow-hidden bg-white  shadow-sm px-4 md:px-[2rem] lg:h-20 lg:px-[2rem] py-[1rem] flex items-center justify-between gap-2 w-full relative">
       <div className="flex gap-4 md:gap-6 items-center">
-        <MobileNav colorChange />
         <Link to="/">
           <img
             src="/images/logo.png"
             alt="logo"
-            className=" w-[8rem] md:w-[11rem]"
+            className=" w-[8rem] md:block hidden md:w-[11rem]"
+          />
+          <img
+            src="/images/logo-png-icon.png"
+            alt="logo"
+            className=" w-[3rem] md:hidden block md:w-[3rem]"
           />
         </Link>
       </div>
       {!isShow && (
-        <div className="fixed md:relative hidden md:flex items-center justify-center">
+        <div className="fixed  md:relative hidden md:flex items-center justify-center">
           <LoggedMenu />
         </div>
       )}
-      {isShow && <HeadSearchFilter />}
-      <LoggedHeadSide />
+      {isShow && (
+        <div className="md:scale-100  scale-90">
+          <HeadSearchFilter />
+        </div>
+      )}
+      <div className="md:block hidden ">
+        <LoggedHeadSide />
+      </div>
+      <MobileNav colorChange />
     </div>
   );
 };

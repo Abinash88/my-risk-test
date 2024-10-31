@@ -29,7 +29,7 @@ const HeadSearchFilter = () => {
           className="placeholder:text-base text-gray-600 font-medium text-sm"
         />
         <CustomPopover
-          className=" w-full !max-w-[450px]"
+          className=" w-full md:!max-w-[450px]"
           popIcon={
             <button className="rounded-full px-5 py-2 gap-2 flex text-white bg-[#000080]">
               <span>filters</span>
@@ -37,7 +37,7 @@ const HeadSearchFilter = () => {
             </button>
           }
         >
-          <div className=" w-full min-w-2xl  min-h-[130px] bg-white z-30 relative overflow-hidden rounded-xl  ">
+          <div className=" w-full md:min-w-2xl min-h-[130px] bg-white z-30 relative overflow-hidden rounded-xl  ">
             <TAndOFilter />
           </div>
         </CustomPopover>

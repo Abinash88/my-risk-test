@@ -8,7 +8,7 @@ import PageThree from "./GeneralRiskPages/PageThree";
 import PageTwo from "./GeneralRiskPages/PageTwo";
 
 const GeneralRisk = () => {
-  const [currentStep, setCurrentStep] = useState(1);
+  const [currentStep, setCurrentStep] = useState(4);
 
   const handleNextStep = () => {
     setCurrentStep((prev) => prev + 1);

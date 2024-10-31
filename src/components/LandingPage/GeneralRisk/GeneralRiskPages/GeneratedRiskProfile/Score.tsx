@@ -155,8 +155,8 @@ const Score = ({
           </h4>
         </div>
         <div className="full mt-5 flex flex-col gap-5">
-          {riskMitigation?.map((item) => (
-            <div className="flex items-center gap-4 w-full">
+          {riskMitigation?.map((item, index) => (
+            <div key={index} className="flex items-center gap-4 w-full">
               <ScoreInput
                 type="number"
                 variant="input"
@@ -184,8 +184,11 @@ const Score = ({
             <div className="w-full md:w-1/2 lg:w-[26%]">
               <p className="text-center">Causes</p>
               <div className="bg-[#6095C9] min-h-[300px] h-full p-5 flex flex-col items-center gap-2 rounded-3xl mt-1">
-                {causes?.map((item) => (
-                  <div className="flex flex-col gap-3 text-white font-normal">
+                {causes?.map((item, index) => (
+                  <div
+                    key={index}
+                    className="flex flex-col gap-3 text-white font-normal"
+                  >
                     {" "}
                     {item}
                   </div>
@@ -233,7 +236,7 @@ const Score = ({
       <div className="flex mt-[40px] items-center justify-center gap-3 lg:gap-6 w-[80%] mx-auto pb-7 md:flex-nowrap flex-wrap">
         <button
           onClick={() => {
-            if (handleStepClick) handleStepClick(4);
+            if (handleStepClick) handleStepClick(3);
           }}
           className="p-4 text-white bg-[#000080] w-full rounded-lg"
         >

@@ -28,6 +28,8 @@ const DownloadableReport = ({
   reportVariant,
 }: DownloadableReportType) => {
   const [result, setResult] = useState<"score" | "rating" | "heat">("score");
+  const [Causes, setCauses] = useState(causes);
+  const [Effect, setEffect] = useState(effect);
   return (
     <div className=" w-full min-h-[100vh]">
       <div className="text-left w-full  ">
@@ -40,7 +42,7 @@ const DownloadableReport = ({
             value={riskDescription}
             rows={5}
             className={cn(
-              `w-full  focus:ring-0 focus:outline-none`,
+              `w-full  focus:ring-0 p-3 focus:outline-none`,
               !riskDescription && "border rounded-lg"
             )}
           />
@@ -55,7 +57,6 @@ const DownloadableReport = ({
           {causes?.map((item) => (
             <input
               key={item}
-              value={item}
               type="text"
               className=" outline-none border border-[rgba(0,0,0,0.2)] p-3 rounded-xl"
             />
@@ -69,7 +70,6 @@ const DownloadableReport = ({
           {effect?.map((item) => (
             <input
               key={item}
-              value={item}
               type="text"
               className=" outline-none border border-[rgba(0,0,0,0.2)] p-3 rounded-xl"
             />

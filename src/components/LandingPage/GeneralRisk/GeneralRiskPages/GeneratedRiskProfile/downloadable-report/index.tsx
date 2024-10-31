@@ -1,8 +1,8 @@
 import HeatMap from "@/components/LandingPage/RiskProfile/HeatMap";
+import { cn } from "@/lib/utils";
 import { Rating } from "@mui/material";
 import { useState } from "react";
 import Score from "../Score";
-import { cn } from "@/lib/utils";
 
 export type DownloadableReportType = {
   handleStepClick?: (id: number) => void;
@@ -28,8 +28,8 @@ const DownloadableReport = ({
   reportVariant,
 }: DownloadableReportType) => {
   const [result, setResult] = useState<"score" | "rating" | "heat">("score");
-  const [Causes, setCauses] = useState(causes);
-  const [Effect, setEffect] = useState(effect);
+  // const [Causes, setCauses] = useState(causes);
+  // const [Effect, setEffect] = useState(effect);
   return (
     <div className=" w-full min-h-[100vh]">
       <div className="text-left w-full  ">

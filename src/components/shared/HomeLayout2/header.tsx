@@ -25,24 +25,16 @@ const Header = () => {
     setNav(!nav);
   };
   const navigate = useNavigate();
-  const [colorChange, setColorchange] = useState(false);
-  const changeNavbarColor = () => {
-    if (window.scrollY >= 600) {
-      setColorchange(true);
-    } else {
-      setColorchange(false);
-    }
-  };
-  window.addEventListener("scroll", changeNavbarColor);
+
   return (
     <div
-      className="fixed z-20 ease-in-out duration-300  bg-transparent px-[2rem] lg:px-[4rem] py-[1rem] flex justify-between items-center gap-4 w-full "
+      className="fixed z-20 ease-in-out duration-300  bg-transparent z-50 px-[2rem] lg:px-[4rem] py-[1rem] flex justify-between items-center gap-4 w-full "
       style={{ backgroundColor: "white" }}
     >
       <Link to="/">
         <div className="ease-in-out duration-1000 ">
           <img
-              src="images/logo-removebg.png"
+            src="/images/logo-removebg.png"
             alt="logo"
             className="w-[10rem] md:w-[12rem]"
           />
@@ -53,13 +45,13 @@ const Header = () => {
         // style={{ color: colorChange ? "black" : "white" }}
         className=" font-medium hidden md:flex items-start justify-center gap-6 lg:gap-14 flex-[2] "
       >
-      <LoggedMenu />
+        <LoggedMenu />
       </div>
       <div onClick={handleNav} className="block md:hidden">
         <FontAwesomeIcon
           icon={faBars}
           className="text-xl text-white shadow-lg"
-          style={{ color: "black"}}
+          style={{ color: "black" }}
         />
       </div>
       <ul
@@ -93,7 +85,7 @@ const Header = () => {
 
         <div className="flex gap-3 flex-col mt-6">
           {navItems.map((item) => (
-            <div>
+            <div key={item?.id}>
               <li
                 key={item.id}
                 className=" w-[100vw]  flex items-center justify-center  py-2 px-4 ease-in-out duration-300 hover:text-white"
@@ -123,7 +115,7 @@ const Header = () => {
                   }}
                   className="py-2 mr-4 w-[85vw] border hover:bg-[#000080] hover:bg-opacity-80 rounded-2xl shadow-sm px-6 flex flex-row justify-between"
                 >
-                    <div
+                  <div
                     className="tracking-wide text-sm"
                     onClick={() => {
                       // handleNav();
@@ -253,7 +245,7 @@ const Header = () => {
       </ul>
       <div className="hidden md:block">
         <Link
-          to="/login"
+          to="/auth/login"
           className="bg-[#000080] text-white py-3 px-10 rounded-lg"
         >
           Login

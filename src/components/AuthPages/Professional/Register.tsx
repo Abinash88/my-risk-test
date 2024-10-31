@@ -59,7 +59,7 @@ const ProfessionalRegister = () => {
             Professional Registration
           </h4>
         </div>
-        {renderPage()}
+        <div className="auth_input">{renderPage()}</div>
       </RegContainer>
     </>
   );

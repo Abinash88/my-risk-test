@@ -1,7 +1,6 @@
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Heart } from "@phosphor-icons/react";
-import React, { useState, useRef } from "react";
+import { Button } from "@/components/shared/ReuseAble/button";
+import { Heart } from "lucide-react";
+import React, { useRef, useState } from "react";
 
 interface Comment {
   id: number;
@@ -36,6 +35,21 @@ const commentsData: Comment[] = [
     likes: 100,
     liked: false,
   },
+  {
+    id: 4,
+    author: "Adekoya",
+    content: "Sorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    likes: 100,
+    liked: false,
+  },
+  {
+    id: 5,
+    author: "Adekoya",
+    content: "Sorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    likes: 100,
+    liked: false,
+  },
+
   // Add more comments as needed
 ];
 
@@ -83,9 +97,7 @@ const CommentsSection: React.FC = () => {
 
   return (
     <div className="bg-white py-6 px-3">
-      <h2 className="text-2xl font-bold mb-4 text-center">
-        View all 99 Comments
-      </h2>
+      <h2 className="text-2xl font-medium mb-9 text-center">Comments</h2>
       <div className="space-y-4">
         {comments.map((comment) => (
           <div key={comment.id} className="border-b pb-4">
@@ -97,8 +109,13 @@ const CommentsSection: React.FC = () => {
                   className="w-10 h-10 rounded-full"
                 />
                 <div className="w-full md:w-[98%]">
-                  <h3 className="font-semibold">{comment.author}</h3>
-                  <p>{comment.content}</p>
+                  <div className="">
+                    <div className=" flex gap-2">
+                      <h3 className="font-semibold">{comment.author}</h3>
+                      <p className="text-gray-500">3h</p>
+                    </div>
+                    <p>{comment.content}</p>
+                  </div>
                   <div className="flex items-center space-x-2 mt-2">
                     <button
                       onClick={() => handleReplyClick(comment.author)}
@@ -120,9 +137,12 @@ const CommentsSection: React.FC = () => {
                             className="w-8 h-8 rounded-full"
                           />
                           <div className="flex-1">
-                            <h3 className="font-semibold">{reply.author}</h3>
+                            <div className="flex gap-2">
+                              <h3 className="font-semibold">{reply.author}</h3>
+                              <p className="text-gray-500">3h</p>
+                            </div>
                             <p>{reply.content}</p>
-                            <div className="flex items-center space-x-2 mt-2">
+                            <div className="flex w-full justify-between items-center space-x-2 mt-2">
                               <button
                                 onClick={() => handleReplyClick(reply.author)}
                                 className="text-gray-500"
@@ -131,15 +151,12 @@ const CommentsSection: React.FC = () => {
                               </button>
                               <button
                                 onClick={() => toggleLike(reply.id)}
-                                className="flex items-center space-x-1 text-gray-500"
+                                className="flex flex-col justify-center items-center space-x-1 text-gray-500"
                               >
                                 {reply.liked ? (
-                                  <FontAwesomeIcon
-                                    icon={faHeart}
-                                    className="text-red-600"
-                                  />
+                                  <Heart size={19} className="" />
                                 ) : (
-                                  <Heart size={20} className="text-red-600" />
+                                  <Heart size={19} className="text-red-600" />
                                 )}
                                 <span>{reply.likes}</span>
                               </button>
@@ -155,12 +172,12 @@ const CommentsSection: React.FC = () => {
               <div>
                 <button
                   onClick={() => toggleLike(comment.id)}
-                  className="flex items-center space-x-1 text-gray-500"
+                  className="flex items-center flex-col justify-center space-x-1 text-gray-500"
                 >
                   {comment.liked ? (
-                    <FontAwesomeIcon icon={faHeart} className="text-red-600" />
+                    <Heart size={19} className="text-red-600" />
                   ) : (
-                    <Heart size={20} className="text-red-600" />
+                    <Heart size={19} className="" />
                   )}
                   <span>{comment.likes}</span>
                 </button>
@@ -183,6 +200,9 @@ const CommentsSection: React.FC = () => {
           onChange={(e) => setCommentInput(e.target.value)}
           ref={commentInputRef}
         />
+        <Button variant={"secondary"} className="rounded-xl bg-[#1D98F0]">
+          Enter
+        </Button>
       </div>
     </div>
   );

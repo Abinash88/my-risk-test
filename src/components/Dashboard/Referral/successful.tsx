@@ -18,6 +18,9 @@ const SuccessfulRefer = () => {
                 <thead className="bg-purple-50 text-gray-700">
                   <tr>
                     <th className="p-3 text-left text-sm font-[600] text-black capitalize md:min-w-[200px] border-r border-[rgba(0,0,0,0.3)]">
+                      No
+                    </th>
+                    <th className="p-3 text-left text-sm font-[600] text-black capitalize md:min-w-[200px] border-r border-[rgba(0,0,0,0.3)]">
                       Surname
                     </th>
                     <th className="p-3 text-left text-sm capitalize md:min-w-[200px] max-w-[600px] border-r border-[rgba(0,0,0,0.3)]  font-[600] text-black">
@@ -39,6 +42,9 @@ const SuccessfulRefer = () => {
                         index % 2 !== 0 && "bg-purple-50"
                       }`}
                     >
+                      <td className="p-3 text-sm border-r border-[rgba(0,0,0,0.3)]">
+                        {index + 1}
+                      </td>
                       <td className="p-3 text-sm border-r border-[rgba(0,0,0,0.3)]">
                         John
                       </td>

@@ -5,9 +5,27 @@
 
 @layer base {
   html {
-    font-family: "Inter", sans-serif;
+    font-family: "Roboto", sans-serif;
     line-height: 1.3;
   }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #626262;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #5a5a5a;
+}
+
+/* Scrollbar Track */
+::-webkit-scrollbar-track {
+  background: #d8d8d8;
+  border-radius: 6px;
 }
 
 /* Add these styles to your CSS file */
@@ -18,6 +36,10 @@
 
 .slide-right {
   animation: slide-right 0.3s forwards;
+}
+
+input {
+  @apply focus:outline-none;
 }
 
 .varela {
@@ -71,7 +93,6 @@
   accent-color: #000080;
 }
 
-
 .transition-transform {
   transition: transform 0.3s ease, z-index 0s 0.3s;
 }
@@ -116,9 +137,7 @@ input[type="number"] {
   .swiper-slide {
     /* width: 50vw !important */
   }
-
 }
-
 
 .swiper-slide-shadow-left,
 .swiper-slide-shadow-right {
@@ -180,7 +199,7 @@ input[type="number"] {
 }
 
 .slider-controler .slider-arrow::after {
-  content: '';
+  content: "";
 }
 
 .swiper-pagination {
@@ -190,9 +209,138 @@ input[type="number"] {
 }
 
 .swiper-pagination .swiper-pagination-bullet {
-  filter: drop-shadow(0px 8px 24px rgba(255,255,255,1));
+  filter: drop-shadow(0px 8px 24px rgba(255, 255, 255, 1));
 }
 
 .swiper-pagination .swiper-pagination-bullet-active {
   background: #000080;
+}
+
+/* landing page slider css */
+#quick_link_carousel .lucide-arrow-right-to-line {
+  width: 40px !important;
+  height: 40px !important;
+  transform: translateY(-40%) translateX(50px) !important;
+  color: #fff;
+  opacity: 1;
+}
+
+#quick_link_carousel .lucide-arrow-left-to-line {
+  width: 40px !important;
+  height: 40px !important;
+  transform: translateY(-50%) translateX(-50px) !important;
+  color: #fff;
+  opacity: 1;
+}
+
+#sector_carousel .lucide-chevron-left {
+  width: 35px !important;
+  height: 35px !important;
+  transform: translateY(-50%) translateX(-50px) !important;
+  opacity: 1 !important;
+  border-radius: 5px;
+  padding: 7px;
+  background: #000080;
+}
+
+#sector_carousel .lucide-chevron-right {
+  width: 35px !important;
+  height: 35px !important;
+  transform: translateY(-50%) translateX(50px) !important;
+  right: -175px;
+  opacity: 1 !important;
+  border-radius: 5px;
+  padding: 7px;
+  background: #000080;
+}
+
+#group_carousel .lucide-chevron-right {
+  width: 50px !important;
+  height: 50px !important;
+  transform: translateY(-40%) translateX(50px) !important;
+  opacity: 1 !important;
+  color: #000080;
+  padding: 7px;
+  border-radius: 5px;
+}
+
+#group_carousel .lucide-chevron-left {
+  width: 40px !important;
+  height: 40px !important;
+  transform: translateY(-50%) translateX(-50px) !important;
+  opacity: 1 !important;
+  color: #000080;
+}
+
+#member_carousel .lucide-chevron-up {
+  width: 40px !important;
+  height: 40px !important;
+  opacity: 1 !important;
+  transform: translateY(-40px) translateX(-20px) !important;
+  color: #000080;
+  padding: 7px;
+  border-radius: 5px;
+}
+
+#member_carousel .lucide-chevron-down {
+  width: 30px !important;
+  height: 30px !important;
+  transform: translateY(50px) translateX(-20px) !important;
+  opacity: 1 !important;
+  color: #000080;
+}
+
+@media screen and (max-width: 1000px) {
+  #quick_link_carousel .lucide-arrow-right-to-line {
+    width: 30px !important;
+    height: 30px !important;
+    transform: translateY(-40%) translateX(20px) !important;
+  }
+
+  #quick_link_carousel .lucide-arrow-left-to-line {
+    width: 30px !important;
+    height: 30px !important;
+    transform: translateY(-50%) translateX(-20px) !important;
+  }
+}
+
+@media screen and (max-width: 1700px) {
+  #sector_carousel .lucide-chevron-right {
+    /* transform: translateY(-50%) translateX(190px) !important; */
+  }
+}
+.auth_input input {
+  border-color: #900c3f;
+}
+
+.auth_input label {
+  @apply md:text-base text-sm text-[#900C3F];
+}
+
+.date_picker input::placeholder {
+  color: white !important;
+}
+
+.date_picker .ant-picker-suffix {
+  color: white !important;
+}
+
+#payment-form input {
+  @apply bg-[#D9D9D914] text-xs md:text-sm;
+}
+
+.leaflet-popup-content-wrapper {
+  @apply !bg-transparent shadow-none;
+}
+
+.leaflet-popup-tip-container .leaflet-popup-tip {
+  box-shadow: none;
+  background-color: transparent;
+}
+
+.leaflet-popup-close-button {
+  top: 60px !important;
+  right: 42px !important;
+  z-index: 999 !important;
+  color: white !important;
 }

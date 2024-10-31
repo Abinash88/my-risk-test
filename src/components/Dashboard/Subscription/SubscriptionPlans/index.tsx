@@ -15,16 +15,16 @@ const SubscriptionPlan = () => {
     <div className="md:-mt-20">
       <Carousel>
         <CarouselContent>
-          <CarouselItem className="basis-full lg:basis-[46%]">
+          <CarouselItem className="basis-full md:basis-[50%] lg:basis-[33%] ">
             <FreePlan />
           </CarouselItem>
-          <CarouselItem className="basis-full lg:basis-[46%]">
+          <CarouselItem className="basis-full md:basis-[50%] lg:basis-[33%]">
             <StandardPkg />
           </CarouselItem>
-          <CarouselItem className="basis-full lg:basis-[46%]">
+          <CarouselItem className="basis-full md:basis-[50%] lg:basis-[33%]">
             <PremiumPkg />
           </CarouselItem>
-          <CarouselItem className="basis-full lg:basis-[46%]">
+          <CarouselItem className="basis-full md:basis-[50%] lg:basis-[33%]">
             <GoldPkg />
           </CarouselItem>
         </CarouselContent>

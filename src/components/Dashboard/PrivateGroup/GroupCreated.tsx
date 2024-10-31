@@ -1,11 +1,11 @@
-import { useState } from "react";
-import { GroupImages } from "../../../lib/fakedata";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCog, faTrashCan } from "@fortawesome/free-solid-svg-icons";
-import AddGroupModal from "./AddgroupModal";
-import DeleteModal from "../ManageRIsk/CommentModal/DeleteModal";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { GroupImages } from "../../../lib/fakedata";
+import DeleteModal from "../ManageRIsk/CommentModal/DeleteModal";
+import AddGroupModal from "./AddgroupModal";
 
 const GroupCreated = () => {
   const [showAll, setShowAll] = useState(false);
@@ -82,8 +82,9 @@ const GroupCreated = () => {
           <div className="flex flex-nowrap md:gap-3">
             <div className="items-center hidden md:flex">
               <button
-                    onClick={() => navigate("/map")}
-                    className="bg-white mt-2 scale-90 text-[#6666B3] hover:text-white hover:bg-[#6666B3] border-[#6666B3] border w-40 py-2 h-10 rounded-lg text-sm">
+                onClick={() => navigate("/map")}
+                className="bg-white mt-2 scale-90 text-[#6666B3] hover:text-white hover:bg-[#6666B3] border-[#6666B3] border w-40 py-2 h-10 rounded-lg text-sm"
+              >
                 View Standings
               </button>
             </div>
@@ -102,9 +103,12 @@ const GroupCreated = () => {
                   <Link to={"/dashboard/group-settings"} className="text-xs">
                     Group Settings
                   </Link>
-                  <p className="text-xs flex md:hidden" 
+                  <p
+                    className="text-xs flex md:hidden"
                     onClick={() => navigate("/map")}
-                    >View Standings</p>
+                  >
+                    View Standings
+                  </p>
                   <p className="text-xs text-red-500 flex md:hidden">Delete</p>
                 </PopoverPanel>
               </Popover>
@@ -169,8 +173,9 @@ const GroupCreated = () => {
           <div className="flex flex-nowrap md:gap-3">
             <div className="items-center hidden md:flex">
               <button
-                    onClick={() => navigate("/map")}
-                    className="bg-white mt-2 scale-90 text-[#6666B3] hover:text-white hover:bg-[#6666B3] border-[#6666B3] border w-40 py-2 h-10 rounded-lg text-sm">
+                onClick={() => navigate("/map")}
+                className="bg-white mt-2 scale-90 text-[#6666B3] hover:text-white hover:bg-[#6666B3] border-[#6666B3] border w-40 py-2 h-10 rounded-lg text-sm"
+              >
                 View Standings
               </button>
             </div>
@@ -189,9 +194,12 @@ const GroupCreated = () => {
                   <Link to={"/dashboard/group-settings"} className="text-xs">
                     Group Settings
                   </Link>
-                  <p className="text-xs flex md:hidden"
+                  <p
+                    className="text-xs flex md:hidden"
                     onClick={() => navigate("/map")}
-                    >View Standings</p>
+                  >
+                    View Standings
+                  </p>
                   <p className="text-xs text-red-500 flex md:hidden">Delete</p>
                 </PopoverPanel>
               </Popover>
@@ -255,9 +263,10 @@ const GroupCreated = () => {
           </div>
           <div className="flex flex-nowrap md:gap-3">
             <div className="items-center hidden md:flex">
-              <button 
-                    onClick={() => navigate("/map")}
-                    className="bg-white mt-2 scale-90 text-[#6666B3] hover:text-white hover:bg-[#6666B3] border-[#6666B3] border w-40 py-2 h-10 rounded-lg text-sm">
+              <button
+                onClick={() => navigate("/map")}
+                className="bg-white mt-2 scale-90 text-[#6666B3] hover:text-white hover:bg-[#6666B3] border-[#6666B3] border w-40 py-2 h-10 rounded-lg text-sm"
+              >
                 View Standings
               </button>
             </div>
@@ -276,9 +285,12 @@ const GroupCreated = () => {
                   <Link to={"/dashboard/group-settings"} className="text-xs">
                     Group Settings
                   </Link>
-                  <p className="text-xs flex md:hidden"
+                  <p
+                    className="text-xs flex md:hidden"
                     onClick={() => navigate("/map")}
-                    >View Standings</p>
+                  >
+                    View Standings
+                  </p>
                   <p className="text-xs text-red-500 flex md:hidden">Delete</p>
                 </PopoverPanel>
               </Popover>
@@ -342,9 +354,10 @@ const GroupCreated = () => {
           </div>
           <div className="flex flex-nowrap md:gap-3">
             <div className="items-center hidden md:flex">
-              <button 
-                    onClick={() => navigate("/map")}
-                    className="bg-white mt-2 scale-90 text-[#6666B3] hover:text-white hover:bg-[#6666B3] border-[#6666B3] border w-40 py-2 h-10 rounded-lg text-sm">
+              <button
+                onClick={() => navigate("/map")}
+                className="bg-white mt-2 scale-90 text-[#6666B3] hover:text-white hover:bg-[#6666B3] border-[#6666B3] border w-40 py-2 h-10 rounded-lg text-sm"
+              >
                 View Standings
               </button>
             </div>

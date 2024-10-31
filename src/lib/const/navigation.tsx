@@ -65,19 +65,19 @@ export const quickLinks = [
 export const Legal = [
   {
     link: "Terms & Conditions ",
-    path: "/",
+    path: "/terms-and-conditions",
   },
   {
     link: "Privacy Policy",
-    path: "/",
+    path: "/privacy-policy",
   },
   {
     link: "Cookie Policy",
-    path: "/",
+    path: "/cookie-policy",
   },
   {
     link: "Code of Conduct",
-    path: "/",
+    path: "/code-of-conduct",
   },
 ];
 

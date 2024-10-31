@@ -1,50 +1,27 @@
-import StepsSection from "@/components/Dashboard/ManageRIsk/CommentModal/steps";
 import CommentsSection from "@/components/Dashboard/ManageRIsk/CommentModal/comments";
-import Modal from "@/components/shared/ReuseAble/modal";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
-interface CommentModalProps {
-  isModalOpen: boolean;
-  closeModal: () => void;
-}
-const CommentModal = () => {
-    const [openModal, setOpenModal] = useState(false);
+import StepsSection from "@/components/Dashboard/ManageRIsk/CommentModal/steps";
+import { CustomModal } from "./resuse-modal";
 
-    const handleClose = () => {
-    setOpenModal(false);
-    };
+const CommentModal = () => {
   return (
     <div>
-              <button
-                className="mt-2 text-[rgba(0,0,0,0.4)] font-[600]"
-                onClick={() => setOpenModal(true)}
-              >
-                View All Comments
-              </button>
-      <Modal
-        isOpen={openModal}
-        onClose={handleClose}
-        contentClassName="scale-[80%] bg-white rounded-lg shadow-lg w-[95%] md:[90%] lg:w-[80%] overflow-y-auto scrollBar h-auto max-h-[90vh]"
+      <CustomModal
+        name="View All Comments"
+        btnComponent={
+          <button className="mt-2 text-[rgba(0,0,0,0.4)] font-[600]">
+            View All Comments
+          </button>
+        }
       >
-        <div
-          className="bg-[#000080] mt-1 flex items-center text-center justify-center absolute rounded-full h-4 w-4 p-4 text-white right-2 top-1 cursor-pointer"
-          onClick={handleClose}
-        >
-          <FontAwesomeIcon
-            icon={faXmark}
-            className="text-[25px] text-center cursor-pointer"
-          />
-        </div>
-        <div className="flex gap-4 flex-col-reverse lg:flex-row">
-          <div className="w-full lg:w-[45%] ">
+        <div className="flex gap-4 bg-white  flex-col-reverse  lg:flex-row">
+          <div className="w-full flex-1 ">
             <StepsSection />
           </div>
-          <div className="w-full lg:w-[55%]">
+          <div className="w-full flex-1">
             <CommentsSection />
           </div>
         </div>
-      </Modal>
+      </CustomModal>
     </div>
   );
 };

@@ -2,6 +2,7 @@ import Container from "@/components/shared/HomeLayout/container";
 import { BlogHeader } from "@/components/shared/ReuseAble";
 import { ArrowLeft } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const steps = [
   {
@@ -71,16 +72,15 @@ const OurWorks = () => {
           </div>
         </div>
         <div className="w-full flex items-center justify-center mb-10">
-
-        <button
-          // onClick={() => setHistory(false)}
-          className={
-            "font-[600] rounded-full bg-blue-900 text-white w-[50%] md:w-[30%] text-center text-xs md:text-lg mb-5 shadow-lg border py-2"
-          }
+          <Link
+            to={"/auth"}
+            className={
+              "font-[600] rounded-full bg-blue-900 text-white w-[50%] md:w-[30%] text-center text-xs md:text-lg mb-5 shadow-lg border py-2"
+            }
           >
-          Create Account
-        </button>
-          </div>
+            Create Account
+          </Link>
+        </div>
       </Container>
     </div>
   );

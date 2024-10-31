@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import { Popover } from "@mui/material";
+import { Flag, X } from "lucide-react";
+import React, { useState, type MouseEventHandler } from "react";
 
 const steps = [
   {
@@ -23,19 +25,83 @@ const steps = [
   },
 ];
 
+const ReportReason = [
+  {
+    label: "Unprofessional",
+    value: "Unprofessional",
+  },
+  {
+    label: "Spam Content",
+    value: "Spam Content",
+  },
+  {
+    label: "Other",
+    value: "Other",
+  },
+];
+
 const StepsSection: React.FC = () => {
   const [openStep, setOpenStep] = useState<number | null>(null);
+  const [anchorEl, setAnchorEl] = React.useState(null);
 
+  const handleClick: MouseEventHandler = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
   const toggleStep = (index: number) => {
     setOpenStep(openStep === index ? null : index);
   };
 
   return (
     <div className="bg-blue-100 p-6 rounded-lg shadow-lg w-full h-full">
-      <span className="text-[#000080] font-[600] mb-3 block">
-        Risk ID: #R0231
-      </span>
-      <h1 className="text-2xl font-bold mb-6">Risk Title 1</h1>
+      <div className="flex justify-between items-start  w-full">
+        <div className="">
+          <span className="text-[#000080] font-[600] mb-3 block">
+            Risk ID: #R0231
+          </span>
+          <h1 className="text-2xl font-bold text-[#000080] mb-6">
+            Risk Title 1
+          </h1>
+        </div>
+        <button
+          onClick={handleClick}
+          className="bg-white px-3 text-red-500 scale-90 gap-2 py-1 flex items-center rounded-lg"
+        >
+          <Flag className=" size-5" />
+          <span>Flag</span>
+        </button>
+        <Popover
+          open={open}
+          anchorEl={anchorEl}
+          onClose={handleClose}
+          anchorOrigin={{
+            vertical: "bottom",
+            horizontal: "left",
+          }}
+          className="!rounded-2xl"
+        >
+          <div className="rounded-xl max-w-[150px] min-w-[160px] p-2 min-h-[100px] bg-white shadow-2xl overflow-hidden">
+            <div className="flex justify-between border-b pb-2 ">
+              <h3 className="text-sm text-blue-900 font-medium">
+                Report Reason
+              </h3>
+              <X onClick={handleClose} className="size-4 text-gray-600" />
+            </div>
+            <div className="flex flex-col">
+              {ReportReason?.map((item) => (
+                <span className="py-2  md:text-sm text-xs w-full hover:bg-gray-50">
+                  {item?.label}
+                </span>
+              ))}
+            </div>
+          </div>
+        </Popover>
+      </div>
       {steps.map((step, index) => (
         <div key={index} className="mb-2">
           <button

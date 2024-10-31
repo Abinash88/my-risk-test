@@ -14,20 +14,19 @@ import {
 import { Link } from "react-router-dom";
 
 const Footer = () => {
-  const goToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
+  // const goToTop = () => {
+  //   window.scrollTo({
+  //     top: 0,
+  //     behavior: "smooth",
+  //   });
+  // };
 
   return (
     <div className="bg-[#000080] text-white px-[2rem] md:px-[4rem] py-[4rem]">
-      <div
-        onClick={() => goToTop()}
-        className="flex flex-col md:flex-row items-start justify-between gap-5 md:gap-3 md:flex-wrap"
-      >
-        <img src="/images/footer-logo.png" alt="Logo" />
+      <div className="flex flex-col md:flex-row items-start justify-between gap-5 md:gap-3 md:flex-wrap">
+        <Link to={"/"}>
+          <img src="/images/footer-logo.png" alt="Logo" />
+        </Link>
         <div>
           <h2 className="mb-4 font-[600] text-[1.2rem]">Quick Links</h2>
           <ul>
@@ -71,13 +70,21 @@ const Footer = () => {
         <div>
           <h2 className="mb-4 font-[600] text-[1.2rem]">Social Media</h2>
           <div className="flex items-center gap-4 mb-2">
-            <FontAwesomeIcon
-              icon={faSquareFacebook}
-              className="text-[1.6rem]"
-            />
-            <FontAwesomeIcon icon={faXTwitter} className="text-[1.6rem]" />
-            <FontAwesomeIcon icon={faInstagram} className="text-[1.6rem]" />
-            <FontAwesomeIcon icon={faLinkedin} className="text-[1.6rem]" />
+            <Link to={"/https://facebook.com"}>
+              <FontAwesomeIcon
+                icon={faSquareFacebook}
+                className="text-[1.6rem]"
+              />
+            </Link>
+            <Link to={"/https://twitter.com"}>
+              <FontAwesomeIcon icon={faXTwitter} className="text-[1.6rem]" />
+            </Link>
+            <Link to={"/https://isntagram.com"}>
+              <FontAwesomeIcon icon={faInstagram} className="text-[1.6rem]" />
+            </Link>
+            <Link to={"/https://linkedin.com"}>
+              <FontAwesomeIcon icon={faLinkedin} className="text-[1.6rem]" />
+            </Link>
           </div>
           <h3 className="mb-2 font-[600] text-[1.5rem]">Newsletter</h3>
           <form>

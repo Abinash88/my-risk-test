@@ -1,12 +1,11 @@
 import { Outlet } from "react-router-dom";
+import LoggedHeader from "../LoggedLayout/loggedHeader";
 import Footer from "./footer";
-import Header from "./header";
 
 const HomeLayout = () => {
   return (
     <>
-      <Header />
-      {/* <Testnav /> */}
+      <LoggedHeader />
       <Outlet />
       <Footer />
     </>

@@ -12,7 +12,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { X } from "@phosphor-icons/react";
 import { AlertDialogCancel } from "@radix-ui/react-alert-dialog";
 import { useRef, useState } from "react";
-import FileUpload from "./FileUpload"; // Adjust the import path as needed
+import FileUpload, { type FileTypes } from "./FileUpload"; // Adjust the import path as needed
 
 interface verifyProps {
   open?: boolean;
@@ -22,13 +22,13 @@ interface verifyProps {
 export function VerificationForm({ open, close }: verifyProps) {
   const nameInputRef = useRef<HTMLInputElement>(null);
   const [openSuccess, setOpenSuccess] = useState(false);
-  const [uploadedFile, setUploadedFile] = useState<File | null>(null);
+  const [uploadedFile, setUploadedFile] = useState<FileTypes[] | null>(null);
 
   const handleClose = () => {
     setOpenSuccess(false);
   };
 
-  const handleFileUpload = (file: File) => {
+  const handleFileUpload = (file: FileTypes[] | null) => {
     setUploadedFile(file);
   };
 
@@ -103,12 +103,11 @@ export function VerificationForm({ open, close }: verifyProps) {
                   <label htmlFor="proof" className="text-[15px]">
                     Proof of Employment
                   </label>
-                  <FileUpload onFileUpload={handleFileUpload} />
-                  {uploadedFile && (
-                    <p className="text-green-600 mt-2">
-                      Uploaded file: {uploadedFile.name}
-                    </p>
-                  )}
+                  <FileUpload
+                    value={uploadedFile}
+                    type="file"
+                    onFileUpload={handleFileUpload}
+                  />
                 </div>
               </div>
             </AlertDialogDescription>

@@ -1,11 +1,11 @@
-import { ArrowLeft, ArrowRight, Minus, Plus } from "lucide-react";
-import { paymentActivities } from "../../../lib/fakedata";
+import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Button, ButtonGroup } from "@mui/material";
+import { Minus, Plus } from "lucide-react";
 import { useState } from "react";
 import Premium1 from "../../../assets/images/premium1.jpg";
 import Premium2 from "../../../assets/images/premium2.jpg";
-import { Button, ButtonGroup } from "@mui/material";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import { paymentActivities } from "../../../lib/fakedata";
 
 const Premium = () => {
   const ITEMS_PER_PAGE = 1;
@@ -87,7 +87,7 @@ const Premium = () => {
                       <div className="flex flex-col md:flex-row  items-start md:items-center justify-between mt-6 gap-4"></div>
                     </div>
                   </div>
-                  <div className="w-full mt-12 justify-between flex flex-row items-start">
+                  <div className="w-full  mt-12 justify-between flex flex-row items-start">
                     <div className="flex-col flex items-start">
                       <div className="flex-col flex items-center">
                         <h3 className="text-[#000080] font-[500] mb-1 text-md">
@@ -98,16 +98,18 @@ const Premium = () => {
                           className="scale-90"
                           aria-label="Basic button group"
                         >
-                          <Button color="error">
-                            <Minus className="scale-90" />
+                          <Button className="border !border-[#000080]">
+                            <Minus className="scale-90 text-[#000080]" />
                           </Button>
-                          <Button className="font-bold">0</Button>
-                          <Button variant="contained" color="success">
+                          <Button className="font-bold !border-[#000080] !text-[#000080]">
+                            0
+                          </Button>
+                          <Button variant="contained" className="!bg-[#000080]">
                             <Plus className="scale-75" />
                           </Button>
                         </ButtonGroup>
                       </div>
-                      <h3 className="text-[#000080] opacity-80 font-[500] mt-3 ml-3 w-[60%] text-xs">
+                      <h3 className="text-[#000080] opacity-80 font-[500] whitespace-nowrap mt-3 ml-3 w-[60%] text-xs">
                         {news.title.indexOf("Profile") !== -1
                           ? "You have 38 AI Risk Generatable Profiles left."
                           : "You have 2 Creatable Private T & O Groups left."}

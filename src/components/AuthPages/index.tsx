@@ -32,7 +32,7 @@ const Auth = () => {
     <>
       {registrationType === null && (
         // <div style={{ backgroundImage: `url('/images/auth-image.png')`, height: "100vh", width: "100v" }}>
-          <div className="mt-[25vh] scale-90 md:mt-[15%] w-[85%] md:w-[30%] mr-auto ml-auto text-black flex flex-col gap-4">
+          <div className=" scale-90  w-[85%] md:w-[30%] mr-auto ml-auto text-black flex flex-col gap-4">
             <div
               className="bg-white rounded-lg p-4 w-full font-[600] text-[20px] cursor-pointer"
               onClick={() => navigate("business")}

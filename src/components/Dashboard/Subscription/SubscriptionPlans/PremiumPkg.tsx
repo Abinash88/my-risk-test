@@ -88,7 +88,7 @@ const PremiumPkg: React.FC = () => {
   };
 
   return (
-    <div className="bg-white md:scale-75 border border-gray-500 shadow-md rounded-lg w-full pb-5">
+    <div className="bg-white scale-90 border border-gray-500 shadow-md rounded-lg w-full pb-5">
       <div className="w-full bg-[#000080] text-white rounded-t-lg rounded-tr-lg p-3 mb-5">
         <h3 className="font-[600] text-[22px] mb-3">Premium Package</h3>
         <p className="text-[16px]">
@@ -181,7 +181,7 @@ const PremiumPkg: React.FC = () => {
         </h3>
       </div>
       <div className="px-3 flex justify-center items-center">
-        <MakePaymentModal/>
+        <MakePaymentModal />
       </div>
       <div className="my-5 px-3">
         <h3 className="bg-[#F0F0FF] font-[400] p-3 text-[20px] rounded-lg w-full text-center text-[#000080] mb-5">

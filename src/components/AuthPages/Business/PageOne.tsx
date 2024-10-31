@@ -11,10 +11,7 @@ const PageOne = ({ onNext }: { onNext: () => void }) => {
         }}
       >
         <div className="text-black text-left">
-          <label
-            htmlFor="name"
-            className="mb-2 block font-[600] text-black text-[18px]"
-          >
+          <label htmlFor="name" className="mb-2 block font-[600] text-black ">
             Name
           </label>
           <input
@@ -26,7 +23,7 @@ const PageOne = ({ onNext }: { onNext: () => void }) => {
         <div className="text-black text-left">
           <label
             htmlFor="surname"
-            className="mb-2 block font-[600] text-black text-[18px]"
+            className="mb-2 block font-[600] text-black "
           >
             Surname
           </label>
@@ -37,10 +34,7 @@ const PageOne = ({ onNext }: { onNext: () => void }) => {
           />
         </div>
         <div className="text-black text-left">
-          <label
-            htmlFor="email"
-            className="mb-2 block font-[600] text-black text-[18px]"
-          >
+          <label htmlFor="email" className="mb-2 block font-[600] text-black ">
             Email
           </label>
           <input

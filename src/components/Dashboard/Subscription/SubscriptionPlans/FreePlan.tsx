@@ -57,7 +57,7 @@ const FreePlan: React.FC = () => {
   };
 
   return (
-    <div className="bg-white border border-gray-500 md:scale-75 shadow-md rounded-lg w-full mt-10">
+    <div className="bg-white border border-gray-500 scale-90 shadow-md rounded-lg w-full pb-5 mt-10">
       <div className="w-full bg-[#000080] text-white rounded-t-lg rounded-tr-lg p-3 mb-5">
         <h3 className="font-[600] text-[22px] mb-3">Free Package</h3>
         <p className="text-[16px]">Trial and upgrade</p>
@@ -140,7 +140,7 @@ const FreePlan: React.FC = () => {
         </h3>
       </div>
       <div className="px-3 flex justify-center items-center">
-        <button className="bg-[#000080] text-white font-[600] text-[19px] p-3  w-[70%] mr-auto ml-auto rounded-lg">
+        <button className="bg-[#000080] text-white font-[600] text-[19px] px-12 py-5  mr-auto ml-auto rounded-lg">
           Choose Plan
         </button>
       </div>

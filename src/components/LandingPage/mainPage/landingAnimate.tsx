@@ -39,45 +39,48 @@ export const BlogHeader = ({
     }
   }, []);
   return (
-    <>
+    <div className=" h-screen flex relative items-center">
       {/* <h1 className="text-red-300 fixed">{String(dynamic)}</h1> */}
-      <div className="relative w-full h-screen z-10 flex flex-row justify-between ">
+      <div className="relative w-full flex flex-row justify-between ">
         <div
           onClick={() => {
             setc((x) => !x);
           }}
           style={{ opacity: buttonx }}
-          className="rounded-full hidden md:flex  bg-white md:mt-[50vh] md:ml-24  p-4 cursor-pointer h-fit"
+          className="rounded-full hidden md:flex  bg-white  border md:ml-24  p-4 cursor-pointer h-fit"
         >
           <ArrowLeftToLine className="text-[#000080] scale-105" />
         </div>
-        {showLink && (
-          <div className="fixed flex justify-center w-full bottom-0 mb-[20vh] md:mb-24">
-            <Link
-              style={{ opacity: buttonx }}
-              to={path}
-              className="bg-[#000080] relative text-white bottom-0 items-center  py-4 px-10 rounded-lg "
-            >
-              Get Started
-            </Link>
-          </div>
-        )}
+
         <div
           onClick={() => {
             setc((x) => !x);
             console.log(c);
           }}
           style={{ opacity: buttonx }}
-          className="rounded-full hidden md:flex bg-white md:mt-[50vh] md:mr-24 p-4 cursor-pointer h-fit"
+          className="rounded-full hidden md:flex bg-white  md:mr-24 p-4 cursor-pointer h-fit"
         >
           <ArrowRightToLine className="text-[#000080] scale-105" />
         </div>
+        {showLink && (
+          <div className=" flex translate-y-40 md:translate-y-48 justify-center left-[50%] translate-x-[-50%] fixed ">
+            <Link
+              style={{ opacity: buttonx }}
+              to={path}
+              className="bg-[#000080]/90 hover:bg-[#000080] transition-all duration-300 relative
+               text-white bottom-0 items-center  py-4 px-10 md:px-14 rounded-lg md:text-base text-sm"
+            >
+              Get Started
+            </Link>
+          </div>
+        )}
       </div>
+
       <div
         className="fixed -z-10 top-0 w-full ease-in-out duration-500 h-screen bg-cover bg-center"
         style={{ backgroundImage: `url(${c ? Background2 : Background})` }}
       >
-        <div className="absolute -z-10 lg:pt-20 inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center gap-3 text-white text-center p-6">
+        <div className="h-full z-10 lg:pt-10  inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center  text-white text-center p-6">
           <div className="flex w-full justify-center flex-row">
             <h1
               style={{ opacity: dynamic, lineHeight: "130%" }}
@@ -96,7 +99,7 @@ export const BlogHeader = ({
           </p>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

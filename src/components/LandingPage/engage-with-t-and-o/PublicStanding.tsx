@@ -1,7 +1,8 @@
 import { TruncatedText } from "@/components/shared/ReuseAble";
+import CommentModal from "@/components/shared/ReuseAble/CommentModal";
 import { TandOData } from "@/lib/fakedata";
 
-const PrivateStanding = () => {
+const PublicStanding = () => {
   const getRiskRatingColor = (rating: number) => {
     if (rating >= 90 && rating <= 100) return "bg-red-800";
     if (rating >= 80 && rating <= 90) return "bg-red-600";
@@ -48,9 +49,7 @@ const PrivateStanding = () => {
                   maxLength={50}
                   title={risk.title}
                 />
-                <button className="mt-2 text-[rgba(34,33,33,0.4)] font-[600]">
-                  View All Comments
-                </button>
+                <CommentModal />
               </td>
               <td
                 className={`py-2 px-4 border text-center ${getRiskRatingColor(
@@ -73,4 +72,4 @@ const PrivateStanding = () => {
   );
 };
 
-export default PrivateStanding;
+export default PublicStanding;

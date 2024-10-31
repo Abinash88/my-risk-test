@@ -14,6 +14,7 @@ export type SelectType =
       containerClass?: string;
       Component?: React.ReactElement;
       title?: string;
+      btnIcon?: React.ReactElement;
     }
   | {
       options?: OptionsType[];
@@ -23,6 +24,7 @@ export type SelectType =
       containerClass?: string;
       Component: React.ReactElement;
       title?: string;
+      btnIcon?: React.ReactElement;
     };
 
 export default function SelectComp({
@@ -32,6 +34,7 @@ export default function SelectComp({
   label,
   containerClass,
   Component,
+  btnIcon,
   title,
 }: SelectType) {
   const [select, setSelect] = React.useState<string | undefined>(undefined);
@@ -44,18 +47,20 @@ export default function SelectComp({
     <div className={cn(`relative`, containerClass)}>
       <CustomPopover
         popIcon={
-          <button
-            className={cn(
-              `bg-[#1D98F0] flex whitespace-nowrap font-medium items-center gap-4 md:text-sm text-xs text-white  px-5 py-2 rounded-lg`,
-              className
-            )}
-          >
-            <span>{select ? select : label || "None"}</span>
-            <ChevronDown className="" />
-          </button>
+          btnIcon || (
+            <button
+              className={cn(
+                `bg-[#1D98F0] flex whitespace-nowrap font-medium items-center gap-4 md:text-sm text-xs text-white  px-5 py-2 rounded-lg`,
+                className
+              )}
+            >
+              <span>{select ? select : label || "None"}</span>
+              <ChevronDown className="" />
+            </button>
+          )
         }
       >
-        <div className=" w-full relative z-40">
+        <div className=" w-full relative ">
           {!Component && (
             <h3 className="px-3 py-2 text-[#000080] font-medium text-center">
               {title || "Filter By"}

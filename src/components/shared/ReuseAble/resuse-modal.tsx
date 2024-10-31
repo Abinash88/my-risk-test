@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Modal as MyModel } from "antd";
 import { useState } from "react";
@@ -8,6 +7,7 @@ interface ModalProps {
   name?: string;
   className?: string;
   btnComponent?: React.ReactElement;
+  containerClass?: string;
   title?: string;
 }
 
@@ -16,6 +16,7 @@ export const CustomModal: React.FC<ModalProps> = ({
   name,
   title,
   className,
+  containerClass,
   btnComponent,
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -33,7 +34,7 @@ export const CustomModal: React.FC<ModalProps> = ({
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full ">
       <button className="focus:outline-none" onClick={showModal}>
         {btnComponent || (
           <span className={cn("", className)}>{name || "Open"}</span>
@@ -44,7 +45,8 @@ export const CustomModal: React.FC<ModalProps> = ({
         onOk={handleOk}
         open={isModalOpen}
         onCancel={handleCancel}
-        className="max-w-[700px] w-full"
+        footer={<div className="hidden"></div>}
+        className={cn(`!w-full !max-w-[1000px] mx-auto`, containerClass)}
       >
         {children}
       </MyModel>

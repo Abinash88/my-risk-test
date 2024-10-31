@@ -56,6 +56,22 @@ export type LocationType = {
   style?: Record<string, string>;
 };
 
+
+const ReportReason = [
+  {
+    label: "Unprofessional",
+    value: "Unprofessional",
+  },
+  {
+    label: "Spam Content",
+    value: "Spam Content",
+  },
+  {
+    label: "Other",
+    value: "Other",
+  },
+];
+
 const Map = () => {
   ScrollTop();
 
@@ -79,6 +95,12 @@ const Map = () => {
             className="border border-white/50 shadow-lg "
             options={FilterByLastMonth}
           />
+          <SelectComp
+          label="Last Month"
+          className="border border-white/50 shadow-lg "
+          containerClass="relative z-50"
+          options={ReportReason}
+        />
           <SelectComp
             label="Open Risks"
             className="border border-white/50 shadow-lg "

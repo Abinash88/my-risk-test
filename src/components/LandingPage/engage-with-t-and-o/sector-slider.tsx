@@ -120,7 +120,7 @@ const SectorSlider = () => {
               {
                 breakpoint: 1424, // Medium screens (tablet and up)
                 settings: {
-                  slidesToShow: 3,
+                  slidesToShow: 5,
                 },
               },
               {

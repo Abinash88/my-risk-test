@@ -1,11 +1,14 @@
+import CustomDropdown from "@/components/shared/custom-dropdown";
 import { Button } from "@/components/shared/ReuseAble/button";
-import { cn } from "@/lib/utils";
+import { cn, dropDownData } from "@/lib/utils";
 import { Search } from "lucide-react";
 import { useState } from "react";
+import { SectorData } from "../engage-with-t-and-o/sector-slider";
 
 const Generate = ({ onNext }: { onNext: () => void }) => {
-  const [toggleCountryDropdown, setToggleCountryDropdown] = useState(false);
-  const [toggleIndustryDropdown, setToggleIndustryDropdown] = useState(false);
+  const [selectIndustry, setSelectIndustry] = useState<string | undefined>(
+    undefined
+  );
   const [country, setCountry] = useState<string | undefined>(undefined);
 
   return (
@@ -27,22 +30,26 @@ const Generate = ({ onNext }: { onNext: () => void }) => {
           Global
         </Button>
         <div className="flex relative ">
-          <input
-            onFocus={() => {
-              setToggleCountryDropdown(true);
+          <CustomDropdown
+            btnClassName="w-full"
+            containerClass="w-full "
+            btnComp={
+              <button className="shadow-sm p-3  border text-gray-400 font-medium bg-[#D9D9D99C] text-sm w-full rounded-lg text-left ">
+                {country ? (
+                  <span className="text-gray-600">{country}</span>
+                ) : (
+                  " Select Country"
+                )}
+              </button>
+            }
+            options={dropDownData}
+            className="text-gray-700 w-full bg-transparent border z-20"
+            value={country}
+            onChange={(data) => {
+              setCountry(data);
             }}
-            onBlur={() => {
-              setToggleCountryDropdown(false);
-            }}
-            placeholder="Search Country"
-            className="shadow-sm p-3  text-black bg-[#D9D9D99C] text-[20px] w-full rounded-lg text-left "
           />
           <Search className="absolute right-5 cursor-pointer top-1/4 " />
-          {toggleCountryDropdown && (
-            <div className="absolute top-[52px]  max-h-[200px] overflow-y-auto border shadow-lg w-full left-0 right-0 z-50 p-5  rounded-lg text-center md:text-base text-sm bg-white">
-              <p>Search Country</p>
-            </div>
-          )}
         </div>
       </div>
       <div className="w-full   md:px-4 py-2 ">
@@ -50,37 +57,41 @@ const Generate = ({ onNext }: { onNext: () => void }) => {
           <h4>Industry</h4>
         </div>
         <div className="flex relative ">
-          <input
-            onFocus={() => {
-              setToggleIndustryDropdown(true);
+          <CustomDropdown
+            btnClassName="w-full"
+            containerClass="w-full "
+            btnComp={
+              <button className="shadow-sm p-3  border text-gray-400 font-medium bg-[#D9D9D99C] text-sm w-full rounded-lg text-left ">
+                {selectIndustry ? (
+                  <span className="text-gray-600">{selectIndustry}</span>
+                ) : (
+                  " Select Industry"
+                )}
+              </button>
+            }
+            options={SectorData}
+            className="text-gray-700 w-full bg-transparent border z-20"
+            value={selectIndustry}
+            onChange={(data) => {
+              setSelectIndustry(data);
             }}
-            onBlur={() => {
-              setToggleIndustryDropdown(false);
-            }}
-            placeholder="Search Country"
-            className="shadow-sm p-3  text-black bg-[#D9D9D99C] text-[20px] w-full rounded-lg text-left "
           />
           <Search className="absolute right-5 cursor-pointer top-1/4 " />
-          {toggleIndustryDropdown && (
-            <div className="absolute top-[52px] max-h-[200px] overflow-y-auto border shadow-lg w-full left-0 right-0 z-50 p-5  rounded-lg text-center md:text-base text-sm bg-white">
-              <p>Search Industry</p>
-            </div>
-          )}
         </div>
       </div>
       <div className="flex gap-3 w-full justify-center mt-3">
         <button
           className={cn(
             `text-white p-3 rounded-lg bg-[#000080] w-[40%]`,
-            !country && "opacity-50"
+            !country && !selectIndustry && "opacity-50"
           )}
           onClick={() => onNext()}
-          disabled={!country}
+          disabled={!country && !selectIndustry}
         >
           Threat
         </button>
         <button
-          disabled={!country}
+          disabled={!country && !selectIndustry}
           onClick={() => onNext()}
           className={cn(
             `text-white p-3 rounded-lg bg-[#6666B3] w-[40%]`,

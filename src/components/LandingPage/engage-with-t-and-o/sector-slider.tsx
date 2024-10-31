@@ -7,7 +7,7 @@ import React, { useRef, useState } from "react";
 
 export type DropdownTypes = { label: string; value: string };
 
-const SectorData: DropdownTypes[] = [
+export const SectorData: DropdownTypes[] = [
   {
     label: "Politics",
     value: "Politics",

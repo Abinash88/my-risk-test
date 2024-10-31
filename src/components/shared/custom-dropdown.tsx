@@ -60,12 +60,23 @@ export const CustomDropdown = ({
   options,
   onChange,
   value,
+  containerClass,
   className,
-}: CustomDropdownType & { containerClass?: string; className?: string }) => {
+  btnClassName,
+  btnComp,
+}: CustomDropdownType & {
+  containerClass?: string;
+  className?: string;
+  btnComp?: React.ReactElement;
+  btnClassName?: string;
+}) => {
   return (
     <SelectComp
+      containerClass={cn(containerClass)}
+      btnClassName={btnClassName}
       label="Select Country"
-      className={cn(`border border-white/50  shadow-lg `, className)}
+      btnIcon={btnComp}
+      className={cn(` border-white/50  shadow-lg `, className)}
       Component={
         <DropDownBox onChange={onChange} options={options} value={value} />
       }

@@ -18,10 +18,11 @@ const CustomPopover = ({
   btnClassName,
 }: CustomPopoverType) => {
   return (
-    <Popover className={""}>
+    <Popover>
       <PopoverButton
+      
         className={cn(
-          `block cursor-pointer relative z-40 text-sm/6 font-semibold  focus:outline-none data-[active]:text-white data-[hover]:text-white data-[focus]:outline-1 data-[focus]:outline-white`,
+          `block cursor-pointer  relative z-40 text-sm/6 font-semibold  focus:outline-none data-[active]:text-white data-[hover]:text-white data-[focus]:outline-1 data-[focus]:outline-white`,
           btnClassName
         )}
       >

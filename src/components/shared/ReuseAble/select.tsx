@@ -13,6 +13,7 @@ export type SelectType =
       label?: string;
       containerClass?: string;
       Component?: React.ReactElement;
+      btnClassName?: string;
       title?: string;
       btnIcon?: React.ReactElement;
     }
@@ -25,6 +26,7 @@ export type SelectType =
       Component: React.ReactElement;
       title?: string;
       btnIcon?: React.ReactElement;
+      btnClassName?: string;
     };
 
 export default function SelectComp({
@@ -36,6 +38,7 @@ export default function SelectComp({
   Component,
   btnIcon,
   title,
+  btnClassName,
 }: SelectType) {
   const [select, setSelect] = React.useState<string | undefined>(undefined);
 
@@ -46,11 +49,12 @@ export default function SelectComp({
   return (
     <div className={cn(`relative`, containerClass)}>
       <CustomPopover
+        btnClassName={btnClassName}
         popIcon={
           btnIcon || (
             <button
               className={cn(
-                `bg-[#1D98F0] flex whitespace-nowrap font-medium items-center gap-4 md:text-sm text-xs text-white  px-5 py-2 rounded-lg`,
+                `bg-[#1D98F0] w-full  flex whitespace-nowrap font-medium items-center gap-4 md:text-sm text-xs text-white  px-5 py-2 rounded-lg`,
                 className
               )}
             >

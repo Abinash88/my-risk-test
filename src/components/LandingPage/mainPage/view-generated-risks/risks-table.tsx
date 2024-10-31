@@ -84,7 +84,7 @@ const RisksTable = () => {
                   toggleButton(index);
                 }}
                 variant={"ghost"}
-                className="hover:bg-transparent h-0 inline-block"
+                className="hover:bg-transparent shadow-none h-0 inline-block"
               >
                 {toggle?.[index] ? "Read Less" : "Read More"}
               </Button>

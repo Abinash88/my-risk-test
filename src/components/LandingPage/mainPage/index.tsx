@@ -1,3 +1,4 @@
+import ScrollTop from "@/lib/hooks/scroll-top";
 import { BlogHeader } from "./landingAnimate";
 import NewsRoom from "./NewsRoom";
 import ServiceType from "./ServiceType";
@@ -5,6 +6,7 @@ import SusbscribeSection from "./SusbscribeSection";
 import TandO from "./TandO";
 
 const LandingPage = () => {
+  ScrollTop()
   return (
     <div>
       <BlogHeader

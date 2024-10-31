@@ -1,4 +1,5 @@
 import { TruncatedText } from "@/components/shared/ReuseAble";
+import CommentModal from "@/components/shared/ReuseAble/CommentModal";
 import { GroupImages, TandOData, type GroupImagesType } from "@/lib/fakedata";
 import { cn } from "@/lib/utils";
 import { Carousel } from "antd";
@@ -121,9 +122,7 @@ const PrivateStanding = () => {
                       maxLength={50}
                       title={risk.title}
                     />
-                    <button className="mt-2 text-[rgba(34,33,33,0.4)] font-[600]">
-                      View All Comments
-                    </button>
+                    <CommentModal  />
                   </td>
                   <td
                     className={`py-2 px-4 border text-center ${getRiskRatingColor(

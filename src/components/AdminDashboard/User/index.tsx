@@ -5,7 +5,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Tabs, TabsProps } from "antd";
-import React from "react";
 import Business from "./Business";
 import Professional from "./Professional";
 import RegistrationRequest from "./RegistrationRequest";

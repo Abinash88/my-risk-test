@@ -1,24 +1,36 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import PopUpMessage from "../shared/ReuseAble/popup-message";
 
+export type PopupTypes = { message: string; popup: boolean };
+
 export type ContextTypes = {
-  setPopup: React.Dispatch<React.SetStateAction<boolean>>;
-  popup: boolean;
+  setPopup: React.Dispatch<React.SetStateAction<PopupTypes | undefined>>;
+  popup: PopupTypes | undefined;
 };
 
 export const myContext = createContext<ContextTypes | null>(null);
 
 const MainContextProvider = ({ children }: { children: React.ReactNode }) => {
-  const [popup, setPopup] = useState(false);
+  const [popup, setPopup] = useState<PopupTypes>();
+  
+
   useEffect(() => {
     const timeout = setTimeout(() => {
-      setPopup(false);
-    }, 2000);
+      setPopup(undefined);
+    }, 3000);
+
     return () => clearTimeout(timeout);
-  }, [setPopup]);
+  }, [popup]);
+
   return (
     <myContext.Provider value={{ popup, setPopup }}>
-      <PopUpMessage onCancel={() => setPopup(false)} />
+      {popup && (
+        <PopUpMessage
+          message={popup?.message || ""}
+          popup={popup?.popup}
+          onCancel={() => setPopup(undefined)}
+        />
+      )}
       {children}
     </myContext.Provider>
   );
@@ -26,7 +38,7 @@ const MainContextProvider = ({ children }: { children: React.ReactNode }) => {
 
 export const GetContext = () => {
   const context = useContext(myContext);
-  if (!context) throw Error("Context should be in app, by the Providerr");
+  if (!context) throw Error("Wrapped a app by the context Provider!");
   return context;
 };
 

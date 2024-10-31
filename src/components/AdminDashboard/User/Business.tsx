@@ -1,5 +1,6 @@
 import { Button } from "@/components/shared/ReuseAble/button";
-import { PlusOutlined, SearchOutlined } from "@ant-design/icons";
+import CustomSearch from "@/components/shared/ReuseAble/input";
+import { PlusOutlined } from "@ant-design/icons";
 import { Divider, Table, TableColumnsType } from "antd";
 import { ArrowUp, FilterIcon, Verified } from "lucide-react";
 
@@ -118,7 +119,7 @@ export default function Business() {
     {
       title: "Verified",
       dataIndex: "verified",
-      render: (value, record) => (
+      render: () => (
         <>
           <Verified className="bg-[#4B4BFF] text-white rounded-full" />
           {/* <FontAwesomeIcon icon={faCheck} className="text-[#6666B3] w-5 h-5" /> */}
@@ -139,13 +140,7 @@ export default function Business() {
         </div>
         <div className="md:col-span-3 col-span-1">
           <div className="flex justify-end flex-wrap  gap-y-4 gap-x-2">
-            <div className=" relative">
-              <SearchOutlined className="absolute top-3 left-2" />
-              <input
-                className=" mr-2 border rounded-lg py-2 pl-8 focus:outline-none pr-1"
-                placeholder="Search"
-              />
-            </div>
+            <CustomSearch onChange={() => {}} value="" />
             <button className="mr-2 border border-grey rounded-md flex items-center py-1 px-5">
               <p className=" mr-2">Entries</p>
               <Divider type="vertical" className="text-black w-1" />
@@ -158,10 +153,10 @@ export default function Business() {
             <button className="mr-2 border border-grey rounded-md flex items-center gap-3 py-1 px-5">
               <FilterIcon /> Filters
             </button>
-            <Button className="mr-2 rounded-md bg-[#3838F0] text-white py-1 px-5">
+            <Button className="mr-2 rounded-md  text-white py-1 h-10 px-5">
               Invite User
             </Button>
-            <Button className="mr-2 rounded-md flex justify-center items-center gap-4 bg-[#3838F0] text-white py-1 px-5">
+            <Button className="mr-2 rounded-md flex justify-center items-center gap-4 h-10 py-1 px-5">
               <PlusOutlined className="text-white" /> <span>Export</span>{" "}
               <ArrowUp size={19} />
             </Button>

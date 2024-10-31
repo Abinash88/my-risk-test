@@ -158,10 +158,10 @@ export default function Professional() {
             <button className="mr-2 border border-grey rounded-md flex items-center gap-3 py-1 px-5">
               <FilterIcon /> Filters
             </button>
-            <Button className="mr-2 rounded-md bg-[#3838F0] text-white py-1 px-5">
+            <Button className="mr-2 rounded-md h-10 bg-[#3838F0] text-white py-1 px-5">
               Invite User
             </Button>
-            <Button className="mr-2 rounded-md flex justify-center items-center gap-4 bg-[#3838F0] text-white py-1 px-5">
+            <Button className="mr-2 rounded-md flex h-10 justify-center items-center gap-4 bg-[#3838F0] text-white py-1 px-5">
               <PlusOutlined className="text-white" /> <span>Export</span>{" "}
               <ArrowUp size={19} />
             </Button>

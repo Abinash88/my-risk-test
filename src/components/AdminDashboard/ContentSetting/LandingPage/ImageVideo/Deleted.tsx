@@ -1,24 +1,19 @@
-import React, { useContext, useMemo } from "react";
-import type { DragEndEvent } from "@dnd-kit/core";
-import { DndContext } from "@dnd-kit/core";
-import type { SyntheticListenerMap } from "@dnd-kit/core/dist/hooks/utilities";
-import { restrictToVerticalAxis } from "@dnd-kit/modifiers";
-import {
-  arrayMove,
-  SortableContext,
-  useSortable,
-  verticalListSortingStrategy,
-} from "@dnd-kit/sortable";
-import { CSS } from "@dnd-kit/utilities";
-import { Button, Switch, Table } from "antd";
-import type { TableColumnsType } from "antd";
-import { Expand } from "lucide-react";
-import Preview from "./Preview";
-import Setting from "./Setting";
 import {
   DragableRow,
   DragHandle,
 } from "@/components/shared/ReuseAble/DragableTable";
+import type { DragEndEvent } from "@dnd-kit/core";
+import { DndContext } from "@dnd-kit/core";
+import { restrictToVerticalAxis } from "@dnd-kit/modifiers";
+import {
+  arrayMove,
+  SortableContext,
+  verticalListSortingStrategy,
+} from "@dnd-kit/sortable";
+import type { TableColumnsType } from "antd";
+import { Table } from "antd";
+import React from "react";
+import Preview from "./Preview";
 
 interface DataType {
   key: string;

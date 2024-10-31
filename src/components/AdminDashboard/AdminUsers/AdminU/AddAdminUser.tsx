@@ -1,3 +1,4 @@
+import { Button } from "@/components/shared/ReuseAble/button";
 import { Divider, Form, Input, Modal, Select, Switch } from "antd";
 import React, { useState } from "react";
 
@@ -17,12 +18,12 @@ export default function AddAdminUser() {
 
   return (
     <div>
-      <button
-        className="rounded-md px-2 md:px-4 lg:px-6 py-2 text-white bg-[#3838F0]"
+      <Button
         onClick={() => showModal()}
+        className="mr-2 rounded-md  text-white py-1 h-10 px-5"
       >
         Add Admin User
-      </button>
+      </Button>
       <Modal
         title="Add New Admin User"
         open={open}

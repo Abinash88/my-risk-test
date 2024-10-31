@@ -1,11 +1,9 @@
-import { PlusOutlined } from "@ant-design/icons";
-import { Button, Tabs } from "antd";
-import { ArrowUp, Info, KeyRound, UserPlus } from "lucide-react";
-import React, { useState } from "react";
+import { Tabs, TabsProps } from "antd";
+import { Info, KeyRound, UserPlus } from "lucide-react";
+import { useState } from "react";
+import Activities from "./Activities";
 import AdminUsers from "./AdminU/AdminUsers";
 import Permissions from "./Permissions/";
-import Activities from "./Activities";
-import { TabsProps } from "antd";
 
 const enum tabs {
   ADMIN_USERS = "Admin Users",
@@ -21,8 +19,8 @@ export default function index() {
       key: "1",
       label: (
         <div className="flex items-center">
-              <UserPlus className="mr-2" />
-            <p className=" font-medium text-[#838384]">Subscriptions</p>
+          <UserPlus className="mr-2" />
+          <p className=" font-medium text-[#838384]">Subscriptions</p>
         </div>
       ),
       children: <AdminUsers />,
@@ -31,8 +29,8 @@ export default function index() {
       key: "2",
       label: (
         <div className="flex items-center">
-              <KeyRound className="mr-2" />
-            <p className=" font-medium text-[#838384]">Permissions</p>
+          <KeyRound className="mr-2" />
+          <p className=" font-medium text-[#838384]">Permissions</p>
         </div>
       ),
       children: <Permissions />,
@@ -41,8 +39,8 @@ export default function index() {
       key: "3",
       label: (
         <div className="flex items-center">
-              <Info className="mr-2" />
-            <p className=" font-medium text-[#838384]">Activities</p>
+          <Info className="mr-2" />
+          <p className=" font-medium text-[#838384]">Activities</p>
         </div>
       ),
       children: <Activities />,

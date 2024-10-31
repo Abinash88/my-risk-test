@@ -1,5 +1,5 @@
+import { checkStatus, cn, truncateText } from "@/lib/utils";
 import { Table, TableColumnsType } from "antd";
-import { truncateText } from "@/lib/utils";
 import PauseVisibility from "./PauseVisibility";
 import RemoveRisk from "./RemoveRisk";
 import RepostRisk from "./RepostRisk";
@@ -140,7 +140,7 @@ export default function Public() {
     {
       title: "Admin Control",
       render: (value, record) => (
-        <div className="flex flex-col ">
+        <div className="flex flex-col items-start ">
           <div className="flex items-center">
             <p className="font-semibold mr-2">Posted:</p>
             <p>{record.date}</p>
@@ -149,7 +149,14 @@ export default function Public() {
             <p className="font-semibold mr-2">Duration:</p>
             <p>{record.duration} Weeks</p>
           </div>
-          <p>{record.status}</p>
+          <p
+            className={cn(
+              checkStatus(record.status),
+              " rounded-full px-3 py-1 block my-2"
+            )}
+          >
+            {record.status}
+          </p>
           <div className="flex justify-between gap-x-2">
             {record.status == "Active" && (
               <>

@@ -1,6 +1,6 @@
-import { Form, Input, Modal } from 'antd';
-import TextArea from 'antd/es/input/TextArea';
-import React, { useState } from 'react'
+import { Button } from "@/components/shared/ReuseAble/button";
+import { Form, Input, Modal } from "antd";
+import { useState } from "react";
 
 export default function CreateEditRole() {
   const [open, setOpen] = useState(false);
@@ -16,16 +16,15 @@ export default function CreateEditRole() {
     setOpen(false);
   };
 
-  
   return (
     <div>
-            <button
-              className="ml-2 rounded-md text-white bg-[#3838F0] p-2"
-              onClick={showModal}
-            >
-              Create New Role
-            </button>
-        <Modal
+      <Button
+        onClick={showModal}
+        className="mr-2 rounded-md flex justify-center items-center gap-4 h-10 py-1 px-5"
+      >
+        Create New Role
+      </Button>
+      <Modal
         title="Edit/Create Role"
         open={open}
         onOk={handleOk}
@@ -55,16 +54,16 @@ export default function CreateEditRole() {
       >
         <Form
           className="my-10"
-            layout="vertical"
-            initialValues={{
-                name: "Backend Engineer",
-            }}
-          >
-            <Form.Item label="Role Name" name="name">
-              <Input className="p-2 bg-[#EEF5F9]" />
-            </Form.Item>
-          </Form>
+          layout="vertical"
+          initialValues={{
+            name: "Backend Engineer",
+          }}
+        >
+          <Form.Item label="Role Name" name="name">
+            <Input className="p-2 bg-[#EEF5F9]" />
+          </Form.Item>
+        </Form>
       </Modal>
     </div>
-  )
+  );
 }

@@ -1,15 +1,8 @@
-import { ArrowUp } from "lucide-react";
+import { Button } from "@/components/shared/ReuseAble/button";
 import { DownOutlined, PlusOutlined, SearchOutlined } from "@ant-design/icons";
-import {
-  Button,
-  Divider,
-  Input,
-  Popover,
-  Switch,
-  Table,
-  TableColumnsType,
-} from "antd";
-import React, { useState } from "react";
+import { Divider, Popover, Switch, Table, TableColumnsType } from "antd";
+import { ArrowUp } from "lucide-react";
+import { useState } from "react";
 import DeleteGroup from "../DeleteGroup";
 import RestrictGroup from "../RestrictGroup";
 
@@ -143,16 +136,16 @@ export default function index() {
 
   return (
     <div className="flex flex-col bg-white rounded-lg mt-5">
-     <div className="w-full flex items-center p-5">
+      <div className="w-full flex items-center p-5">
         <div className="flex ml-auto ">
-            <div className="flex items-center border border-gray-300 rounded-md px-3 ">
-              <SearchOutlined className="text-gray-500 mr-2" />
-              <input
-                type="text"
-                placeholder="Search"
-                className="outline-none bg-transparent w-full text-gray-500"
-              />
-            </div>
+          <div className="flex items-center border border-gray-300 rounded-md px-3 ">
+            <SearchOutlined className="text-gray-500 mr-2" />
+            <input
+              type="text"
+              placeholder="Search"
+              className="outline-none bg-transparent w-full text-gray-500"
+            />
+          </div>
 
           <Button className="ml-2 rounded-md bg-[#3838F0] text-white py-1 px-5">
             <PlusOutlined className="text-white" /> Export <ArrowUp />
@@ -160,9 +153,11 @@ export default function index() {
         </div>
       </div>
       <div className="px-2 md:px-3">
-        <Table columns={columns} dataSource={groups} 
-        className="mt-3 rounded-lg border border-gray w-[calc(100% - 6px)] mb-3"
-        scroll={{ x: true }}
+        <Table
+          columns={columns}
+          dataSource={groups}
+          className="mt-3 rounded-lg border border-gray w-[calc(100% - 6px)] mb-3"
+          scroll={{ x: true }}
         />
       </div>
     </div>

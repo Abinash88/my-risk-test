@@ -1,7 +1,6 @@
 import { TruncatedText } from "@/components/shared/ReuseAble";
-import { SearchOutlined } from "@ant-design/icons";
-import { DatePicker, Select, Switch, Table, TableColumnsType } from "antd";
-import { ArrowUpWideNarrow, ChevronDown, ChevronUp } from "lucide-react";
+import { DatePicker, Switch, Table, TableColumnsType } from "antd";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import React, { useState } from "react";
 import EmailRisk from "./EmailRisk";
 
@@ -125,9 +124,14 @@ export default function index() {
                     <div className="flex flex-col p-2 m-2">
                       <label className="mb-2">Exposure</label>
                       <div className="flex flex-col md:flex-row gap-y-2 justify-between mt-2 gap-x-3">
-                        <DatePicker placeholder="Start Date" className="zaga px-4 py-2 rounded-lg w-[200px] bg-[#000080] text-white  placeholder:text-white" />
-                        <DatePicker placeholder="End Date" className="zaga px-4 py-2 rounded-lg w-[200px] bg-[#000080] text-white  placeholder:text-white" />
-
+                        <DatePicker
+                          placeholder="Start Date"
+                          className="zaga px-4 py-2 rounded-lg w-[200px] bg-[#000080] text-white  placeholder:text-white"
+                        />
+                        <DatePicker
+                          placeholder="End Date"
+                          className="zaga px-4 py-2 rounded-lg w-[200px] bg-[#000080] text-white  placeholder:text-white"
+                        />
                       </div>
                     </div>
                   </div>
@@ -138,7 +142,7 @@ export default function index() {
               <label className="text-[#1E3A89] md:text-lg  font-semibold mr-3">
                 ON/OFF
               </label>
-              <Switch />
+              <Switch className="scale-125" />
             </div>
           </div>
         </div>

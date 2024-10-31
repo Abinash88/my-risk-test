@@ -1,12 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
+import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import {
-  DeleteOutlined,
-  EditOutlined,
-  LeftOutlined,
-  RightOutlined,
-} from "@ant-design/icons";
-import {
-  Button,
   Divider,
   Form,
   Input,
@@ -16,17 +10,15 @@ import {
   Table,
   TableColumnsType,
 } from "antd";
-import Context from "../../../../../context";
-import { Expand } from "lucide-react";
 import React, { useContext, useEffect, useState } from "react";
-import EditMenu from "./EditMenu";
+import Context from "../../../../../context";
 import MenuList from "../../MenuList";
 import AddNewPage from "./AddNewPage";
-import { DataContext } from "../../DataContext";
+import EditMenu from "./EditMenu";
 
 import {
-  DragHandle,
   DragableRow,
+  DragHandle,
 } from "@/components/shared/ReuseAble/DragableTable";
 import {
   DndContext,
@@ -36,12 +28,12 @@ import {
   useSensor,
   useSensors,
 } from "@dnd-kit/core";
+import { restrictToVerticalAxis } from "@dnd-kit/modifiers";
 import {
   arrayMove,
   SortableContext,
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
-import { restrictToVerticalAxis } from "@dnd-kit/modifiers";
 import { useMediaQuery, useTheme } from "@mui/material";
 
 interface DataType {
@@ -215,14 +207,14 @@ export default function index() {
             items={dataSource.map((i) => i.key)}
             strategy={verticalListSortingStrategy}
           >
-              <Table<DataType>
-                rowKey="key"
-                components={{ body: { row: DragableRow } }}
-                columns={columns}
-                dataSource={dataSource}
-                className="rounded-lg border border-gray w-[calc(100% - 6px)] mb-3"
-                scroll={{ x: true }}
-              />
+            <Table<DataType>
+              rowKey="key"
+              components={{ body: { row: DragableRow } }}
+              columns={columns}
+              dataSource={dataSource}
+              className="rounded-lg border border-gray w-[calc(100% - 6px)] mb-3"
+              scroll={{ x: true }}
+            />
           </SortableContext>
         </DndContext>
       </div>

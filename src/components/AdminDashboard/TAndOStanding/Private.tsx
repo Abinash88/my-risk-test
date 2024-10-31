@@ -1,5 +1,5 @@
+import { checkStatus, cn, truncateText } from "@/lib/utils";
 import { Table, TableColumnsType } from "antd";
-import { truncateText } from "@/lib/utils";
 import PauseVisibility from "./PauseVisibility";
 import RemoveRisk from "./RemoveRisk";
 import RepostRisk from "./RepostRisk";
@@ -32,7 +32,6 @@ const risks = [
 ];
 
 export default function Private() {
-
   const columns: TableColumnsType<any> = [
     {
       title: "Rank",
@@ -74,27 +73,33 @@ export default function Private() {
       dataIndex: "rating",
       width: "100px",
       render: (value, record) => {
-        let bgColor = '';
+        let bgColor = "";
         if (value >= 0 && value <= 49) {
-          bgColor = 'green';
+          bgColor = "green";
         } else if (value >= 50 && value <= 69) {
-          bgColor = 'yellow';
+          bgColor = "yellow";
         } else if (value >= 70 && value <= 79) {
-          bgColor = '#D2B48C'; // Fawn Brown
+          bgColor = "#D2B48C"; // Fawn Brown
         } else if (value >= 80 && value <= 89) {
-          bgColor = 'red';
+          bgColor = "red";
         } else if (value >= 90 && value <= 100) {
-          bgColor = '#8B0000';
-        }        
-  
+          bgColor = "#8B0000";
+        }
+
         return {
-          children:<p className={`${bgColor=="yellow"?'text-black':'text-white'}`}>{value} %</p>,
+          children: (
+            <p
+              className={`${bgColor == "yellow" ? "text-black" : "text-white"}`}
+            >
+              {value} %
+            </p>
+          ),
           props: {
             style: {
-              backgroundColor:bgColor, // Apply background color to the full cell
-              height: '100%',  // Ensure it takes full height
-              width: '100px',   // Ensure it takes full width
-              textAlign: 'center', // Optional: center the text
+              backgroundColor: bgColor, // Apply background color to the full cell
+              height: "100%", // Ensure it takes full height
+              width: "100px", // Ensure it takes full width
+              textAlign: "center", // Optional: center the text
             },
           },
         };
@@ -111,7 +116,7 @@ export default function Private() {
     {
       title: "Admin Control",
       render: (value, record) => (
-        <div className="flex flex-col">
+        <div className="flex flex-col items-start gap-3">
           <div className="flex items-center">
             <p className="font-semibold mr-2">Posted:</p>
             <p>{record.date}</p>
@@ -120,7 +125,11 @@ export default function Private() {
             <p className="font-semibold mr-2">Duration:</p>
             <p>{record.duration} Weeks</p>
           </div>
-          <p>{record.status}</p>
+          <p
+            className={cn(checkStatus(record.status), "px-2 py-1 rounded-full")}
+          >
+            {record.status}
+          </p>
           <div className="flex justify-between gap-x-2">
             {record.status == "Active" && (
               <>

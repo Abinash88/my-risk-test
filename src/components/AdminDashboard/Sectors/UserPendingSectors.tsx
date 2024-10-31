@@ -1,21 +1,9 @@
-import TabHeader from "@/components/shared/AdminDashboard/TabHeader";
+import { Button } from "@/components/shared/ReuseAble/button";
 import { PlusOutlined, SearchOutlined } from "@ant-design/icons";
-import { faCheckCircle, faFilePdf } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Warning } from "@phosphor-icons/react";
-import {
-  Badge,
-  Button,
-  Divider,
-  Input,
-  Modal,
-  Table,
-  TableColumnsType,
-  Switch
-} from "antd";
-import { ArrowUp, FilterIcon, Verified } from "lucide-react";
+import { Divider, Modal, Table, TableColumnsType } from "antd";
+import { ArrowUp, Verified } from "lucide-react";
 import React, { useState } from "react";
-import PreviewDocument from "./PreviewDocument";
 
 const requests = [
   {
@@ -25,14 +13,6 @@ const requests = [
     jobTitle: "Talent Acquisition Manager",
     employer: "Admin",
     employement: "",
-    action: (
-      <>
-        <Button type="primary" danger>
-          Decline
-        </Button>
-        <Button className="bg-[#3838F0]">Approve</Button>
-      </>
-    ),
   },
   {
     name: "Sector 1",
@@ -41,14 +21,6 @@ const requests = [
     jobTitle: "Talent Acquisition Manager",
     employer: "Mashood",
     employement: "",
-    action: (
-      <>
-        <Button type="primary" danger>
-          Decline
-        </Button>
-        <Button className="bg-[#3838F0]">Approve</Button>
-      </>
-    ),
   },
   {
     name: "Sector 1",
@@ -57,14 +29,6 @@ const requests = [
     jobTitle: "Talent Acquisition Manager",
     employer: "Admin",
     employement: "",
-    action: (
-      <>
-        <Button type="primary" danger>
-          Decline
-        </Button>
-        <Button className="bg-[#3838F0]">Approve</Button>
-      </>
-    ),
   },
   {
     name: "Sector 1",
@@ -73,14 +37,6 @@ const requests = [
     jobTitle: "Talent Acquisition Manager",
     employer: "Admin",
     employement: "",
-    action: (
-      <>
-        <Button type="primary" danger>
-          Decline
-        </Button>
-        <Button className="bg-[#3838F0]">Approve</Button>
-      </>
-    ),
   },
   {
     name: "Sector 1",
@@ -89,14 +45,6 @@ const requests = [
     jobTitle: "Talent Acquisition Manager",
     employer: "Admin",
     employement: "",
-    action: (
-      <>
-        <Button type="primary" danger>
-          Decline
-        </Button>
-        <Button className="bg-[#3838F0]">Approve</Button>
-      </>
-    ),
   },
   {
     name: "Sector 1",
@@ -105,14 +53,6 @@ const requests = [
     jobTitle: "Talent Acquisition Manager",
     employer: "Samusa Enterprise",
     employement: "",
-    action: (
-      <>
-        <Button type="primary" danger>
-          Decline
-        </Button>
-        <Button className="bg-[#3838F0]">Approve</Button>
-      </>
-    ),
   },
   {
     name: "Sector 1",
@@ -121,14 +61,6 @@ const requests = [
     jobTitle: "Talent Acquisition Manager",
     employer: "Samusa Enterprise",
     employement: "",
-    action: (
-      <>
-        <Button type="primary" danger>
-          Decline
-        </Button>
-        <Button className="bg-[#3838F0]">Approve</Button>
-      </>
-    ),
   },
   {
     name: "Sector 1",
@@ -137,14 +69,6 @@ const requests = [
     jobTitle: "Talent Acquisition Manager",
     employer: "Samusa Enterprise",
     employement: "",
-    action: (
-      <>
-        <Button type="primary" danger>
-          Decline
-        </Button>
-        <Button className="bg-[#3838F0]">Approve</Button>
-      </>
-    ),
   },
 ];
 
@@ -181,7 +105,10 @@ export default function DeclinedRequest() {
       title: "Actions",
       render: (value, record) => (
         <>
-          <Button className="bg-indigo-800 text-white mr-4"  onClick={showModalApprove}>
+          <Button
+            className="bg-indigo-800 text-white mr-4"
+            onClick={showModalApprove}
+          >
             Approve
           </Button>
           <Button type="primary" danger onClick={showModal}>
@@ -236,128 +163,119 @@ export default function DeclinedRequest() {
     setOpenApprove(false);
   };
 
-
-
-
-
   return (
     <div className="flex flex-col bg-white rounded-lg">
-    <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mx-2 my-3">
-      <div className="col-span-1 justify-start">
-        <p className="text-xl font-bold text-medium text-black">
-          120 Sectors
+      <div className="flex md:flex-row flex-col justify-between  gap-6 mx-2 my-3">
+        <div className="col-span-1 justify-start">
+          <p className="text-xl font-bold text-medium text-black">
+            120 Sectors
+          </p>
+        </div>
+        <div className="  w-full">
+          <div className="flex  w-full flex-wrap md:justify-end gap-y-4 gap-x-2">
+            <div className=" relative">
+              <SearchOutlined className="absolute top-3 left-2" />
+              <input
+                className=" mr-2 border rounded-lg py-2 pl-8 focus:outline-none pr-1"
+                placeholder="Search"
+              />
+            </div>
+            <button className="mr-2 border border-grey rounded-md flex items-center py-1 px-5">
+              <p className=" mr-2">Entries</p>
+              <Divider type="vertical" className="text-black w-1" />
+              <select className="bg-white ">
+                <option>10</option>
+                <option>25</option>
+                <option>50</option>
+              </select>
+            </button>
+
+            <Button variant={"outline"} className="mr-2 rounded-md py-1 px-5">
+              Bulk Remove
+            </Button>
+            <Button
+              onClick={() => {}}
+              className="mr-2 rounded-md bg-[#3838F0] text-white py-1 px-3"
+            >
+              Bulk Approve
+            </Button>
+            <Button className="mr-2 flex gap-2 rounded-md bg-[#3838F0] text-white py-1 px-5">
+              <PlusOutlined className="text-white" /> Export{" "}
+              <ArrowUp className="scale-75" />
+            </Button>
+          </div>
+        </div>
+      </div>
+      <div className="w-full mt-3 px-2 justify-center">
+        <Table
+          className="w-[calc(100% - 10px)] px-3"
+          rowSelection={{
+            type: selectionType,
+            ...rowSelection,
+          }}
+          columns={columns}
+          dataSource={requests}
+          scroll={{ x: true }}
+        />
+      </div>
+      <Modal
+        title={
+          <div className="flex items-center">
+            <Warning className="mr-3 text-[#FF4949] bg-[#FFE5E5] w-7 h-7 p-1 rounded-full" />
+            <p>Remove Sector</p>
+          </div>
+        }
+        open={open}
+        onOk={handleOk}
+        // confirmLoading={confirmLoading}
+        onCancel={handleCancel}
+        // okButtonProps={{ title: "Suspend" }}
+        // cancelButtonProps={{ disabled: true }}
+        footer={[
+          <>
+            <Button onClick={handleCancel}>Cancel</Button>
+            <Button className="text-white" onClick={handleOk}>
+              Remove
+            </Button>
+          </>,
+        ]}
+      >
+        <p className="py-3">
+          Are you sure you want to remove this Sector? Removing this sector will
+          permanently remove it from the system, users can still add it forward.
         </p>
-      </div>
-      <div className="md:col-span-3 col-span-1">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-4 gap-x-2">
-          <Input
-            className=" mr-2 "
-            addonBefore={<SearchOutlined />}
-            placeholder="Search"
-          />
-          <Button className="mr-2 border border-grey rounded-md flex items-center py-1 px-5">
-            <p className=" mr-2">Entries</p>
-            <Divider type="vertical" className="text-black w-1" />
-            <select className="bg-white ">
-              <option>10</option>
-              <option>25</option>
-              <option>50</option>
-            </select>
-          </Button>
-
-          <Button danger className="mr-2 rounded-md py-1 px-5">
-            Bulk Remove
-          </Button>
-          <Button
-            onClick={() => showApproveModal(true)}
-            className="mr-2 rounded-md bg-[#3838F0] text-white py-1 px-3"
-          >
-            Bulk Approve
-          </Button>
-          <Button className="mr-2 rounded-md bg-[#3838F0] text-white py-1 px-5">
-            <PlusOutlined className="text-white" /> Export{" "}
-            <ArrowUp className="scale-75" />
-          </Button>
-        </div>
-      </div>
+      </Modal>
+      <Modal
+        title={
+          <div className="flex items-center">
+            <Verified className="mr-3 text-[#000080] bg-indigo-50 w-7 h-7 p-1 rounded-full" />
+            <p>Approve Sector</p>
+          </div>
+        }
+        open={openApprove}
+        onOk={handleOkApprove}
+        // confirmLoading={confirmLoading}
+        onCancel={handleCancelApprove}
+        // okButtonProps={{ title: "Suspend" }}
+        // cancelButtonProps={{ disabled: true }}
+        footer={[
+          <>
+            <Button onClick={handleCancelApprove}>Cancel</Button>
+            <Button
+              className="text-white bg-indigo-700"
+              onClick={handleOkApprove}
+            >
+              Approve
+            </Button>
+          </>,
+        ]}
+      >
+        <p className="py-3">
+          Are you sure you want to approve this Sector? Approving this sector
+          will add it to the system, allowing concerned users to see it.
+        </p>
+      </Modal>
+      {/* approve notifaction modal */}
     </div>
-    <div className="w-full mt-3 px-2 justify-center">
-      <Table
-        className="w-[calc(100% - 10px)] px-3"
-        rowSelection={{
-          type: selectionType,
-          ...rowSelection,
-        }}
-        columns={columns}
-        dataSource={requests}
-        scroll={{ x: true }}
-      />
-    </div>
-    <Modal
-      title={
-        <div className="flex items-center">
-          <Warning className="mr-3 text-[#FF4949] bg-[#FFE5E5] w-7 h-7 p-1 rounded-full" />
-          <p>Remove Sector</p>
-        </div>
-      }
-      open={open}
-      onOk={handleOk}
-      // confirmLoading={confirmLoading}
-      onCancel={handleCancel}
-      // okButtonProps={{ title: "Suspend" }}
-      // cancelButtonProps={{ disabled: true }}
-      footer={[
-        <>
-          <Button onClick={handleCancel}>Cancel</Button>
-          <Button
-            type="primary"
-            danger
-            className="text-white"
-            onClick={handleOk}
-          >
-            Remove
-          </Button>
-        </>,
-      ]}
-    >
-      <p className="py-3">
-        Are you sure you want to remove this Sector? Removing this sector will
-        permanently remove it from the system, users can still add it forward.
-      </p>
-    </Modal>
-    <Modal
-      title={
-        <div className="flex items-center">
-          <Verified className="mr-3 text-[#000080] bg-indigo-50 w-7 h-7 p-1 rounded-full" />
-          <p>Approve Sector</p>
-        </div>
-      }
-      open={openApprove}
-      onOk={handleOkApprove}
-      // confirmLoading={confirmLoading}
-      onCancel={handleCancelApprove}
-      // okButtonProps={{ title: "Suspend" }}
-      // cancelButtonProps={{ disabled: true }}
-      footer={[
-        <>
-          <Button onClick={handleCancelApprove}>Cancel</Button>
-          <Button
-            type="primary"
-
-            className="text-white bg-indigo-700"
-            onClick={handleOkApprove}
-          >
-            Approve
-          </Button>
-        </>,
-      ]}
-    >
-      <p className="py-3">
-        Are you sure you want to approve this Sector? Approving this sector will
-        add it to the system, allowing concerned users to see it.
-      </p>
-    </Modal>
-    {/* approve notifaction modal */}
-  </div>
   );
 }

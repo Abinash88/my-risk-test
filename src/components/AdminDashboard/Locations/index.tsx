@@ -1,11 +1,8 @@
-import { faUsers } from "@fortawesome/free-solid-svg-icons";
-import React from "react";
+import { CloseCircleOutlined } from "@ant-design/icons";
 import { Tabs, TabsProps } from "antd";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Verified } from "lucide-react";
 import Countries from "./Countries";
 import Regions from "./Regions";
-import { Verified } from "lucide-react";
-import { CloseCircleOutlined } from "@ant-design/icons";
 
 export default function index() {
   const items: TabsProps["items"] = [

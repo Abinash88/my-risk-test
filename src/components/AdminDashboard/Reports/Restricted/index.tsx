@@ -1,6 +1,7 @@
-import { Button, Divider, Input, Table, TableColumnsType } from "antd";
-import { PlusOutlined, SearchOutlined } from "@ant-design/icons";
-import { ArrowUp, FilterIcon, Verified } from "lucide-react";
+import { PlusOutlined } from "@ant-design/icons";
+import { Button } from "@/components/shared/ReuseAble/button";
+import { Table, TableColumnsType } from "antd";
+import { ArrowUp } from "lucide-react";
 import LiftRestriction from "./LiftRestriction";
 
 const reports = [
@@ -72,10 +73,12 @@ export default function index() {
   ];
 
   return (
-<div className="mt-2 mx-3 pb-3 flex flex-col">
-        <Button className="mr-2 rounded-md bg-[#3838F0] text-white py-1 px-5 ml-auto mb-2">
-          <PlusOutlined className="text-white" /> Export <ArrowUp />
-        </Button>      <Table
+    <div className="mt-2 mx-3 pb-3 relative flex flex-col">
+      <Button className="mr-2 absolute z-20 -top-[75px] right-0 rounded-md flex justify-center items-center gap-4 h-10 py-1 px-5">
+        <PlusOutlined className="tex" /> <span>Export</span>{" "}
+        <ArrowUp size={19} />
+      </Button>
+      <Table
         style={{ marginBottom: "20px" }}
         columns={columns}
         dataSource={reports}

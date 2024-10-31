@@ -1,7 +1,8 @@
-import { Button, Divider, Input, Table, TableColumnsType } from "antd";
-import { PlusOutlined, SearchOutlined } from "@ant-design/icons";
-import { ArrowUp, FilterIcon, Verified } from "lucide-react";
+import { Table, TableColumnsType } from "antd";
+import { Button } from "@/components/shared/ReuseAble/button";
 import Delete from "./Delete";
+import { PlusOutlined } from "@ant-design/icons";
+import { ArrowUp } from "lucide-react";
 
 const reports = [
   {
@@ -63,7 +64,7 @@ export default function index() {
     {
       title: "Action",
       dataIndex: "action",
-      render: (value, record) => (
+      render: () => (
         <>
           <Delete />
         </>
@@ -72,7 +73,11 @@ export default function index() {
   ];
 
   return (
-    <div className="mt-5 mx-3 pb-3">
+    <div className="mt-2 relative mx-3 pb-3">
+      <Button className="mr-2 absolute z-20 -top-[75px] right-0 rounded-md flex justify-center items-center gap-4 h-10 py-1 px-5">
+        <PlusOutlined className="tex" /> <span>Export</span>{" "}
+        <ArrowUp size={19} />
+      </Button>
       <Table
         style={{ marginBottom: "20px" }}
         columns={columns}

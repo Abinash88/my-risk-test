@@ -1,29 +1,17 @@
-import TabHeader from "@/components/shared/AdminDashboard/TabHeader";
-import {
-  CloseOutlined,
-  LogoutOutlined,
-  PlusOutlined,
-  SearchOutlined,
-} from "@ant-design/icons";
-import { faCheckCircle, faFilePdf } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Button } from "@/components/shared/ReuseAble/button";
+import { CloseOutlined, PlusOutlined, SearchOutlined } from "@ant-design/icons";
 import { Warning } from "@phosphor-icons/react";
 import {
-  Button,
   Divider,
   Form,
   Input,
   Modal,
-  Select,
   Switch,
   Table,
   TableColumnsType,
 } from "antd";
-import { ArrowUp, FilterIcon } from "lucide-react";
+import { ArrowUp } from "lucide-react";
 import React, { useState } from "react";
-import PreviewDocument from "./PreviewDocument";
-
-
 
 export default function DeletedSector() {
   const requests = [
@@ -34,14 +22,6 @@ export default function DeletedSector() {
       jobTitle: "Talent Acquisition Manager",
       employer: "Admin",
       employement: "",
-      action: (
-        <>
-          <Button type="primary" danger>
-            Decline
-          </Button>
-          <Button className="bg-[#3838F0]">Approve</Button>
-        </>
-      ),
     },
     {
       name: "Sector 1",
@@ -50,14 +30,6 @@ export default function DeletedSector() {
       jobTitle: "Talent Acquisition Manager",
       employer: "Mashood",
       employement: "",
-      action: (
-        <>
-          <Button type="primary" danger>
-            Decline
-          </Button>
-          <Button className="bg-[#3838F0]">Approve</Button>
-        </>
-      ),
     },
     {
       name: "Sector 1",
@@ -66,14 +38,6 @@ export default function DeletedSector() {
       jobTitle: "Talent Acquisition Manager",
       employer: "Admin",
       employement: "",
-      action: (
-        <>
-          <Button type="primary" danger>
-            Decline
-          </Button>
-          <Button className="bg-[#3838F0]">Approve</Button>
-        </>
-      ),
     },
     {
       name: "Sector 1",
@@ -82,14 +46,6 @@ export default function DeletedSector() {
       jobTitle: "Talent Acquisition Manager",
       employer: "Admin",
       employement: "",
-      action: (
-        <>
-          <Button type="primary" danger>
-            Decline
-          </Button>
-          <Button className="bg-[#3838F0]">Approve</Button>
-        </>
-      ),
     },
     {
       name: "Sector 1",
@@ -98,14 +54,6 @@ export default function DeletedSector() {
       jobTitle: "Talent Acquisition Manager",
       employer: "Admin",
       employement: "",
-      action: (
-        <>
-          <Button type="primary" danger>
-            Decline
-          </Button>
-          <Button className="bg-[#3838F0]">Approve</Button>
-        </>
-      ),
     },
     {
       name: "Sector 1",
@@ -114,14 +62,6 @@ export default function DeletedSector() {
       jobTitle: "Talent Acquisition Manager",
       employer: "Samusa Enterprise",
       employement: "",
-      action: (
-        <>
-          <Button type="primary" danger>
-            Decline
-          </Button>
-          <Button className="bg-[#3838F0]">Approve</Button>
-        </>
-      ),
     },
     {
       name: "Sector 1",
@@ -130,14 +70,6 @@ export default function DeletedSector() {
       jobTitle: "Talent Acquisition Manager",
       employer: "Samusa Enterprise",
       employement: "",
-      action: (
-        <>
-          <Button type="primary" danger>
-            Decline
-          </Button>
-          <Button className="bg-[#3838F0]">Approve</Button>
-        </>
-      ),
     },
     {
       name: "Sector 1",
@@ -146,14 +78,6 @@ export default function DeletedSector() {
       jobTitle: "Talent Acquisition Manager",
       employer: "Samusa Enterprise",
       employement: "",
-      action: (
-        <>
-          <Button type="primary" danger>
-            Decline
-          </Button>
-          <Button className="bg-[#3838F0]">Approve</Button>
-        </>
-      ),
     },
   ];
   const columns: TableColumnsType<any> = [
@@ -183,7 +107,7 @@ export default function DeletedSector() {
           <p className="font-semibold">July 1, 2024 - 10:30AM</p>
         </>
       ),
-    }
+    },
   ];
   const [selectionType, setSelectionType] = useState<"checkbox" | "radio">(
     "checkbox"
@@ -238,13 +162,15 @@ export default function DeletedSector() {
           </p>
         </div>
         <div className="md:col-span-3 md:ml-16 justify-end">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-4 gap-x-2">
-            <Input
-              className=" mr-2 "
-              addonBefore={<SearchOutlined />}
-              placeholder="Search"
-            />
-            <Button className="mr-2 border border-grey rounded-md flex items-center py-1 px-5">
+          <div className="flex justify-end flex-wrap  gap-y-4 gap-x-2">
+            <div className=" relative">
+              <SearchOutlined className="absolute top-3 left-2" />
+              <input
+                className=" mr-2 border rounded-lg py-2 pl-8 focus:outline-none pr-1"
+                placeholder="Search"
+              />
+            </div>
+            <button className="mr-2 border border-grey rounded-md flex items-center py-1 px-5">
               <p className=" mr-2">Entries</p>
               <Divider type="vertical" className="text-black w-1" />
               <select className="bg-white ">
@@ -252,10 +178,11 @@ export default function DeletedSector() {
                 <option>25</option>
                 <option>50</option>
               </select>
-            </Button>
-            <Button className="mr-2 rounded-md bg-[#3838F0] text-white py-1 px-5">
-              <PlusOutlined className="text-white" /> Export{" "}
-              <ArrowUp className="scale-75" />
+            </button>
+
+            <Button className="mr-2 rounded-md flex justify-center items-center gap-4   px-5">
+              <PlusOutlined className="text-white" /> <span>Export</span>{" "}
+              <ArrowUp size={19} />
             </Button>
           </div>
         </div>
@@ -342,7 +269,11 @@ export default function DeletedSector() {
               region: "Select",
             }}
           >
-            <Form.Item label="Sector Name" className="font-semibold my-4" name="name">
+            <Form.Item
+              label="Sector Name"
+              className="font-semibold my-4"
+              name="name"
+            >
               <Input className="p-2" placeholder="Name" />
             </Form.Item>
             <div className="flex justify-between items-center my-8">

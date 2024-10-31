@@ -1,22 +1,18 @@
-import { SettingFilled, SettingTwoTone } from "@ant-design/icons";
-import { Gear, GearFine } from "@phosphor-icons/react";
-import { Switch, TableColumnsType, Table, Popover } from "antd";
-import { Expand, Eye } from "lucide-react";
-import { useState } from "react";
-import RemoveContent from "../../RemoveContent";
-import Setting from "./Setting";
-import React from "react";
+import {
+  DragableRow,
+  DragHandle,
+} from "@/components/shared/ReuseAble/DragableTable";
 import { DndContext, DragEndEvent } from "@dnd-kit/core";
+import { restrictToVerticalAxis } from "@dnd-kit/modifiers";
 import {
   arrayMove,
   SortableContext,
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
-import { restrictToVerticalAxis } from "@dnd-kit/modifiers";
-import {
-  DragableRow,
-  DragHandle,
-} from "@/components/shared/ReuseAble/DragableTable";
+import { Gear } from "@phosphor-icons/react";
+import { Switch, Table, TableColumnsType } from "antd";
+import React from "react";
+import Setting from "./Setting";
 
 interface DataType {
   key: string;
@@ -122,14 +118,14 @@ export default function Active() {
           strategy={verticalListSortingStrategy}
         >
           <div className="zzga">
-          <Table<DataType>
-            rowKey="key"
-            components={{ body: { row: DragableRow } }}
-            columns={columns}
-            dataSource={dataSource}
-            className="rounded-lg border border-gray w-[calc(100% - 6px)] mb-3"
-            scroll={{ x: true }}
-          />
+            <Table<DataType>
+              rowKey="key"
+              components={{ body: { row: DragableRow } }}
+              columns={columns}
+              dataSource={dataSource}
+              className="rounded-lg border border-gray w-[calc(100% - 6px)] mb-3"
+              scroll={{ x: true }}
+            />
           </div>
         </SortableContext>
       </DndContext>

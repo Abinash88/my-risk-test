@@ -1,19 +1,11 @@
 import { DownOutlined, PlusOutlined, SearchOutlined } from "@ant-design/icons";
-import {
-  Button,
-  Divider,
-  Input,
-  Popover,
-  Select,
-  Switch,
-  Table,
-  TableColumnsType,
-} from "antd";
+import { Divider, Popover, Switch, Table, TableColumnsType } from "antd";
 import { ArrowUp } from "lucide-react";
-import React, { useState } from "react";
+import { useState } from "react";
 import DeleteGroup from "../DeleteGroup";
-import RestrictGroup from "../RestrictGroup";
 import GroupMember from "../GroupMember";
+import RestrictGroup from "../RestrictGroup";
+import { Button } from "@/components/shared/ReuseAble/button";
 
 const groups = [
   {
@@ -95,7 +87,9 @@ export default function index() {
     {
       title: "Group Name",
       dataIndex: "name",
-      render:(value,record)=><p onClick={()=>setIsModalOpen(true)}>{value}</p>
+      render: (value, record) => (
+        <p onClick={() => setIsModalOpen(true)}>{value}</p>
+      ),
     },
     {
       title: "Created By",
@@ -152,7 +146,7 @@ export default function index() {
             content={
               <div className="flex flex-col">
                 <RestrictGroup />
-                <Divider type="horizontal" className="w-full my-2"/>
+                <Divider type="horizontal" className="w-full my-2" />
                 <DeleteGroup />
               </div>
             }
@@ -185,28 +179,30 @@ export default function index() {
   return (
     <div className="flex flex-col bg-white rounded-lg mt-5">
       <div className="w-full flex items-center p-5">
-        <div className="flex ml-auto ">
-            <div className="flex items-center border border-gray-300 rounded-md px-3 ">
-              <SearchOutlined className="text-gray-500 mr-2" />
-              <input
-                type="text"
-                placeholder="Search"
-                className="outline-none bg-transparent w-full text-gray-500"
-              />
-            </div>
+        <div className="flex justify-end flex-wrap w-full gap-y-4 gap-x-2">
+          <div className=" relative">
+            <SearchOutlined className="absolute top-3 left-2" />
+            <input
+              className=" mr-2 border rounded-lg py-2 pl-8 focus:outline-none pr-1"
+              placeholder="Search"
+            />
+          </div>
 
-          <Button className="ml-2 rounded-md bg-[#3838F0] text-white py-1 px-5">
-            <PlusOutlined className="text-white" /> Export <ArrowUp />
+          <Button className="mr-2 rounded-md flex justify-center items-center gap-4 bg-[#3838F0] text-white py-1 px-5">
+            <PlusOutlined className="text-white" /> <span>Export</span>{" "}
+            <ArrowUp size={19} />
           </Button>
         </div>
       </div>
       <div className="px-2 md:px-3">
-        <Table columns={columns} dataSource={groups} 
-        className="mt-3 rounded-lg border border-gray w-[calc(100% - 6px)] mb-3"
-        scroll={{ x: true }}
+        <Table
+          columns={columns}
+          dataSource={groups}
+          className="mt-3 rounded-lg border border-gray w-[calc(100% - 6px)] mb-3"
+          scroll={{ x: true }}
         />
       </div>
-      <GroupMember isModalOpen={isModalOpen} closeModal={closeModal}/>
+      <GroupMember isModalOpen={isModalOpen} closeModal={closeModal} />
     </div>
   );
 }

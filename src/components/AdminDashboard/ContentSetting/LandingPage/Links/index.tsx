@@ -1,7 +1,6 @@
-import { useState } from "react";
+import { Tabs, TabsProps } from "antd";
 import Active from "./Active";
 import Deleted from "./Deleted";
-import { Tabs, TabsProps } from "antd";
 
 export default function index() {
   const items: TabsProps["items"] = [

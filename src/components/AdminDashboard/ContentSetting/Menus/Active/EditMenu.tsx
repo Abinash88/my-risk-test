@@ -1,9 +1,32 @@
-import { CloseOutlined, SearchOutlined } from "@ant-design/icons";
+import { Button } from "@/components/shared/ReuseAble/button";
+import CustomSearch from "@/components/shared/ReuseAble/input";
+import { SearchFunction } from "@/lib/utils";
+import { CloseOutlined } from "@ant-design/icons";
 import { Divider, Form, Input, Modal, Select, Switch } from "antd";
-import React, { useState } from "react";
+import { useState } from "react";
+
+const editData = [
+  {
+    label: "Product",
+    value: "Product",
+  },
+  {
+    label: "Learn",
+    value: "Learn",
+  },
+  {
+    label: "Support",
+    value: "Support",
+  },
+  {
+    label: "T and O Standing",
+    value: "T and O Standing",
+  },
+];
 
 export default function EditMenu() {
   const [open, setOpen] = useState(false);
+  const [search, setSearch] = useState("");
   const showModal = () => {
     setOpen(true);
   };
@@ -38,27 +61,30 @@ export default function EditMenu() {
         Edit Menu
       </button>
       <Modal
-        title="Select Menu To Edit"
         open={openSelection}
         onOk={handleSelectionOk}
         // confirmLoading={confirmLoading}
         onCancel={handleSelectionCancel}
+        className="text-[#3838F0] max-w-[400px]"
         // okButtonProps={{ title: "Suspend" }}
         // cancelButtonProps={{ disabled: true }}
         footer={[
           <div className="flex justify-center mb-7">
-            <button
-              className="rounded-md text-white bg-[#3838F0] py-2 px-3"
+            <Button
+              className="rounded-md text-white bg-[#3838F0] py-2 px-10"
               onClick={() => {
                 handleSelectionCancel(), showModal();
               }}
             >
               Next
-            </button>
+            </Button>
           </div>,
         ]}
       >
         <div className="flex flex-col">
+          <h3 className="text-[#3838F0] font-medium pb-2 md:text-lg">
+            Select Menu To Edit
+          </h3>
           <Divider type="horizontal" className="mt-0" />
           <Form
             layout="vertical"
@@ -67,18 +93,20 @@ export default function EditMenu() {
             }}
           >
             <Form.Item name="menu_title">
-              <Input
-                addonBefore={<SearchOutlined />}
-                className="py-2"
-                placeholder="Search"
+              <CustomSearch
+                onChange={(value) => {
+                  setSearch(value);
+                }}
+                value={search}
               />
             </Form.Item>
 
-            <div className="flex flex-col">
-              <a className="text-lg font-bold mb-1.5">Product</a>
-              <a className="text-lg font-bold mb-1.5">Learn</a>
-              <a className="text-lg font-bold mb-1.5">Support</a>
-              <a className="text-lg font-bold mb-1.5">T & O Standings</a>
+            <div className="flex flex-col space-y-2">
+              {SearchFunction({ data: editData, search })?.map((item) => (
+                <a className="text-sm md:text-base font-medium ">
+                  {item?.value}
+                </a>
+              ))}
             </div>
           </Form>
         </div>
@@ -130,16 +158,17 @@ export default function EditMenu() {
               <Switch defaultChecked />
               <div className="flex flex-col">
                 <label className="text-sm mb-2">Add created pages</label>
-              <button className="mb-1.5 text-[#000080] rounded-3xl border border-grey-200 py-1 px-2 flex items-center">Page 1 <CloseOutlined /></button>
-              <Form.Item label="" name="pages">
-                <Select>
-                  <Select.Option value="Select Pages">
-                    Select Pages
-                  </Select.Option>
-                </Select>
-              </Form.Item>
+                <button className="mb-1.5 text-[#000080] rounded-3xl border border-grey-200 py-1 px-2 flex items-center">
+                  Page 1 <CloseOutlined />
+                </button>
+                <Form.Item label="" name="pages">
+                  <Select>
+                    <Select.Option value="Select Pages">
+                      Select Pages
+                    </Select.Option>
+                  </Select>
+                </Form.Item>
               </div>
-              
             </div>
           </Form>
         </div>

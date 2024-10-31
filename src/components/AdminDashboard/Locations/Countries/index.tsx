@@ -1,8 +1,8 @@
+import { Button } from "@/components/shared/ReuseAble/button";
 import { PlusOutlined, SearchOutlined } from "@ant-design/icons";
-import { Button, Divider, Input, Switch, Table, TableColumnsType } from "antd";
+import { Divider, Switch, Table, TableColumnsType } from "antd";
 import { ArrowUp, FilterIcon } from "lucide-react";
 import React, { useState } from "react";
-import AddCountry from "./AddCountry";
 import RemoveCountry from "./RemoveCountry";
 
 const countries = [
@@ -69,37 +69,36 @@ export default function index() {
   return (
     <div className="flex flex-col bg-white rounded-lg">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mx-2 my-3">
-      <div className="col-span-1 justify-start">
-      <p className="text-xl text-medium text-black">120 Countries</p>
+        <div className="col-span-1 justify-start">
+          <p className="text-xl text-medium text-black">120 Countries</p>
         </div>
         <div className="md:col-span-3 col-span-1">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-y-4 gap-x-2">
-        <div className="flex items-center border border-gray-300 rounded-md px-3">
-              <SearchOutlined className="text-gray-500 mr-2" />
+          <div className="flex justify-end flex-wrap  gap-y-4 gap-x-2">
+            <div className=" relative">
+              <SearchOutlined className="absolute top-3 left-2" />
               <input
-                type="text"
+                className=" mr-2 border rounded-lg py-2 pl-8 focus:outline-none pr-1"
                 placeholder="Search"
-                className="outline-none bg-transparent w-full text-gray-500"
               />
             </div>
-            <Button className="mr-2 border border-grey rounded-md flex items-center py-1 px-5">
-              <p className="text-lg mr-2">Entries</p>
+            <button className="mr-2 border border-grey rounded-md flex items-center py-1 px-5">
+              <p className=" mr-2">Entries</p>
               <Divider type="vertical" className="text-black w-1" />
-              <select className="bg-white text-lg">
+              <select className="bg-white ">
                 <option>10</option>
                 <option>25</option>
                 <option>50</option>
               </select>
-            </Button>
-            <Button className="py-1 px-5 mr-2">
+            </button>
+            <button className="mr-2 border border-grey rounded-md flex items-center gap-3 py-1 px-5">
               <FilterIcon /> Filters
+            </button>
+            <Button className="mr-2 h-10 rounded-md bg-[#3838F0] text-white py-1 px-5">
+              Add Country
             </Button>
-            <Button danger className="mr-2 rounded-md py-1 px-5">
-              Builk Remove
-            </Button>
-            <AddCountry />
-            <Button className="mr-2 rounded-md bg-[#3838F0] text-white py-1 px-5">
-              <PlusOutlined className="text-white" /> Export <ArrowUp />
+            <Button className="mr-2 rounded-md h-10 flex justify-center items-center gap-4 bg-[#3838F0] text-white py-1 px-5">
+              <PlusOutlined className="text-white" /> <span>Export</span>{" "}
+              <ArrowUp size={19} />
             </Button>
           </div>
         </div>

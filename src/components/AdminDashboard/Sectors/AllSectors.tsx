@@ -1,27 +1,18 @@
-import TabHeader from "@/components/shared/AdminDashboard/TabHeader";
-import {
-  CloseOutlined,
-  LogoutOutlined,
-  PlusOutlined,
-  SearchOutlined,
-} from "@ant-design/icons";
-import { faCheckCircle, faFilePdf } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Button } from "@/components/shared/ReuseAble/button";
+import { CloseOutlined, PlusOutlined, SearchOutlined } from "@ant-design/icons";
 import { Warning } from "@phosphor-icons/react";
+
 import {
-  Button,
   Divider,
   Form,
   Input,
   Modal,
-  Select,
   Switch,
   Table,
   TableColumnsType,
 } from "antd";
-import { ArrowUp, FilterIcon, Pen } from "lucide-react";
+import { ArrowUp } from "lucide-react";
 import React, { useState } from "react";
-import PreviewDocument from "./PreviewDocument";
 
 const requests = [
   {
@@ -267,13 +258,15 @@ export default function NewRequest() {
           </p>
         </div>
         <div className="md:col-span-3 col-span-1">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-4 gap-x-2">
-            <Input
-              className=" mr-2 "
-              addonBefore={<SearchOutlined />}
-              placeholder="Search"
-            />
-            <Button className="mr-2 border border-grey rounded-md flex items-center py-1 px-5">
+          <div className="flex justify-end flex-wrap  gap-y-4 gap-x-2">
+            <div className=" relative">
+              <SearchOutlined className="absolute top-3 left-2" />
+              <input
+                className=" mr-2 border rounded-lg py-2 pl-8 focus:outline-none pr-1"
+                placeholder="Search"
+              />
+            </div>
+            <button className="mr-2 border border-grey rounded-md flex items-center py-1 px-5">
               <p className=" mr-2">Entries</p>
               <Divider type="vertical" className="text-black w-1" />
               <select className="bg-white ">
@@ -281,20 +274,13 @@ export default function NewRequest() {
                 <option>25</option>
                 <option>50</option>
               </select>
-            </Button>
+            </button>
 
-            <Button danger className="mr-2 rounded-md py-1 px-5">
-              Bulk Remove
-            </Button>
-            <Button
-              onClick={() => showApproveModal(true)}
-              className="mr-2 rounded-md bg-[#3838F0] text-white py-1 px-3"
-            >
-              Add Sectors
-            </Button>
-            <Button className="mr-2 rounded-md bg-[#3838F0] text-white py-1 px-5">
-              <PlusOutlined className="text-white" /> Export{" "}
-              <ArrowUp className="scale-75" />
+            <Button variant={"outline"}>Bulk Remove</Button>
+            <Button className=" py-1 px-5">Add Sector</Button>
+            <Button className="mr-2 rounded-md flex justify-center items-center gap-4 bg-[#3838F0] text-white py-1 px-5">
+              <PlusOutlined className="text-white" /> <span>Export</span>{" "}
+              <ArrowUp size={19} />
             </Button>
           </div>
         </div>

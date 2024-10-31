@@ -1,24 +1,20 @@
-import React, { useContext, useMemo } from "react";
+import {
+  DragableRow,
+  DragHandle,
+} from "@/components/shared/ReuseAble/DragableTable";
 import type { DragEndEvent } from "@dnd-kit/core";
-import { DndContext, PointerSensor, TouchSensor, useSensor, useSensors } from "@dnd-kit/core";
-import type { SyntheticListenerMap } from "@dnd-kit/core/dist/hooks/utilities";
+import { DndContext } from "@dnd-kit/core";
 import { restrictToVerticalAxis } from "@dnd-kit/modifiers";
 import {
   arrayMove,
   SortableContext,
-  useSortable,
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
-import { CSS } from "@dnd-kit/utilities";
-import { Button, Switch, Table } from "antd";
 import type { TableColumnsType } from "antd";
-import { Expand } from "lucide-react";
+import { Switch, Table } from "antd";
+import React from "react";
 import Preview from "./Preview";
 import Setting from "./Setting";
-import {
-  DragHandle,
-  DragableRow,
-} from "@/components/shared/ReuseAble/DragableTable";
 
 interface DataType {
   key: string;
@@ -128,7 +124,8 @@ const Active: React.FC = () => {
       });
     }
   };
-  const sensors = useSensors(useSensor(TouchSensor));
+
+  // const sensors = useSensors(useSensor(TouchSensor));
 
   return (
     <div className="mx-2 flex flex-col">
@@ -140,19 +137,23 @@ const Active: React.FC = () => {
           Add
         </a>
       </div>
-      <DndContext modifiers={[restrictToVerticalAxis]} onDragEnd={onDragEnd} sensors={sensors}>
+      <DndContext
+        modifiers={[restrictToVerticalAxis]}
+        onDragEnd={onDragEnd}
+        // sensors={sensors}
+      >
         <SortableContext
           items={dataSource.map((i) => i.key)}
           strategy={verticalListSortingStrategy}
         >
-            <Table<DataType>
-              rowKey="key"
-              components={{ body: { row: DragableRow } }}
-              columns={columns}
-              dataSource={dataSource}
-              className="rounded-lg border border-gray w-[calc(100% - 6px)] mb-3"
-              scroll={{ x: true }}
-            />
+          <Table<DataType>
+            rowKey="key"
+            components={{ body: { row: DragableRow } }}
+            columns={columns}
+            dataSource={dataSource}
+            className="rounded-lg border border-gray w-[calc(100% - 6px)] mb-3"
+            scroll={{ x: true }}
+          />
         </SortableContext>
       </DndContext>
     </div>

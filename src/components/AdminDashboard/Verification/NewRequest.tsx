@@ -1,11 +1,12 @@
-import TabHeader from "@/components/shared/AdminDashboard/TabHeader";
+import { Button } from "@/components/shared/ReuseAble/button";
 import { PlusOutlined, SearchOutlined } from "@ant-design/icons";
-import { faCheckCircle, faFilePdf } from "@fortawesome/free-solid-svg-icons";
+import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Warning } from "@phosphor-icons/react";
-import { Button, Divider, Input, Modal, Table, TableColumnsType } from "antd";
-import { ArrowUp, FilterIcon } from "lucide-react";
+import { Divider, Modal, Table, TableColumnsType } from "antd";
+import { ArrowUp } from "lucide-react";
 import React, { useState } from "react";
+import PopupButton from "../User/UserDetail/button-popup";
 import PreviewDocument from "./PreviewDocument";
 
 const requests = [
@@ -16,14 +17,6 @@ const requests = [
     jobTitle: "Talent Acquisition Manager",
     employer: "Samusa Enterprise",
     employement: "",
-    action: (
-      <>
-        <Button type="primary" danger>
-          Decline
-        </Button>
-        <Button className="bg-[#3838F0]">Approve</Button>
-      </>
-    ),
   },
   {
     name: "Mashood Adam",
@@ -32,14 +25,6 @@ const requests = [
     jobTitle: "Talent Acquisition Manager",
     employer: "Samusa Enterprise",
     employement: "",
-    action: (
-      <>
-        <Button type="primary" danger>
-          Decline
-        </Button>
-        <Button className="bg-[#3838F0]">Approve</Button>
-      </>
-    ),
   },
   {
     name: "Mashood Adam",
@@ -48,14 +33,6 @@ const requests = [
     jobTitle: "Talent Acquisition Manager",
     employer: "Samusa Enterprise",
     employement: "",
-    action: (
-      <>
-        <Button type="primary" danger>
-          Decline
-        </Button>
-        <Button className="bg-[#3838F0]">Approve</Button>
-      </>
-    ),
   },
   {
     name: "Mashood Adam",
@@ -64,14 +41,6 @@ const requests = [
     jobTitle: "Talent Acquisition Manager",
     employer: "Samusa Enterprise",
     employement: "",
-    action: (
-      <>
-        <Button type="primary" danger>
-          Decline
-        </Button>
-        <Button className="bg-[#3838F0]">Approve</Button>
-      </>
-    ),
   },
   {
     name: "Mashood Adam",
@@ -80,14 +49,6 @@ const requests = [
     jobTitle: "Talent Acquisition Manager",
     employer: "Samusa Enterprise",
     employement: "",
-    action: (
-      <>
-        <Button type="primary" danger>
-          Decline
-        </Button>
-        <Button className="bg-[#3838F0]">Approve</Button>
-      </>
-    ),
   },
   {
     name: "Mashood Adam",
@@ -96,14 +57,6 @@ const requests = [
     jobTitle: "Talent Acquisition Manager",
     employer: "Samusa Enterprise",
     employement: "",
-    action: (
-      <>
-        <Button type="primary" danger>
-          Decline
-        </Button>
-        <Button className="bg-[#3838F0]">Approve</Button>
-      </>
-    ),
   },
   {
     name: "Mashood Adam",
@@ -112,14 +65,6 @@ const requests = [
     jobTitle: "Talent Acquisition Manager",
     employer: "Samusa Enterprise",
     employement: "",
-    action: (
-      <>
-        <Button type="primary" danger>
-          Decline
-        </Button>
-        <Button className="bg-[#3838F0]">Approve</Button>
-      </>
-    ),
   },
   {
     name: "Mashood Adam",
@@ -128,14 +73,6 @@ const requests = [
     jobTitle: "Talent Acquisition Manager",
     employer: "Samusa Enterprise",
     employement: "",
-    action: (
-      <>
-        <Button type="primary" danger>
-          Decline
-        </Button>
-        <Button className="bg-[#3838F0]">Approve</Button>
-      </>
-    ),
   },
 ];
 
@@ -144,16 +81,16 @@ export default function NewRequest() {
     {
       title: "Name",
       dataIndex: "name",
-      render: (text: string,record:any) =><div
-      className="flex items-center"
-      >
-        <img
-									src={record.image}
-									alt="profile-image"
-									className="mr-2 rounded-full aspect-square object-cover h-[25px] w-[25px] md:h-[53px] md:w-[53px]"
-								/>
-        <a>{text}</a>
-      </div> 
+      render: (text: string, record: any) => (
+        <div className="flex items-center">
+          <img
+            src={record.image}
+            alt="profile-image"
+            className="mr-2 rounded-full aspect-square object-cover h-[25px] w-[25px] md:h-[53px] md:w-[53px]"
+          />
+          <a>{text}</a>
+        </div>
+      ),
     },
     {
       title: "Email",
@@ -170,26 +107,28 @@ export default function NewRequest() {
     {
       title: "Employement Proof",
       dataIndex: "employement",
-      render: (value, record) => (
+      render: () => (
         <>
-          <PreviewDocument/>
+          <PreviewDocument />
         </>
       ),
     },
     {
       title: "Action",
-      render: (value, record) => (
-        <>
-          <Button type="primary" danger onClick={showModal}>
-            Decline
-          </Button>
-          <Button
-            className="bg-[#3838F0] text-white mt-1 md:mt-0 md:ml-2 "
-            onClick={showApproveModal}
-          >
+      render: () => (
+        <div className="flex gap-2 items-center">
+          <PopupButton
+            name="Decline"
+            action="Reject"
+            description="Are you sure you want to decline the verification request for Taofeeq Moha?"
+            onOk={showApproveModal}
+            title="Decline Verification"
+            variant={"destructive"}
+          />
+          <Button className=" mt-1 md:mt-0 md:ml-2 " onClick={showApproveModal}>
             Approve
           </Button>
-        </>
+        </div>
       ),
       // dataIndex: "action",
     },
@@ -240,19 +179,20 @@ export default function NewRequest() {
 
   return (
     <div className="flex flex-col bg-white rounded-lg">
-
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mx-2 my-3">
         <div className="col-span-1 justify-start">
           <p className="text-xl text-medium text-black">300 Requests</p>
         </div>
         <div className="md:col-span-3 col-span-1">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-4 gap-x-2">
-          <Input
-              className=" mr-2 "
-              addonBefore={<SearchOutlined />}
-              placeholder="Search"
-            />
-            <Button className="mr-2 border border-grey rounded-md flex items-center py-1 px-5">
+          <div className="flex justify-end flex-wrap  gap-y-4 gap-x-2">
+            <div className=" relative">
+              <SearchOutlined className="absolute top-3 left-2" />
+              <input
+                className=" mr-2 border rounded-lg py-2 pl-8 focus:outline-none pr-1"
+                placeholder="Search"
+              />
+            </div>
+            <button className="mr-2 border border-grey rounded-md flex items-center py-1 px-5">
               <p className=" mr-2">Entries</p>
               <Divider type="vertical" className="text-black w-1" />
               <select className="bg-white ">
@@ -260,21 +200,17 @@ export default function NewRequest() {
                 <option>25</option>
                 <option>50</option>
               </select>
+            </button>
+
+            <Button variant={"outline"}>Bulk Reject</Button>
+            <Button className=" py-1 px-5">Bulk Accept</Button>
+            <Button className="mr-2 rounded-md flex justify-center items-center gap-4 bg-[#3838F0] text-white py-1 px-5">
+              <PlusOutlined className="text-white" /> <span>Export</span>{" "}
+              <ArrowUp size={19} />
             </Button>
-      
-            <Button danger className="mr-2 rounded-md py-1 px-5">
-              Bulk Reject
-            </Button>
-            <Button className="mr-2 rounded-md bg-[#3838F0] text-white py-1 px-5">
-              Bulk Accept
-            </Button>
-            <Button className="mr-2 rounded-md bg-[#3838F0] text-white py-1 px-5">
-              <PlusOutlined className="text-white" /> Export <ArrowUp />
-            </Button>
-            
           </div>
         </div>
-       </div>
+      </div>
       <div className="w-full mt-3 px-2 justify-center">
         <Table
           className="w-[calc(100% - 10px)] px-3"
@@ -285,7 +221,6 @@ export default function NewRequest() {
           columns={columns}
           dataSource={requests}
           scroll={{ x: true }}
-
         />
       </div>
       <Modal
@@ -304,12 +239,7 @@ export default function NewRequest() {
         footer={[
           <>
             <Button onClick={handleCancel}>Cancel</Button>
-            <Button
-              type="primary"
-              danger
-              className="text-white"
-              onClick={handleOk}
-            >
+            <Button className="text-white" onClick={handleOk}>
               Decline
             </Button>
           </>,
@@ -338,8 +268,7 @@ export default function NewRequest() {
           <>
             {/* <Button onClick={handleApproveCancel}>Cancel</Button> */}
             <Button
-            
-              className="text-white w-full px-2 py-5 mx-3 bg-indigo-600 text-white text-lg rounded-md hover:bg-indigo-700"
+              className=" w-full px-2 py-5 mx-3 bg-indigo-600 text-white text-lg rounded-md hover:bg-indigo-700"
               onClick={handleApproveCancel}
             >
               Okay!

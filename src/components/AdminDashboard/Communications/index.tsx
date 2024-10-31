@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import CurrentSubscribers from "./CurrentSubscribers";
 import FormerSubscribers from "./FormerSubscribers";
 
-export default function index() {
+export default function Index() {
   const [type, setType] = useState("current");
 
   return (

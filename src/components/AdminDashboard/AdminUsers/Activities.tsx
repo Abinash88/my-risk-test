@@ -1,7 +1,7 @@
-import { PlusOutlined, SearchOutlined } from "@ant-design/icons";
-import { Input, TableColumnsType, Table } from "antd";
+import { Button } from "@/components/shared/ReuseAble/button";
+import { PlusOutlined } from "@ant-design/icons";
+import { Table, TableColumnsType } from "antd";
 import { ArrowUp } from "lucide-react";
-import React from "react";
 
 const activities = [
   {
@@ -43,14 +43,10 @@ export default function Activities() {
         <p className="text-xl text-medium text-black">Activites</p>
 
         <div className="flex ml-auto">
-          {/* <Input
-            className="px-5 mr-2 w-56"
-            addonBefore={<SearchOutlined />}
-            placeholder="Search"
-          /> */}
-          <button className="flex justify-around ml-2 rounded-md bg-[#3838F0] text-white py-2 px-2 md:px-4 lg:px-6">
-            <PlusOutlined className="text-white" /> Export <ArrowUp />
-          </button>
+          <Button className="mr-2 rounded-md flex justify-center items-center gap-4 h-10 py-1 px-5">
+            <PlusOutlined className="text-white" /> <span>Export</span>{" "}
+            <ArrowUp size={19} />
+          </Button>
         </div>
       </div>
       <div className="px-3 pb-3">

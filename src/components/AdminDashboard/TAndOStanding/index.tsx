@@ -1,20 +1,19 @@
+import { Button } from "@/components/shared/ReuseAble/button";
 import { PlusOutlined, SearchOutlined } from "@ant-design/icons";
-import { Button, DatePicker, Modal, Select } from "antd";
-import { Box } from "@mui/material";
-import { Modal as Modal2 } from "@mui/material";
-import React, { useState } from "react";
-import AddTAndOStanding from "./AddTAndOStanding";
-import Public from "./Public";
-import Private from "./Private";
-import InviteParticipants from "./InviteParticipants";
-import AddNewRisk from "./AddNewRisk";
-import Groups from "./Groups";
-import AddNewGroup from "./AddNewGroup";
+import { Box, Modal as Modal2 } from "@mui/material";
+import { DatePicker, Modal, Select } from "antd";
+import { ArrowUp, ChevronDown, X } from "lucide-react";
+import { useState } from "react";
 import Continents from "../../shared/continents.json";
 import Countries from "../../shared/countries.json";
-import { ArrowUp, X } from "lucide-react";
+import AddNewGroup from "./AddNewGroup";
+import AddNewRisk from "./AddNewRisk";
+import Groups from "./Groups";
+import InviteParticipants from "./InviteParticipants";
+import Private from "./Private";
+import Public from "./Public";
 
-export default function index() {
+export default function Index() {
   const [type, setType] = useState("public");
   const [isOpen, setIsOpen] = useState(false);
   const [sel, setSel] = useState("");
@@ -46,21 +45,28 @@ export default function index() {
           <p className="text-xl text-medium text-black">3,400 Risks</p>
         </div>
         <div className="md:col-span-4 col-span-1">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-y-4 gap-x-2">
-            <div className="hidden md:block"></div>
-            <div className="hidden md:block"></div>
-            <div className="hidden md:block"></div>
-            <div className="flex items-center border border-gray-300 rounded-md px-3 py-2">
-              <SearchOutlined className="text-gray-500 mr-2" />
+          <div className="flex justify-end flex-wrap  gap-y-4 gap-x-2">
+            <div className=" relative">
+              <SearchOutlined className="absolute top-3 left-2" />
               <input
-                type="text"
+                className=" mr-2 border rounded-lg py-2 pl-8 focus:outline-none pr-1"
                 placeholder="Search"
-                className="outline-none bg-transparent w-full text-gray-500"
               />
             </div>
-            <AddTAndOStanding />
-            <Button className="mr-2 rounded-md bg-[#3838F0] text-white py-5 px-5">
-              <PlusOutlined className="text-white" /> Export <ArrowUp />
+
+            <Button
+              variant={"secondary"}
+              className="mr-2 border rounded-full border-grey  flex items-center gap-3 py-1 px-5"
+            >
+              Filters
+              <ChevronDown />
+            </Button>
+            <Button className="mr-2 rounded-md  text-white py-1 px-5">
+              Add New Risk
+            </Button>
+            <Button className="mr-2 rounded-md flex justify-center items-center gap-4 bg-[#3838F0] text-white py-1 px-5">
+              <PlusOutlined className="text-white" /> <span>Export</span>{" "}
+              <ArrowUp size={19} />
             </Button>
           </div>
         </div>

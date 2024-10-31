@@ -141,7 +141,7 @@ export default function RegistrationRequest() {
                   <option>50</option>
                 </select>
               </button>
-              <Button className="mr-2 rounded-md flex justify-center items-center gap-4 bg-[#3838F0] text-white py-1 px-5">
+              <Button className="mr-2 rounded-md h-10 flex justify-center items-center gap-4 bg-[#3838F0] text-white py-1 px-5">
                 <PlusOutlined className="text-white" /> <span>Export</span>{" "}
                 <ArrowUp size={19} />
               </Button>

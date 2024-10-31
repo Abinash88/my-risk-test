@@ -1,19 +1,11 @@
+import { Button } from "@/components/shared/ReuseAble/button";
 import { DownOutlined, PlusOutlined, SearchOutlined } from "@ant-design/icons";
-import {
-  Button,
-  Divider,
-  Input,
-  Popover,
-  Select,
-  Switch,
-  Table,
-  TableColumnsType,
-} from "antd";
+import { Divider, Popover, Table, TableColumnsType } from "antd";
 import { ArrowUp } from "lucide-react";
-import React, { useState } from "react";
-import EditAccount from "./EditAccount";
-import DeleteAccount from "./DeleteAccount";
+import { useState } from "react";
 import AddAdminUser from "./AddAdminUser";
+import DeleteAccount from "./DeleteAccount";
+import EditAccount from "./EditAccount";
 
 const users = [
   {
@@ -145,19 +137,20 @@ export default function AdminUser() {
           <p className="text-xl text-medium text-black">2 Admin Users</p>
         </div>
         <div className="md:col-span-2 col-span-1">
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-y-4 gap-x-2">
-            <div className="flex items-center border border-gray-300 rounded-md px-3 py-2">
-              <SearchOutlined className="text-gray-500 mr-2" />
+          <div className="flex  md:justify-end flex-wrap   gap-y-4 gap-x-2">
+            <div className=" relative">
+              <SearchOutlined className="absolute top-3 left-2" />
               <input
-                type="text"
+                className=" mr-2 border rounded-lg py-2 pl-8 focus:outline-none pr-1"
                 placeholder="Search"
-                className="outline-none bg-transparent w-full text-gray-500"
               />
             </div>
-          <AddAdminUser />
-          <button className="flex justify-around ml-2 rounded-md bg-[#3838F0] text-white py-2 px-2 md:px-4 lg:px-6">
-            <PlusOutlined className="text-white" /> Export <ArrowUp />
-          </button>
+
+            <AddAdminUser />
+            <Button className="mr-2 rounded-md flex justify-center items-center gap-4 h-10 py-1 px-5">
+              <PlusOutlined className="text-white" /> <span>Export</span>{" "}
+              <ArrowUp size={19} />
+            </Button>
           </div>
         </div>
       </div>

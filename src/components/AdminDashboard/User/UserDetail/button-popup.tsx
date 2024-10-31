@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import { Warning } from "@phosphor-icons/react";
 import { Modal } from "antd";
 import { BadgeCheck, type LucideIcon } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 type ButtonPopupType = {
   name: string;
@@ -23,6 +23,7 @@ type ButtonPopupType = {
     | undefined;
   className?: string;
   action?: string;
+  onOk?: () => void;
 };
 
 export default function PopupButton({
@@ -34,11 +35,10 @@ export default function PopupButton({
   type = "warn",
   className,
   action,
+  onOk,
 }: ButtonPopupType) {
   const [open, setOpen] = useState(false);
-  const { popup, setPopup } = GetContext();
-
-
+  const { setPopup } = GetContext();
 
   const showModal = () => {
     setOpen(true);
@@ -46,6 +46,8 @@ export default function PopupButton({
 
   const handleOk = () => {
     setOpen(false);
+    if (onOk) onOk();
+    setPopup({ message: title || "", popup: true });
   };
 
   const handleCancel = () => {

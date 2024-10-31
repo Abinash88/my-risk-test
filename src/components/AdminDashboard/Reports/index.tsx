@@ -1,11 +1,8 @@
-import { PlusOutlined } from "@ant-design/icons";
-import { Button, Tabs, TabsProps } from "antd";
-import { ArrowUp } from "lucide-react";
-import React, { useState } from "react";
+import { Tabs, TabsProps } from "antd";
+import Banned from "./Banned";
 import Pending from "./Pending";
 import Restricted from "./Restricted";
 import Suspended from "./Suspended";
-import Banned from "./Banned";
 
 const enum tabs {
   PENDING = "Pending",
@@ -15,7 +12,6 @@ const enum tabs {
 }
 
 export default function index() {
-  const [activeTab, setActiveTab] = useState<string>(tabs.PENDING);
   const items: TabsProps["items"] = [
     {
       key: "1",

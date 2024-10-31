@@ -25,14 +25,14 @@ const Threat = () => {
           ))}
         </div>
       </div>
-    
+
       <div>
         {section === "1" && <Section1 />}
-        {section === "2" && <div className="font-[600] text-md">Section 2</div>}
-        {section === "3" && <div className="font-[600] text-md">Section 3</div>}
-        {section === "4" && <div className="font-[600] text-md">Section 4</div>}
-        {section === "5" && <div className="font-[600] text-md">Section 5</div>}
-        {section === "6" && <div className="font-[600] text-md">Section 6</div>}
+        {section === "2" && <Section1 />}
+        {section === "3" && <Section1 />}
+        {section === "4" && <Section1 />}
+        {section === "5" && <Section1 />}
+        {section === "6" && <Section1 />}
       </div>
     </div>
   );
